@@ -1,0 +1,46 @@
+{
+  "name": "bidha-server",
+  "version": "1.0.0",
+  "description": "Bidha server",
+  "main": "index.js",
+  "author": "Bhagya sah",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "../../node_modules/.bin/eslint src",
+    "clean": "../../node_modules/.bin/rimraf build",
+    "postbuild": "../../node_modules/.bin/copy src/**/*.sql build/",
+    "build": "../../node_modules/.bin/babel src -d build",
+    "server-mon": "nodemon --exec ../../node_modules/.bin/babel-node -- src/index.js"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "app-node": "^0.2.6",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.3",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "check-types": "^7.4.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.1",
+    "eslint": "^5.11.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.0",
+    "express": "^4.16.4",
+    "fcm-node": "^1.4.0",
+    "lerna": "^3.8.0",
+    "lodash": "^4.17.11",
+    "lru-cache": "^5.1.1",
+    "multer": "^1.4.1",
+    "nodemailer": "^6.1.0",
+    "sqlite": "^3.0.0",
+    "stripe": "^6.20.0",
+    "styliner": "^1.0.4",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-preset-import-export": "^1.0.2",
+    "copy": "^0.3.2"
+  }
+}

@@ -1,0 +1,24 @@
+@use '../config/config';
+
+.home-selector-slider {
+  width: 90%;
+  height: auto;
+  margin-top: 1px;
+  display: flex;
+  overflow: hidden;
+  height: 400px;
+  .home-selector {
+    width: 25%;
+    background: config.$primary_color;
+    color: white;
+    margin-right: 2px;
+  }
+  .home-slider {
+    width: 75%;
+    background: black;;
+    overflow: hidden;
+    .dotclass {
+      background: red;
+    }
+  }
+}

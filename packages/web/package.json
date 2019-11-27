@@ -1,0 +1,65 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@blueprintjs/core": "^3.21.0",
+    "@blueprintjs/datetime": "^3.5.0",
+    "@blueprintjs/icons": "^3.4.0",
+    "@blueprintjs/select": "^3.4.0",
+    "axios": "^0.18.0",
+    "check-types": "^7.4.0",
+    "date-fns": "^1.30.1",
+    "email-validator": "^2.0.4",
+    "moment": "^2.23.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-avatar": "^3.5.0",
+    "react-dom": "^16.7.0",
+    "react-draggable": "^3.3.0",
+    "react-icons": "^3.2.2",
+    "react-idle-timer": "^4.2.7",
+    "react-moment": "^0.8.4",
+    "react-redux": "^6.0.0",
+    "react-responsive-carousel": "^3.1.51",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.2",
+    "react-select": "^2.2.0",
+    "react-slick": "^0.23.2",
+    "react-table": "^6.9.2",
+    "react-transition-group": "^2.5.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "proxy": "http://localhost:4002",
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-import-export": "^1.0.2",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0"
+  }
+}

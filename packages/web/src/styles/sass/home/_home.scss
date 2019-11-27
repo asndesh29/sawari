@@ -1,0 +1,32 @@
+@use '../config/config';
+
+body {
+ margin: 0;
+ padding: 0;
+ background: config.$background_color;
+}
+
+.main_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  // navigation bar style
+  @import './main-navbar.scss';
+
+  // Slector and slider style.....
+  @import './home-selector-slider.scss';;
+
+
+  // Product list style including List header and card
+  @import './home-product-list.scss';
+
+  // Main footer sytyle
+  @import './main-footer.scss';
+
+}
+
+
