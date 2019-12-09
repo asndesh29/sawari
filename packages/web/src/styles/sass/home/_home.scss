@@ -1,9 +1,14 @@
 @use '../config/config';
-
+@import './main-navbar.scss';
+@import './main-footer.scss';
+@import '../product-details/index.scss';
+@import '../admin/admin.scss';
 body {
  margin: 0;
  padding: 0;
+ font-family: Arial, Helvetica, sans-serif;
  background: config.$background_color;
+
 }
 
 .main_container {
@@ -18,7 +23,7 @@ body {
   @import './main-navbar.scss';
 
   // Slector and slider style.....
-  @import './home-selector-slider.scss';;
+  @import './home-selector-slider.scss';
 
 
   // Product list style including List header and card

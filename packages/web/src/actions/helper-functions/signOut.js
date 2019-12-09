@@ -8,15 +8,7 @@ export default () => async (dispatch, getState) => {
   dispatch(updateMainValue('showSignout', true));
   const token = sessionStorage.getItem('SESSION_ID');
   try {
-    const { currentServeStatus } = getState().main;
-    const { translatorDetails } = getState().main;
-    const registrationToken = translatorDetails.userQuestion ? translatorDetails.userQuestion.userQuestion.registrationToken : null;
-    const { pendingQuestionList } = getState().main;
-    let pendigQuestionFinalList = [];
-    if (pendingQuestionList.length > 0) {
-      pendigQuestionFinalList = pendingQuestionList.map(obj => ({ registrationToken: obj.translatorDetails.userQuestion.userQuestion.registrationToken, currentServeStatus: obj.serveStatus }));
-    }
-    const res = await axios.post(`${ENDPOINT}auth/logout`, { token, registrationToken, pendingQuestionList: pendigQuestionFinalList, currentServeStatus });
+    const res = await axios.post(`${ENDPOINT}/auth/logout`, { token });
     dispatch(updateMainValue('signOutLoading', false));
     // console.log('sing out res', res);
     if (res.status === 200) {
@@ -25,12 +17,6 @@ export default () => async (dispatch, getState) => {
       dispatch(updateMainValue('screen', 'login'));
       dispatch(updateMainValue('currentAdminContent', null));
       dispatch(updateMainValue('currentUserDetails', null));
-      dispatch(updateMainValue('currentServeStatus', null));
-      dispatch(updateMainValue('currentQuestionDetails', {}));
-      dispatch(updateMainValue('translatorDetails', {}));
-      dispatch(updateFormValue('addProfileDetails', {
-        name: '', gender: '', experience: '', qualification: '', phoneNo: '', image: '', success: null, loading: null, error: null,
-      }));
       dispatch(updateMainValue('showSignout', false));
     }
   } catch (e) {

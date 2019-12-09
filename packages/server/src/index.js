@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import authExpress from './express';
 import { init as dbinit } from './db';
 
-const port = process.env.PORT || 4002;
+const port = process.env.PORT || 4003;
 const app = express();
 app.use(cors());
 app.use(express.static(__dirname + '/public'));

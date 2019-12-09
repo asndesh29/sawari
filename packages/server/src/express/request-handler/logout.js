@@ -12,9 +12,6 @@ export default async (req, res) => {
       delete reqBody.token;
       const apiRes = await logout(reqBody, user);
       if (apiRes) {
-        db.execute(async ({ insert }) => {
-          insert('LoginStatus', { userId: user.id, type: 'logout', timeStamp: Date.now() });
-        });
         res.statusCode = 200;
         res.send(JSON.stringify(JSON.stringify(apiRes)));
       }

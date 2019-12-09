@@ -13,7 +13,7 @@ const CustomSelect = ({ content, props }) => {
         options={content.options}
         isSearchable
         placeholder={content.placeHolder}
-        // onChange={e => props.updateFormValue(props.schema, { [content.value]: e.value })}
+        onChange={e => props.updateFormValue(props.schema, { [content.value]: e.value })}
       />
     </div>
   );

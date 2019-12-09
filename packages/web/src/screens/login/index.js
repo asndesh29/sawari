@@ -27,6 +27,7 @@ class index extends Component {
 
   render() {
     const { main, updateMainValue } = this.props;
+    console.log('admin login', this.props);
     return (
       <div style={{ flex: 1 }}>
         {this.renderScreenHelper()}

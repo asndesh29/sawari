@@ -9,13 +9,16 @@ class CustomTextArea extends Component {
   render() {
     const { props, content, inputVlaue } = this.props;
     return (
-      <TextArea
-        fill
-        style={{ marginBottom: 5, height: 200 }}
-        value={inputVlaue} //eslint-disable-line
-        placeholder={content.placeHolder}
-        onChange={event => props.updateFormValue(props.schema, { [content.value]: event.target.value })} //eslint-disable-line
-      />
+      <div style={{ display: 'flex', flexDirection: 'column', margin: 5 }}>
+        {content.label && <span>{content.label }</span> }
+        <TextArea
+          fill
+          style={{ marginBottom: 5, height: 200 }}
+          value={inputVlaue} //eslint-disable-line
+          placeholder={content.placeHolder}
+          onChange={event => props.updateFormValue(props.schema, { [content.value]: event.target.value })} //eslint-disable-line
+        />
+      </div>
     );
   }
 }

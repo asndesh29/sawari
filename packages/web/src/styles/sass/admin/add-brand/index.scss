@@ -1,0 +1,21 @@
+@import '../../config/config';
+
+.admin-add-brand{
+  width: 100%;
+  .admin-add-brand-menu {
+    height: 50px;
+    width: 100%;
+    background: $primary_color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  .admin-add-brand-content {
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+}

@@ -1,3 +1,0 @@
--- Up
-ALTER TABLE BidhaUser ADD COLUMN registrationDateTime INTEGER DEFAULT 1568534419593;
--- Down

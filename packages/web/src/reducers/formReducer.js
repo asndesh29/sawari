@@ -4,29 +4,46 @@ const initialFormState = {
   login: {
     userName: '', password: '', error: null, success: null, loading: null,
   },
-  addUser: {
-    userName: '', password: '', name: '', type: '', success: null, loading: null, error: null,
+  multiSearch: {
+    searchType: 'budget', buttonType: 'new', typeId: null, brandId: null, productId: null, error: null, success: null, loading: null,
   },
-  addProfileDetails: {
-    name: '', gender: '', experience: '', qualification: '', phoneNo: '', image: '', password: '', success: null, loading: null, error: null,
+  addEnquiry: {
+    name: '', email: '', phoneno: '', address: '', message: '', error: null, success: null, loading: null,
   },
-  appConfiguration: {
-    questionRate: '', initialMessage: '', freeQuestionRound: null, success: null, loading: null, error: null,
+  addBrand: {
+    stypeId: null, brandName: null, image: null, sid: 1, loading: null, error: null, success: null,
   },
-  report: {
-    startDate: null, endDate: null, questionType: 'showall', modAstroId: null, loading: null, error: null, success: null,
+  sendEmail: {
+    email: null, message: null, success: null, error: null, loading: null,
   },
-  addNote: {
-    note: null, loading: null, error: null, success: null, type: null,
+  addProduct: {
+    sid: 1,
+    stypeId: null,
+    sbId: null,
+    userId: null,
+    name: null,
+    image: null,
+    price: null,
+    displacement: null,
+    power: null,
+    torque: null,
+    markNew: null,
+    markPopular: null,
+    offer: null,
+    fueltankCapacity: null,
+    tyre: null,
+    groundClearance: null,
+    battery: null,
+    availableColor: null,
+    error: null,
+    loading: null,
+    success: null,
   },
-  saveEmployeeSalary: {
-    astroFixedSalary: null, astroFirstBonus: null, astroSecondBonus: null, modFirstBonus: null, modFixedSalary: null, modFixedSalaryAnswer: null, modSecondBonus: null, success: null, error: null, loading: null,
+  addDealer: {
+    sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
   },
-  searchUserId: {
-    userId: null, loading: false, error: null, success: null,
-  },
-  addPayment: {
-    fixedSalary: '', bonusSalary: '', loading: null, error: null, success: null,
+  addServiceCenter: {
+    sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
   },
 };
 

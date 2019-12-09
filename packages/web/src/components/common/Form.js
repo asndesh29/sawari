@@ -7,6 +7,7 @@ import Select from './Select';
 import RadioGroup from './RadioGroup';
 import FileInput from './FileInput';
 import TextArea from './TextArea';
+import Switch from './Switch';
 
 const renderFormElementHandler = (content, idx, props) => {
   switch (content.element) {
@@ -22,6 +23,8 @@ const renderFormElementHandler = (content, idx, props) => {
       return <FileInput content={content} props={props} key={idx} />;
     case 'textArea':
       return <TextArea content={content} props={props} key={idx} />;
+    case 'switch':
+      return <Switch content={content} props={props} key={idx} />;
     default:
       return null;
   }

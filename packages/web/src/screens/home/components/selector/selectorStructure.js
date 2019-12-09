@@ -1,35 +1,33 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-trailing-spaces */
 
-export default () => {
+export default (props) => {
+  const { main, form } = props;
   return [
     {
-      element: 'select',
-      options: [
-        { value: '4wheeler', label: '4wheeler' },
-        { value: '3wheeler', label: '3wheeler' },
-        { value: '2wheeler', label: '2wheeler' },
+      element: 'radiogroup',
+      value: 'searchType',
+      radios: [
+        { element: 'radio', label: 'By Budget', value: 'budget' },
+        { element: 'radio', label: 'By Brand', value: 'brand' },
       ],
+    },
+    {
+      element: 'select',
+      value: 'typeId',
+      options: main.initialData.vehicalTypes ? main.initialData.vehicalTypes.map(vt => ({ label: vt.name, value: vt.id })) : [],
       placeHolder: 'Select Type',
     },
 
     {
       element: 'select',
-      options: [
-        { value: 'mahindra', label: 'Mahindra' },
-        { value: 'suzuki', label: 'Suzuki' },
-      ],
-      placeHolder: 'Select Brand',
+      value: form.multiSearch.searchType === 'budget' ? 'budgetId' : 'brandId',
+      options: form.multiSearch.searchType === 'budget'
+        ? (main.initialData.budgetRangeList ? main.initialData.budgetRangeList.map(vt => ({ label: vt.label, value: vt.id })) : [])
+        : (main.initialData.vehicleBrand ? main.initialData.vehicleBrand.map(vb => ({ label: vb.brandName, value: vb.id })) : []),
+      placeHolder: form.multiSearch.searchType === 'budget' ? 'Select Budget' : 'Select Brand',
     },
 
-    {
-      element: 'select',
-      options: [
-        { value: 'p1', label: 'Product 1' },
-        { value: 'p2', label: 'Product 2' },
-        { value: 'p3', label: 'Product 3' },
-        { value: 'p4', label: 'Product 4' },
-      ],
-      placeHolder: 'Select Product',
-    },
     {
       element: 'button',
       text: 'Search',

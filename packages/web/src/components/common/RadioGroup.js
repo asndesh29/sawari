@@ -10,10 +10,11 @@ const CustomRadioButton = ({ content, props }) => {
       selectedValue={props.form[props.schema][content.value]}
       inline
     >
-      {content.radios.map((item, idx) => <Radio key={idx} inline label={item.label} value={item.value} />)}
+      {content.radios.map((item, idx) => <Radio key={idx} inline label={item.label} value={`${item.value}`} />)}
     </RadioGroup>
   );
 };
+
 export default CustomRadioButton;
 
 CustomRadioButton.propTypes = {

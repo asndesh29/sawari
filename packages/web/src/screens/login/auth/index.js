@@ -7,7 +7,7 @@ class Login extends Component {
   state={};
 
   render() {
-    // console.log(this.props.form.login);
+    console.log(this.props.form.login , this.props);
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Card
@@ -22,8 +22,8 @@ class Login extends Component {
             flexDirection: 'column',
           }}
         >
-          <img src={require('../../../assets/finalLogo.jpg')} height={200} width={200} /> {/* eslint-disable-line*/}
-          <h2>Welcome to Bidha</h2>
+          {/* <img src={require('../../../assets/finalLogo.jpg')} height={200} width={200} /> eslint-disable-line */}
+          <h2>Welcome to admin panel</h2>
           <p> Enter your log in details</p>
           <hr />
           <form style={{ width: '100%' }}>

@@ -6,15 +6,18 @@ class _FileInput extends React.Component {
   state = { fileInputText: null };
 
   render() {
+    console.log('props in file browser', this.props);
     const { content, props } = this.props;
+    const { schema } = props;
     const { fileInputText } = this.state;
-    return ( 
+    return (
       <FileInput
         onInputChange={(e) => {
-          props.updateFormValue('addProfileDetails', { image: e.target.files[0] });
+          props.updateFormValue(schema, { image: e.target.files[0] });
           this.setState({ fileInputText: e.target.value });
         }}
         text={fileInputText || content.placeHolder}
+        style={{ marginLeft: 5 }}
       />
     );
   }

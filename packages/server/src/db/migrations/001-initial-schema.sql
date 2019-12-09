@@ -10,148 +10,145 @@ CREATE TABLE IF NOT EXISTS User(
 
 -- Creating user by default....
 INSERT OR REPLACE INTO User (id, userName, password, name, type) VALUES
-(1, "bidha", "$2b$10$W0rnKFoVT3dWFDrjiad8mOqyFR04b9tiH3Ic.yZjn8TFITsrvaOwm", "Bhagya Sah", "super");
+(1, "automobile", "$2b$10$KpGPmpBC2sRO2YuQxqCWG.QjYvC3OL2hQFJuJB968bCzN/rMHG7Pq", "Admin", "admin");
 
-CREATE TABLE IF NOT EXISTS Astrologer(
+-- Creating service table that show all the service available in site
+CREATE TABLE IF NOT EXISTS Service(
   id INTEGER PRIMARY KEY,
+  type TEXT NOT NULL,
+  userId INTEGER NOT NULL,
+  timeStamp INTEGER NOT NULL,
+  name TEXT NOT NULL,
+
+  --CONSTRAINT
+  CONSTRAINT Service_fk_userId FOREIGN KEY (userId) REFERENCES User(id)
+);
+-- INSERTING ONE service Vehical.. for now later must be dynamic added by admin
+INSERT OR REPLACE INTO Service (id,type,userId,timeStamp,name) VALUES
+(1, 'vehicle', 1, 1574927572971, 'Vehicle');
+
+-- Creating table for service type that present subtime of sevive in case of vehical like 2w 3w or 4w
+CREATE TABLE IF NOT EXISTS ServiceType(
+  id INTEGER PRIMARY KEY,
+  sid INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  userId INTEGER NOT NULL,
+  timeStamp INTEGER NOT NULL,
+
+  --CONSTRAINT
+  CONSTRAINT ServiceType_fk_sid FOREIGN KEY (sid) REFERENCES Service(id)
+);
+
+--Inserting 2w 3v and 4w for veihical service default bcz it same for all vehical
+INSERT OR REPLACE INTO ServiceType (id, sid, name, userId, timeStamp) VALUES
+(1,1, 'Car', 1,1574927572971);
+
+INSERT OR REPLACE INTO ServiceType (id, sid, name, userId, timeStamp) VALUES
+(2,1, 'Bike', 1,1574927572971);
+
+INSERT OR REPLACE INTO ServiceType (id, sid, name, userId, timeStamp) VALUES
+(3,1, 'Bus', 1,1574927572971);
+
+INSERT OR REPLACE INTO ServiceType (id, sid, name, userId, timeStamp) VALUES
+(4,1, 'Truck', 1,1574927572971);
+
+INSERT OR REPLACE INTO ServiceType (id, sid, name, userId, timeStamp) VALUES
+(5,1, 'Tempo', 1,1574927572971);
+
+-- Creating table for service type brand like suzuki mahindra etc
+CREATE TABLE IF NOT EXISTS ServiceTypeBrand(
+  id INTEGER PRIMARY KEY,
+  sid INTEGER NOT NULL,
+  stypeId INTEGER NOT NULL,
+  userId INTEGER NOT NULL,
+  brandName TEXT NOT NULL,
+  brandImageUrl TEXT NOT NULL,
+
+  --CONSTRAINT
+  CONSTRAINT ServiceTypeBrand_fk_sid FOREIGN KEY (sid) REFERENCES Service(id),
+  CONSTRAINT ServiceTypeBrand_fk_sid FOREIGN KEY (stypeId) REFERENCES ServiceType(id)
+) ;
+
+--Creating table for product details
+
+CREATE TABLE IF NOT EXISTS ServiceTypeBrandProductDetails(
+  id INTEGER PRIMARY KEY,
+  sid INTEGER NOT NULL,
+  stypeId INTEGER NOT NULL,
+  sbId INTEGER NOT NULL,
   userId INTEGER NOT NULL,
   name TEXT NOT NULL,
-  gender TEXT NOT NULL,
-  experience TEXT NOT NULL,
-  qualification TEXT NOT NULL,
-  phoneNo INTEGER NOT NULL,
+  price INTEGER NOT NULL,
+  displacement TEXT,
+  power TEXT,
+  torque TEXT,
+  fueltankCapacity TEXT,
+  tyre TEXT,
+  groundClearance TEXT,
+  battery TEXT,
+  availableColor TEXT,
   image TEXT,
+  markPopular INTEGER,
+  markNew INTEGER,
+  offer INTEGER,
 
-  -- Constraints
-CONSTRAINT Astrologer_fk_userId FOREIGN KEY (userId) REFERENCES User(id)
+  --CONSTRAINT
+  CONSTRAINT ServiceTypeBrandProductDetials_fk_sid FOREIGN KEY (sid) REFERENCES Service(id),
+  CONSTRAINT ServiceTypeBrandProductDetials_fk_stypeId FOREIGN KEY (stypeId) REFERENCES ServiceType(id),
+  CONSTRAINT ServiceTypeBrandProductDetials_fk_sbId FOREIGN KEY (sbId) REFERENCES ServiceTypeBrand(id)
 );
 
-CREATE TABLE IF NOT EXISTS BidhaUser(
+-- Creating talble for user enquiry
+CREATE TABLE IF NOT EXISTS UserEnquiry(
   id INTEGER PRIMARY KEY,
-  firstName TEXT NOT NULL,
-  gender TEXT NOT NULL,
-  dob TEXT NOT NULL,
-  country TEXT,
-  state TEXT,
-  city TEXT,
-  accurateTime TEXT,
-  time TEXT,
-  registrationToken TEXT,
-  image TEXT,
-  fbToken TEXT,
-  vedicSign TEXT
+  pId INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  email TEXT,
+  phoneNo TEXT,
+  address TEXT,
+  markStatus TEXT,
+  latitude TEXT,
+  longitude TEXT,
+  markedbyUserId INTEGER,
+  message TEXT,
+
+  --CONSTRAINTS
+  CONSTRAINT UserQuiry_fk_pId FOREIGN KEY (pId) REFERENCES ServiceTypeBrandProductDetails(id)
 );
 
--- Creating Bidhauser by defaut for auto increment from 1000....
-INSERT OR REPLACE INTO BidhaUser (id, firstName, gender, dob ) VALUES
-(1000, "bidha", "test", "test");
-
-CREATE TABLE IF NOT EXISTS SampleQuestion(
+CREATE TABLE IF NOT EXISTS Dealer(
   id INTEGER PRIMARY KEY,
-  title TEXT NOT NULL,
-  question TEXT NOT NULL,
-  astrologerId INTEGER NOT NULL,
-  timeStamp INTEGER NOT NULL,
-
-  --Constraints
-
-  CONSTRAINT SampleQuestion_fk_UserID FOREIGN KEY (astrologerId) REFERENCES Astrologer(id)
-);
-
-CREATE TABLE IF NOT EXISTS UserQuestion(
-    id INTEGER PRIMARY KEY,
-    userId INTEGER NOT NULL,
-    serveStatus TEXT NOT NULL,
-    question TEXT NOT NULL,
-    timeStamp INTEGER NOT NULL,
-    type TEXT NOT NULL,
-    starRating INTEGER,
-    paymentStatus TEXT NOT NULL,
-    registrationToken TEXT NOT NULl,
-    paymentToken TEXT,
-    deleteStatus TEXT,
-
-    --Constraints
-    CONSTRAINT Question_fk_UserId FOREIGN KEY (userId) REFERENCES BidhaUser(id)
-);
-
-CREATE TABLE IF NOT EXISTS ModeratorQuestion(
-  id INTEGER PRIMARY KEY,
-  questionId INTEGER NOT NULL,
-  modId INTEGER NOT NULL,
-  modQuestion TEXT NOT NULL,
-  modQsnTimeStamp TEXT NOT NULL,
-  serveStatus TEXT NOT NULL,
-  note TEXT,
-  --Constraints
-  CONSTRAINT ModQuestion_fk_questionId FOREIGN KEY (questionId) REFERENCES UserQuestion(id),
-  CONSTRAINT ModQuestion_fk_questionId FOREIGN KEY (modId) REFERENCES User(id)
-);
-
-CREATE TABLE IF NOT EXISTS AstrologerAnswer(
-  id INTEGER PRIMARY KEY,
-  modQuestionId INTEGER NOT NULL,
-  astroAnswer TEXT NOT NULL,
-  astroId INTEGER NOT NULL,
-  astroAnsTimeStamp INTEGER NOT NULL,
-  serveStatus TEXT NOT NULL,
-  questionId INTEGER NOT NULL,
-  note TEXT,
-
-  --Constraint
-  CONSTRAINT AstroAnswer_fk_modQuestionId FOREIGN KEY (modQuestionId) REFERENCES ModeratorQuestion(id),
-  CONSTRAINT AstroAnswer_fk_astroId FOREIGN KEY (astroId) REFERENCES User(id),
-  CONSTRAINT AstroAnswer_fk_questionId FOREIGN KEY (questionId) REFERENCES UserQuestion(id)
-);
-
-CREATE TABLE IF NOT EXISTS ModeratorAnswer(
-  id INTEGER PRIMARY KEY,
-  astroAnswerId INTEGER NOT NULL,
-  questionId INTEGER NOT NULL,
-  modId INTEGER NOT NULL,
-  modAnswer TEXT NOT NUll,
-  modAnsTimeStamp INTEGER NOT NULL,
-  serveStatus TEXT NOT NULL,
-  deleteStatus TEXT,
-  note TEXT,
-
-  --Constraint
-  CONSTRAINT ModAnswer_fk_modId FOREIGN KEY (modId) REFERENCES User(id),
-  CONSTRAINT ModAnswer_fk_astroAnswerId FOREIGN KEY (astroAnswerId) REFERENCES AstrologerAnswer(id),
-  CONSTRAINT ModAnswer_fk_questionId FOREIGN KEY (questionId) REFERENCES UserQuestion(id)
-);
-
-CREATE TABLE IF NOT EXISTS ClarifyQuestion(
-  id INTEGER PRIMARY KEY,
-  questionId INTEGER,
-  clarifyText TEXT,
-  mod TEXT,
-  adminId INTEGER,
-  timeStamp INTEGER,
-  serveStatus INTEGER,
-  modStatus INTEGER,
-  note TEXT
-);
-
-CREATE TABLE IF NOT EXISTS AppConfiguration(
-  id INTEGER PRIMARY KEY,
-  questionRate INTEGER NOT NULL,
-  initialMessage TEXT NOT NULL,
-  freeQuestionRound INTEGER NOT NULL,
+  sId INTEGER NOT NULL,
+  stypeId INTEGER NOT NULL,
+  sbId INTEGER NOT NULL,
   userId INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  city TEXT NOT NULL,
+  image TEXT,
+  phoneNo TEXT,
+  description TEXT,
+  latitude INTEGER,
+  logitude INTEGER,
 
-  --Constraint
-  CONSTRAINT AppConfiguration_fk_userId FOREIGN KEY (userId) REFERENCES User(id)
+  --CONSTRAINT
+  CONSTRAINT Dealer_fk_sbId FOREIGN KEY (sbId) REFERENCES ServiceTypeBrand(id)
 );
 
-CREATE TABLE IF NOT EXISTS ContactUsMessage(
+CREATE TABLE IF NOT EXISTS ServiceCenter(
   id INTEGER PRIMARY KEY,
-  userName TEXT NOT NULL,
-  userEmail TEXT NOT NULL,
-  userMessage TEXT NOT NULL,
-  timeStamp INTEGER NOT NULL,
-  fbToekn TEXT,
-  registrationToken TEXT
+  sbId INTEGER NOT NULL,
+  stypeId INTEGER NOT NULL,
+  sid INTEGER NOT NULL,
+  userId INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  city TEXT NOT NULL,
+  image TEXT,
+  phoneNo TEXT,
+  description TEXT,
+  latitude INTEGER,
+  logitude INTEGER,
+
+  --CONSTRAINT
+  CONSTRAINT Dealer_fk_sbId FOREIGN KEY (sbId) REFERENCES ServiceTypeBrand(id)
 );
 -- Down
-

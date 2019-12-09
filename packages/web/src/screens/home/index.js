@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Navbar from './components/navbar';
 import Selector from './components/selector';
 import Slider from './components/slider';
 import ProductList from './components/product-list';
 import Footer from './components/footer';
+import * as actions from '../../actions';
 
 class Index extends Component {
-  state = {}
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialData: false,
+    };
+  }
+
+  async componentWillMount() {
+    const { fetchInitialData } = this.props;
+    await fetchInitialData();
+    this.setState({ initialData: true });
+  }
 
   render() {
     return (
       <div className="main_container">
-        <Navbar />
+        <Navbar {...this.props} />
         <div className="home-selector-slider">
-          <Selector />
-          <Slider />
+          <Selector {...this.props}/>
+          <Slider {...this.props}/>
         </div>
-        <ProductList />
-        <Footer />
+        <ProductList {...this.props} />
+        <Footer {...this.props}/>
       </div>
     );
   }
 }
-export default Index;
+
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps, { ...actions })(Index);

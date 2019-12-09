@@ -5,14 +5,40 @@
   height: auto;
   margin-top: 1px;
   display: flex;
-  overflow: hidden;
+  overflow: visible;
   height: 400px;
   .home-selector {
     width: 25%;
     background: config.$primary_color;
-    color: white;
     margin-right: 2px;
+    .home-selector-buttons {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      // background: green;
+      height: 60px;
+      margin: 5px;
+      Button {
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        min-width: 40%;
+        text-align: center;
+        margin: 10px;
+        background: white;
+        border-radius: 5%;
+      }
+      .button-focus{
+        color: yellow;
+        padding-bottom: 10px;
+        background: config.$primary_color;
+        clip-path: polygon(0 0,0 90%, 40% 90%, 50% 100%, 60% 90%, 100% 90%, 100% 0);
+       }
+    }
   }
+
   .home-slider {
     width: 75%;
     background: black;;

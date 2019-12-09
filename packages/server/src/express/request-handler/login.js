@@ -7,9 +7,7 @@ export default async (req, res) => {
     // console.log('login route called', record);
     const status = await login(record);
     if (status) {
-      db.execute(async ({ insert }) => {
-        insert('LoginStatus', { userId: status.id, timeStamp: Date.now(), type: 'login' });
-      });
+      res.statusCode = 200;
       res.send(status);
     }
   } catch (error) {

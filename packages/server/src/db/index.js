@@ -9,7 +9,7 @@ import update from './update';
 import deleteQuery from './deleteQuery';
 import executeSql from './executeSql';
 
-export const dbPromise = sqlite.open('bidha.sqlite', { Promise });
+export const dbPromise = sqlite.open('automobile.sqlite', { Promise });
 
 let dbInstance = null;
 const getInstance = async () => {

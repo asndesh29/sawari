@@ -4,13 +4,14 @@ import { updateMainValue } from '../updateMainValue';
 import { ENDPOINT } from '../../config';
 
 export default async (dispatch, getState, schema) => {
+  console.log('login handler called', schema);
   dispatch(updateFormValue(schema, { loading: true }));
   const { form } = getState();
   const { userName, password } = form.login;
   try {
-    const res = await axios.post(`${ENDPOINT}auth/login`, { userName, password });
+    const res = await axios.post(`${ENDPOINT}/auth/login`, { userName, password });
     const { data } = res;
-    // console.log('current user details after login', data);
+    console.log('current user details after login', data);
     if (res.status === 200 && data.token) {
       dispatch(updateFormValue(schema, { loading: false, error: null, success: true, userName: '', password: '' }));
       sessionStorage.setItem('USER_ID', data.id); //eslint-disable-line
