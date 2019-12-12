@@ -91,9 +91,6 @@ CREATE TABLE IF NOT EXISTS ServiceTypeBrandProductDetails(
   markPopular INTEGER,
   markNew INTEGER,
   offer INTEGER,
-  mileage Text,
-  bodyType TEXT,
-  fuelType TEXT,
 
   --CONSTRAINT
   CONSTRAINT ServiceTypeBrandProductDetials_fk_sid FOREIGN KEY (sid) REFERENCES Service(id),
@@ -124,8 +121,6 @@ CREATE TABLE IF NOT EXISTS Dealer(
   sId INTEGER NOT NULL,
   stypeId INTEGER NOT NULL,
   sbId INTEGER NOT NULL,
-  province TEXT,
-  type TEXT,
   userId INTEGER NOT NULL,
   name TEXT NOT NULL,
   city TEXT NOT NULL,
@@ -152,9 +147,6 @@ CREATE TABLE IF NOT EXISTS ServiceCenter(
   description TEXT,
   latitude INTEGER,
   logitude INTEGER,
-  province TEXT,
-  type TEXT,
-
   --CONSTRAINT
   CONSTRAINT Dealer_fk_sbId FOREIGN KEY (sbId) REFERENCES ServiceTypeBrand(id)
 );
