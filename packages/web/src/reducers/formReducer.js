@@ -38,12 +38,15 @@ const initialFormState = {
     error: null,
     loading: null,
     success: null,
+    bodyType: null,
+    fuelType: null,
+    mileage: null,
   },
   addDealer: {
-    sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
+    province: null, type: null, sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
   },
   addServiceCenter: {
-    sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
+    province: null, type: null, sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
   },
 };
 

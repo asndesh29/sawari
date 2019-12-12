@@ -19,7 +19,7 @@ export default async (dispatch, getstate, schema) => {
   const { form, main } = getstate();
   const { addProduct } = form;
   const {
-    sid, stypeId, sbId, name, image, price, displacement, power, torque, fueltankCapacity, tyre, groundClearance, battery, id, markNew, markPopular, offer,
+    bodyType, fuelType, mileage, sid, stypeId, sbId, name, image, price, displacement, power, torque, fueltankCapacity, tyre, groundClearance, battery, id, markNew, markPopular, offer,
   } = addProduct;
   // console.log('type of image', typeof image);
 
@@ -33,7 +33,7 @@ export default async (dispatch, getstate, schema) => {
       let updateRes = null;
       if (typeof image === 'string') {
         // console.log('post if no image select');
-        updateRes = await axios.post(`${ENDPOINT}/web/add-product`, { token, sid, stypeId, sbId, name, image, price, displacement, power, torque, fueltankCapacity, tyre, groundClearance, battery, id, markNew, markPopular, offer });
+        updateRes = await axios.post(`${ENDPOINT}/web/add-product`, { bodyType, fuelType, mileage, token, sid, stypeId, sbId, name, image, price, displacement, power, torque, fueltankCapacity, tyre, groundClearance, battery, id, markNew, markPopular, offer });
       } else {
         // console.log('post if image selected');
         const formData = new FormData(); //eslint-disable-line
@@ -54,6 +54,9 @@ export default async (dispatch, getstate, schema) => {
         formData.append('markNew', markNew);
         formData.append('markPopular', markPopular);
         formData.append('offer', offer);
+        formData.append('bodyType', bodyType);
+        formData.append('fuelType', fuelType);
+        formData.append('mileage', mileage);
         if (id && id !== 'undefined') {
           formData.append('id', id);
         }

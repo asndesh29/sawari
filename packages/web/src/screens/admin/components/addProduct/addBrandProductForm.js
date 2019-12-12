@@ -10,6 +10,7 @@ export default ({ isOpen, onClose, props, update }) => {
       title="Enter Product Details"
       onClose={onClose}
       canOutsideClickClose={false}
+      style={{ maxHeight: window.innerHeight * 0.9, overflowY: 'scroll' }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Card

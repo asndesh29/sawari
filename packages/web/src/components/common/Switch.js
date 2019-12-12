@@ -9,7 +9,7 @@ const CustomSwitch = ({ content, props }) => {
       label={content.label}
       onChange={() => props.updateFormValue(props.schema, { [content.value]: !props.form.addProduct[content.value] })}
       value={1}
-      checked={props.form.addProduct[content.value]}
+      checked={props.form.addProduct[content.value] && props.form.addProduct[content.value] !== 'null'}
     />
   );
 };

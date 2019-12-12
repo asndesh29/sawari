@@ -10,6 +10,7 @@ export default ({ isOpen, onClose, props, update }) => {
       title="Enter Dealer Details"
       onClose={onClose}
       canOutsideClickClose={false}
+      style={{ maxHeight: window.innerHeight * 0.9, overflowY: 'scroll' }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Card
@@ -17,7 +18,6 @@ export default ({ isOpen, onClose, props, update }) => {
           elevation={Elevation.TWO}
           style={{
             maxWidth: '100%',
-            justifyContent: 'center',
             alignItems: 'center',
             display: 'flex',
             flexGrow: 1,

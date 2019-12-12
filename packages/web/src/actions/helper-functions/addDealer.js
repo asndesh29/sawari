@@ -19,7 +19,7 @@ export default async (dispatch, getstate, schema) => {
   const { form, main } = getstate();
   const { addDealer } = form;
   const {
-    image, stypeId, sId, name, city, latitude, logitude, description, id, sbId, phoneNo,
+    image, stypeId, sId, name, city, latitude, logitude, description, id, sbId, phoneNo, province, type,
   } = addDealer;
   // console.log('type of image', typeof image);
 
@@ -33,7 +33,7 @@ export default async (dispatch, getstate, schema) => {
       let updateRes = null;
       if (typeof image === 'string') {
         // console.log('post if no image select');
-        updateRes = await axios.post(`${ENDPOINT}/web/add-dealer`, { token, id, image, sbId, stypeId, sId, name, city, latitude, logitude, description, phoneNo });
+        updateRes = await axios.post(`${ENDPOINT}/web/add-dealer`, { province, type, token, id, image, sbId, stypeId, sId, name, city, latitude, logitude, description, phoneNo });
       } else {
         // console.log('post if image selected');
         const formData = new FormData(); //eslint-disable-line
@@ -48,6 +48,8 @@ export default async (dispatch, getstate, schema) => {
         formData.append('description', description);
         formData.append('phoneNo', phoneNo);
         formData.append('image', image);
+        formData.append('province', province);
+        formData.append('type', type);
         if (id && id !== 'undefined') {
           formData.append('id', id);
         }
