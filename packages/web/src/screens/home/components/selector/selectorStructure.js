@@ -24,7 +24,7 @@ export default (props) => {
       value: form.multiSearch.searchType === 'budget' ? 'budgetId' : 'brandId',
       options: form.multiSearch.searchType === 'budget'
         ? (main.initialData.budgetRangeList ? main.initialData.budgetRangeList.map(vt => ({ label: vt.label, value: vt.id })) : [])
-        : (main.initialData.vehicleBrand ? main.initialData.vehicleBrand.map(vb => ({ label: vb.brandName, value: vb.id })) : []),
+        : (main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(b => b.stypeId === parseInt(form.multiSearch.typeId, 10)).map(vb => ({ label: vb.brandName, value: vb.id })) : []),
       placeHolder: form.multiSearch.searchType === 'budget' ? 'Select Budget' : 'Select Brand',
     },
 

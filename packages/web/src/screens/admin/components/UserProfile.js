@@ -49,7 +49,7 @@ class UserProfile extends Component {
     const { isOpen } = this.state;
     // const { name, email, id } = main.currentUserDetails;
     return (
-      <div style={{ display: 'flex', margin: 5, borderBottomWidth: 1, borderBottomColor: '#FFF', flexDirection: 'column', marginRight: 20, height: 80, overflow: 'hidden' }}>
+      <div style={{ display: 'flex', margin: 5, marginTop: 20, borderBottomWidth: 1, borderBottomColor: '#FFF', flexDirection: 'column', marginRight: 20, height: 80, overflow: 'hidden' }}>
         <Popover
           content={this.popOverContent(signOut)}
           interactionKind={PopoverInteractionKind.CLICK}

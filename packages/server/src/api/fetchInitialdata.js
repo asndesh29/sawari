@@ -1,5 +1,5 @@
 import db from '../db';
-import budgetRangeList from './budgetRangeProvider';
+import budgetRangeList, { cities } from './budgetRangeProvider';
 
 export default async () => {
   console.log('fetch initial api called');
@@ -7,7 +7,9 @@ export default async () => {
     const vehicalTypes = await find('ServiceType', { sid: 1 });
     const vehicleBrand = await find('ServiceTypeBrand', { sid: 1 });
     const vehicleBrandProduct = await find('ServiceTypeBrandProductDetails', { sid: 1 });
-    return { vehicalTypes, vehicleBrand, vehicleBrandProduct };
+    const dealerList = await find('Dealer');
+    const serviceCenterList = await find('ServiceCenter');
+    return { vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities };
   });
   return { budgetRangeList, ...res };
 };

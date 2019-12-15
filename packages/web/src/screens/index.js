@@ -4,6 +4,9 @@ import Login from './login';
 import Home from './home';
 import ProductDetails from './productDetails';
 import SearchProducts from './searchProducts';
+import BrandDetails from './brand-details';
+import SellVehicle from './sell-vehicle';
+
 
 class index extends Component {
 
@@ -20,6 +23,8 @@ class index extends Component {
           <Route path="/login" component={Login} />
           <Route path="/details/:proId" component={ProductDetails} />
           <Route path="/search/:buttonType/:searchType/:typeId/:tempId" component={SearchProducts} />
+          <Route path="/brand/:stypeId/:sbId" component={BrandDetails} />
+          <Route path="/sell-vehicle" component={SellVehicle} />
         </div>
       </Router>
     );

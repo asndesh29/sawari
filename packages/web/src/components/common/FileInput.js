@@ -6,7 +6,7 @@ class _FileInput extends React.Component {
   state = { fileInputText: null };
 
   render() {
-    console.log('props in file browser', this.props);
+    // console.log('props in file browser', this.props);
     const { content, props } = this.props;
     const { schema } = props;
     const { fileInputText } = this.state;

@@ -25,7 +25,6 @@ class ProductDetails extends React.Component {
     this.setState({ enquiryShow: !enquiryShow });
   }
 
-
   render() {
     const { enquiryShow } = this.state;
     const { showDetail } = this.state;

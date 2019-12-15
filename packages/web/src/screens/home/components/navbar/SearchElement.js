@@ -5,10 +5,13 @@ import { Redirect, Link } from 'react-router-dom';
 import { Icon } from '@blueprintjs/core';
 
 class SearchElement extends React.Component {
-  state={
-    search: '',
-    gotKey: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: '',
+      gotKey: false,
+    };
+  }
 
   searchChange = (e) => {
     this.setState({

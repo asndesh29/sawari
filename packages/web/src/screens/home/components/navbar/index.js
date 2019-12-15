@@ -4,11 +4,11 @@ import SerachElement from './SearchElement';
 
 export default () => (
   <div className="main_navbar">
-    <div className="home-nav-logo">
-      <MenuBar />
-    </div>
     <div className="search-element">
       <SerachElement />
+    </div>
+    <div className="home-nav-logo">
+      <MenuBar />
     </div>
   </div>
 );

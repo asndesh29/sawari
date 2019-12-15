@@ -8,7 +8,7 @@ export default async (record) => {
   const mainRes = await db.execute(async ({ find, findOne, executeSql }) => {
     if (buttonType === 'new') {
       if (searchType === 'brand') {
-        const productList = await find('ServiceTypeBrandProductDetails', { sid: parseInt(brandId, 10), stypeId: parseInt(typeId, 10) });
+        const productList = await find('ServiceTypeBrandProductDetails', { sbId: parseInt(brandId, 10), stypeId: parseInt(typeId, 10) });
         return { productList };
       }
 

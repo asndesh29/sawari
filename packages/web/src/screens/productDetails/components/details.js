@@ -52,16 +52,9 @@ export default (props) => {
         </span>
         <br />
         <span style={{ fontWeight: 'bold', fontSize: 18 }}>
-          Battery:
+          Mileage:
           <span style={{ fontWeight: 'normal', marginLeft: 5 }}>
-            {currentCarDetail.battery}
-          </span>
-        </span>
-        <br />
-        <span style={{ fontWeight: 'bold', fontSize: 18 }}>
-          Tyre:
-          <span style={{ fontWeight: 'normal', marginLeft: 5 }}>
-            {currentCarDetail.tyre}
+            {currentCarDetail.mileage}
           </span>
         </span>
         <br />

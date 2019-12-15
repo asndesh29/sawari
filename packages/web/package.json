@@ -17,6 +17,7 @@
     "react-avatar": "^3.5.0",
     "react-dom": "^16.7.0",
     "react-draggable": "^3.3.0",
+    "react-horizontal-scrolling-menu": "^0.7.4",
     "react-icons": "^3.2.2",
     "react-idle-timer": "^4.2.7",
     "react-moment": "^0.8.4",
@@ -49,7 +50,6 @@
   ],
   "proxy": "http://localhost:4002",
   "devDependencies": {
-    "eslint": "^6.7.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
@@ -57,6 +57,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-import-export": "^1.0.2",
     "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^6.7.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",

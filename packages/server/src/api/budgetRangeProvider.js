@@ -32,7 +32,7 @@ const cities = [
   'Bidur',           'Waling',        'Narayan',
   'Malangwa',        'Bhadrapur',     'Amaragadhi',
   'Dasharathchand',  'Ilam',          'Banepa',
-  'Dhulikhel'
+  'Dhulikhel',
 ];
 export { cities }
 

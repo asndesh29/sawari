@@ -13,33 +13,33 @@ class Index extends React.Component {
           text="Enquiry"
           fill
           intent="primary"
-          style={{ background: main.currentAdminContent === 'enquiry' ? APP_PRIMARY_COLOR : 'yellow'}}
+          style={{ background: main.currentAdminContent === 'enquiry' ? 'blue' : 'yellow'}}
           onClick={() => updateMainValue('currentAdminContent', 'enquiry')}
         />
         <Button
           text="Brand"
           fill
           intent="primary"
-          style={{ background: main.currentAdminContent === 'addBrand' ? APP_PRIMARY_COLOR : 'yellow'}}
+          style={{ background: main.currentAdminContent === 'addBrand' ? 'blue' : 'yellow'}}
           onClick={() => updateMainValue('currentAdminContent', 'addBrand')}
         />
         <Button
           text="Product"
           fill
           intent="primary"
-          style={{ background: main.currentAdminContent === 'addProduct' ? APP_PRIMARY_COLOR : 'yellow'}}
+          style={{ background: main.currentAdminContent === 'addProduct' ? 'blue' : 'yellow'}}
           onClick={() => updateMainValue('currentAdminContent', 'addProduct')} />
         <Button
           text="Dealer"
           fill
           intent="primary"
-          style={{ background: main.currentAdminContent === 'dealer' ? APP_PRIMARY_COLOR : 'yellow' }}
+          style={{ background: main.currentAdminContent === 'dealer' ? 'blue' : 'yellow' }}
           onClick={() => updateMainValue('currentAdminContent', 'dealer')} />
         <Button
           text="Service Center"
           fill
           intent="primary"
-          style={{ background: main.currentAdminContent === 'serviceCenter' ? APP_PRIMARY_COLOR : 'yellow' }}
+          style={{ background: main.currentAdminContent === 'serviceCenter' ? 'blue' : 'yellow' }}
           onClick={() => updateMainValue('currentAdminContent', 'serviceCenter')} />
       </div>
     );

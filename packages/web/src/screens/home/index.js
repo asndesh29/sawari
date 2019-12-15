@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 import Navbar from './components/navbar';
 import Selector from './components/selector';
 import Slider from './components/slider';
-import ProductList from './components/product-list';
+import TopCarBrand from './components/product-list/topCarBrand';
+import TopBikeBrand from './components/product-list/topBikeBrand';
 import Footer from './components/footer';
 import * as actions from '../../actions';
+import MostPopularCar from './components/product-list/mostPopularCar';
+import NewCar from './components/product-list/newCar';
+import MostPopularBike from './components/product-list/mostPopularBike';
+import NewBikes from './components/product-list/newBikes';
 
 class Index extends Component {
 
@@ -30,7 +35,12 @@ class Index extends Component {
           <Selector {...this.props}/>
           <Slider {...this.props}/>
         </div>
-        <ProductList {...this.props} />
+        <TopCarBrand {...this.props} />
+        <TopBikeBrand {...this.props} />
+        <MostPopularCar {...this.props} />
+        <NewCar {...this.props} />
+        <MostPopularBike {...this.props} />
+        <NewBikes {...this.props} />
         <Footer {...this.props}/>
       </div>
     );

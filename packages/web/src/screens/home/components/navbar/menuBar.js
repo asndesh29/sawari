@@ -11,10 +11,17 @@ export default () => {
           <span style={{ marginLeft: 5 }}>Home</span>
         </Link>
       </div>
-      <Divider style={{ background: 'white', marginBottom: 0 }}/>
+      {/* <Divider style={{ background: 'white', marginBottom: 0 }} />
       <div className="menu-item">
         <Icon icon="drive-time" color="yellow" />
         <span style={{ marginLeft: 5, color: 'yellow' }}>Vehicle</span>
+      </div> */}
+      <Divider style={{ background: 'white', marginBottom: 0 }} />
+      <div className="menu-item">
+        <Link to="/sell-vehicle">
+          <Icon icon="drive-time" color="yellow" />
+          <span style={{ marginLeft: 5, color: 'yellow' }}>Sell</span>
+        </Link>
       </div>
     </div>
   );

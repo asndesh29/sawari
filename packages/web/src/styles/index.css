@@ -1,14 +1,15 @@
 .main_navbar {
   width: 90%;
-  height: 100px;
+  height: 120px;
   display: flex;
+  flex-direction: column;
   color: white;
 }
 .main_navbar .home-nav-logo {
   background: #154155;
   margin-right: 5;
-  height: 100px;
-  width: 20%;
+  height: 40%;
+  width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: start;
@@ -29,13 +30,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 60%;
   background: #154155;
 }
 .main_navbar .search-element .search-box-container {
-  height: 50%;
-  width: 60%;
+  height: 80%;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,15 +203,16 @@ body {
 }
 .main_container .main_navbar {
   width: 90%;
-  height: 100px;
+  height: 120px;
   display: flex;
+  flex-direction: column;
   color: white;
 }
 .main_container .main_navbar .home-nav-logo {
   background: #154155;
   margin-right: 5;
-  height: 100px;
-  width: 20%;
+  height: 40%;
+  width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: start;
@@ -231,13 +233,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 60%;
   background: #154155;
 }
 .main_container .main_navbar .search-element .search-box-container {
-  height: 50%;
-  width: 60%;
+  height: 80%;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,6 +315,7 @@ body {
 }
 .main_container .home-product-list {
   width: 90%;
+  margin-top: 10px;
 }
 .main_container .home-product-list .product-list-header {
   display: flex;
@@ -323,29 +326,29 @@ body {
   margin-left: 20px;
   margin: 0px;
 }
-.main_container .home-product-list .product-list-header h1 {
+.main_container .home-product-list .product-list-header h2 {
   margin: 0px;
   padding: 0px;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .main_container .home-product-list .product-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-height: 40vh;
+  width: 100%;
+  justify-content: flex-start;
+  overflow: hidden;
+  max-height: 300px;
 }
 .main_container .home-product-list .product-list .product-card {
-  width: 250px;
+  width: 20%;
   height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 5px;
 }
 .main_container .home-product-list .product-list .product-card img {
-  width: 225px;
+  width: 150px;
   height: 150px;
 }
 .main_container .home-product-list .product-list .product-card span {
