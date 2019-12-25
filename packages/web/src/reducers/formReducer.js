@@ -48,6 +48,15 @@ const initialFormState = {
   addServiceCenter: {
     province: null, type: null, sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,
   },
+  sellVehicle: {
+    stypeId: null, sbId: null, vehicleName: null, kmsDriven: null, ownerShip: null, city: null, expectedPrice: null, ownerName: null, ownerEmail: null, ownerPhoneNo: null, image1: null, image2: null, image3: null, image4: null, image5: null, loading: null, success: null, error: null,
+  },
+  dealerEnquiry: {
+    name: '', email: '', phoneno: '', address: '', message: '', dealerId: null, error: null, success: null, loading: null,
+  },
+  serviceCenterEnquiry: {
+    name: '', email: '', phoneno: '', address: '', message: '', error: null, success: null, loading: null,
+  },
 };
 
 export default (state = initialFormState, action) => {

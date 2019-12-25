@@ -7,6 +7,9 @@ import addEnquiry from './helper-functions/addEnquiry';
 import multiSearch from './helper-functions/multiSelectSearch';
 import addDealer from './helper-functions/addDealer';
 import addServiceCenter from './helper-functions/addServiceCenter';
+import addSellVhicle from './helper-functions/addSellVehicle';
+import addDealerEnquiry from './helper-functions/addDealerEnquiry';
+import addServiceCenterEnquiry from './helper-functions/addServiceCenterEnquiry';
 
 export const updateFormValue = (schema, data) => async dispatch => dispatch({
   type: UPDATE_FORM_VALUE,
@@ -36,6 +39,15 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
       break;
     case 'addServiceCenter':
       addServiceCenter(dispatch, getState, schema);
+      break;
+    case 'sellVehicle':
+      addSellVhicle(dispatch, getState, schema);
+      break;
+    case 'dealerEnquiry':
+      addDealerEnquiry(dispatch, getState, schema);
+      break;
+    case 'serviceCenterEnquiry':
+      addServiceCenterEnquiry(dispatch, getState, schema);
       break;
     default:
       return null;

@@ -2,7 +2,7 @@
 const mapBrand = (props) => {
   console.log('props in mapbrand', props)
   const { form, main } = props;
-  const res = main.initialData.vehicleBrand.filter(vb => vb.stypeId === parseInt(form.addProduct.stypeId, 10)).map(vb => ({ label: vb.brandName, value: vb.id }));
+  const res = main.initialData.vehicleBrand.filter(vb => vb.stypeId === parseInt(form.sellVehicle.stypeId, 10)).map(vb => ({ label: vb.brandName, value: vb.id }));
   console.log('selected brand', res);
   return res;
 };
@@ -59,7 +59,15 @@ export default (props) => [
     element: 'input', placeHolder: 'Enter your phone number...', value: 'ownerPhoneNo', type: 'number', label: 'Phone No',
   },
   {
-    element: 'fileinput', placeHolder: 'Select brand logo', value: 'image', type: 'file',
+    element: 'imageGroup',
+    placeHolder: 'Upload Photos',
+    options: [
+      { label: '+photo', value: 'image1' },
+      { label: '+font', value: 'image2' },
+      { label: '+back', value: 'image3' },
+      { label: '+left', value: 'image4' },
+      { label: '+right', value: 'image5' },
+    ],
   },
   {
     element: 'button', text: 'Add', intent: 'PRIMARY',

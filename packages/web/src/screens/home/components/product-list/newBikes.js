@@ -37,16 +37,14 @@ class ProductDetails extends React.Component {
     const { main, updateMainValue } = this.props;
     const { showProductDtails } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
+      <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
-        <div className="product-list-header">
-          <h2>New Bikes</h2>
-        </div>
+        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <div className="product-list">
-          <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
+          <div style={{ width: '100%', textAlign: 'center', height: '100%' }}>
             <HorizontalScrollView
               // wheel
-              data = {main.initialData.vehicleBrandProduct ? main.initialData.vehicleBrandProduct.filter(c => c.stypeId === 2).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
+              data={main.initialData.vehicleBrandProduct ? main.initialData.vehicleBrandProduct.filter(c => c.stypeId === 2).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
               arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
               arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
               // onSelect={(key) => console.log('seleceed', key)}
@@ -59,7 +57,7 @@ class ProductDetails extends React.Component {
             />
           </div>
         </div>
-      </Card>
+      </div>
     );
   }
 }

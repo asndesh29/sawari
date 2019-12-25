@@ -11,6 +11,7 @@ const initialAppState = {
   loginDetail: null,
   currentUserDetails: null,
   multiSearchResult: null,
+  currentUsedVehicleDetails: null,
 };
 
 export default (state = initialAppState, action) => {

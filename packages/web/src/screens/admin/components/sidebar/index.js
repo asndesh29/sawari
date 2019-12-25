@@ -10,12 +10,24 @@ class Index extends React.Component {
     return (
       <div className="sidebar_content">
         <Button
-          text="Enquiry"
+          text=" Product Enquiry"
           fill
           intent="primary"
           style={{ background: main.currentAdminContent === 'enquiry' ? 'blue' : 'yellow'}}
           onClick={() => updateMainValue('currentAdminContent', 'enquiry')}
         />
+        <Button
+          text="Dealer Enquiry"
+          fill
+          intent="primary"
+          style={{ background: main.currentAdminContent === 'dealerEnquiry' ? 'blue' : 'yellow' }}
+          onClick={() => updateMainValue('currentAdminContent', 'dealerEnquiry')} />
+        <Button
+          text="Service Center Enquiry"
+          fill
+          intent="primary"
+          style={{ background: main.currentAdminContent === 'serviceCenterEnquiry' ? 'blue' : 'yellow' }}
+          onClick={() => updateMainValue('currentAdminContent', 'serviceCenterEnquiry')} />
         <Button
           text="Brand"
           fill
@@ -41,6 +53,7 @@ class Index extends React.Component {
           intent="primary"
           style={{ background: main.currentAdminContent === 'serviceCenter' ? 'blue' : 'yellow' }}
           onClick={() => updateMainValue('currentAdminContent', 'serviceCenter')} />
+
       </div>
     );
   }

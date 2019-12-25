@@ -11,6 +11,10 @@ import MostPopularCar from './components/product-list/mostPopularCar';
 import NewCar from './components/product-list/newCar';
 import MostPopularBike from './components/product-list/mostPopularBike';
 import NewBikes from './components/product-list/newBikes';
+import UsedCar from './components/product-list/usedCar';
+import UsedBike from './components/product-list/usedBikes';
+import Cars from './components/product-list/cars';
+import Bikes from './components/product-list/bikes';
 
 class Index extends Component {
 
@@ -37,10 +41,10 @@ class Index extends Component {
         </div>
         <TopCarBrand {...this.props} />
         <TopBikeBrand {...this.props} />
-        <MostPopularCar {...this.props} />
-        <NewCar {...this.props} />
-        <MostPopularBike {...this.props} />
-        <NewBikes {...this.props} />
+        <Cars {...this.props} />
+        <Bikes {...this.props} />
+        <UsedCar {...this.props} />
+        <UsedBike {...this.props} />
         <Footer {...this.props}/>
       </div>
     );

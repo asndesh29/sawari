@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Elevation, Button, Icon } from '@blueprintjs/core';
-import { ENDPOINT  } from '../../../config';
+import { ENDPOINT } from '../../../config';
+import EnquiryForm from './EnquiryForm';
 
 const locateClickHandler = (obj) => {
   window.open(`https://www.google.com/maps/dir/Current+Location/${obj.latitude},${obj.logitude}`);
 };
 
-const ProductCard = (obj, cardOnClickHandler) => {
+const ProductCard = (obj, cardOnClickHandler, onEnqueryClickHandler) => {
   return (
     <Card
       interactive
@@ -23,6 +24,7 @@ const ProductCard = (obj, cardOnClickHandler) => {
         <Icon icon="phone" style={{ marginRight: 10, color: 'green' }}/>
         <span>{obj.phoneNo}</span>
         <Button text="Locate" fill intent="success" style={{ marginTop: 10 }} onClick={() => locateClickHandler(obj)}/>
+        <Button text="Enquiry" fill intent="success" onClick={() => onEnqueryClickHandler(obj)} style={{ marginTop: 10 }} />
       </div>
     </Card>
   );
@@ -31,13 +33,20 @@ const ProductCard = (obj, cardOnClickHandler) => {
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false };
+    this.state = { showProductDtails: false, showEnquiryForm: false };
   }
 
   cardOnClickHandler = (obj) => {
     const { updateMainValue } = this.props;
     updateMainValue('currentCarDetail', obj);
     this.setState({ showProductDtails: obj.id });
+  }
+
+  onEnquiryFormToggle = (obj) => {
+    console.log('toggle vaue', obj);
+    const { updateFormValue, form } = this.props;
+    updateFormValue('dealerEnquiry', { ...form.dealerEnquiry, dealerId: obj.id });
+    this.setState({ showEnquiryForm: !this.state.showEnquiryForm });
   }
 
   render() {
@@ -47,8 +56,9 @@ class ProductDetails extends React.Component {
       <div className="home-product-list">
         {/* {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />} */}
         <div className="product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.dealerList ? main.initialData.dealerList.filter(c => ((c.stypeId === parseInt(stypeId, 10)) && c.sbId === parseInt(sbId, 10))).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
+          {main.initialData.dealerList ? main.initialData.dealerList.filter(c => ((c.stypeId === parseInt(stypeId, 10)) && c.sbId === parseInt(sbId, 10))).map((obj) => ProductCard(obj, this.cardOnClickHandler, this.onEnquiryFormToggle)) : []}
         </div>
+        <EnquiryForm onClose={this.onEnquiryFormToggle} props={this.props} isOpen={this.state.showEnquiryForm} schema='dealerEnquiry' />
       </div>
     );
   }

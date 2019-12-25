@@ -13,6 +13,10 @@ import addDealer from './request-handler/addDealer';
 import deleteDealer from './request-handler/deleteDealer';
 import addServiceCenter from './request-handler/addServiceCenter';
 import deleteServiceCenter from './request-handler/deleteServiceCenter';
+import uploadFile from './request-handler/uploadFile';
+import SellVehicle from './request-handler/addVehicle';
+import addDealerEnquiry from './request-handler/addDealerEnquiry';
+import addServceCenterEnquiry from './request-handler/addServiceCenterEnquiry';
 
 
 export default function (app) {
@@ -38,4 +42,8 @@ export default function (app) {
   app.post('/web/multi-search', multiSearch);
   app.post('/web/add-dealer', addDealer);
   app.post('/web/add-service-center', addServiceCenter);
+  app.post('/web/upload-file', uploadFile);
+  app.post('/web/add-vehicle', SellVehicle);
+  app.post('/web/add-dealer-enquiry', addDealerEnquiry);
+  app.post('/web/add-service-center-enquiry', addServceCenterEnquiry);
 }

@@ -24,9 +24,9 @@ export default ({ props }) => {
       >
         <h2>Sell your vehicle in a click!</h2>
         <form style={{ width: '100%' }}>
-          <Form contents={sellVehicleStructure(props)} {...props} schema="addProduct" />
+          <Form contents={sellVehicleStructure(props)} {...props} schema="sellVehicle" />
         </form>
       </Card>
     </div>
-);
+  );
 };

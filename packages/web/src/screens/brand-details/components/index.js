@@ -22,7 +22,7 @@ class TabNavigator extends React.Component {
         <div style={{ width: '100%', marginTop: 30 }}>
           <h2 style={{ marginBottom: 20 }}>{main.initialData.vehicleBrand.find(b => b.id === parseInt(sbId,10)).brandName } </h2>
           <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-            <Tab style={{ fontSize: 20 }} id="car" title="Cars" panel={<Products {...this.props} sbId={sbId} stypeId={stypeId} />} />
+            <Tab style={{ fontSize: 20 }} id="car" title={stypeId === '1' ? 'Cars' : 'Bikes'} panel={<Products {...this.props} sbId={sbId} stypeId={stypeId} />} />
             <Tab style={{ fontSize: 20 }}  id="dealer" title="Dealers" panel={<Dealers {...this.props} sbId={sbId} stypeId={stypeId} />} panelClassName="ember-panel" />
             <Tab style={{ fontSize: 20 }}  id="serviceCenter" title="ServiceCenter" panel={<ServiceCenter {...this.props} sbId={sbId} stypeId={stypeId}/>} />
           </Tabs>

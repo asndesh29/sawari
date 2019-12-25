@@ -27,3 +27,4 @@ _FileInput.propTypes = {
   content: PropTypes.objectOf(PropTypes.any).isRequired,
   props: PropTypes.objectOf(PropTypes.any).isRequired,
 };
+ 

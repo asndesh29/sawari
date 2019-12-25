@@ -11,7 +11,9 @@ export default async (record) => {
     const userEnquiry = await find('UserEnquiry');
     const dealerList = await find('Dealer');
     const serviceCenterList = await find('ServiceCenter');
-    return { vehicleBrand, vehicleType, vehicleBrandProduct, userEnquiry, cities, dealerList, serviceCenterList };
+    const dealerEnquiry = await find('DealerEnquiry');
+    const serviceCenterEnquiry = await find('ServiceCenterEnquiry');
+    return { vehicleBrand, vehicleType, vehicleBrandProduct, userEnquiry, cities, dealerList, serviceCenterList, dealerEnquiry, serviceCenterEnquiry };
   });
   return res;
 };

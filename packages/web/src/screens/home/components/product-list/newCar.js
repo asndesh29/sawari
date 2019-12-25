@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Card, Elevation, Button } from '@blueprintjs/core';
 import HorizontalScrollView from 'react-horizontal-scrolling-menu';
-import { ENDPOINT } from '../../../../config';
+import { ENDPOINT, APP_PRIMARY_COLOR } from '../../../../config';
 
 const ProductCard = (obj, cardOnClickHandler) => {
   return (
@@ -32,18 +32,16 @@ class ProductDetails extends React.Component {
     updateMainValue('currentCarDetail', obj);
     this.setState({ showProductDtails: obj.id });
   }
-
+ 
   render() {
     const { main, updateMainValue } = this.props;
     const { showProductDtails } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
+      <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
-        <div className="product-list-header">
-          <h2>New Cars</h2>
-        </div>
+        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }}/>
         <div className="product-list">
-          <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
+          <div style={{ width: '100%', textAlign: 'center', height: '100%', padding: 0}}>
             <HorizontalScrollView
               // wheel
               data = {main.initialData.vehicleBrandProduct ? main.initialData.vehicleBrandProduct.filter(c => c.stypeId === 1).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
@@ -59,7 +57,7 @@ class ProductDetails extends React.Component {
             />
           </div>
         </div>
-      </Card>
+      </div>
     );
   }
 }

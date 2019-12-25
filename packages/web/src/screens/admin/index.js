@@ -10,6 +10,8 @@ import AddProduct from './components/addProduct';
 import AddBrand from './components/addBrand';
 import Dealer from './components/dealers';
 import ServiceCenter from './components/service-center';
+import DealerEnquiry from './components/dealerEnquiry';
+import ServiceCenterEnquiry from './components/serviceCenterEnquiry';
 
 class Index extends React.Component {
   constructor(props) {
@@ -38,6 +40,10 @@ class Index extends React.Component {
         return <Dealer {...this.props} />;
       case 'serviceCenter':
         return <ServiceCenter {...this.props} />;
+      case 'dealerEnquiry':
+        return <DealerEnquiry { ...this.props} />;
+      case 'serviceCenterEnquiry':
+        return <ServiceCenterEnquiry {...this.props} />;
       default:
         return <Dealer {...this.props} />;
     }
