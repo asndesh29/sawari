@@ -15,6 +15,9 @@ import UsedCar from './components/product-list/usedCar';
 import UsedBike from './components/product-list/usedBikes';
 import Cars from './components/product-list/cars';
 import Bikes from './components/product-list/bikes';
+import BikeBrands from './components/product-list/bike-brands';
+import Scooters from './components/product-list/scooters';
+import UsedVehical from './components/product-list/used-vehicles';
 
 class Index extends Component {
 
@@ -40,11 +43,11 @@ class Index extends Component {
           <Slider {...this.props}/>
         </div>
         <TopCarBrand {...this.props} />
-        <TopBikeBrand {...this.props} />
+        <BikeBrands {...this.props} />
         <Cars {...this.props} />
         <Bikes {...this.props} />
-        <UsedCar {...this.props} />
-        <UsedBike {...this.props} />
+        <Scooters {...this.props} />
+        <UsedVehical {...this.props} />
         <Footer {...this.props}/>
       </div>
     );

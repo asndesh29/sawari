@@ -1,16 +1,18 @@
 @use '../config/config';
 
 .home-selector-slider {
-  width: 90%;
-  height: auto;
-  margin-top: 1px;
+  width: 100%;
+  // margin-top: 1px;
   display: flex;
   overflow: visible;
-  height: 400px;
+  height: 70vh;
   .home-selector {
-    width: 25%;
-    background: config.$primary_color;
-    margin-right: 2px;
+    width: 20%;
+    height: 40vh;
+    margin-top: 10vh;
+    margin-left: 20px;
+    z-index: 20;
+    position: absolute;
     .home-selector-buttons {
       display: flex;
       justify-content: space-around;
@@ -40,11 +42,13 @@
   }
 
   .home-slider {
-    width: 75%;
+    width: 100%;
     background: black;;
-    overflow: hidden;
+    height: 70vh;
     .dotclass {
-      background: red;
+      // background: red;
+      // display: flex;
+      // justify-content: center;
     }
   }
 }

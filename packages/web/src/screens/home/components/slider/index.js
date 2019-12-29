@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { ENDPOINT } from '../../../../config';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 class SliderComponent extends Component {
 
@@ -25,31 +24,11 @@ class SliderComponent extends Component {
 
   render() {
     const { data } = this.state;
-    const settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      dots: true,
-      arrows: true,
-    };
     return !data ? <div /> : (
       <div className="home-slider">
-        <Slider
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...settings}
-        >
-          {
-            data.map((obj, index) => {
-              return (
-                <div key={index} style={{ margin: 0, width: '80%', height: '80%'}}>
-                  <img src={obj} alt="slide prospectus" style={{ width: '100%', height: '100%', margin: 0 }} />
-                </div>
-              );
-            })
-          }
-        </Slider>
+        <Carousel infiniteLoop showThumbs={false} autoPlay transitionTime={2000}>
+          {data.map((img) => <div><img src={img} style={{ height: '70vh', width: '100%' }}/></div>)}
+        </Carousel>
       </div>
     );
   }

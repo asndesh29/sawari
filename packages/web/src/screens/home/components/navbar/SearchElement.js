@@ -47,7 +47,7 @@ class SearchElement extends React.Component {
             onChange={this.searchChange}
             placeholder="Type your query"
           />
-          <div className="search-button" style={{  }}>
+          <div className="search-button">
             <Icon icon="search" onClick={this.submitSearch} color="black" />
           </div>
         </div>

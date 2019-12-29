@@ -30,13 +30,13 @@ class ProductDetails extends React.Component {
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
           <Tabs.Expander />
-          <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`${selectedTabId} Bikes`}</h2></div>
+          <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`${selectedTabId} Scooters`}</h2></div>
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="New" title="New" panel={<NewBikes {...this.props} />} />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularBikes {...this.props} />} panelClassName="ember-panel" />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularBikes {...this.props} />} />
         </Tabs>
         <div style={{ width: '100%', textAlign: 'end'}}>
-          <Link to="/"><span style={{ fontWeight: 'bold'}}>{`More ${selectedTabId} Bikes`}</span></Link>
+          <Link to="/"><span style={{ fontWeight: 'bold'}}>{`More ${selectedTabId} Scooters`}</span></Link>
         </div>
       </Card>
     );

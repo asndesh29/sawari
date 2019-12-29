@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Card, Tabs, Tab } from '@blueprintjs/core';
 import NewCar from '../newCar';
 import PopularCar from '../mostPopularCar';
@@ -31,10 +31,13 @@ class ProductDetails extends React.Component {
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
           <Tabs.Expander />
           <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`${selectedTabId} Cars`}</h2></div>
-          <Tab style={{ fontSize: 15 }} id="New" title="New" panel={<NewCar {...this.props} />} />
-          <Tab style={{ fontSize: 15 }} id="Popular" title="Popular" panel={<PopularCar {...this.props} />} panelClassName="ember-panel" />
-          <Tab style={{ fontSize: 15 }} id="Upcoming" title="Upcoming" panel={<PopularCar {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="New" title="New" panel={<NewCar {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularCar {...this.props} />} panelClassName="ember-panel" />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularCar {...this.props} />} />
         </Tabs>
+        <div style={{ width: '100%', textAlign: 'end'}}>
+          <Link to="/"><span style={{ fontWeight: 'bold'}}>{`More ${selectedTabId} Cars`}</span></Link>
+        </div>
       </Card>
     );
   }

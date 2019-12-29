@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Card, Tabs, Tab } from '@blueprintjs/core';
-import NewBikes from '../newBikes';
-import PopularBikes from '../mostPopularBike';
+import NewCar from '../newCar';
+import PopularCar from '../mostPopularCar';
+import TopBikeBrands from '../topBikeBrand';
 
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, selectedTabId: 'New' };
+    this.state = { showProductDtails: false, selectedTabId: 'Bike' };
   }
 
   cardOnClickHandler = (obj) => {
@@ -30,14 +31,10 @@ class ProductDetails extends React.Component {
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
           <Tabs.Expander />
-          <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`${selectedTabId} Bikes`}</h2></div>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="New" title="New" panel={<NewBikes {...this.props} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularBikes {...this.props} />} panelClassName="ember-panel" />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularBikes {...this.props} />} />
+          <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`Top ${selectedTabId} Brands`}</h2></div>
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Bike" title="Bike" panel={<TopBikeBrands {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Scooter" title="Scooter" panel={<TopBikeBrands {...this.props} />} panelClassName="ember-panel" />
         </Tabs>
-        <div style={{ width: '100%', textAlign: 'end'}}>
-          <Link to="/"><span style={{ fontWeight: 'bold'}}>{`More ${selectedTabId} Bikes`}</span></Link>
-        </div>
       </Card>
     );
   }

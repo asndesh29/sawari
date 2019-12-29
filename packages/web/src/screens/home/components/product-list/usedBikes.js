@@ -37,11 +37,9 @@ class ProductDetails extends React.Component {
     const { main, updateMainValue } = this.props;
     const { showProductDtails } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
-        {showProductDtails &&  <Redirect to={`/used-vehicle/details/${showProductDtails}`} />}
-        <div className="product-list-header">
-          <h2>Used Bikes</h2>
-        </div>
+      <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0}}>
+        {showProductDtails && <Redirect to={`/used-vehicle/details/${showProductDtails}`} />}
+        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <div className="product-list">
           <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
             <HorizontalScrollView
@@ -59,7 +57,7 @@ class ProductDetails extends React.Component {
             />
           </div>
         </div>
-      </Card>
+      </div>
     );
   }
 }
