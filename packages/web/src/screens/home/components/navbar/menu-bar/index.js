@@ -19,14 +19,14 @@ class MenuBar extends React.Component {
     console.log('state value', this.state);
     return (
       <div className="nav-menu">
-        <div className="menu-item">
+        <div className="menu-item" style={{ marginRight: 20 }}>
           {/* <Icon icon="home" /> */}
           <Link to="/" style={{ textDecoration: 'none', margin: 0 }}>
             <span style={{ marginLeft: 5 }}>Home</span>
           </Link>
 
         </div>
-        <Divider style={{ background: 'white', marginBottom: 0, marginLeft: 10, marginRight: 10 }} />
+        {/* <Divider style={{ background: 'white', marginBottom: 0, marginLeft: 10, marginRight: 10 }} /> */}
         {menuStructure().map(m => menuItemWithSubmenu(m, showMenu, this.toggleMenu))}
         <div className="menu-item">
           <Link to="/sell-vehicle">

@@ -8,7 +8,7 @@ import PopularBikes from '../mostPopularBike';
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, selectedTabId: 'New' };
+    this.state = { showProductDtails: false, selectedTabId: 'Latest' };
   }
 
   cardOnClickHandler = (obj) => {
@@ -30,7 +30,7 @@ class ProductDetails extends React.Component {
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Scooters</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="New" title="New" panel={<NewBikes {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Latest" title="Latest" panel={<NewBikes {...this.props} />} />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularBikes {...this.props} />} panelClassName="ember-panel" />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularBikes {...this.props} />} />
         </Tabs>

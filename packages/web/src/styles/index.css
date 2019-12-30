@@ -27,6 +27,7 @@
 }
 .main_navbar .home-nav-logo .nav-menu {
   display: flex;
+  margin-right: 20px;
 }
 .main_navbar .home-nav-logo .nav-menu .menu-item:hover span {
   color: "white";
@@ -286,6 +287,7 @@ body {
 }
 .main_container .main_navbar .home-nav-logo .nav-menu {
   display: flex;
+  margin-right: 20px;
 }
 .main_container .main_navbar .home-nav-logo .nav-menu .menu-item:hover span {
   color: "white";

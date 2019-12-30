@@ -50,7 +50,7 @@ export default (menuObj, showMenu, toggleMenu) => {
           <Icon icon="caret-down" iconSize={18} />
         </div>
       </Popover>
-      <Divider style={{ background: 'white', marginBottom: 0, marginLeft: 10, marginRight: 10 }} />
+      {/* <Divider style={{ background: 'white', marginBottom: 0, marginLeft: 10, marginRight: 10 }} /> */}
     </div>
   );
 };
