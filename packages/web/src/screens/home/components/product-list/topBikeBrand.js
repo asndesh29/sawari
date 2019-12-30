@@ -9,12 +9,11 @@ const ProductCard = (obj, cardOnClickHandler) => {
   return (
     <Card
       interactive
-      elevation={Elevation.TWO}
       className="product-card"
-      style={{ height: 160, width: 150, }}
+      style={{ height: 130, width: 140, overflow: 'hidden' }}
       onClick={() => cardOnClickHandler(obj)}
     >
-      <img src={`${ENDPOINT}/images/${obj.brandImageUrl}`} alt={obj.brandName} style={{ height: 130, width: 130 }} />
+      <img src={`${ENDPOINT}/images/${obj.brandImageUrl}`} alt={obj.brandName} style={{ height: 100, width: 120 }} />
       <span>{obj.brandName}</span>
     </Card>
   );
@@ -38,9 +37,9 @@ class ProductDetails extends React.Component {
     return (
       <div elevation={0} className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
         {showProductDtails && <Redirect to={`/brand/${stypeId}/${showProductDtails}`} />}
-        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
+        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22, marginBottom: 5 }} />
         <div className="product-list">
-          <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
+          <div style={{ width: '100%', textAlign: 'center', height: '100%', marginTop: 5 }}>
             <HorizontalScrollView
               // wheel
               data = {main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(obj => obj.stypeId === 2).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}

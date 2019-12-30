@@ -18,6 +18,7 @@ import Bikes from './components/product-list/bikes';
 import BikeBrands from './components/product-list/bike-brands';
 import Scooters from './components/product-list/scooters';
 import UsedVehical from './components/product-list/used-vehicles';
+import CarComparison from './components/product-list/car-comparison';
 
 class Index extends Component {
 
@@ -35,6 +36,7 @@ class Index extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="main_container">
         <Navbar {...this.props} />
@@ -48,6 +50,7 @@ class Index extends Component {
         <Bikes {...this.props} />
         <Scooters {...this.props} />
         <UsedVehical {...this.props} />
+        <CarComparison {...this.props} />
         <Footer {...this.props}/>
       </div>
     );

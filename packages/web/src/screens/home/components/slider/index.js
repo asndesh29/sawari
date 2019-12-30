@@ -26,7 +26,7 @@ class SliderComponent extends Component {
     const { data } = this.state;
     return !data ? <div /> : (
       <div className="home-slider">
-        <Carousel infiniteLoop showThumbs={false} autoPlay transitionTime={2000}>
+        <Carousel showStatus={false} infiniteLoop showThumbs={false} autoPlay transitionTime={2000}>
           {data.map((img) => <div><img src={img} style={{ height: '70vh', width: '100%' }}/></div>)}
         </Carousel>
       </div>

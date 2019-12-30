@@ -1,12 +1,18 @@
 .main_navbar {
+  position: fixed;
+  top: 0;
+  z-index: 24;
   width: 100%;
   height: 120px;
   display: flex;
   flex-direction: column;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 .main_navbar .home-nav-logo {
-  background: #154155;
+  background: white;
+  color: black;
   margin-right: 5;
   height: 40%;
   width: 100%;
@@ -16,7 +22,7 @@
   padding-left: 20px;
 }
 .main_navbar .home-nav-logo span {
-  color: white;
+  color: black;
   font-size: 20px;
 }
 .main_navbar .home-nav-logo .nav-menu {
@@ -26,7 +32,7 @@
   color: "white";
 }
 .main_navbar .home-nav-logo .nav-menu .menu-item:hover span {
-  color: yellow;
+  color: #ff4202;
   cursor: pointer;
 }
 .main_navbar .search-element {
@@ -35,7 +41,7 @@
   align-items: center;
   width: 100%;
   height: 60%;
-  background: #154155;
+  background: white;
 }
 .main_navbar .search-element .search-box-container {
   height: 80%;
@@ -47,7 +53,7 @@
 }
 .main_navbar .search-element .search-box-container .search-form {
   display: flex;
-  width: 50%;
+  width: 40%;
   height: 70%;
   border-radius: 5px;
 }
@@ -56,22 +62,23 @@
   border-radius: 5px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  background: #f5f5f5;
 }
 .main_navbar .search-element .search-box-container .search-form .search-button {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-  background: #FBEE00;
+  background: black;
   width: 40px;
   margin-top: 1px;
-  margin-left: 1px;
+  margin-left: 0px;
 }
 .main_navbar .search-element .login-registration {
   width: 30%;
   height: 100%;
   display: flex;
-  color: white;
+  color: black;
   cursor: pointer;
   margin-right: 20px;
   justify-content: flex-end;
@@ -82,6 +89,9 @@
   margin-left: 5px;
 }
 
+.main-menu-popover-content {
+  margin-top: 1px;
+}
 .main-menu-popover-content .menu-item {
   width: 250px;
 }
@@ -234,8 +244,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #F1F1F1;
+  font-family: "century-gothic";
+  background: white;
 }
 
 .main_container {
@@ -245,16 +255,23 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "century-gothic";
 }
 .main_container .main_navbar {
+  position: fixed;
+  top: 0;
+  z-index: 24;
   width: 100%;
   height: 120px;
   display: flex;
   flex-direction: column;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 .main_container .main_navbar .home-nav-logo {
-  background: #154155;
+  background: white;
+  color: black;
   margin-right: 5;
   height: 40%;
   width: 100%;
@@ -264,7 +281,7 @@ body {
   padding-left: 20px;
 }
 .main_container .main_navbar .home-nav-logo span {
-  color: white;
+  color: black;
   font-size: 20px;
 }
 .main_container .main_navbar .home-nav-logo .nav-menu {
@@ -274,7 +291,7 @@ body {
   color: "white";
 }
 .main_container .main_navbar .home-nav-logo .nav-menu .menu-item:hover span {
-  color: yellow;
+  color: #ff4202;
   cursor: pointer;
 }
 .main_container .main_navbar .search-element {
@@ -283,7 +300,7 @@ body {
   align-items: center;
   width: 100%;
   height: 60%;
-  background: #154155;
+  background: white;
 }
 .main_container .main_navbar .search-element .search-box-container {
   height: 80%;
@@ -295,7 +312,7 @@ body {
 }
 .main_container .main_navbar .search-element .search-box-container .search-form {
   display: flex;
-  width: 50%;
+  width: 40%;
   height: 70%;
   border-radius: 5px;
 }
@@ -304,22 +321,23 @@ body {
   border-radius: 5px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  background: #f5f5f5;
 }
 .main_container .main_navbar .search-element .search-box-container .search-form .search-button {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-  background: #FBEE00;
+  background: black;
   width: 40px;
   margin-top: 1px;
-  margin-left: 1px;
+  margin-left: 0px;
 }
 .main_container .main_navbar .search-element .login-registration {
   width: 30%;
   height: 100%;
   display: flex;
-  color: white;
+  color: black;
   cursor: pointer;
   margin-right: 20px;
   justify-content: flex-end;
@@ -328,6 +346,9 @@ body {
 .main_container .main_navbar .search-element .login-registration span {
   font-size: 20px;
   margin-left: 5px;
+}
+.main_container .main-menu-popover-content {
+  margin-top: 1px;
 }
 .main_container .main-menu-popover-content .menu-item {
   width: 250px;
@@ -359,6 +380,7 @@ body {
 .main_container .home-selector-slider {
   width: 100%;
   display: flex;
+  margin-top: 120px;
   overflow: visible;
   height: 70vh;
 }
@@ -369,6 +391,15 @@ body {
   margin-left: 20px;
   z-index: 20;
   position: absolute;
+}
+.main_container .home-selector-slider .home-selector .home-selector-card {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5;
+  padding: 0;
 }
 .main_container .home-selector-slider .home-selector .home-selector-buttons {
   display: flex;
@@ -390,9 +421,9 @@ body {
   border-radius: 5%;
 }
 .main_container .home-selector-slider .home-selector .home-selector-buttons .button-focus {
-  color: yellow;
+  color: white;
   padding-bottom: 10px;
-  background: #154155;
+  background: black;
   clip-path: polygon(0 0, 0 90%, 40% 90%, 50% 100%, 60% 90%, 100% 90%, 100% 0);
 }
 .main_container .home-selector-slider .home-slider {
@@ -406,7 +437,6 @@ body {
 }
 .main_container .home-product-list .product-list-header {
   display: flex;
-  font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   justify-content: flex-start;
   align-items: flex-start;
@@ -423,11 +453,11 @@ body {
   width: 100%;
   justify-content: flex-start;
   overflow: hidden;
-  max-height: 300px;
+  max-height: 260px;
 }
 .main_container .home-product-list .product-list .product-card {
-  width: 20%;
-  height: 200px;
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -435,12 +465,11 @@ body {
   margin: 5px;
 }
 .main_container .home-product-list .product-list .product-card img {
-  width: 150px;
-  height: 150px;
+  margin: 5px;
+  width: 100%;
 }
 .main_container .home-product-list .product-list .product-card span {
   font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
   margin-top: 5px;
 }
 .main_container .main-footer {

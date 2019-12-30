@@ -32,6 +32,10 @@ export default (props) => {
       element: 'button',
       text: 'Search',
       intent: 'primary',
+      style: {
+        background: '#ff4202',
+        color: 'white',
+      },
     },
   ];
 };

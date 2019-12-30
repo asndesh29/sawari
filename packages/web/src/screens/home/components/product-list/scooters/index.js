@@ -28,15 +28,14 @@ class ProductDetails extends React.Component {
     return (
       <Card elevation={0} className="home-product-list">
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
+        <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Scooters</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tabs.Expander />
-          <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`${selectedTabId} Scooters`}</h2></div>
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="New" title="New" panel={<NewBikes {...this.props} />} />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularBikes {...this.props} />} panelClassName="ember-panel" />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularBikes {...this.props} />} />
         </Tabs>
-        <div style={{ width: '100%', textAlign: 'end'}}>
-          <Link to="/"><span style={{ fontWeight: 'bold'}}>{`More ${selectedTabId} Scooters`}</span></Link>
+        <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
+          <Link to="/"><span style={{ fontWeight: 'bold'}}>More Scooters</span></Link>
         </div>
       </Card>
     );

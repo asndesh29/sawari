@@ -14,16 +14,16 @@ export default () => {
       {
         'Used Car': [
           {
-            id: 20, name: 'Car In Your City'
+            id: 20, name: 'Cars In Your City',
           },
           {
-            id: 21, name: 'Search Used Cars'
+            id: 21, name: 'Search Used Cars',
           },
           {
-            id: 22, name: 'Sell Used Cars'
+            id: 22, name: 'Sell Used Cars',
           },
           {
-            id: 23, name: 'Used Car Dealers'
+            id: 23, name: 'Used Car Dealers',
           },
         ],
       },
@@ -34,24 +34,24 @@ export default () => {
           { id: 32, name: 'Upcoming Bikes' },
           { id: 33, name: 'Discount & Offers' },
           { id: 34, name: 'Compare Bikes' },
-          { id: 35, name: 'Showroom(Dearlers' },
+          { id: 35, name: 'Showroom(Dearlers)' },
           { id: 36, name: 'Service Centers' },
         ],
       },
       {
         'New Scooters': [
-          { id: 40, name: 'Popular Bikes' },
-          { id: 41, name: 'Latest Bikes' },
-          { id: 42, name: 'Upcoming Bikes' },
+          { id: 40, name: 'Popular Scooters' },
+          { id: 41, name: 'Latest Scooters' },
+          { id: 42, name: 'Upcoming Scooters' },
           { id: 43, name: 'Discount & Offers' },
-          { id: 44, name: 'Compare Bikes' },
-          { id: 45, name: 'Showroom(Dearlers' },
+          { id: 44, name: 'Compare Scooters' },
+          { id: 45, name: 'Showroom(Dearlers)' },
           { id: 46, name: 'Service Centers' },
         ],
       },
       {
         'Used Bike & Scooters': [
-          { id: 50, name: 'Bike & Scooters in your City' },
+          { id: 50, name: 'Bikes & Scooters in your City' },
           { id: 51, name: 'Search Used Bikes & Scooters' },
           { id: 52, name: 'Sell Used Bikes & Scooters' },
           { id: 53, name: 'Used Bikes & Scooters Dealers' },
@@ -67,6 +67,7 @@ export default () => {
       {
         'News & Reviews': [
           { id: 70, name: 'Video Review' },
+          { id: 80, name: 'User Review' },
         ],
       },
       {

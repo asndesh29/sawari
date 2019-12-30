@@ -9,14 +9,15 @@ const ProductCard = (obj, cardOnClickHandler) => {
   return (
     <Card
       interactive
-      elevation={Elevation.TWO}
       className="product-card"
-      style={{ height: 240, width: 250 }}
+      style={{ width: 'auto', height: 220, padding: 5, overflow: 'hidden' }}
       onClick={() => cardOnClickHandler(obj)}
     >
-      <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.brandName} style={{ height: 170, width: 230 }} />
-      <span style={{ fontWeight: 'bold' }}>{obj.name}</span>
-      <span>{`Rs ${obj.price}/-`}</span>
+      <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.brandName} style={{ height: 160, width: 'auto' }} />
+      <div style={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
+        <span style={{ fontSize: 16 }}>{obj.name}</span>
+        <span>{`NRs ${obj.price}/-`}</span>
+      </div>
     </Card>
   );
 };

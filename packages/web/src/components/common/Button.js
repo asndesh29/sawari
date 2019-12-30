@@ -21,6 +21,7 @@ const CustomButton = ({ content, props }) => {
         fill
         large
         disabled={props.form[props.schema].loading}
+        style={{ ...content.style }}
       />
     </div>
   );

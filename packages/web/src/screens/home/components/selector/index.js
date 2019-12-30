@@ -27,17 +27,12 @@ class Selector extends React.Component {
           <Card
             interactive
             elevation={Elevation.TWO}
+            className="home-selector-card"
             style={{
-              width: '100%',
-              justifyContent: 'center',
-              alignItems: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              margin: 5,
-              padding: 0,
-              background: '#ffdf00',
+
             }}
           >
+            <h1>Find your right vehicle</h1>
             <div className="home-selector-buttons">
               <Button onClick={() => this.buttonClickHandler('new')} autoFocus className={form.multiSearch.buttonType === 'new' ? 'button-focus' : 'home-selector-button'}>New</Button>
               <Button onClick={() => this.buttonClickHandler('used')} className={form.multiSearch.buttonType === 'used' ? 'button-focus' : 'home-selector-button'}>Used</Button>

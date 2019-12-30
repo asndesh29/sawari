@@ -29,11 +29,10 @@ class ProductDetails extends React.Component {
     return (
       <Card elevation={0} className="home-product-list">
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
+        <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Popular Bike and Scooter Brands</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tabs.Expander />
-          <div style={{ width: '100%' }}><h2 style={{ margin: 0, marginLeft: -20 }}>{`Top ${selectedTabId} Brands`}</h2></div>
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Bike" title="Bike" panel={<TopBikeBrands {...this.props} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Scooter" title="Scooter" panel={<TopBikeBrands {...this.props} />} panelClassName="ember-panel" />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Scooter" title="Scooter" panel={<TopBikeBrands {...this.props} />} />
         </Tabs>
       </Card>
     );
