@@ -80,7 +80,6 @@
   height: 100%;
   display: flex;
   color: black;
-  cursor: pointer;
   margin-right: 20px;
   justify-content: flex-end;
   align-items: center;
@@ -122,14 +121,20 @@
 }
 
 .main-footer {
-  height: 50px;
+  height: 100px;
   margin-top: 20px;
   width: 100%;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #154155;
+  flex-direction: column;
+}
+.main-footer .footer-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .main-footer span {
   margin: 10px;
@@ -340,7 +345,6 @@ body {
   height: 100%;
   display: flex;
   color: black;
-  cursor: pointer;
   margin-right: 20px;
   justify-content: flex-end;
   align-items: center;
@@ -384,12 +388,12 @@ body {
   display: flex;
   margin-top: 120px;
   overflow: visible;
+  align-items: center;
   height: 70vh;
 }
 .main_container .home-selector-slider .home-selector {
-  width: 20%;
-  height: 40vh;
-  margin-top: 10vh;
+  width: "auto";
+  padding: 20px;
   margin-left: 20px;
   z-index: 20;
   position: absolute;
@@ -401,7 +405,6 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5;
-  padding: 0;
 }
 .main_container .home-selector-slider .home-selector .home-selector-buttons {
   display: flex;
@@ -448,7 +451,6 @@ body {
 .main_container .home-product-list .product-list-header h2 {
   margin: 0px;
   padding: 0px;
-  margin-left: 15px;
 }
 .main_container .home-product-list .product-list {
   display: flex;
@@ -475,14 +477,20 @@ body {
   margin-top: 5px;
 }
 .main_container .main-footer {
-  height: 50px;
+  height: 100px;
   margin-top: 20px;
   width: 100%;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #154155;
+  flex-direction: column;
+}
+.main_container .main-footer .footer-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .main_container .main-footer span {
   margin: 10px;

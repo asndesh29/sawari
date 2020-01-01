@@ -6,11 +6,11 @@
   display: flex;
   margin-top: 120px;
   overflow: visible;
+  align-items: center;
   height: 70vh;
   .home-selector {
-    width: 20%;
-    height: 40vh;
-    margin-top: 10vh;
+    width: 'auto';
+    padding: 20px;
     margin-left: 20px;
     z-index: 20;
     position: absolute;
@@ -21,7 +21,7 @@
       display: flex;
       flex-direction: column;
       margin: 5;
-      padding: 0;
+
       // background: #ffdf00;
     }
     .home-selector-buttons {

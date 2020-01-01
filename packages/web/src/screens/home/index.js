@@ -19,6 +19,9 @@ import BikeBrands from './components/product-list/bike-brands';
 import Scooters from './components/product-list/scooters';
 import UsedVehical from './components/product-list/used-vehicles';
 import CarComparison from './components/product-list/car-comparison';
+import BikeAndScooterComparisons from './components/product-list/bike&scooterComparision';
+import News from './components/product-list/news';
+import Videos from './components/product-list/videos';
 
 class Index extends Component {
 
@@ -51,6 +54,9 @@ class Index extends Component {
         <Scooters {...this.props} />
         <UsedVehical {...this.props} />
         <CarComparison {...this.props} />
+        <BikeAndScooterComparisons {...this.props} />
+        <News {...this.props} />
+        <Videos {...this.props} />
         <Footer {...this.props}/>
       </div>
     );

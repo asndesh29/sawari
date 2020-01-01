@@ -4,7 +4,6 @@ import HorizontalScrollView from 'react-horizontal-scrolling-menu';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { Redirect, Link } from 'react-router-dom';
 import { Card, Tabs, Tab, Button} from '@blueprintjs/core';
-import SelectProductForComparison from './SelectProductMenuForCompare';
 
 import { ENDPOINT } from '../../../../../config';
 
@@ -13,12 +12,12 @@ const findProductDetails = (id, allProducts) => {
 };
 
 const carComparisonList = [
-  { id: 1, pId1: 1, pId2: 4, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 4, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 4, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 4, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 4, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 4, compCount: 10 },
+  { id: 1, pId1: 8, pId2: 9, compCount: 10 },
+  { id: 1, pId1: 8, pId2: 9, compCount: 10 },
+  { id: 1, pId1: 8, pId2: 9, compCount: 10 },
+  { id: 1, pId1: 8, pId2: 9, compCount: 10 },
+  { id: 1, pId1: 8, pId2: 9, compCount: 10 },
+  { id: 1, pId1: 8, pId2: 9, compCount: 10 },
 ];
 
 // const MoreComparison = () => {
@@ -54,7 +53,7 @@ const ProvinceDesign = (obj, allProducts) => {
             <span>{`NRs ${pro2.price}/-`}</span>
           </div>
         </div>
-        <div style={{ marginTop: 10, border: '1px solid #f75d34', padding: 10, margin: 10 }}>
+        <div style={{ marginTop: 10, border: '1px solid #f75d34', padding: 10, margin: 10, textAlign: 'center' }}>
           <span style={{ color: '#f75d34' }}>{`${pro1.name} vs ${pro2.name}`}</span>
         </div>
       </div>
@@ -82,9 +81,10 @@ class ProductDetails extends React.Component {
   render() {
     const { main, updateMainValue } = this.props;
     const { showProductDtails, selectedTabId } = this.state;
+    console.log('Bike comparison props', this.props);
     return (
       <Card style={{ background: 'white', width: '90%', marginTop: 10 }}>
-        <h2 style={{ margin: 0 }}>Popular Car Comparisons</h2>
+        <h2 style={{ margin: 0 }}>Popular Bike & Scooter Comparisons</h2>
         <div style={{ marginRight: 20 }}>
           <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap'}}>
             {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}

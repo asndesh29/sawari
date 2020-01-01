@@ -1,15 +1,20 @@
 @use '../config/config';
 
 .main-footer {
-  height: 50px;
+  height: 100px;
   margin-top: 20px;
   width: 100%;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: config.$primary_color;
-
+  flex-direction: column;
+  .footer-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   span {
     margin: 10px;
   }

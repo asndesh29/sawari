@@ -49,31 +49,31 @@ class ProductDetails extends React.Component {
       <div style={{ background: 'white', width: '90%' }}>
         {/* <div style={{ height: 1, width: '100%', background: '#f1f1f1', margin: 0, marginTop: -22 }} /> */}
         <div style={{ display: 'flex' }}>
-        <div style={{ marginRight: 20 }}>
-          <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap'}}>
-            {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
-            {provinceList.map(p => ProvinceDesign(p))}
+          <div style={{ marginRight: 20 }}>
+            <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap'}}>
+              {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
+              {provinceList.map(p => ProvinceDesign(p))}
+            </div>
           </div>
-        </div>
-        <div style={{ height: 190, width: 5, background: '#f1f1f1',marginLeft: 40, marginTop:  10, marginRight: 30, margin: 0 }}/>
-        <div style={{ marginLeft: 20, width: 300, flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-          <spa style={{ fontSize: 20 }}>
-            I am looking to buy a second
-          </spa>
-          <span style={{ fontSize: 20 }}>hand vehicle in</span>
-          <div style={{ marginBottom: 10, marginTop: 10, width: '100%' }}>
-            <Select
-              styles={{container: (provided, state) => ({
-                ...provided,
-                color: 'black',
-              })}}
-              options={this.props.main.initialData.cities ? this.props.main.initialData.cities.map(c => ({ value: c, label: c })) : []}
-              isSearchable
-              placeholder="Select city"
-              onChange={e => this.setState({ selectedCity: e.value })}
-            />
+          <div style={{ height: 190, width: 5, background: '#f1f1f1',marginLeft: 40, marginTop:  10, marginRight: 30, margin: 0 }}/>
+          <div style={{ marginLeft: 20, width: 300, flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
+            <spa style={{ fontSize: 20 }}>
+              I am looking to buy a second
+            </spa>
+            <span style={{ fontSize: 20 }}>hand vehicle in</span>
+            <div style={{ marginBottom: 10, marginTop: 10, width: '100%' }}>
+              <Select
+                styles={{container: (provided, state) => ({
+                  ...provided,
+                  color: 'black',
+                })}}
+                options={this.props.main.initialData.cities ? this.props.main.initialData.cities.map(c => ({ value: c, label: c })) : []}
+                isSearchable
+                placeholder="Select city"
+                onChange={e => this.setState({ selectedCity: e.value })}
+              />
+            </div>
           </div>
-        </div>
         </div>
       </div>
     );

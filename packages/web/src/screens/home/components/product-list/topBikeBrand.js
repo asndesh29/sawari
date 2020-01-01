@@ -37,7 +37,7 @@ class ProductDetails extends React.Component {
     return (
       <div elevation={0} className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
         {showProductDtails && <Redirect to={`/brand/${stypeId}/${showProductDtails}`} />}
-        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22, marginBottom: 5 }} />
+        {/* <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22, marginBottom: 5 }} /> */}
         <div className="product-list">
           <div style={{ width: '100%', textAlign: 'center', height: '100%', marginTop: 5 }}>
             <HorizontalScrollView

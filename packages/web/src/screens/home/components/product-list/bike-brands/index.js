@@ -30,10 +30,11 @@ class ProductDetails extends React.Component {
       <Card elevation={0} className="home-product-list">
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Popular Bike and Scooter Brands</h2></div>
-        <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
+        <TopBikeBrands {...this.props} />
+        {/* <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Bike" title="Bike" panel={<TopBikeBrands {...this.props} />} />
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Scooter" title="Scooter" panel={<TopBikeBrands {...this.props} />} />
-        </Tabs>
+        </Tabs> */}
       </Card>
     );
   }
