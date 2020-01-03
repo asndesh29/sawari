@@ -5,6 +5,7 @@ import Overview from './overview';
 import Review from './Review';
 import Offers from './Offers';
 import Compare from './Compare';
+import Varient from './Varient';
 import SocialMediaShare from '../../../common/socialMediaShare';
 
 class ProductDetails extends React.Component {
@@ -47,6 +48,7 @@ class ProductDetails extends React.Component {
               <Tab panelClassName="panel-container" style={{ fontSize: 15, fontWeight: 'bold', color: 'white', textAlign: 'end' }} id="Compare" title="Compare" panel={<Compare {...this.props} />} />
               <Tab panelClassName="panel-container" style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }} id="Review" title="Review" panel={<Review {...this.props} />} />
               <Tab panelClassName="panel-container" style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }} id="Offers" title="Offers" panel={<Offers {...this.props} />} />
+              <Tab panelClassName="panel-container" style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }} id="Varient" title="Varient" panel={<Varient {...this.props} />} />
             </Tabs>
           </div>
         </div>
