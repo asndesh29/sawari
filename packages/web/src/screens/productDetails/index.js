@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import Navbar from '../home/components/navbar';
 import Footer from '../home/components/footer';
-import ProductDetails from './components/productDetails';
+import ProductDetails from './components/details';
+import SideMenuBrand from '../common/sideBrandMenu';
 
 class Index extends React.Component {
   state={};
@@ -13,7 +14,10 @@ class Index extends React.Component {
     return (
       <div className="main_product_details">
         <Navbar {...this.props}/>
-        <ProductDetails {...this.props} />
+        <div className="main-product-details-sidebar">
+          <ProductDetails {...this.props} />
+          <SideMenuBrand {...this.props} />
+        </div>
         <Footer {...this.props}/>
       </div>
     );
