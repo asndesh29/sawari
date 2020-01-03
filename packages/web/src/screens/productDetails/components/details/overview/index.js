@@ -6,7 +6,7 @@ import KeySpecification from './KeySpecification';
 import OverView from './Overview';
 
 export default (props) => {
-  const { main } = props;
+  const { main, showEnquiryForm } = props;
   const { currentCarDetail } = main;
   return (
     <div className="keyspecification-overview">
@@ -14,7 +14,7 @@ export default (props) => {
         <div className="detail-image">
           <img src={`${ENDPOINT}/images/${currentCarDetail.image}`} alt={currentCarDetail.name} />
         </div>
-        <KeySpecification obj={productDetailsObj.keySpecifications} />
+        <KeySpecification obj={productDetailsObj.keySpecifications} showEnquiryForm={showEnquiryForm} />
       </div>
       <div style={{ height: 1, width: '100%', background: '#f1f1f1' }} />
       <OverView {...props} />

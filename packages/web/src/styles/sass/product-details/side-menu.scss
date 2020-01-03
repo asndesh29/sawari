@@ -1,0 +1,36 @@
+.side-menu {
+  width: auto;
+  height: auto;
+  margin-top: 50px;
+  margin-left: 30px;
+  .side-manu-car {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    .side-menu-car-container {
+      background: white;
+      border: 1px solid #f1f1f1;
+      padding: 10px;
+      width: 300px;
+      height: auto;
+      max-height: 400px;
+      overflow-y: scroll;
+      margin-bottom: 30px;
+      .side-menu-car-element {
+        background: #f1f1f1;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin: 2px;
+        img {
+          height: 40px;
+          width: 40px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

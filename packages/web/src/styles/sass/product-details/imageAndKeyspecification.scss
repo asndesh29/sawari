@@ -1,0 +1,35 @@
+.detail-image-compare {
+  height: auto;
+  width: 100%;
+  display: flex;
+  // background: blue;
+  .detail-image {
+    // background: yellowgreen;
+    width: 60%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #f5f5f5;
+    img {
+      width: 400px;
+      height: 300px;
+    }
+  }
+  .detail-compare {
+    // background: blanchedalmond;
+    width: 40%;
+    .name-price-compare {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      border-bottom: 1px solid #f5f5f5;
+      Button {
+        background: #ff4202;
+        height: 20px;
+        color: white;
+      }
+    }
+  }
+}

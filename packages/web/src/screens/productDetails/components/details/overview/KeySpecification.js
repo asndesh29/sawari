@@ -15,27 +15,27 @@ const keySpecificationsElement = (label, key, obj) => {
   );
 };
 
-export default ({ obj }) => {
+export default ({ obj, showEnquiryForm }) => {
   console.log('obj in key spcification', obj);
   return (
-      <div className="detail-compare">
-        <div className="name-price-compare">
-          <div className="name-price">
-            <span style={{ fontSize: 20 }}>{obj.name}</span>
-            <br />
-            <span>{`NRs. ${obj.price}/-`}</span>
-          </div>
-          <Button text="compare" />
-        </div>
-        <div className="key-specification">
-          <span style={{ fontSize: 20, marginBottom: 10, marginLeft: 5 }}>Key Specifications</span>
+    <div className="detail-compare">
+      <div className="name-price-compare">
+        <div className="name-price">
+          <span style={{ fontSize: 20 }}>{obj.name}</span>
           <br />
-          <br />
-          {Object.values(obj.labels).map((label, idx) => keySpecificationsElement(label, Object.keys(obj.labels)[idx], obj))}
+          <span>{`NRs. ${obj.price}/-`}</span>
         </div>
-        <div style={{ width: '100%', textAlign: 'center', padding: 10 }}>
-          <Button text="Enquiry" intent="success" fill />
-        </div>
+        <Button text="compare" />
       </div>
+      <div className="key-specification">
+        <span style={{ fontSize: 20, marginBottom: 10, marginLeft: 5 }}>Key Specifications</span>
+        <br />
+        <br />
+        {Object.values(obj.labels).map((label, idx) => keySpecificationsElement(label, Object.keys(obj.labels)[idx], obj))}
+      </div>
+      <div style={{ width: '100%', textAlign: 'center', padding: 10 }}>
+        <Button text="Enquiry" intent="success" fill onClick={showEnquiryForm} />
+      </div>
+    </div>
   );
 };

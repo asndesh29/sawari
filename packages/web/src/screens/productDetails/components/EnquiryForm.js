@@ -31,8 +31,9 @@ export default ({ isOpen, onClose, props }) => {
       title="Enter Your Details"
       onClose={onClose}
       canOutsideClickClose={false}
+      style={{ marginTop: 130, height: '80vh', overflowY: 'scroll' }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
         <Card
           interactive
           elevation={Elevation.TWO}

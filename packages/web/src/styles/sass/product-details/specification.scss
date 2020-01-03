@@ -1,0 +1,32 @@
+.specification {
+  // background: yellow;
+  padding-top: 10px;
+  .specification-collapse-element {
+    background: #f1f1f1;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  .specification-collapse-container {
+    background: white;
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .container-element {
+      width: 45%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px;
+      padding: 10px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+  }
+}

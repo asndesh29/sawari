@@ -53,7 +53,7 @@ class Index extends Component {
         <Bikes {...this.props} />
         <Scooters {...this.props} />
         <UsedVehical {...this.props} />
-        <CarComparison {...this.props} />
+        <CarComparison {...this.props} withScroll />
         <BikeAndScooterComparisons {...this.props} />
         <News {...this.props} />
         <Videos {...this.props} />

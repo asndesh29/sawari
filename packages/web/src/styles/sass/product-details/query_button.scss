@@ -1,0 +1,16 @@
+@use '../config/config';
+
+.query_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  Button {
+    height: 40px;
+    background: config.$primary_color;
+    color: white;
+    width:300px;
+  }
+}
