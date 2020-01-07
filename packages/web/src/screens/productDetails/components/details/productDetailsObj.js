@@ -1,4 +1,6 @@
 export default {
+  name: 'Mahindra xuv 300 w4 pet 5str',
+  price: 1500000,
   overview: {
     labels: { mileage: 'Milieage(upto)', engine: 'Engine(upto)', BHP: 'BHP', transmission: 'Transmission', seats: 'Seats', serviceCost: 'Service Cost' },
     mileage: '18.6',

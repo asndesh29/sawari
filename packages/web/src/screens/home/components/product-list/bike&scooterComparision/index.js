@@ -45,7 +45,7 @@ class ProductDetails extends React.Component {
             <div style={{ width: '100%', textAlign: 'center', height: 'auto' }}>
               <HorizontalScrollView
                 // wheel
-                data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, main.initialData.vehicleBrandProduct))] : []}
+                data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, main.initialData.vehicleBrandProduct, 'bike'))] : []}
                 arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
                 arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
                 onSelect={(key) => console.log('seleceed', key)}
@@ -59,7 +59,7 @@ class ProductDetails extends React.Component {
           </div>
         </div>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/"><span style={{ fontWeight: 'bold'}}>Compare More</span></Link>
+          <Link to="/compare/bike"><span style={{ fontWeight: 'bold' }}>Compare More</span></Link>
         </div>
       </Card>
     );

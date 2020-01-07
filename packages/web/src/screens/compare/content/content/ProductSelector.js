@@ -5,8 +5,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 const Selector = (props) => {
   console.log('props in selector', props);
-  const { placeHolder, type, menuChangeHandler, main, state } = props;
-  const options = type === 'brandId' ?
+  const { placeHolder, SelectType, menuChangeHandler, main, state } = props;
+  const options = SelectType === 'brandId' ?
     main.initialData.vehicleBrand.map(b => ({ value: b.id, label: b.brandName }))
     : main.initialData.vehicleBrandProduct.filter(p => p.sbId === state.brandId).map(p => ({ value: p.id, label: p.name }));
   return (
@@ -19,7 +19,7 @@ const Selector = (props) => {
         options={options}
         isSearchable
         placeholder={placeHolder}
-        onChange={e => menuChangeHandler(type, e.value)}
+        onChange={e => menuChangeHandler(SelectType, e.value)}
       />
     </div>
   );
@@ -28,19 +28,23 @@ const Selector = (props) => {
 class SelectProductMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { brandId: null, productId: null, selectedTabId: 'Brand' };
+    this.state = { brandId: null, modelId: null, varientId: null, selectedTabId: 'Brand' };
   }
 
-  menuChangeHandler = (type, id) => {
-    const { showMenuHandler } = this.props;
-    if (type === 'brandId') {
-      this.setState({ [type]: id });
+  menuChangeHandler = (selectType, id) => {
+    console.log('menu change handler called', selectType, id);
+    const { showMenuHandler, type } = this.props;
+    if (selectType === 'brandId') {
+      this.setState({ [selectType]: id });
       this.setState({ selectedTabId: 'Model' });
+    } else if (selectType === 'modelId') {
+      this.setState({ [selectType]: id });
+      this.setState({ selectedTabId: 'Varient' });
     } else {
-      this.setState({ [type]: id });
-      showMenuHandler({ productId: id });
+      this.setState({ [selectType]: id });
+      showMenuHandler({[type]: id });
     }
-    this.setState({ [type]: id });
+    this.setState({ [selectType]: id });
   }
 
   handleTabChange = (tabId) => {
@@ -58,16 +62,22 @@ class SelectProductMenu extends React.Component {
             style={{ fontSize: 15, fontWeight: 'bold' }}
             id="Brand"
             title="Brand"
-            panel={<Selector placeHolder="Select brand" type="brandId" menuChangeHandler={this.menuChangeHandler} {...this.props} />}
+            panel={<Selector state={this.state} placeHolder="Select brand" SelectType="brandId" menuChangeHandler={this.menuChangeHandler} {...this.props} />}
           />
           <Tab
             style={{ fontSize: 15, fontWeight: 'bold' }}
             id="Model"
             title="Model"
-            panel={<Selector state={this.state} placeHolder="Select model" type="productId" menuChangeHandler={this.menuChangeHandler} {...this.props} />}
+            panel={<Selector state={this.state} placeHolder="Select model" SelectType="modelId" menuChangeHandler={this.menuChangeHandler} {...this.props} />}
+          />
+          <Tab
+            style={{ fontSize: 15, fontWeight: 'bold' }}
+            id="Varient"
+            title="Varient"
+            panel={<Selector state={this.state} placeHolder="Select varient" SelectType="varientId" menuChangeHandler={this.menuChangeHandler} {...this.props} />}
           />
           <Tabs.Expander />
-          <AiOutlineClose onClick={showMenuHandler} style={{ cursor: 'pointer' }}/>
+          <AiOutlineClose onClick={showMenuHandler} style={{ cursor: 'pointer' }} />
         </Tabs>
       </div>
     );

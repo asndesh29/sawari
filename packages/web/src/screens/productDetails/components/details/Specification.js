@@ -68,6 +68,7 @@ class Specification extends React.Component {
     return (
       <div className="specification">
         {collapseHandler('Key Features', productDetailsObj.keyFeatures)}
+        {collapseHandler('Key Specification', productDetailsObj.keySpecifications)}
         {Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k]))}
       </div>
     );

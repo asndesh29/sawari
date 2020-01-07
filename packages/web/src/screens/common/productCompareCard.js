@@ -6,7 +6,7 @@ const findProductDetails = (id, allProducts) => {
   return allProducts.find(p => p.id === id);
 };
 
-export default (obj, allProducts) => {
+export default (obj, allProducts, type) => {
   console.log('all Products', allProducts);
   const pro1 = findProductDetails(obj.pId1, allProducts);
   const pro2 = findProductDetails(obj.pId2, allProducts);
@@ -28,7 +28,7 @@ export default (obj, allProducts) => {
             <span>{`NRs ${pro2.price}/-`}</span>
           </div>
         </div>
-        <Link to={`/compare/${obj.pId1}/${obj.pId2}`}>
+        <Link to={`/compare/${type}/${obj.pId1}/${obj.pId2}`} style={{ textDecoration: 'none' }}>
           <div style={{ marginTop: 10, border: '1px solid #f75d34', padding: 10, margin: 10, textAlign: 'center' }}>
             <span style={{ color: '#f75d34' }}>{`${pro1.name} vs ${pro2.name}`}</span>
           </div>

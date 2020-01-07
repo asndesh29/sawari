@@ -23,16 +23,16 @@ export default ({ obj, showEnquiryForm }) => {
         <div className="name-price">
           <span style={{ fontSize: 20 }}>{obj.name}</span>
           <br />
-          <span>{`NRs. ${obj.price}/-`}</span>
+          <span>{`Price: NRs.${obj.price} - ${obj.price}/-`}</span>
         </div>
         <Button text="compare" />
       </div>
-      <div className="key-specification">
+      {/* <div className="key-specification">
         <span style={{ fontSize: 20, marginBottom: 10, marginLeft: 5 }}>Key Specifications</span>
         <br />
         <br />
         {Object.values(obj.labels).map((label, idx) => keySpecificationsElement(label, Object.keys(obj.labels)[idx], obj))}
-      </div>
+      </div> */}
       <div style={{ width: '100%', textAlign: 'center', padding: 10 }}>
         <Button text="Enquiry" intent="success" fill onClick={showEnquiryForm} />
       </div>
