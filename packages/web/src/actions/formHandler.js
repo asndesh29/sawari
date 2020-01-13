@@ -10,6 +10,7 @@ import addServiceCenter from './helper-functions/addServiceCenter';
 import addSellVhicle from './helper-functions/addSellVehicle';
 import addDealerEnquiry from './helper-functions/addDealerEnquiry';
 import addServiceCenterEnquiry from './helper-functions/addServiceCenterEnquiry';
+import addModel from './helper-functions/addModel';
 
 export const updateFormValue = (schema, data) => async dispatch => dispatch({
   type: UPDATE_FORM_VALUE,
@@ -24,6 +25,9 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
       break;
     case 'addBrand':
       addBrand(dispatch, getState, schema);
+      break;
+    case 'addModel':
+      addModel(dispatch, getState, schema);
       break;
     case 'addProduct':
       addProduct(dispatch, getState, schema);

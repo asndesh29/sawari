@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
-import { Card, Elevation, Button } from '@blueprintjs/core';
-import HorizontalScrollView from 'react-horizontal-scrolling-menu';
-import { ENDPOINT } from '../../../../../config';
+import { Card } from '@blueprintjs/core';
+import VideoCard from './videoCard';
 
 const newsData = [
   {id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
@@ -12,34 +11,6 @@ const newsData = [
   {id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
   // {id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
 ];
-
-const ProductCard = (obj, cardOnClickHandler) => {
-  return (
-    <Card
-      // interactive
-      className="product-card"
-      style={{ height: 'auto', width: 500, margin: 5, padding: 5 }}
-      onClick={() => cardOnClickHandler(obj)}
-    >
-      <div>
-        <iframe
-            width="100%"
-            height="300"
-            src="https://www.youtube.com/embed/tgbNymZ7vqY"
-          >
-          </iframe>
-        <div style={{ marginTop: 5, marginLeft: 10 }}>
-          <span style={{ fontSize: 20 }}>{obj.header}</span>
-          <br />
-          <span style={{ color: '#757575', fontSize: 10 }}>{obj.date}</span>
-          <br />
-          <br />
-          {/* <span style={{ color: '#757575'}}>{obj.content}</span> */}
-        </div>
-      </div>
-    </Card>
-  );
-};
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -63,10 +34,10 @@ class ProductDetails extends React.Component {
           <h2>Videos</h2>
         </div>
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
-            {main.initialData.vehicleBrand ? newsData.map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
+          {main.initialData.vehicleBrand ? newsData.map((obj) => VideoCard(obj, this.cardOnClickHandler)) : []}
         </div>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/"><span style={{ fontWeight: 'bold' }}>More Videos</span></Link>
+          <Link to="/more/videos"><span style={{ fontWeight: 'bold' }}>More Videos</span></Link>
         </div>
       </Card>
     );

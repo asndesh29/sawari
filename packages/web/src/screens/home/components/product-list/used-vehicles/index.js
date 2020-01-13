@@ -7,7 +7,7 @@ import Content from './content';
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, selectedTabId: 'Cars' };
+    this.state = { showProductDtails: false, selectedTabId: 'cars' };
   }
 
   cardOnClickHandler = (obj) => {
@@ -29,9 +29,9 @@ class ProductDetails extends React.Component {
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Used</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Cars" title="Cars" panel={<Content {...this.props} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Bikes" title="Bikes" panel={<Content {...this.props} />} panelClassName="ember-panel" />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Scooters" title="Scooters" panel={<Content {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="cars" title="Cars" panel={<Content {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="bikes" title="Bikes" panel={<Content {...this.props} />} panelClassName="ember-panel" />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="scooters" title="Scooters" panel={<Content {...this.props} />} />
         </Tabs>
       </Card>
     );

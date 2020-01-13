@@ -12,6 +12,7 @@ import Dealer from './components/dealers';
 import ServiceCenter from './components/service-center';
 import DealerEnquiry from './components/dealerEnquiry';
 import ServiceCenterEnquiry from './components/serviceCenterEnquiry';
+import AddModel from './components/addModel';
 
 class Index extends React.Component {
   constructor(props) {
@@ -44,6 +45,8 @@ class Index extends React.Component {
         return <DealerEnquiry { ...this.props} />;
       case 'serviceCenterEnquiry':
         return <ServiceCenterEnquiry {...this.props} />;
+      case 'addModel':
+        return <AddModel {...this.props} />;
       default:
         return <Dealer {...this.props} />;
     }

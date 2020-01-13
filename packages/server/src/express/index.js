@@ -17,7 +17,8 @@ import uploadFile from './request-handler/uploadFile';
 import SellVehicle from './request-handler/addVehicle';
 import addDealerEnquiry from './request-handler/addDealerEnquiry';
 import addServceCenterEnquiry from './request-handler/addServiceCenterEnquiry';
-
+import addModel from './request-handler/addModel';
+import deleteModel from './request-handler/deleteModel';
 
 export default function (app) {
   app.use((req, res, next) => {
@@ -30,10 +31,12 @@ export default function (app) {
   app.post('/auth/login', login);
   app.post('/auth/logout', logout);
   app.post('/web/add-brand', addBrand);
+  app.post('/web/add-model', addModel);
   app.post('/web/add-product', addProduct);
   app.get('/web/fetch-initial-data', fetchInitialWebData);
   app.get('/web/fetch-admin-data', fetchAdminData);
   app.get('/web/delete-brand', deleteBrand);
+  app.get('/web/delete-model', deleteModel);
   app.get('/web/delete-product', deleteProduct);
   app.get('/web/delete-dealer', deleteDealer);
   app.get('/web/delete-service-center', deleteServiceCenter);

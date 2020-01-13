@@ -8,6 +8,7 @@ import BrandDetails from './brand-details';
 import SellVehicle from './sell-vehicle';
 import UsedVehicallDetails from './usedVehicleDetails';
 import Compare from './compare';
+import ShowMore from './show-more-product';
 
 class index extends Component {
   constructor(props) {
@@ -30,6 +31,14 @@ class index extends Component {
           <Route exact path="/compare/:typeId/:pId1/:pId2" component={Compare} />
           <Route exact path="/compare/:typeId/:pId1/:pId2/pId3" component={Compare} />
           <Route exact path="/compare/:typeId/:pId1/:pId2/:pId3/:pId4" component={Compare} />
+          <Route exact path="/more/:contentType" component={ShowMore} />
+          <Route exact path="/popular/:contentType" component={ShowMore} />
+          <Route exact path="/latest/:contentType" component={ShowMore} />
+          <Route exact path="/upcoming/:contentType" component={ShowMore} />
+          <Route exact path="/discount-offers/:contentType" component={ShowMore} />
+          <Route exact path="/showrooms/:showroomType" component={ShowMore} />
+          <Route exact path="/service-center/:serviceCenterType" component={ShowMore} />
+          <Route exact path="/used/:placeId/:usedVehicleType" component={ShowMore} />
         </div>
       </Router>
     );

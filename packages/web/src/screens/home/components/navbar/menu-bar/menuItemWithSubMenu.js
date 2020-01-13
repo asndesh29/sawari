@@ -1,21 +1,22 @@
 import React from 'react';
-import { Divider, Popover, Position, PopoverInteractionKind, Icon } from '@blueprintjs/core';
+import { Link } from 'react-router-dom';
+import { Popover, Position, PopoverInteractionKind, Icon } from '@blueprintjs/core';
 
 const popOverContentMenuItem = (menuItems) => {
-  // console.log(menuKey);
   return (
     <div className="main-menu-popover-content">
       {menuItems[0].map((mi) => {
         return (
-          <div className="menu-item" key={mi.id}>
-            <div className="menu-item-element">
-              <span>{mi.name}</span>
+          <Link to={mi.route} style={{ textDecoration: 'none', color: 'black' }}>
+            <div className="menu-item" key={mi.id}>
+              <div className="menu-item-element">
+                <span>{mi.name}</span>
+              </div>
+              <div className="bottom-border" />
             </div>
-            <div className="bottom-border" />
-          </div>
+          </Link>
         );
-      })
-    }
+      })}
     </div>
   );
 };

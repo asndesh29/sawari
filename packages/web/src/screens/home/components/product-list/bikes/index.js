@@ -35,7 +35,7 @@ class ProductDetails extends React.Component {
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularBikes {...this.props} />} />
         </Tabs>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/"><span style={{ fontWeight: 'bold'}}>More Bikes</span></Link>
+          <Link to="/more/bikes"><span style={{ fontWeight: 'bold'}}>More Bikes</span></Link>
         </div>
       </Card>
     );

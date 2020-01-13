@@ -1,18 +1,20 @@
 .side-menu {
   width: auto;
   height: auto;
-  margin-top: 50px;
+  // margin-top: 50px;
+  width: 300px;
   margin-left: 30px;
+  color: black;
   .side-manu-car {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     align-items: center;
     .side-menu-car-container {
       background: white;
       border: 1px solid #f1f1f1;
       padding: 10px;
-      width: 300px;
+      width: 100%;
       height: auto;
       max-height: 400px;
       overflow-y: scroll;

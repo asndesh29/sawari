@@ -77,7 +77,7 @@ class BrandList extends React.Component {
               data={main.initialAdminData.vehicleBrand.filter(vb => parseInt(vb.stypeId, 10) === parseInt(form.addBrand.stypeId, 10)).map(obj => (
                 {
                   ...obj,
-                  brandImageUrl: <img src={`${ENDPOINT}/images/${obj.brandImageUrl}`} style={{ width: 50, height: 50 }}/>,
+                  brandImageUrl: <img src={`${ENDPOINT}/brand_image/${obj.brandImageUrl}`} style={{ width: 50, height: 50 }}/>,
                   update: <Button text="Update" intent={Intent.SUCCESS} onClick={() => this.updateBrand(obj.id)} />,
                   delete: <Button text="Delete" intent={Intent.DANGER} onClick={() => this.deleteBrand(obj.id)} />,
                 }

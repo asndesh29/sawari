@@ -4,7 +4,7 @@ import addBrand from '../../api/addBrand';
 import validateToken from '../../auth/validateToken';
 
 const storage = multer.diskStorage({
-  destination: (request, file, cb) => cb(null, path.join(__dirname, '..', '..', 'public', 'images')),
+  destination: (request, file, cb) => cb(null, path.join(__dirname, '..', '..', 'public', 'brand_image')),
   filename: (request, file, cb) => cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`),
 });
 

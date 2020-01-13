@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 import Navbar from '../home/components/navbar';
 import Footer from '../home/components/footer';
 import ProductDetails from './components/details';
-import SideMenuBrand from '../common/sideBrandMenu';
+import SideMenuBrand from '../common/filters/sideBrandMenu';
 
 class Index extends React.Component {
   state={};
@@ -16,7 +16,7 @@ class Index extends React.Component {
         <Navbar {...this.props}/>
         <div className="main-product-details-sidebar">
           <ProductDetails {...this.props} />
-          <SideMenuBrand {...this.props} />
+          <SideMenuBrand {...this.props} car bike />
         </div>
         <Footer {...this.props}/>
       </div>

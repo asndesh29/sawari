@@ -1,0 +1,19 @@
+.brand-details {
+  width: 100%;
+  padding: 40px;
+  // background: red;
+  .brand-details-menu {
+    width: 100%;
+    // background: yellow;
+    .menu-tab {
+      background: black;
+      .manu-tab-container {
+        background: white;
+        height: 100%;
+        color: white;
+        font-weight: bold;
+        @import './productDetails.scss';
+      }
+    }
+  }
+}

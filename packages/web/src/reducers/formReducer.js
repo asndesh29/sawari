@@ -13,6 +13,9 @@ const initialFormState = {
   addBrand: {
     stypeId: null, brandName: null, image: null, sid: 1, loading: null, error: null, success: null,
   },
+  addModel: {
+    stypeId: null, name: null, image: null, sid: 1, loading: null, error: null, success: null,
+  },
   sendEmail: {
     email: null, message: null, success: null, error: null, loading: null,
   },

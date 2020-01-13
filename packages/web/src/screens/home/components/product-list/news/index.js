@@ -1,43 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
-import { Card, Elevation, Button } from '@blueprintjs/core';
-import HorizontalScrollView from 'react-horizontal-scrolling-menu';
-import { ENDPOINT } from '../../../../../config';
+import { Card } from '@blueprintjs/core';
+import newsCard from './newsCard';
 
 const newsData = [
-  {id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 2, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 3, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
+  { id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
+  { id: 2, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
+  { id: 3, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
+  { id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
+  { id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
 ];
-
-const ProductCard = (obj, cardOnClickHandler) => {
-  return (
-    <Card
-      // interactive
-      className="product-card"
-      style={{ height: 'auto', width: 500, margin: 5, padding: 5 }}
-      onClick={() => cardOnClickHandler(obj)}
-    >
-      <div style={{ display: 'flex' }}>
-        <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.brandName} style={{ height: 200, width: 200 }} onClick={() => cardOnClickHandler(obj)} />
-        <div style={{ marginTop: 20, marginLeft: 10, }}>
-          <span style={{fontSize: 20}}>{obj.header}</span>
-          <br />
-          <span style={{ color: '#757575', fontSize: 10 }}>{obj.date}</span>
-          <br />
-          <br />
-          <span style={{ color: '#757575'}}>{obj.content}</span>
-        </div>
-      </div>
-      <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-        <Link to="/"><span style={{ fontWeight: 'bold'}}>More...</span></Link>
-      </div>
-    </Card>
-  );
-};
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -60,11 +33,11 @@ class ProductDetails extends React.Component {
         <div className="product-list-header">
           <h2>News</h2>
         </div>
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
-            {main.initialData.vehicleBrand ? newsData.map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {main.initialData.vehicleBrand ? newsData.map((obj) => newsCard(obj, this.cardOnClickHandler)) : []}
         </div>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/"><span style={{ fontWeight: 'bold'}}>More News</span></Link>
+          <Link to="/more/news"><span style={{ fontWeight: 'bold' }}>More News</span></Link>
         </div>
       </Card>
     );

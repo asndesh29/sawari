@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@blueprintjs/core';
+import { Button, Colors } from '@blueprintjs/core';
 import { APP_PRIMARY_COLOR } from '../../../../config';
 
 class Index extends React.Component {
@@ -13,7 +13,7 @@ class Index extends React.Component {
           text=" Product Enquiry"
           fill
           intent="primary"
-          style={{ background: main.currentAdminContent === 'enquiry' ? 'blue' : 'yellow'}}
+          style={{ background: main.currentAdminContent === 'enquiry' ? 'blue' : 'yellow' }}
           onClick={() => updateMainValue('currentAdminContent', 'enquiry')}
         />
         <Button
@@ -36,7 +36,14 @@ class Index extends React.Component {
           onClick={() => updateMainValue('currentAdminContent', 'addBrand')}
         />
         <Button
-          text="Product"
+          text="Model"
+          fill
+          intent="primary"
+          style={{ background: main.currentAdminContent === 'addModel' ? 'blue' : 'yellow'}}
+          onClick={() => updateMainValue('currentAdminContent', 'addModel')}
+        />
+        <Button
+          text="Varient"
           fill
           intent="primary"
           style={{ background: main.currentAdminContent === 'addProduct' ? 'blue' : 'yellow'}}

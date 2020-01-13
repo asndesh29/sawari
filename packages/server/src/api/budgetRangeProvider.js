@@ -34,5 +34,4 @@ const cities = [
   'Dasharathchand',  'Ilam',          'Banepa',
   'Dhulikhel',
 ];
-export { cities }
-
+export { cities };
