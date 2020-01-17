@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@blueprintjs/core';
-import AddBrandForm from './addBrandProductForm';
-import BrandList from './brandProductList';
+import AddVarientModelForm from './addModelVarientForm';
+import ModelVarientList from './modelVarientList';
 import Filter from './filter';
 
 class ProfileSetttings extends React.Component {
@@ -14,22 +14,24 @@ class ProfileSetttings extends React.Component {
 
   toggleAddBrand = () => {
     const { isAddBrandOpen } = this.state;
+    const { updateMainValue, updateFormValue } = this.props;
     this.setState({ isAddBrandOpen: !isAddBrandOpen });
+    // updateMainValue('varientId', 'new');
   }
 
   render() {
     const { isAddBrandOpen } = this.state;
     return (
       <div className="admin-add-brand">
-        <div className="admin-add-brand-menu" style={{ height: 100 }}>
+        <div className="admin-add-brand-menu" style={{ height: 'auto' }}>
           <div className="admin-add-brand-menu-filter">
             <Filter {...this.props}/>
           </div>
-          <Button rightIcon="plus" text="Add Product" onClick={this.toggleAddBrand}/>
+          <Button rightIcon="plus" text="Add Varient" onClick={this.toggleAddBrand} />
         </div>
         <div className="admin-add-brand-content">
-          <AddBrandForm isOpen={isAddBrandOpen} onClose={this.toggleAddBrand} props={this.props} />
-          <BrandList {...this.props} />
+          <AddVarientModelForm isOpen={isAddBrandOpen} onClose={this.toggleAddBrand} props={this.props} />
+          <ModelVarientList {...this.props} />
         </div>
       </div>
     );

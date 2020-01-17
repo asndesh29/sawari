@@ -4,7 +4,7 @@ export default function validateToken(token) {
   try {
     const user = cache.users.get(`${token}`);
     if (!user) {
-      return false;
+      throw new Error('Athentication faild')
     }
     return user;
   } catch (e) {

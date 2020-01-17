@@ -13,7 +13,7 @@ const ProductCard = (obj, cardOnClickHandler) => {
       style={{ width: 'auto', height: 220, padding: 5, overflow: 'hidden' }}
       onClick={() => cardOnClickHandler(obj)}
     >
-      <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.brandName} style={{ height: 160, width: 'auto' }} />
+      <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.brandName} style={{ height: 160, width: 'auto' }} />
       <div style={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
         <span style={{ fontSize: 16 }}>{obj.name}</span>
         <span>{`NRs ${obj.price}/-`}</span>
@@ -40,12 +40,12 @@ class ProductDetails extends React.Component {
     return (
       <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
-        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }}/>
+        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <div className="product-list">
-          <div style={{ width: '100%', textAlign: 'center', height: '100%'}}>
+          <div style={{ width: '100%', textAlign: 'center', height: '100%' }}>
             <HorizontalScrollView
               // wheel
-              data = {main.initialData.vehicleBrandProduct ? main.initialData.vehicleBrandProduct.filter(c => c.stypeId === 2).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
+              data = {main.initialData.vehicleModel ? main.initialData.vehicleModel.filter(c => c.stypeId === 2).map((obj) => ProductCard(obj, this.cardOnClickHandler)) : []}
               arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
               arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
               // onSelect={(key) => console.log('seleceed', key)}

@@ -9,5 +9,6 @@ export default async (req, res) => {
   } catch (e) {
     res.statusCode = 500;
     res.send('Faild to fetch admin data');
+    console.log(e);
   }
 };

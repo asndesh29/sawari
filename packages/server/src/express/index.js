@@ -4,7 +4,7 @@ import fetchInitialWebData from './request-handler/fetchInitialWebData';
 import addBrand from './request-handler/addBrand';
 import fetchAdminData from './request-handler/fetchAdminData';
 import deleteBrand from './request-handler/deleteBrand';
-import addProduct from './request-handler/addProduct';
+import addVarient from './request-handler/addVarient';
 import deleteProduct from './request-handler/deleteProduct';
 import addEnquiry from './request-handler/addEnquiry';
 import fetchProductDetails from './request-handler/fetchProDuctDetails';
@@ -19,6 +19,7 @@ import addDealerEnquiry from './request-handler/addDealerEnquiry';
 import addServceCenterEnquiry from './request-handler/addServiceCenterEnquiry';
 import addModel from './request-handler/addModel';
 import deleteModel from './request-handler/deleteModel';
+import deleteVarient from './request-handler/deleteVarient';
 
 export default function (app) {
   app.use((req, res, next) => {
@@ -32,7 +33,7 @@ export default function (app) {
   app.post('/auth/logout', logout);
   app.post('/web/add-brand', addBrand);
   app.post('/web/add-model', addModel);
-  app.post('/web/add-product', addProduct);
+  app.post('/web/add-varient', addVarient);
   app.get('/web/fetch-initial-data', fetchInitialWebData);
   app.get('/web/fetch-admin-data', fetchAdminData);
   app.get('/web/delete-brand', deleteBrand);
@@ -49,4 +50,5 @@ export default function (app) {
   app.post('/web/add-vehicle', SellVehicle);
   app.post('/web/add-dealer-enquiry', addDealerEnquiry);
   app.post('/web/add-service-center-enquiry', addServceCenterEnquiry);
+  app.get('/web/delete-varient', deleteVarient);
 }

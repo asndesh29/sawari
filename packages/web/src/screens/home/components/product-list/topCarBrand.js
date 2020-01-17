@@ -13,7 +13,7 @@ const ProductCard = (obj, cardOnClickHandler) => {
       style={{ height: 130, width: 140 }}
       // onClick={() => cardOnClickHandler(obj)}
     >
-      <img src={`${ENDPOINT}/images/${obj.brandImageUrl}`} alt={obj.brandName} style={{ height: 100, width: 120 }} onClick={() => cardOnClickHandler(obj)} />
+      <img src={`${ENDPOINT}/brand_image/${obj.brandImageUrl}`} alt={obj.brandName} style={{ height: 100, width: 120 }} onClick={() => cardOnClickHandler(obj)} />
       <span>{obj.brandName}</span>
     </Card>
   );

@@ -6,7 +6,7 @@ import Sidebar from './components/sidebar';
 import Footer from '../home/components/footer';
 import Enquiry from './components/enquiry';
 import Product from './components/propduct';
-import AddProduct from './components/addProduct';
+import AddProduct from './components/addVarient';
 import AddBrand from './components/addBrand';
 import Dealer from './components/dealers';
 import ServiceCenter from './components/service-center';
@@ -48,7 +48,7 @@ class Index extends React.Component {
       case 'addModel':
         return <AddModel {...this.props} />;
       default:
-        return <Dealer {...this.props} />;
+        return <AddProduct {...this.props} />;
     }
   }
 

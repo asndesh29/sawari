@@ -10,7 +10,8 @@ export default async () => {
     const dealerList = await find('Dealer');
     const serviceCenterList = await find('ServiceCenter');
     const usedVehicle = await find('SellVehicle');
-    return { vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle };
+    const vehicleModel = await find('ServiceTypeBrandModel');
+    return { vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel };
   });
   return { budgetRangeList, ...res };
 };

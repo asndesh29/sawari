@@ -6,7 +6,7 @@ const initialAppState = {
   modal: false,
   initialData: {},
   initialAdminData: {},
-  currentAdminContent: 'dealer',
+  currentAdminContent: 'addProduct',
   currentCarDetail: null,
   loginDetail: null,
   currentUserDetails: null,

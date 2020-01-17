@@ -11,6 +11,20 @@ import addSellVhicle from './helper-functions/addSellVehicle';
 import addDealerEnquiry from './helper-functions/addDealerEnquiry';
 import addServiceCenterEnquiry from './helper-functions/addServiceCenterEnquiry';
 import addModel from './helper-functions/addModel';
+import addVarient from './helper-functions/addVarient';
+
+const arrBike = [
+  'BikeVarientOverview',
+  'BikeVarientKeySpecification',
+  'BikeVarientKeyFeaturs',
+  'BikeVarientEngineTransmission',
+  'BikeVarientFeatursSafety',
+  'BikeVarientMileagePerformance',
+  'BikeVarientChassisSuspension',
+  'BikeVarientDimensionCapacity',
+  'BikeVarientElectricals',
+  'BikeVarientTyresBrakes'
+];
 
 export const updateFormValue = (schema, data) => async dispatch => dispatch({
   type: UPDATE_FORM_VALUE,
@@ -29,8 +43,30 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
     case 'addModel':
       addModel(dispatch, getState, schema);
       break;
-    case 'addProduct':
-      addProduct(dispatch, getState, schema);
+    case 'ServiceTypeBrandModelVarient':
+    case 'CarVarientOverview':
+    case 'CarVarientKeySpecification':
+    case 'CarVarientKeyFeatures':
+    case 'CarVarientEngineTransmission':
+    case 'CarVarientFuelPerformance':
+    case 'CarVarientSuspensionSteeringBreak':
+    case 'CarVarientDimentionCapacity':
+    case 'CarVarientComfortConvenience':
+    case 'CarVarientInterior':
+    case 'CarVarientExterior':
+    case 'CarVarientSafty':
+    case 'CarVarientEntertainmentCommunication':
+    case 'BikeVarientOverview':
+    case 'BikeVarientKeySpecification':
+    case 'BikeVarientKeyFeaturs':
+    case 'BikeVarientEngineTransmission':
+    case 'BikeVarientFeatursSafety':
+    case 'BikeVarientMileagePerformance':
+    case 'BikeVarientChassisSuspension':
+    case 'BikeVarientDimensionCapacity':
+    case 'BikeVarientElectricals':
+    case 'BikeVarientTyresBrakes':
+      addVarient(dispatch, getState, schema);
       break;
     case 'addEnquiry':
       addEnquiry(dispatch, getState, schema);
