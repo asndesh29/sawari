@@ -9,6 +9,11 @@ import SideMenuBrand from '../common/filters/sideBrandMenu';
 class Index extends React.Component {
   state={};
 
+  componentWillMount() {
+    const { fetchInitialData } = this.props;
+    fetchInitialData();
+  }
+
   render() {
     console.log('this is product details', this.props);
     return (

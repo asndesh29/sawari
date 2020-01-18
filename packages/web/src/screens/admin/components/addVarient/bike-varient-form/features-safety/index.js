@@ -18,11 +18,14 @@ const addMainVarientStructure = (props, update) => {
     {
       element: 'input', placeHolder: 'Enter odometer...', value: 'odometer', type: 'text', label: 'odometer:',
     },
+    // {
+    //   element: 'radiogroup',
+    //   placeHolder: 'Fuel gauge',
+    //   value: 'fuelGauge',
+    //   radios: [{ element: 'radio', label: 'yes', value: 1 }, { element: 'radio', label: 'No', value: 0 }],
+    // },
     {
-      element: 'radiogroup',
-      placeHolder: 'Fuel gauge',
-      value: 'fuelGauge',
-      radios: [{ element: 'radio', label: 'yes', value: 1 }, { element: 'radio', label: 'No', value: 0 }],
+      element: 'input', placeHolder: 'Enter Fuel gauge...', value: 'fuelGauge', type: 'text', label: 'Fuel Gauge:',
     },
     {
       element: 'input', placeHolder: 'Enter console...', value: 'console', type: 'text', label: 'Console:',

@@ -21,11 +21,14 @@ const addMainVarientStructure = (props, update) => {
       value: 'antiTheftAlarm',
       radios: [{ element: 'radio', label: 'yes', value: 1 }, { element: 'radio', label: 'No', value: 0 }],
     },
+    // {
+    //   element: 'radiogroup',
+    //   placeHolder: 'No of Airbags',
+    //   value: 'noOfAirbags',
+    //   radios: [{ element: 'radio', label: 'yes', value: 1 }, { element: 'radio', label: 'No', value: 0 }],
+    // },
     {
-      element: 'radiogroup',
-      placeHolder: 'No of Airbags',
-      value: 'noOfAirbags',
-      radios: [{ element: 'radio', label: 'yes', value: 1 }, { element: 'radio', label: 'No', value: 0 }],
+      element: 'input', placeHolder: 'Enter no of airbags...', value: 'noOfAirbags', type: 'number', label: 'No of Airbags:',
     },
     {
       element: 'button', text: update ? 'Update' : 'Add', intent: 'PRIMARY',

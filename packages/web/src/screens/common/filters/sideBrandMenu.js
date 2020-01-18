@@ -9,7 +9,7 @@ const AvailableBrand = ({ vehicleBrand, header }) => {
       {vehicleBrand.map(brand => {
         return (
           <div className="side-menu-car-element">
-            <img src={`${ENDPOINT}/images/${brand.brandImageUrl}`} alt={brand.brandName} />
+            <img src={`${ENDPOINT}/brand_image/${brand.brandImageUrl}`} alt={brand.brandName} />
             <span>{brand.brandName}</span>
           </div>
         );

@@ -16,10 +16,12 @@ class ProductDetails extends React.Component {
   }
 
   async componentWillMount() {
-    const { fetchProductDetail, match, main } = this.props;
+    const { fetchProductDetail, match, main, fetchInitialData } = this.props;
     const { proId } = match.params;
     if (!main.currentCarDetail) {
       await fetchProductDetail(proId);
+      await fetchInitialData();
+
       this.setState({ showDetail: true });
     } else {
       this.setState({ showDetail: true });
@@ -42,8 +44,8 @@ class ProductDetails extends React.Component {
       showDetail ? (
         <div className="product-detail">
           <SocialMediaShare url="http://159.89.150.216:3000/" />
-          <Overview {...this.props}  showEnquiryForm={this.closeEnquiry} />
-          <EnquiryForm isOpen={enquiryShow} onClose={this.closeEnquiry} props={{...this.props}} />
+          <Overview {...this.props} showEnquiryForm={this.closeEnquiry} />
+          <EnquiryForm isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} />
           <div className="product-detail-menu">
             <Tabs className="product-menu-tabs" id="TabsExample" onChange={this.handleTabChange} selectedTabId={tabId}>
               {/* <Tab panelClassName="panel-container" style={{ fontSize: 15, fontWeight: 'bold', color: 'white', background: 'black' }} id="Overview" title="Overview" panel={<Overview {...this.props} />} /> */}

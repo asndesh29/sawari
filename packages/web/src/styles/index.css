@@ -183,8 +183,8 @@
   border-right: 2px solid #f5f5f5;
 }
 .main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-image img {
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: auto;
 }
 .main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-compare {
   width: 40%;

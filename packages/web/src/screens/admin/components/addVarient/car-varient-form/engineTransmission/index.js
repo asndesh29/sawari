@@ -16,7 +16,10 @@ const addMainVarientStructure = (props, update) => {
       element: 'input', placeHolder: 'Enter max torque...', value: 'maxTorque', type: 'text', label: 'Max Torque:',
     },
     {
-      element: 'input', placeHolder: 'Enter no of cylinder...', value: 'noOfCylinder', type: 'text', label: 'No Of Cylinder:',
+      element: 'input', placeHolder: 'Enter no of cylinder...', value: 'noOfcylinder', type: 'number', label: 'No Of Cylinder:',
+    },
+    {
+      element: 'input', placeHolder: 'Enter valves per cylinder...', value: 'valvesPerCylinder', type: 'number', label: 'Valves Per Cylinder:',
     },
     {
       element: 'input', placeHolder: 'Enter valve configuration...', value: 'valveConfiguration', type: 'text', label: 'Valve Configuration:',
@@ -28,7 +31,7 @@ const addMainVarientStructure = (props, update) => {
       element: 'input', placeHolder: 'Enter super charge...', value: 'superCharge', type: 'text', label: 'Super Charge:',
     },
     {
-      element: 'input', placeHolder: 'Enter Transmission Type...', value: 'transmissionTYpe', type: 'text', label: 'Transmission Type:',
+      element: 'input', placeHolder: 'Enter Transmission Type...', value: 'transmissionType', type: 'text', label: 'Transmission Type:',
     },
     {
       element: 'input', placeHolder: 'Enter gear box...', value: 'gearBox', type: 'text', label: 'Gear Box:',

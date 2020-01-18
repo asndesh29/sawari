@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '@blueprintjs/core';
-import {IoMdSpeedometer } from 'react-icons/io';
+import { IoMdSpeedometer } from 'react-icons/io';
 import { GiVendingMachine, GiMoneyStack } from 'react-icons/gi';
 import { FaBolt, FaTransgender } from 'react-icons/fa';
 import { MdAirlineSeatLegroomExtra } from 'react-icons/md';
@@ -9,7 +9,7 @@ import productDetailsObj from '../productDetailsObj';
 const iconAndUnitHandler = (key) => {
   switch (key) {
     case 'mileage':
-      return { icon: <IoMdSpeedometer size={30} color="#9a9a9a" />, unit: 'Km/Kg', preUnit: '' };
+      return { icon: <IoMdSpeedometer size={30} color="#9a9a9a" />, unit: 'kmpl', preUnit: '' };
     case 'engine':
       return { icon: <GiVendingMachine size={30} color="#9a9a9a" />, unit: 'cc', preUnit: '' };
     case 'BHP':
@@ -35,10 +35,22 @@ const overviewElement = (label, key, obj) => {
   );
 };
 
-export default () => {
+export default (props) => {
+  const { main } = props;
+  const { currentCarDetail } = main;
+  const { stypeId, varients } = currentCarDetail;
+  let overview = {};
+  if (parseInt(stypeId, 10) === 1) {
+    overview = main.initialData.CarVarientOverview.find(cv => cv.varientId === varients[0].id);
+  }
+  if (parseInt(stypeId, 10) === 2) {
+    overview = main.initialData.BikeVarientOverview.find(cv => cv.varientId === varients[0].id);
+  }
+
+  console.log('OVERVIEW', overview);
   return (
     <div className="overview">
-      {Object.values(productDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(productDetailsObj.overview.labels)[idx], productDetailsObj.overview))}
+      {Object.values(productDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(productDetailsObj.overview.labels)[idx], overview))}
     </div>
   );
 };

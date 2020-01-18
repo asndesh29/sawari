@@ -10,13 +10,13 @@ const addMainVarientStructure = (props, update) => {
       element: 'input', placeHolder: 'Enter tailLight...', value: 'tailLight', type: 'text', label: 'tailLight:',
     },
     {
-      element: 'input', placeHolder: 'Enter turn sigal lamp ...', value: 'turnSignalLamp', type: 'number', label: 'Turn Signal Lamp:',
+      element: 'input', placeHolder: 'Enter turn sigal lamp ...', value: 'turnSignalLamp', type: 'text', label: 'Turn Signal Lamp:',
     },
     {
-      element: 'input', placeHolder: 'Enter battery type...', value: 'batteryType', type: 'number', label: 'Battery Type:',
+      element: 'input', placeHolder: 'Enter battery type...', value: 'batteryType', type: 'text', label: 'Battery Type:',
     },
     {
-      element: 'input', placeHolder: 'Enter batteryCapacity...', value: 'batteryCapacity', type: 'number', label: 'Battery Capacity:',
+      element: 'input', placeHolder: 'Enter batteryCapacity...', value: 'batteryCapacity', type: 'text', label: 'Battery Capacity:',
     },
     {
       element: 'button', text: update ? 'Update' : 'Add', intent: 'PRIMARY',

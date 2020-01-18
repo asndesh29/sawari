@@ -1,6 +1,13 @@
 import React from 'react';
 import { Button } from '@blueprintjs/core';
 
+const priceRangeHandler = (obj) => {
+  const { varients } = obj;
+  const minPrice = Math.min(...varients.map((v) => v.exShowRoomPrice));
+  const maxPrice = Math.max(...varients.map((v) => v.exShowRoomPrice));
+  return `NRs. ${minPrice} - ${maxPrice}/-`;
+};
+
 const keySpecificationsElement = (label, key, obj) => {
   return (
     obj[key] && (
@@ -23,7 +30,7 @@ export default ({ obj, showEnquiryForm }) => {
         <div className="name-price">
           <span style={{ fontSize: 20 }}>{obj.name}</span>
           <br />
-          <span>{`Price: NRs.${obj.price} - ${obj.price}/-`}</span>
+          <span>{`Price: ${priceRangeHandler(obj)}`} </span>
         </div>
         <Button text="compare" />
       </div>

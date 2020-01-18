@@ -25,7 +25,7 @@ const arrBike = [
   'BikeVarientChassisSuspension',
   'BikeVarientDimensionCapacity',
   'BikeVarientElectricals',
-  'BikeVarientTyresBrakes'
+  'BikeVarientTyresBrakes',
 ];
 
 export default async (record) => {

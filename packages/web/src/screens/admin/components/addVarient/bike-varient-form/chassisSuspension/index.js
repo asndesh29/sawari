@@ -4,19 +4,19 @@ import Form from '../../../../../../components/common/Form';
 const addMainVarientStructure = (props, update) => {
   return [
     {
-      element: 'input', placeHolder: 'Enter chassis...', value: 'chassis', type: 'number', label: 'Chassis:',
+      element: 'input', placeHolder: 'Enter chassis...', value: 'chassis', type: 'text', label: 'Chassis:',
     },
     {
-      element: 'input', placeHolder: 'Enter body type...', value: 'bodyType', type: 'number', label: 'Body Type:',
+      element: 'input', placeHolder: 'Enter body type...', value: 'bodyType', type: 'text', label: 'Body Type:',
     },
     {
-      element: 'input', placeHolder: 'Enter front suspension...', value: 'frontSuspension', type: 'number', label: 'Front Suspension:',
+      element: 'input', placeHolder: 'Enter front suspension...', value: 'frontSuspension', type: 'text', label: 'Front Suspension:',
     },
     {
-      element: 'input', placeHolder: 'Enter rear suspension...', value: 'rearSuspension', type: 'number', label: 'Rear Suspension:',
+      element: 'input', placeHolder: 'Enter rear suspension...', value: 'rearSuspension', type: 'text', label: 'Rear Suspension:',
     },
     {
-      element: 'input', placeHolder: 'Enter Body Graphics...', value: 'bodyGraphics', type: 'number', label: 'Body Graphics:',
+      element: 'input', placeHolder: 'Enter Body Graphics...', value: 'bodyGraphics', type: 'text', label: 'Body Graphics:',
     },
     {
       element: 'button', text: update ? 'Update' : 'Add', intent: 'PRIMARY',
