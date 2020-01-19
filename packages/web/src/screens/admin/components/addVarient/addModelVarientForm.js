@@ -52,8 +52,8 @@ class VarientForm extends React.Component {
     updateFormValue('ServiceTypeBrandModelVarient', { loading: null, success: null, error: null, sid, stypeId: `${stypeId}`, sbId, modelId });
     arrSchema.forEach((schema) => {
       const keys = Object.keys(form[schema]);
-      keys.forEach(k => {
-        if (k !== 'loading' && k !== 'success' && k !== 'error') {
+      keys.forEach((k) => {
+        if (k === 'id') {
           delete form[schema][k];
         }
       });
@@ -62,8 +62,8 @@ class VarientForm extends React.Component {
 
     arrBike.forEach((schema) => {
       const keys = Object.keys(form[schema]);
-      keys.forEach(k => {
-        if (k !== 'loading' && k !== 'success' && k !== 'error') {
+      keys.forEach((k) => {
+        if (k === 'id') {
           delete form[schema][k];
         }
       });
