@@ -58,10 +58,6 @@ export default {
         fuelTankCapacity: 'Fuel Tank Capacity',
         topSpeed: 'TopSpeed',
       },
-      fuelType: 'Diesel',
-      mileage: 22.54,
-      fuelTankCapacity: 40,
-      topSpeed: 170,
     },
     'Suspension, Steering & Brakes': {
       labels: {
@@ -75,15 +71,6 @@ export default {
         frontBrakeType: 'Front Brake Type',
         rearBrakeType: 'Rear Brake Type',
       },
-      frontSuspension: 'McPherson Strut with Coil Spring',
-      rearSuspension: 'Coupled Torsion Beam Axle with Coil Spring',
-      shockAbsorbersType: 'Gas Filled',
-      steeringType: 'Power',
-      steeringColumn: 'Tilt & Telescopic',
-      steeringGearType:	'Rack & Pinion',
-      turningRadius: 5.2,
-      frontBrakeType: 'Disc',
-      rearBrakeType: 'Drum',
     },
     'Dimensions & Capacity': {
       labels: {
@@ -92,10 +79,6 @@ export default {
         wheelBase: 'Wheel Base',
         noOfDoors: 'No Of Doors',
       },
-      seatingCapacity: 5,
-      groundClearanceUnladen: 170,
-      wheelBase: 2570,
-      noOfDoors: 55,
     },
     'Comfort & Convenience': {
       labels: {
@@ -106,12 +89,6 @@ export default {
         heater: 'Heater',
         adjustableSteering: 'Adjustable Steering',
       },
-      powerSteering: null,
-      powerWindowsFront: null,
-      powerWindowsRear: null,
-      airConditioner: null,
-      heater: null,
-      adjustableSteering: null,
     },
     Interior: {
       labels: {
@@ -122,12 +99,6 @@ export default {
         digitalOdometer: 'Digital Odometer',
         heightAdjustableDriverSeat: 'Height Adjustable Driver Seat',
       },
-      tachometer: null,
-      electronicMultiTripmeter: null,
-      digitalClock: null,
-      cigaretteLighter: null,
-      digitalOdometer: null,
-      heightAdjustableDriverSeat: null,
     },
     Exterior: {
       labels: {
@@ -140,14 +111,6 @@ export default {
         roofCarrier: 'Roof Carrier',
         outsideRearViewMirrorTurnIndicators: 'Outside Rear View Mirror Turn Indicators',
       },
-      adjustableHeadlights: null,
-      fogLightsFront: null,
-      fogLightsRear: null,
-      exteriorRearViewMirror: null,
-      wheelCovers: null,
-      alloyWheelSize: null,
-      roofCarrier: null,
-      outsideRearViewMirrorTurnIndicators: null,
     },
     Safety: {
       labels: {
@@ -156,10 +119,7 @@ export default {
         antiTheftAlarm: 'Anti Theft Alarm',
         noofAirbags: 'Noof Airbags',
       },
-      antiLockBrakingSystem: null,
-      centralLocking: null,
-      antiTheftAlarm: null,
-      noofAirbags: 6,
+
     },
     'Entertainment & Communication': {
       labels: {
@@ -171,13 +131,6 @@ export default {
         touchScreen: 'Touch Screen',
         connectivity: 'Connectivity',
       },
-      DVDPlayer: null,
-      audioSystemRemoteControl: null,
-      integrated2DINAudio: null,
-      'USB&Auxiliaryinput': null,
-      bluetoothConnectivity: null,
-      touchScreen: null,
-      connectivity: 'Android Auto,Apple CarPlay,Mirror Link',
     },
   },
 };

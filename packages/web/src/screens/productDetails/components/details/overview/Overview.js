@@ -2,9 +2,10 @@ import React from 'react';
 import { Card } from '@blueprintjs/core';
 import { IoMdSpeedometer } from 'react-icons/io';
 import { GiVendingMachine, GiMoneyStack } from 'react-icons/gi';
-import { FaBolt, FaTransgender } from 'react-icons/fa';
+import { FaBolt, FaTransgender, FaSafari, FaCompactDisc } from 'react-icons/fa';
 import { MdAirlineSeatLegroomExtra } from 'react-icons/md';
 import productDetailsObj from '../productDetailsObj';
+import bikeDetailsObj from '../bikeDetailsObj';
 
 const iconAndUnitHandler = (key) => {
   switch (key) {
@@ -15,11 +16,19 @@ const iconAndUnitHandler = (key) => {
     case 'BHP':
       return { icon: <FaBolt size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
     case 'transmission':
-      return { icon: <FaTransgender size={30} color="#9a9a9a" />, unit: '', preUnit: ''};
+      return { icon: <FaTransgender size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
     case 'seats':
       return { icon: <MdAirlineSeatLegroomExtra size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
     case 'serviceCost':
       return { icon: <GiMoneyStack size={30} color="#9a9a9a" />, unit: '/yr', preUnit: 'NRs.' };
+    case 'power':
+      return { icon: <FaBolt size={30} color="#9a9a9a" />, unit: 'PS', preUnit: '' };
+    case 'torque':
+      return { icon: <FaTransgender size={30} color="#9a9a9a" />, unit: 'Nm', preUnit: '' };
+    case 'tyreType':
+      return { icon: <FaSafari size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
+    case 'brakes':
+      return { icon: <FaCompactDisc size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
     default:
       return { icon: <IoMdSpeedometer />, unit: '' };
   }
@@ -50,7 +59,10 @@ export default (props) => {
   console.log('OVERVIEW', overview);
   return (
     <div className="overview">
-      {Object.values(productDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(productDetailsObj.overview.labels)[idx], overview))}
+      {(parseInt(stypeId, 10) === 1)
+        ? Object.values(productDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(productDetailsObj.overview.labels)[idx], overview))
+        : Object.values(bikeDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(bikeDetailsObj.overview.labels)[idx], overview))
+      }
     </div>
   );
 };

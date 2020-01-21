@@ -46,8 +46,10 @@ export default async (dispatch, getState, schema) => {
       if (schemaFields.id && schemaFields.id !== 'undefined') {
         updateStore(dispatch, main, parseInt(schemaFields.id, 10), schemaFields, addVarintRes.data, schema);
       } else {
-        dispatch(updateMainValue('varientId', addVarintRes.data.res));
         addStore(dispatch, main, schemaFields, addVarintRes.data, schema, form);
+        if (schema === 'ServiceTypeBrandModelVarient') {
+          dispatch(updateMainValue('varientId', addVarintRes.data.res));
+        }
       }
     }
   } catch (e) {

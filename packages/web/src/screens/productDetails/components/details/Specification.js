@@ -4,6 +4,7 @@ import { Icon } from '@blueprintjs/core';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoCheck } from 'react-icons/go';
 import productDetailsObj from './productDetailsObj';
+import bikeDetailsObj from './bikeDetailsObj';
 
 const arrSchema = {
   overview: 'CarVarientOverview',
@@ -20,18 +21,18 @@ const arrSchema = {
   'Entertainment & Communication': 'CarVarientEntertainmentCommunication',
 };
 
-const arrBike = [
-  'BikeVarientOverview',
-  'BikeVarientKeySpecification',
-  'BikeVarientKeyFeaturs',
-  'BikeVarientEngineTransmission',
-  'BikeVarientFeatursSafety',
-  'BikeVarientMileagePerformance',
-  'BikeVarientChassisSuspension',
-  'BikeVarientDimensionCapacity',
-  'BikeVarientElectricals',
-  'BikeVarientTyresBrakes',
-];
+const arrBike = {
+  overview: 'BikeVarientOverview',
+  keySpecifications: 'BikeVarientKeySpecification',
+  keyFeatures: 'BikeVarientKeyFeaturs',
+  'Engine and Transmission': 'BikeVarientEngineTransmission',
+  'Features and Safety': 'BikeVarientFeatursSafety',
+  'Mileage and Performance': 'BikeVarientMileagePerformance',
+  'Chassis and Suspension': 'BikeVarientChassisSuspension',
+  'Dimensions and Capacity': 'BikeVarientDimensionCapacity',
+  Electricals: 'BikeVarientElectricals',
+  'Tyres and Brakes': 'BikeVarientTyresBrakes',
+};
 
 const triggerElement = (label) => {
   return (
@@ -73,7 +74,7 @@ const collapseContent = (obj, label, keyFeatures) => {
   // console.log('obj in collapse container', obj, labels);
   return (
     <div className="specification-collapse-container">
-      {(label === 'Key Features' || label ===  'Interior' || label === 'Exterior' || label === 'Comfort & Convenience' || label === 'Safety' || label === 'Entertainment & Communication')
+      {(label === 'Key Features' || label === 'Interior' || label === 'Exterior' || label === 'Comfort & Convenience' || label === 'Safety' || label === 'Entertainment & Communication')
         ? Object.values(labels).map((l, idx) => containerElementFeaturesWithYesNo(l, keyFeatures[Object.keys(labels)[idx]]))
         : Object.values(labels).map((l, idx) => containerElementWithvalue(l, keyFeatures[Object.keys(labels)[idx]]))}
     </div>
@@ -105,6 +106,7 @@ class Specification extends React.Component {
     const { currentCarDetail } = main;
     const { stypeId, varients } = currentCarDetail;
     let allCarDetails = {};
+    let allBikeDetails = {};
 
     if (parseInt(stypeId, 10) === 1) {
       Object.keys(arrSchema).forEach(k => {
@@ -114,11 +116,21 @@ class Specification extends React.Component {
       // keySpecifications = main.initialData.CarVarientKey
     }
 
+    if (parseInt(stypeId, 10) === 2) {
+      Object.keys(arrBike).forEach(k => {
+        allBikeDetails[k] = main.initialData[arrBike[k]].find(d => d.varientId === varients[0].id);
+      });
+    }
+    console.log('allBike details', allBikeDetails, currentCarDetail, main);
+
     return (
       <div className="specification">
-        {collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures)}
-        {collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications)}
-        {Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k]))}
+        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures)}
+        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications)}
+        { parseInt(stypeId, 10) === 1 && Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k]))}
+        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Features', bikeDetailsObj.keyFeatures, allBikeDetails.keyFeatures)}
+        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Specification', bikeDetailsObj.keySpecifications, allBikeDetails.keySpecifications)}
+        { parseInt(stypeId, 10) === 2 && Object.keys(bikeDetailsObj.specifications).map((k, idx) => collapseHandler(k, bikeDetailsObj.specifications[k], allBikeDetails[k]))}
       </div>
     );
   }
