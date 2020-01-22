@@ -20,7 +20,7 @@ export default async (dispatch, getstate, schema) => {
   const { form, main } = getstate();
   const { addModel } = form;
   const {
-    image, stypeId, sid, name, id, sbId,
+    image, stypeId, sid, name, id, sbId, category,
   } = addModel;
   // console.log('type of image', typeof image);
 
@@ -34,7 +34,7 @@ export default async (dispatch, getstate, schema) => {
       let updateRes = null;
       if (typeof image === 'string') {
         // console.log('post if no image select');
-        updateRes = await axios.post(`${ENDPOINT}/web/add-model`, { token, name, image, sid, stypeId, id, sbId });
+        updateRes = await axios.post(`${ENDPOINT}/web/add-model`, { token, name, image, sid, stypeId, id, sbId, category });
       } else {
         // console.log('post if image selected');
         const formData = new FormData(); //eslint-disable-line
@@ -44,6 +44,7 @@ export default async (dispatch, getstate, schema) => {
         formData.append('sid', sid);
         formData.append('image', image);
         formData.append('sbId', sbId);
+        formData.append('category', category);
         if (id && id !== 'undefined') {
           formData.append('id', id);
         }

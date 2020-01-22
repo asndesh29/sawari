@@ -19,7 +19,7 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { main, updateMainValue } = this.props;
+    const { main, updateMainValue, category } = this.props;
     const { showProductDtails } = this.state;
     return (
       <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
@@ -29,7 +29,7 @@ class ProductDetails extends React.Component {
           <div style={{ width: '100%', textAlign: 'center', height: '100%' }}>
             <HorizontalScrollView
               // wheel
-              data = {main.initialData.vehicleModel ? main.initialData.vehicleModel.filter(c => c.stypeId === 2).map((obj) => ModelCard(obj, this.cardOnClickHandler)) : []}
+              data = {main.initialData.vehicleModel ? main.initialData.vehicleModel.filter(m => m.varients.find(v => v.bodyType !== 'Scooter')).filter(c => c.stypeId === 2 && c.category === category).map((obj) => ModelCard(obj, this.cardOnClickHandler)) : []}
               arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
               arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
               // onSelect={(key) => console.log('seleceed', key)}
