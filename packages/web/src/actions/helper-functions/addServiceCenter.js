@@ -19,7 +19,7 @@ export default async (dispatch, getstate, schema) => {
   const { form, main } = getstate();
   const { addServiceCenter } = form;
   const {
-    image, stypeId, sId, name, city, latitude, logitude, description, id, sbId, phoneNo, province, type,
+    image, stypeId, sId, name, city, latitude, logitude, description, id, sbId, phoneNo, province, type, email,
   } = addServiceCenter;
   // console.log('type of image', typeof image);
 
@@ -33,7 +33,7 @@ export default async (dispatch, getstate, schema) => {
       let updateRes = null;
       if (typeof image === 'string') {
         // console.log('post if no image select');
-        updateRes = await axios.post(`${ENDPOINT}/web/add-service-center`, { province, type, token, id, image, sbId, stypeId, sId, name, city, latitude, logitude, description, phoneNo });
+        updateRes = await axios.post(`${ENDPOINT}/web/add-service-center`, { email, province, type, token, id, image, sbId, stypeId, sId, name, city, latitude, logitude, description, phoneNo });
       } else {
         // console.log('post if image selected');
         const formData = new FormData(); //eslint-disable-line
@@ -41,7 +41,7 @@ export default async (dispatch, getstate, schema) => {
         formData.append('name', name);
         formData.append('stypeId', stypeId);
         formData.append('sId', sId);
-        formData.append('sbId', sId);
+        formData.append('sbId', sbId);
         formData.append('city', city);
         formData.append('latitude', latitude);
         formData.append('logitude', logitude);
@@ -50,6 +50,7 @@ export default async (dispatch, getstate, schema) => {
         formData.append('image', image);
         formData.append('province', province);
         formData.append('type', type);
+        formData.append('email', email);
         if (id && id !== 'undefined') {
           formData.append('id', id);
         }

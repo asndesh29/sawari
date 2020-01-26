@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { Card, Tabs, Tab } from '@blueprintjs/core';
-import NewBikes from '../newBikes';
-import PopularBikes from '../mostPopularBike';
+import NewScooter from '../newScooter';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -30,9 +29,9 @@ class ProductDetails extends React.Component {
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Scooters</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Latest" title="Latest" panel={<NewBikes {...this.props} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularBikes {...this.props} />} panelClassName="ember-panel" />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularBikes {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Latest" title="Latest" panel={<NewScooter {...this.props} category="Latest" />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<NewScooter {...this.props} category="Popular" />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<NewScooter {...this.props} category="Upcoming" />} />
         </Tabs>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
           <Link to="/more/scooters"><span style={{ fontWeight: 'bold'}}>More Scooters</span></Link>
