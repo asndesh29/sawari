@@ -28,7 +28,7 @@ class Index extends React.Component {
           <City {...this.props} />
         </div>
         <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.dealerList ? main.initialData.dealerList.filter(c => ((c.stypeId === parseInt(stypeId, 10)) && c.sbId === parseInt(sbId, 10))).map((obj) => DealerCard(obj, this.cardOnClickHandler, this.onEnquiryFormToggle)) : []}
+          {main.initialData.serviceCenterList ? main.initialData.serviceCenterList.filter(c => ((c.stypeId === parseInt(stypeId, 10)) && c.sbId === parseInt(sbId, 10))).map((obj) => DealerCard(obj, this.cardOnClickHandler, this.onEnquiryFormToggle)) : []}
         </div>
       </div>
     );
