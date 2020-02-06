@@ -1,14 +1,25 @@
 import React from 'react';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 import { Tab, Tabs } from '@blueprintjs/core';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const Selector = (props) => {
   console.log('props in selector', props);
-  const { placeHolder, SelectType, menuChangeHandler, main, state } = props;
-  const options = SelectType === 'brandId' ?
-    main.initialData.vehicleBrand.map(b => ({ value: b.id, label: b.brandName }))
-    : main.initialData.vehicleBrandProduct.filter(p => p.sbId === state.brandId).map(p => ({ value: p.id, label: p.name }));
+  const vehicleType = { cars: 1, bikes: 2 };
+  const { placeHolder, SelectType, menuChangeHandler, main, state, match } = props;
+  let options = [];
+  if (SelectType === 'brandId') {
+    options = main.initialData.vehicleBrand.filter((obj) => obj.stypeId === vehicleType[match.params.typeId]).map(b => ({ value: b.id, label: b.brandName }));
+  }
+
+  if (SelectType === 'modelId') {
+    options = main.initialData.vehicleModel.filter((m) => m.sbId === state.brandId).map((b) => ({ value: b.id, label: b.name }));
+  }
+
+  if (SelectType === 'varientId') {
+    options = main.initialData.variantList.filter((v) => v.modelId === state.modelId).map((b) => ({ value: b.id, label: b.name }));
+  }
   return (
     <div style={{ marginBottom: 10, marginTop: 10, width: 350 }}>
       <Select
@@ -23,6 +34,14 @@ const Selector = (props) => {
       />
     </div>
   );
+};
+
+Selector.propTypes = {
+  placeHolder: PropTypes.string.isRequired,
+  SelectType: PropTypes.string.isRequired,
+  menuChangeHandler: PropTypes.func.isRequired,
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  state: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 class SelectProductMenu extends React.Component {
@@ -42,7 +61,7 @@ class SelectProductMenu extends React.Component {
       this.setState({ selectedTabId: 'Varient' });
     } else {
       this.setState({ [selectType]: id });
-      showMenuHandler({[type]: id });
+      showMenuHandler({ [type]: id });
     }
     this.setState({ [selectType]: id });
   }
@@ -84,3 +103,8 @@ class SelectProductMenu extends React.Component {
   }
 }
 export default SelectProductMenu;
+SelectProductMenu.propTypes = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  showMenuHandler: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+};

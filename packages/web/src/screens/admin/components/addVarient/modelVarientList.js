@@ -18,6 +18,7 @@ const arrSchema = [
   'CarVarientExterior',
   'CarVarientSafty',
   'CarVarientEntertainmentCommunication',
+  'DiscountOffer',
 ];
 
 const arrBike = [
@@ -76,12 +77,29 @@ class BrandList extends React.Component {
     updateMainValue('varientId', id);
     if (parseInt(form.ServiceTypeBrandModelVarient.stypeId, 10) === 1) {
       arrSchema.forEach((schema, idx) => {
+        let findObj;
         if (idx === 0) {
-          updateFormValue(schema, { ...form[arrSchema[0]], ...main.initialAdminData.vehicleVarientList.find(v => v.id === id)});
+          findObj = main.initialAdminData.vehicleVarientList.find(v => v.id === id);
+          if (findObj) {
+            updateFormValue(schema, { ...form[arrSchema[0]], ...findObj });
+          } else {
+            updateFormValue(schema, { ...form[schema], id: undefined });
+          }
+
         } else if (idx <= 6 && idx !== 0) {
-          updateFormValue(schema, { ...form[schema], ...main.initialAdminData[schema].find(v => v.varientId === id) });
+          findObj = main.initialAdminData.vehicleVarientList.find(v => v.id === id);
+          if (findObj) {
+            updateFormValue(schema, { ...form[schema], ...findObj });
+          } else {
+            updateFormValue(schema, { ...form[schema], id: undefined });
+          }
         } else {
-          const findObj = main.initialAdminData[schema].find(v => v.varientId === id);
+          if (idx === 13) {
+            findObj = main.initialAdminData[schema].find(v => v.variantId === id);
+          } else {
+            findObj = main.initialAdminData[schema].find(v => v.varientId === id);
+          }
+
           if (findObj) {
             const keys = Object.keys(findObj);
             const values = Object.values(findObj);
@@ -91,17 +109,30 @@ class BrandList extends React.Component {
               return obj;
             }, {});
             updateFormValue(schema, { ...form[schema], ...mainValue });
+          } else {
+            updateFormValue(schema, { ...form[schema], id: undefined });
           }
         }
       });
     } else {
       console.log('inside bike update');
       arrBike.forEach((schema, idx) => {
+        let findObj;
         if (idx === 0) {
-          updateFormValue(schema, { ...form[arrSchema[0]], ...main.initialAdminData.vehicleVarientList.find(v => v.id === id)});
+          findObj = main.initialAdminData.vehicleVarientList.find(v => v.id === id);
+          if (findObj) {
+            updateFormValue(schema, { ...form[schema], ...findObj });
+          } else {
+            updateFormValue(schema, { ...form[schema], id: undefined });
+          }
         } else if (idx <= 8) {
           console.log('integer value bale', schema);
-          updateFormValue(schema, { ...form[schema], ...main.initialAdminData[schema].find(v => v.varientId === id) });
+          findObj = main.initialAdminData[schema].find(v => v.varientId === id);
+          if (findObj) {
+            updateFormValue(schema, { ...form[schema], ...findObj });
+          } else {
+            updateFormValue(schema, { ...form[schema], id: undefined });
+          }
         } else {
           const findObj = main.initialAdminData[schema].find(v => v.varientId === id);
           if (findObj) {
@@ -113,6 +144,8 @@ class BrandList extends React.Component {
               return obj;
             }, {});
             updateFormValue(schema, { ...form[schema], ...mainValue });
+          } else {
+            updateFormValue(schema, { ...form[schema], id: undefined });
           }
         }
       });

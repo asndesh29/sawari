@@ -11,6 +11,7 @@ import ChassisSuspension from './chassisSuspension';
 import DimensionsCapacity from './dimentionsCapacity';
 import Electricals from './electricals';
 import TyresBrakes from './tyresBrakes';
+import DiscountOffer from '../car-varient-form/discountOffer';
 
 const arrBike = [
   'BikeVarientOverview',
@@ -41,6 +42,7 @@ export default ({ allProps, handleTabChange, selectedTabId }) => {
       {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="ChassisSuspension" title="Chassis Suspension" panel={<ChassisSuspension {...allProps} schema="BikeVarientChassisSuspension" />} />}
       {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="electricals" title="Electricals" panel={<Electricals {...allProps}  schema="BikeVarientElectricals" />} />}
       {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="tyresBrakes" title="Tyres Brakes" panel={<TyresBrakes {...allProps} schema="BikeVarientTyresBrakes" />} />}
+      {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="discountOffer" title="Discount And Offers" panel={<DiscountOffer {...allProps} schema="DiscountOffer" />} />}
     </Tabs>
   );
 };

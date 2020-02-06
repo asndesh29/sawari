@@ -32,13 +32,16 @@ class index extends Component {
           <Route exact path="/compare/:typeId/:pId1/:pId2/pId3" component={Compare} />
           <Route exact path="/compare/:typeId/:pId1/:pId2/:pId3/:pId4" component={Compare} />
           <Route exact path="/more/:contentType" component={ShowMore} />
-          <Route exact path="/popular/:contentType" component={ShowMore} />
-          <Route exact path="/latest/:contentType" component={ShowMore} />
-          <Route exact path="/upcoming/:contentType" component={ShowMore} />
+          <Route exact path="/popular/:categoryType" component={ShowMore} />
+          <Route exact path="/latest/:categoryType" component={ShowMore} />
+          <Route exact path="/upcoming/:categoryType" component={ShowMore} />
           <Route exact path="/discount-offers/:contentType" component={ShowMore} />
           <Route exact path="/showrooms/:showroomType" component={ShowMore} />
           <Route exact path="/service-center/:serviceCenterType" component={ShowMore} />
-          <Route exact path="/used/:placeId/:usedVehicleType" component={ShowMore} />
+          <Route exact path="/used/province/:placeId/:usedVehicleType" component={ShowMore} />
+          <Route exact path="/used/city/:cityId/:usedVehicleType" component={ShowMore} />
+          <Route exact path="/used/:usedVehicleType" component={ShowMore} />
+          <Route exact path="/used/showrooms/:usedVehicleType" component={ShowMore} />
         </div>
       </Router>
     );

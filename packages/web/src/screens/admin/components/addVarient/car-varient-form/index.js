@@ -13,6 +13,7 @@ import Interior from './interior';
 import Exterior from './exterior';
 import Safety from './safety';
 import EntertainmentCommunication from './entertainmentCommunication';
+import DiscountOffer from './discountOffer';
 
 export default ({ allProps, handleTabChange, selectedTabId }) => {
   console.log('car Specificaion form', props);
@@ -32,6 +33,7 @@ export default ({ allProps, handleTabChange, selectedTabId }) => {
       {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="exterior" title="Exterior" panel={<Exterior {...allProps} schema="CarVarientExterior" />} />}
       {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="safety" title="Safety" panel={<Safety {...allProps} schema="CarVarientSafty" />} />}
       {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="entertainmentCommunication" title="Entertainment & Communication" panel={<EntertainmentCommunication {...allProps} schema="CarVarientEntertainmentCommunication" />} />}
+      {props.main.varientId && <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="discountOffer" title="Discount And Offers" panel={<DiscountOffer {...allProps} schema="DiscountOffer" />} />}
     </Tabs>
   );
 };

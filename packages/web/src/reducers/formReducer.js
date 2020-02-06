@@ -150,6 +150,11 @@ const initialFormState = {
     success: null,
     error: null,
   },
+  DiscountOffer: {
+    loading: null,
+    success: null,
+    error: null,
+  },
 
   addDealer: {
     province: null, type: null, sId: 1, name: null, phoneNo: null, description: null, latitude: null, city: null, logitude: null, loading: null, error: null, success: null,

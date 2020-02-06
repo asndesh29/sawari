@@ -20,14 +20,13 @@ class Index extends React.Component {
   render() {
     console.log('this is product details', this.props);
     const { match } = this.props;
-    const { contentType, showroomType, serviceCenterType, placeId, usedVehicleType } = match.params;
+    const { contentType, showroomType, serviceCenterType, placeId, usedVehicleType, categoryType } = match.params;
     return (
       <div className="search-product">
         <Navbar {...this.props} />
         <div className="search-product-content">
-          {(contentType === 'cars' || contentType === 'bikes' || contentType === 'scooters' || showroomType || serviceCenterType || placeId || usedVehicleType)
-          && <Filter {...this.props} contentType={contentType} showroomType={showroomType} serviceCenterType={serviceCenterType} placeId={placeId} usedVehicleType={usedVehicleType} />}
-          <ProductList {...this.props} contentType={contentType} showroomType={showroomType} serviceCenterType={serviceCenterType} placeId={placeId} usedVehicleType={usedVehicleType} />
+          <Filter {...this.props} />
+          <ProductList {...this.props} categoryType contentType={contentType} showroomType={showroomType} serviceCenterType={serviceCenterType} placeId={placeId} usedVehicleType={usedVehicleType} />
         </div>
         <Footer {...this.props} />
       </div>

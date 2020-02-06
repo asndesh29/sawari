@@ -880,4 +880,13 @@ body {
   margin: 5px;
 }
 
+.sell-vehicle {
+  margin-top: 130px;
+  background: #fff url("../assets/deal.jpg") no-repeat;
+  background-size: cover;
+  height: "auto";
+  background-blend-mode: luminosity;
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=index.css.map */

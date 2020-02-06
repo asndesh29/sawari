@@ -13,17 +13,17 @@ export default () => {
       },
       {
         'Used Car': [
+          // {
+          //   id: 20, route: '/popular/car', name: 'Cars In Your City',
+          // },
           {
-            id: 20, route: '/popular/car', name: 'Cars In Your City',
+            id: 21, route: '/used/cars', name: 'Search Used Cars',
           },
           {
-            id: 21, route: '/popular/car', name: 'Search Used Cars',
+            id: 22, route: '/sell-vehicle', name: 'Sell Used Cars',
           },
           {
-            id: 22, route: '/popular/car', name: 'Sell Used Cars',
-          },
-          {
-            id: 23, route: '/popular/car', name: 'Used Car Dealers',
+            id: 23, route: '/used/showrooms/cars', name: 'Used Car Dealers',
           },
         ],
       },
@@ -51,10 +51,10 @@ export default () => {
       // },
       {
         'Used Bike & Scooters': [
-          { id: 50, route: '/popular/car', name: 'Bikes & Scooters in your City' },
-          { id: 51, route: '/popular/car', name: 'Search Used Bikes & Scooters' },
-          { id: 52, route: '/popular/car', name: 'Sell Used Bikes & Scooters' },
-          { id: 53, route: '/popular/car', name: 'Used Bikes & Scooters Dealers' },
+          // { id: 50, route: '/used/bikes', name: 'Bikes & Scooters in your City' },
+          { id: 51, route: '/used/bikes', name: 'Search Used Bikes & Scooters' },
+          { id: 52, route: '/sell-vehicle', name: 'Sell Used Bikes & Scooters' },
+          { id: 53, route: '/used/showrooms/bikes', name: 'Used Bikes & Scooters Dealers' },
         ],
       },
       {

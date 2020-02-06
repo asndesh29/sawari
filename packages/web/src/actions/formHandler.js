@@ -12,6 +12,7 @@ import addDealerEnquiry from './helper-functions/addDealerEnquiry';
 import addServiceCenterEnquiry from './helper-functions/addServiceCenterEnquiry';
 import addModel from './helper-functions/addModel';
 import addVarient from './helper-functions/addVarient';
+import addDiscountOffer from './helper-functions/addDiscountOffer';
 
 const arrBike = [
   'BikeVarientOverview',
@@ -67,6 +68,9 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
     case 'BikeVarientElectricals':
     case 'BikeVarientTyresBrakes':
       addVarient(dispatch, getState, schema);
+      break;
+    case 'DiscountOffer':
+      addDiscountOffer(dispatch, getState, schema);
       break;
     case 'addEnquiry':
       addEnquiry(dispatch, getState, schema);

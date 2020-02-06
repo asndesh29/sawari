@@ -45,6 +45,7 @@ const addMainVarientStructure = (props, update) => {
     {
       element: 'input', placeHolder: 'Enter onRoad Price Price...', value: 'onRoadPrice', type: 'number', label: 'onRoad Price',
     },
+
     {
       element: 'button', text: update ? 'Update' : 'Add', intent: 'PRIMARY',
     },

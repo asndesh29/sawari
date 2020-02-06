@@ -6,16 +6,17 @@ import { Card, Tabs, Tab } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../../../config';
 
 const provinceList = [
-  {id: 1, name: 'Province 1', image: `${ENDPOINT}/province_image/province1.jpeg`, route: '/used/provice-1' },
-  {id: 2, name: 'Province 2', image: `${ENDPOINT}/province_image/province2.jpg`, route: '/used/province-2' },
-  {id: 3, name: 'Province 3', image: `${ENDPOINT}/province_image/province3.jpg`, route: '/used/province-3' },
-  {id: 4, name: 'Province 4', image: `${ENDPOINT}/province_image/province4.jpeg`, route: '/used/provice-4' },
-  {id: 5, name: 'Province 5', image: `${ENDPOINT}/province_image/province5.jpeg`, route: '/used/provice-5' },
-  {id: 6, name: 'Province 6', image: `${ENDPOINT}/province_image/province6.jpg`, route: '/used/provice-6' },
-  {id: 7, name: 'Province 7', image: `${ENDPOINT}/province_image/province6.jpg`, route: '/used/province-7' },
+  { id: 1, name: 'Province 1', image: `${ENDPOINT}/province_image/province1.jpeg`, route: '/used/province/province-1' },
+  { id: 2, name: 'Province 2', image: `${ENDPOINT}/province_image/province2.jpg`, route: '/used/province/province-2' },
+  { id: 3, name: 'Province 3', image: `${ENDPOINT}/province_image/province3.jpg`, route: '/used/province/province-3' },
+  { id: 4, name: 'Province 4', image: `${ENDPOINT}/province_image/province4.jpeg`, route: '/used/province/province-4' },
+  { id: 5, name: 'Province 5', image: `${ENDPOINT}/province_image/province5.jpeg`, route: '/used/province/province-5' },
+  { id: 6, name: 'Province 6', image: `${ENDPOINT}/province_image/province6.jpg`, route: '/used/province/province-6' },
+  { id: 7, name: 'Province 7', image: `${ENDPOINT}/province_image/province6.jpg`, route: '/used/province/province-7' },
 ];
 
 const ProvinceDesign = (obj, selectedTabId) => {
+  console.log('selectedTabId', selectedTabId);
   return (
     <Link to={`${obj.route}/${selectedTabId}`} style={{ textDecoration: 'none' }}>
       <Card style={{ height: 'auto', width: 'auto', margin: 5, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
@@ -30,7 +31,7 @@ const ProvinceDesign = (obj, selectedTabId) => {
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, selectedTabId: 'cars', selectedCity: null };
+    this.state = { showProductDtails: false, selectedCity: null };
   }
 
   cardOnClickHandler = (obj) => {
@@ -45,19 +46,20 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { main, updateMainValue } = this.props;
-    const { showProductDtails, selectedTabId } = this.state;
+    const { main, updateMainValue, selectedTabId } = this.props;
+    const { showProductDtails, selectedCity } = this.state;
     return (
       <div style={{ background: 'white', width: '90%' }}>
         {/* <div style={{ height: 1, width: '100%', background: '#f1f1f1', margin: 0, marginTop: -22 }} /> */}
         <div style={{ display: 'flex' }}>
           <div style={{ marginRight: 20 }}>
-            <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap'}}>
+            <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap' }}>
               {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
+              {selectedCity && <Redirect to={`/used/city/${selectedCity}/${selectedTabId}`.toLocaleLowerCase()} />}
               {provinceList.map(p => ProvinceDesign(p, selectedTabId))}
             </div>
           </div>
-          <div style={{ height: 190, width: 5, background: '#f1f1f1',marginLeft: 40, marginTop:  10, marginRight: 30, margin: 0 }}/>
+          <div style={{ height: 190, width: 5, background: '#f1f1f1', marginLeft: 40, marginTop: 10, marginRight: 30, margin: 0 }}/>
           <div style={{ marginLeft: 20, width: 300, flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
             <spa style={{ fontSize: 20 }}>
               I am looking to buy a second
@@ -65,14 +67,14 @@ class ProductDetails extends React.Component {
             <span style={{ fontSize: 20 }}>hand vehicle in</span>
             <div style={{ marginBottom: 10, marginTop: 10, width: '100%' }}>
               <Select
-                styles={{container: (provided, state) => ({
+                styles={{ container: (provided, state) => ({
                   ...provided,
                   color: 'black',
                 })}}
-                options={this.props.main.initialData.cities ? this.props.main.initialData.cities.map(c => ({ value: c, label: c })) : []}
+                options={main.initialData.cities ? main.initialData.cities.map(c => ({ value: c, label: c })) : []}
                 isSearchable
                 placeholder="Select city"
-                onChange={e => this.setState({ selectedCity: e.value })}
+                onChange={(e) => this.setState({ selectedCity: e.value })}
               />
             </div>
           </div>

@@ -23,22 +23,26 @@ class ImageGroup extends React.Component {
 
   fileOnchange = async (file, obj) => {
     // console.log('file input value', file, obj, this.props);
-    const { props } = this.props;
-    const { updateFormValue, form } = props;
-    const formData = new FormData(); //eslint-disable-line
-    formData.append('image', file);
-    const uploadFileRes = await axios({
-      config: {
-        headers: {
-          'Content-Type': 'multipart/form-data',
+    try {
+      const { props } = this.props;
+      const { updateFormValue, form } = props;
+      const formData = new FormData(); //eslint-disable-line
+      formData.append('image', file);
+      const uploadFileRes = await axios({
+        config: {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         },
-      },
-      method: 'post',
-      url: `${ENDPOINT}/web/upload-file`,
-      data: formData,
-    });
-    updateFormValue('sellVehicle', { ...form.sellVehical, [obj.value]: uploadFileRes.data });
-    console.log('uploadFileRes', uploadFileRes);
+        method: 'post',
+        url: `${ENDPOINT}/web/upload-file`,
+        data: formData,
+      });
+      updateFormValue('sellVehicle', { ...form.sellVehical, [obj.value]: uploadFileRes.data });
+      console.log('uploadFileRes', uploadFileRes);
+    } catch (e) {
+      console.error('Error in image upload', e);
+    }
   }
 
   render() {

@@ -8,7 +8,7 @@ import { ENDPOINT } from '../../../../config';
 const ProductCard = (obj, cardOnClickHandler) => {
   return (
     <Card
-      // interactive
+      interactive
       className="product-card"
       style={{ height: 130, width: 140 }}
       // onClick={() => cardOnClickHandler(obj)}

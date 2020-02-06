@@ -1,32 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { RangeSlider } from '@blueprintjs/core';
 
 class PriceRange extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { range: [36, 72] };
-  }
 
   handleValueChange = (value) => {
-    // console.log('value in price chage',value);
-    this.setState({ range: value });
+    // console.log('value in price chage', value);
+    const { updateMainValue, main } = this.props;
+    updateMainValue('filter', { ...main.filter, priceRange: value });
   }
 
   render() {
-    const { range } = this.state;
+    const { main } = this.props;
     return (
       <div className="side-menu" style={{ border: '1px solid #f1f1f1'}}>
         <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>Price Range(Lakh)</h3>
-        <div style={{ padding: 10 }}>
+        <div style={{padding: 10 }}>
           <RangeSlider
             min={0}
-            max={100}
+            max={200}
             stepSize={2}
-            labelStepSize={20}
+            labelStepSize={50}
             onChange={this.handleValueChange}
-            value={range}
-            labelRenderer={(v) => `${v} L`}
-
+            value={main.filter.priceRange}
+            labelRenderer={(v) => `${v}L`}
           />
         </div>
       </div>
@@ -34,3 +31,7 @@ class PriceRange extends React.Component {
   }
 }
 export default PriceRange;
+PriceRange.propTypes = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  updateMainValue: PropTypes.func.isRequired,
+};

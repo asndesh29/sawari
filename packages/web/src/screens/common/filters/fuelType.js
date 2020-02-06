@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class VehicleType extends React.Component {
   constructor(props) {
@@ -6,39 +9,44 @@ class VehicleType extends React.Component {
     this.state = {};
   }
 
+  fuelTypeSelectHandler = (type) => {
+    const { main, updateMainValue } = this.props;
+    updateMainValue('filter', { ...main.filter, fuelType: type });
+  }
+
   render() {
-    const { car, bike } = this.props;
+    const { car } = this.props;
     return (
       car
         ? (
           <div className="side-menu" style={{ marginTop: 20 }}>
             <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>Fuel Type</h3>
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Petrol')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={hatchback} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575'}}>Petrol</span>
               </div>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Diesel')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={sedan} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575'}}>Diesel</span>
               </div>
             </div>
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('CNG')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={muv} style={{ width: 70, height: 40 }}/> */}
                 <span style={{ color: '#757575'}}>CNG</span>
               </div>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('LPG')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={suv} style={{ width: 100, height: 50 }}/> */}
                 <span style={{ color: '#757575'}}>LPG</span>
               </div>
             </div>
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={coupe} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575' }}>Electric</span>
               </div>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Hybrid')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={convertible} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575'}}>Hybrid</span>
               </div>
@@ -49,11 +57,11 @@ class VehicleType extends React.Component {
           <div className="side-menu" style={{ marginTop: 20 }}>
             <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>Fuel Type</h3>
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Petrol')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={hatchback} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575'}}>Petrol</span>
               </div>
-              <div style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={sedan} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575'}}>Electric</span>
               </div>
@@ -64,3 +72,7 @@ class VehicleType extends React.Component {
   }
 }
 export default VehicleType;
+VehicleType.propTypes = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  updateMainValue: PropTypes.func.isRequired,
+};

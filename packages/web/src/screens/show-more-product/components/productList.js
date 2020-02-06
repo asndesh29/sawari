@@ -7,6 +7,7 @@ import NewsCard from '../../home/components/product-list/news/newsCard';
 import videoCard from '../../home/components/product-list/videos/videoCard';
 import DealerCard from './dealerCard';
 import UsedCarAndBikeCard from './usedCarAndBikeCard';
+import listProvider from './listProvider';
 
 const newsData = [
   { id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
@@ -17,6 +18,7 @@ const newsData = [
 ];
 
 const content = { cars: 1, bikes: 2, scooters: 2 };
+const category = { latest: 'Latest', popular: 'Popular', upcoming: 'Upcoming' };
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -31,20 +33,13 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const { main, contentType, showroomType, serviceCenterType, placeId, usedVehicleType } = this.props;
+    const { main, contentType, showroomType, serviceCenterType, placeId, usedVehicleType, categoryType} = this.props;
     const { showProductDtails, searchResult } = this.state;
     return (
       <div className="search-product-list">
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div className="product-list">
-          {main.initialData.vehicleBrandProduct && (contentType === 'cars' || contentType === 'bikes')
-            ? main.initialData.vehicleBrandProduct.filter((obj) => obj.stypeId === content[contentType]).map((obj) => CarAndBikeCard(obj, this.cardOnClickHandler))
-            : []}
-          { contentType === 'news' ? newsData.map((obj) => NewsCard(obj, this.cardOnClickHandler)) : []}
-          { contentType === 'videos' ? newsData.map((obj) => videoCard(obj, this.cardOnClickHandler)) : [] }
-          { showroomType && main.initialData.dealerList && main.initialData.dealerList.map((d) => DealerCard(d)) }
-          { serviceCenterType && main.initialData.dealerList && main.initialData.dealerList.map((d) => DealerCard(d)) }
-          { placeId && usedVehicleType && main.initialData.usedVehicle && main.initialData.usedVehicle.map((uv) => UsedCarAndBikeCard(uv, this.cardOnClickHandler))}
+          {main.initialData.vehicleModel ? listProvider(this.props, this.cardOnClickHandler) : []}
         </div>
       </div>
     );

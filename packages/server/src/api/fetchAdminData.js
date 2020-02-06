@@ -11,7 +11,7 @@ const arrBike = [
   'BikeVarientChassisSuspension',
   'BikeVarientDimensionCapacity',
   'BikeVarientElectricals',
-  'BikeVarientTyresBrakes'
+  'BikeVarientTyresBrakes',
 ];
 
 export default async (record) => {
@@ -40,7 +40,7 @@ export default async (record) => {
     const CarVarientExterior = await find('CarVarientExterior');
     const CarVarientSafty = await find('CarVarientSafty');
     const CarVarientEntertainmentCommunication = await find('CarVarientEntertainmentCommunication');
-
+    const DiscountOffer = await find('DiscountOffer');
     const bikeDataPromises = [];
     arrBike.forEach((bt) => bikeDataPromises.push(find(bt)));
     const bikeDataValue = await Promise.all(bikeDataPromises);
@@ -73,6 +73,7 @@ export default async (record) => {
       CarVarientExterior,
       CarVarientSafty,
       CarVarientEntertainmentCommunication,
+      DiscountOffer,
       ...mainBikeData,
     };
   });

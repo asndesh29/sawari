@@ -11,6 +11,7 @@ export default (obj, onEnqueryClickHandler) => {
     <Card
       className="product-card"
     // onClick={() => cardOnClickHandler(obj)}
+      style={{ maxHeight: 500 }}
     >
       <div className="image-container" style={{ height: 200 }}>
         <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.name} />

@@ -30,6 +30,7 @@ export default async (req, res) => {
   try {
     upload(req, res, async (err) => {
       if (err) {
+        console.log(err);
         res.statusCode = 500;
         res.send(err.message);
       }
@@ -44,7 +45,7 @@ export default async (req, res) => {
       }
     });
   } catch (e) {
-    console.log('error in add udpate profile user', e);
+    console.log('error in file upload', e);
     res.statusCode = 400;
     res.send(JSON.stringify(e));
   }

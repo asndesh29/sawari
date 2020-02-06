@@ -4,7 +4,13 @@ import Select from 'react-select';
 class City extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedCity: null };
+    this.state = {};
+  }
+
+  handleValueChange = (e) => {
+    // console.log('value in price chage', value);
+    const { updateMainValue, main } = this.props;
+    updateMainValue('filter', { ...main.filter, city: e.value });
   }
 
   render() {
@@ -14,14 +20,14 @@ class City extends React.Component {
         <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>City</h3>
         <div style={{ marginBottom: 10, marginTop: 10, width: '100%' }}>
           <Select
-            styles={{container: (provided, state) => ({
+            styles={{ container: (provided, state) => ({
               ...provided,
               color: 'black',
             })}}
             options={main.initialData.cities ? main.initialData.cities.map(c => ({ value: c, label: c })) : []}
             isSearchable
             placeholder="Select city"
-            onChange={e => this.setState({ selectedCity: e.value })}
+            onChange={this.handleValueChange}
           />
         </div>
       </div>

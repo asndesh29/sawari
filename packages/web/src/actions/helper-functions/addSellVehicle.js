@@ -8,19 +8,91 @@ export default async (dispatch, getState, schema) => {
   try {
     const { form, main } = getState();
 
-    const { stypeId, sbId, vehicleName, kmsDriven, ownerShip, city, expectedPrice, ownerName, ownerEmail, ownerPhoneNo, image1, image2, image3, image4, image5 } = form.sellVehicle;
+    const {
+      stypeId,
+      sbId,
+      vehicleName,
+      kmsDriven,
+      ownerShip,
+      city,
+      expectedPrice,
+      ownerName,
+      ownerEmail,
+      ownerPhoneNo,
+      image1,
+      image2,
+      image3,
+      image4,
+      image5,
+      model,
+      variant,
+      customerType,
+      makeYear,
+      displacement,
+      province,
+      taxClearance,
+      registrationNo,
+    } = form.sellVehicle;
 
-    if (!stypeId || !sbId || !image1 || !vehicleName || !kmsDriven || !ownerShip) {
+    if (!stypeId || !sbId || !image1 || !kmsDriven || !ownerShip) {
       dispatch(updateFormValue(schema, { error: 'Please fill all the field' }));
     } else {
       dispatch(updateFormValue(schema, { loading: true, error: null, success: null }));
-      const enquiryRes = await axios.post(`${ENDPOINT}/web/add-vehicle`, { stypeId, sbId, vehicleName, kmsDriven, ownerShip, city, expectedPrice, ownerName, ownerEmail, ownerPhoneNo, image1, image2, image3, image4, image5 });
+      const enquiryRes = await axios.post(`${ENDPOINT}/web/add-vehicle`,
+        {
+          stypeId,
+          sbId,
+          vehicleName,
+          kmsDriven,
+          ownerShip,
+          city,
+          expectedPrice,
+          ownerName,
+          ownerEmail,
+          ownerPhoneNo,
+          image1,
+          image2,
+          image3,
+          image4,
+          image5,
+          model,
+          variant,
+          customerType,
+          makeYear,
+          displacement,
+          province,
+          taxClearance,
+          registrationNo,
+        });
       console.log('enquiry res', enquiryRes);
       if (enquiryRes.status === 200) {
         dispatch(updateFormValue(schema, {
-          stypeId: null, sbId: null, vehicleName: null, kmsDriven: null, ownerShip: null, city: null, expectedPrice: null,
-          ownerName: null, ownerEmail: null, ownerPhoneNo: null, image1: null, image2: null, image3: null, image4: null, image5: null, loading: false,
-          success: 'Your vehicle will be listed soon. Thank you!', error: null,
+          stypeId: null,
+          sbId: null,
+          vehicleName: null,
+          kmsDriven: null,
+          ownerShip: null,
+          city: null,
+          expectedPrice: null,
+          ownerName: null,
+          ownerEmail: null,
+          ownerPhoneNo: null,
+          image1: null,
+          image2: null,
+          image3: null,
+          image4: null,
+          image5: null,
+          loading: false,
+          success: 'Your vehicle will be listed soon. Thank you!',
+          error: null,
+          model: null,
+          variant: null,
+          customerType: null,
+          makeYear: null,
+          displacement: null,
+          province: null,
+          taxClearance: null,
+          registrationNo: null,
         }));
       }
     }

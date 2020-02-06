@@ -14,6 +14,7 @@ const arrSchema = [
   'CarVarientExterior',
   'CarVarientSafty',
   'CarVarientEntertainmentCommunication',
+  'DiscountOffer',
 ];
 
 const arrBike = [
@@ -39,6 +40,7 @@ export default async () => {
     const serviceCenterList = await find('ServiceCenter');
     const usedVehicle = await find('SellVehicle');
     const vehicleModel = await find('ServiceTypeBrandModel');
+    const variantList = await find('ServiceTypeBrandModelVarient');
     // console.log('vehicle models', vehicleModel);
     const varientListPromises = [];
     vehicleModel.forEach((vm) => {
@@ -68,7 +70,7 @@ export default async () => {
       return obj;
     }, {});
 
-    return { ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
+    return { variantList, ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
   });
   return { budgetRangeList, ...res };
 };

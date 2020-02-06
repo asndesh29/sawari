@@ -29,9 +29,9 @@ class ProductDetails extends React.Component {
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Used</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="cars" title="Cars" panel={<Content {...this.props} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="bikes" title="Bikes" panel={<Content {...this.props} />} panelClassName="ember-panel" />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="scooters" title="Scooters" panel={<Content {...this.props} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="cars" title="Cars" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="bikes" title="Bikes" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="scooters" title="Scooters" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
         </Tabs>
       </Card>
     );

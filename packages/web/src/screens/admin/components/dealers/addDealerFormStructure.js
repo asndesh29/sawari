@@ -25,7 +25,14 @@ export default (props, update) => [
   },
 
   {
-    element: 'input', placeHolder: 'Enter type...', value: 'type', type: 'text', label: 'Type:',
+    element: 'select',
+    value: 'type',
+    options: [
+      { label: 'New', value: 'new' },
+      { label: 'Used', value: 'used' },
+      { label: 'Both', value: 'both' },
+    ],
+    placeHolder: 'Select Saler Type..',
   },
   {
     element: 'input', placeHolder: 'Enter name...', value: 'name', type: 'text', label: 'Name:',

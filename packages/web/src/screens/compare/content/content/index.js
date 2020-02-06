@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React from 'react';
 import { Button } from '@blueprintjs/core';
 import PropTypes from 'prop-types';
@@ -29,7 +30,7 @@ class Index extends React.Component {
   showCompareResult = () => {
     const { main } = this.props;
     const { pId1, pId2, pId3, pId4 } = this.state;
-    const selectedProductList = [pId1, pId2, pId3, pId4].filter(p => p).map(p => findProductDetails(p, main.initialData.vehicleBrandProduct)).map((obj) => ({ ...productDetailsObj, ...obj }));
+    const selectedProductList = [pId1, pId2, pId3, pId4].filter(p => p).map(p => findProductDetails(p, main.initialData.variantList)).map((obj) => ({ ...productDetailsObj, ...obj }));
     this.setState({ compareResult: selectedProductList });
   }
 

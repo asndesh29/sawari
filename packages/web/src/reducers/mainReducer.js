@@ -12,6 +12,7 @@ const initialAppState = {
   currentUserDetails: null,
   multiSearchResult: null,
   currentUsedVehicleDetails: null,
+  filter: { priceRange: [0, 50] },
 };
 
 export default (state = initialAppState, action) => {
