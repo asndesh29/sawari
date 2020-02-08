@@ -28,7 +28,7 @@ class Index extends React.Component {
           <div className="main_product_details">
             <Navbar {...this.props}/>
             <BrandDetails {...this.props} />
-            <Footer {...this.props}/>
+            <Footer {...this.props} />
           </div>
         )
         : <Spinner />

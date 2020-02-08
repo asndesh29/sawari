@@ -42,6 +42,8 @@ class index extends Component {
           <Route exact path="/used/city/:cityId/:usedVehicleType" component={ShowMore} />
           <Route exact path="/used/:usedVehicleType" component={ShowMore} />
           <Route exact path="/used/showrooms/:usedVehicleType" component={ShowMore} />
+          <Route exact path="/car/brand/:brandName" component={BrandDetails} />
+          <Route exact path="/bike/brand/:brandName" component={BrandDetails} />
         </div>
       </Router>
     );

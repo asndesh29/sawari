@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import DealerCard from './dealerCard';
 import Provices from '../../../common/filters/province';
 import City from '../../../common/filters/cities';
+import { serviceCenterShowroomFilterHandler } from '../../../common/filters/filterActionHandler';
 
 class Index extends React.Component {
   constructor(props) {
@@ -18,8 +19,10 @@ class Index extends React.Component {
   }
 
   render() {
-    const { main, updateMainValue, sbId, stypeId } = this.props;
+    const { main, updateMainValue, match } = this.props;
     const { showProductDtails } = this.state;
+    const { params } = match;
+    const brand = main.initialData.vehicleBrand.find((b) => (`${b.brandName.replace(/\s/g, '')}-${b.id}`.toLocaleLowerCase() === params.brandName));
     return (
       <div className="main-brand-product">
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
@@ -28,7 +31,7 @@ class Index extends React.Component {
           <City {...this.props} />
         </div>
         <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.serviceCenterList ? main.initialData.serviceCenterList.filter(c => ((c.stypeId === parseInt(stypeId, 10)) && c.sbId === parseInt(sbId, 10))).map((obj) => DealerCard(obj, this.cardOnClickHandler, this.onEnquiryFormToggle)) : []}
+          {main.initialData.serviceCenterList ? serviceCenterShowroomFilterHandler(this.props, main.initialData.serviceCenterList.filter(c => ((c.stypeId === brand.stypeId) && c.sbId === brand.id))).map((obj) => DealerCard(obj, this.cardOnClickHandler, this.onEnquiryFormToggle)) : []}
         </div>
       </div>
     );

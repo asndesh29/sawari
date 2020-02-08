@@ -18,7 +18,8 @@
       "js": "never",
       "mjs": "never"
     }],
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": 0
   },
   "env": {
     "browser": true,

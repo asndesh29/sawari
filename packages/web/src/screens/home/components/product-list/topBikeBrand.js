@@ -22,21 +22,21 @@ const ProductCard = (obj, cardOnClickHandler) => {
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, stypeId: null };
+    this.state = { brand: null, stypeId: null };
   }
 
   cardOnClickHandler = (obj) => {
     const { updateMainValue } = this.props;
     updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id, stypeId: obj.stypeId });
+    this.setState({ brand: obj, stypeId: obj.stypeId });
   }
 
   render() {
     const { main, updateMainValue } = this.props;
-    const { showProductDtails, stypeId } = this.state;
+    const { brand, stypeId } = this.state;
     return (
       <div elevation={0} className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
-        {showProductDtails && <Redirect to={`/brand/${stypeId}/${showProductDtails}`} />}
+        {brand && <Redirect to={`bike/brand/${brand.brandName.replace(/\s/g, '')}-${brand.id}`.toLocaleLowerCase()} />}
         {/* <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22, marginBottom: 5 }} /> */}
         <div className="product-list">
           <div style={{ width: '100%', textAlign: 'center', height: '100%', marginTop: 5 }}>

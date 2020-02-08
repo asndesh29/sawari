@@ -12,7 +12,6 @@ export default (obj, onEnqueryClickHandler) => {
     <Card
       className="product-card"
       // onClick={() => cardOnClickHandler(obj)}
-      style={{ padding: 20 }}
     >
       <div className="image-container">
         <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.brandName} />
@@ -23,7 +22,7 @@ export default (obj, onEnqueryClickHandler) => {
         <div style={{ marginTop: 10, width: '100%' }}>
           <Icon icon="phone" style={{ marginRight: 10, color: 'green' }}/>
           <span>{obj.phoneNo}</span>
-          <Icon icon="envelope" style={{ marginRight: 10, color: 'green', marginLeft: 10 }}/>
+          <Icon icon="envelope" style={{ marginRight: 10, color: 'green', marginLeft: 10 }} />
           <span>sawarikinbech@gmail.com</span>
           <Button text="Locate" fill intent="success" style={{ marginTop: 10, width: 200 }} onClick={() => locateClickHandler(obj)}/>
           <Button text="Enquiry" fill intent="success" onClick={() => onEnqueryClickHandler(obj)} style={{ marginTop: 10, width: 200 }} />

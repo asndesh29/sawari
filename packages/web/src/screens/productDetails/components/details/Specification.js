@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import PropTypes from 'prop-types';
 import { Icon } from '@blueprintjs/core';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoCheck } from 'react-icons/go';
@@ -98,30 +99,27 @@ class Specification extends React.Component {
   collapseOpenHandler = (id) => {
     this.setState({ collapseId: id });
   }
-
+ 
   render() {
     console.log('project detials in Onj in specification', this.props);
     const { collapseId } = this.state;
     const { main } = this.props;
     const { currentCarDetail } = main;
     const { stypeId, varients } = currentCarDetail;
-    let allCarDetails = {};
-    let allBikeDetails = {};
+    const allCarDetails = {};
+    const allBikeDetails = {};
 
     if (parseInt(stypeId, 10) === 1) {
-      Object.keys(arrSchema).forEach(k => {
-        allCarDetails[k] = main.initialData[arrSchema[k]].find(d => d.varientId === varients[0].id);
+      Object.keys(arrSchema).forEach((k) => {
+        allCarDetails[k] = main.initialData[arrSchema[k]].find((d) => d.varientId === varients[0].id);
       });
-      // keyFeatures = main.initialData.CarVarientKeyFeatures.find(cf => cf.varientId === varients[0].id);
-      // keySpecifications = main.initialData.CarVarientKey
     }
 
     if (parseInt(stypeId, 10) === 2) {
-      Object.keys(arrBike).forEach(k => {
-        allBikeDetails[k] = main.initialData[arrBike[k]].find(d => d.varientId === varients[0].id);
+      Object.keys(arrBike).forEach((k) => {
+        allBikeDetails[k] = main.initialData[arrBike[k]].find((d) => d.varientId === varients[0].id);
       });
     }
-    console.log('allBike details', allBikeDetails, currentCarDetail, main);
 
     return (
       <div className="specification">
@@ -136,3 +134,7 @@ class Specification extends React.Component {
   }
 }
 export default Specification;
+Specification.propTypes  = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+
+}

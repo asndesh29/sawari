@@ -780,7 +780,7 @@ body {
   color: black;
   margin: 5px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
   height: auto;
@@ -788,7 +788,7 @@ body {
 }
 .brand-details .brand-details-menu .menu-tab .manu-tab-container .main-brand-product .brand-product-list .product-card .image-container {
   width: 30%;
-  height: 100%;
+  height: 200px;
   display: flex;
   padding: 5px;
 }
@@ -798,6 +798,7 @@ body {
   object-fit: contain;
 }
 .brand-details .brand-details-menu .menu-tab .manu-tab-container .main-brand-product .brand-product-list .product-card .description {
+  margin-top: 10px;
   height: 100%;
   width: 65%;
   display: flex;

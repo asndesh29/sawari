@@ -1,8 +1,39 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import Collapsible from 'react-collapsible';
 import { Icon } from '@blueprintjs/core';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoCheck } from 'react-icons/go';
+import carDetailsObj from '../../../productDetails/components/details/productDetailsObj';
+import bikeDetailsObj from '../../../productDetails/components/details/bikeDetailsObj';
+
+const arrSchema = {
+  overview: 'CarVarientOverview',
+  keySpecifications: 'CarVarientKeySpecification',
+  'Engine and Transmission': 'CarVarientEngineTransmission',
+  'Fuel & Performance': 'CarVarientFuelPerformance',
+  'Suspension, Steering & Brakes': 'CarVarientSuspensionSteeringBreak',
+  'Dimensions & Capacity': 'CarVarientDimentionCapacity',
+  keyFeatures: 'CarVarientKeyFeatures',
+  'Comfort & Convenience': 'CarVarientComfortConvenience',
+  Interior: 'CarVarientInterior',
+  Exterior: 'CarVarientExterior',
+  Safety: 'CarVarientSafty',
+  'Entertainment & Communication': 'CarVarientEntertainmentCommunication',
+};
+
+const arrBike = {
+  overview: 'BikeVarientOverview',
+  keySpecifications: 'BikeVarientKeySpecification',
+  keyFeatures: 'BikeVarientKeyFeaturs',
+  'Engine and Transmission': 'BikeVarientEngineTransmission',
+  'Features and Safety': 'BikeVarientFeatursSafety',
+  'Mileage and Performance': 'BikeVarientMileagePerformance',
+  'Chassis and Suspension': 'BikeVarientChassisSuspension',
+  'Dimensions and Capacity': 'BikeVarientDimensionCapacity',
+  Electricals: 'BikeVarientElectricals',
+  'Tyres and Brakes': 'BikeVarientTyresBrakes',
+};
 
 const triggerElement = (label, productList) => {
   const length = productList.length;
@@ -37,7 +68,7 @@ const containerElementFeaturesWithYesNo = (key, value) => {
   return (
     <div className="container-element">
       <span style={{ color: '#9a9a9a' }}>{key}</span>
-      {value ? <GoCheck color="green" size={20} /> : <AiOutlineClose color="red" size={20} /> }
+      {value ? <GoCheck color="green" size={20} /> : <AiOutlineClose color="red" size={20} />}
     </div>
   );
 };
@@ -46,7 +77,7 @@ const containerElementWithvalue = (label, key, arr, productList, triggerLabel) =
   const lengthOfArray = arr.length;
   const widthOfDiv = (100 - 10) / lengthOfArray;
   // console.log('widthOfDiv', widthOfDiv);
-  console.log('container element with value', triggerLabel);
+  console.log('container element with value', label, key, arr, productList, triggerLabel);
   return (
     <div className="container-element">
       <div style={{ width: '10%', display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', height: '100%' }}>
@@ -54,27 +85,27 @@ const containerElementWithvalue = (label, key, arr, productList, triggerLabel) =
       </div>
       {arr.map((obj) => (
         <div style={{ width: `${widthOfDiv}%`, display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', height: '100%', borderLeft: '1px solid #f1f1f1' }}>
-          {triggerLabel === 'Key Featurs' ? (obj[key] ? <Icon icon="tick" color="green" style={{marginLeft: 10 }}/> : <Icon icon="cross" color="red" style={{marginLeft: 10 }}/>) : <span style={{ padding: 5 }}>{obj[key]}</span>}
+          {triggerLabel === 'Key Featurs' ? (obj[key] ? <Icon icon="tick" color="green" style={{ marginLeft: 10 }} /> : <Icon icon="cross" color="red" style={{ marginLeft: 10 }} />) : <span style={{ padding: 5 }}>{obj[key]}</span>}
         </div>
       ))}
     </div>
   );
 };
 
-const collapseContent = (objArr, label, productList) => {
-  // console.log('obj in collapse container', objArr, label);
+const collapseContent = (objArr, label, keyObj) => {
+  console.log('obj in collapse container', objArr, label, keyObj);
   return (
     <div className="specification-collapse-container">
-      {Object.values(objArr[0].labels).map((l, idx) => containerElementWithvalue(l, Object.keys(objArr[0].labels)[idx], objArr, productList, label))}
+      {Object.values(keyObj.labels).map((l, idx) => containerElementWithvalue(l, Object.keys(keyObj.labels)[idx], objArr, keyObj, label))}
     </div>
   );
 };
 
-const collapseHandler = (lable, arrObj, productList) => {
-  // console.log('collapse Handler', arrObj, lable);
+const collapseHandler = (lable, objArr, keyObj) => {
+  console.log('collapse Handler', objArr, lable,);
   return (
-    <Collapsible open={lable === 'Overview'} trigger={triggerElement(lable, productList)} transitionTime={200}>
-      {collapseContent(arrObj, lable, productList)}
+    <Collapsible open={lable === 'Overview'} trigger={triggerElement(lable, objArr)} transitionTime={200}>
+      {collapseContent(objArr, lable, keyObj)}
     </Collapsible>
   );
 };
@@ -89,17 +120,28 @@ class Specification extends React.Component {
     this.setState({ collapseId: id });
   }
 
+
   render() {
     // console.log('project detials in Onj in specification', productDetailsObj);
     const { collapseId } = this.state;
-    const { productList } = this.props;
+    const { productList, main } = this.props;
+    const variantsDetailsList = [];
+    console.log('ProductList', productList);
+    productList.forEach((v) => {
+      const allCarDetails = {};
+      Object.keys(arrSchema).forEach((k) => {
+        allCarDetails[k] = main.initialData[arrSchema[k]].find((d) => d.varientId === v.id);
+      });
+      variantsDetailsList.push(allCarDetails);
+    });
+    console.log('variantsDetailsList', variantsDetailsList);
     // console.log(Object.keys(productList[0].specifications));
     return (
       <div className="specification">
-        {collapseHandler('Overview', productList.map((pd) => pd.overview), productList)}
-        {collapseHandler('Key Specification', productList.map((pd) => pd.keySpecifications), productList)}
-        {collapseHandler('Key Featurs', productList.map((pd) => pd.keyFeatures), productList)}
-        {Object.keys(productList[0].specifications).map((topic, idx) => collapseHandler(topic, productList.map((pd) => pd.specifications[topic]), productList))}
+        {collapseHandler('Overview', variantsDetailsList.map((v) => v.overview), carDetailsObj.overview)}
+        {collapseHandler('Key Specification', variantsDetailsList.map((v) => v.keySpecifications), carDetailsObj.keySpecifications)}
+        {collapseHandler('Key Featurs', variantsDetailsList.map((v) => v.keyFeatures), carDetailsObj.keyFeatures)}
+        {Object.keys(carDetailsObj.specifications).map((topic, idx) => collapseHandler(topic, variantsDetailsList.map((v) => v[topic]), carDetailsObj.specifications[topic]))}
       </div>
     );
   }

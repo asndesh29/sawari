@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
@@ -22,21 +24,21 @@ const ProductCard = (obj, cardOnClickHandler) => {
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, stypeId: null };
+    this.state = { brandName: null, stypeId: 'cars' };
   }
 
   cardOnClickHandler = (obj) => {
     const { updateMainValue } = this.props;
     updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id, stypeId: obj.stypeId });
+    this.setState({ brand: obj, stypeId: obj.stypeId });
   }
 
   render() {
     const { main, updateMainValue } = this.props;
-    const { showProductDtails, stypeId } = this.state;
+    const { brand, stypeId } = this.state;
     return (
       <Card elevation={0} className="home-product-list">
-        {showProductDtails && <Redirect to={`/brand/${stypeId}/${showProductDtails}`} />}
+        {brand && <Redirect to={`car/brand/${brand.brandName.replace(/\s/g, '')}-${brand.id}`.toLocaleLowerCase()} />}
         <div className="product-list-header">
           <h2>Popular Car Brands</h2>
         </div>
