@@ -1,14 +1,14 @@
 
 export default (props, update) => [
-  {
-    element: 'select',
-    value: 'city',
-    options: props.main.initialAdminData.cities.map(c => ({ label: c, value: c })),
-    placeHolder: 'Select city..',
-  },
   // {
-  //   element: 'input', placeHolder: 'Enter province...', value: 'province', type: 'text', label: 'Province:',
+  //   element: 'select',
+  //   value: 'city',
+  //   options: props.main.initialAdminData.cities.map(c => ({ label: c, value: c })),
+  //   placeHolder: 'Select city..',
   // },
+  {
+    element: 'input', placeHolder: 'Enter city...', value: 'city', type: 'text', label: 'City:',
+  },
   {
     element: 'select',
     value: 'province',

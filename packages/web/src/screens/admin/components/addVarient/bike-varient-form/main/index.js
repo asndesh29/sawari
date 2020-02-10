@@ -10,7 +10,7 @@ const addMainVarientStructure = (props, update) => {
         { label: 'Scooter', value: 'Scooter' },
         { label: 'Street', value: 'Street' },
         { label: 'Cruiser', value: 'Cruiser' },
-        { label: 'Sport', value: 'Sport' },
+        { label: 'Sports', value: 'Sports' },
       ],
       placeHolder: 'Select Body Type',
     },

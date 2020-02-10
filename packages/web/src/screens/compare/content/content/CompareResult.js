@@ -124,24 +124,38 @@ class Specification extends React.Component {
   render() {
     // console.log('project detials in Onj in specification', productDetailsObj);
     const { collapseId } = this.state;
-    const { productList, main } = this.props;
+    const { productList, main, match } = this.props;
     const variantsDetailsList = [];
+    let vehicleProductDetais = null;
     console.log('ProductList', productList);
-    productList.forEach((v) => {
-      const allCarDetails = {};
-      Object.keys(arrSchema).forEach((k) => {
-        allCarDetails[k] = main.initialData[arrSchema[k]].find((d) => d.varientId === v.id);
+    if (match.params.typeId === 'cars') {
+      productList.forEach((v) => {
+        const allCarDetails = {};
+        Object.keys(arrSchema).forEach((k) => {
+          allCarDetails[k] = main.initialData[arrSchema[k]].find((d) => d.varientId === v.id);
+        });
+        variantsDetailsList.push(allCarDetails);
       });
-      variantsDetailsList.push(allCarDetails);
-    });
+      vehicleProductDetais = carDetailsObj;
+    } else {
+      productList.forEach((v) => {
+        const allBikeDetailsList = {};
+        Object.keys(arrBike).forEach((k) => {
+          allBikeDetailsList[k] = main.initialData[arrBike[k]].find((d) => d.varientId === v.id);
+        });
+        variantsDetailsList.push(allBikeDetailsList);
+      });
+      vehicleProductDetais = bikeDetailsObj;
+    }
+
     console.log('variantsDetailsList', variantsDetailsList);
     // console.log(Object.keys(productList[0].specifications));
     return (
       <div className="specification">
-        {collapseHandler('Overview', variantsDetailsList.map((v) => v.overview), carDetailsObj.overview)}
-        {collapseHandler('Key Specification', variantsDetailsList.map((v) => v.keySpecifications), carDetailsObj.keySpecifications)}
-        {collapseHandler('Key Featurs', variantsDetailsList.map((v) => v.keyFeatures), carDetailsObj.keyFeatures)}
-        {Object.keys(carDetailsObj.specifications).map((topic, idx) => collapseHandler(topic, variantsDetailsList.map((v) => v[topic]), carDetailsObj.specifications[topic]))}
+        {collapseHandler('Overview', variantsDetailsList.map((v) => v.overview), vehicleProductDetais.overview)}
+        {collapseHandler('Key Specification', variantsDetailsList.map((v) => v.keySpecifications), vehicleProductDetais.keySpecifications)}
+        {collapseHandler('Key Featurs', variantsDetailsList.map((v) => v.keyFeatures), vehicleProductDetais.keyFeatures)}
+        {Object.keys(vehicleProductDetais.specifications).map((topic, idx) => collapseHandler(topic, variantsDetailsList.map((v) => v[topic]), vehicleProductDetais.specifications[topic]))}
       </div>
     );
   }

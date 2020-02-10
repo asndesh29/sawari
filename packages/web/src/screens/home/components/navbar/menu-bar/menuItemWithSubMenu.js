@@ -24,7 +24,7 @@ const popOverContentMenuItem = (menuItems) => {
 export default (menuObj, showMenu, toggleMenu) => {
   const menuName = Object.keys(menuObj)[0];
   return (
-    <div className="nav-menu" onMouseLeave={() => toggleMenu(null)} onMouseEnter={() => toggleMenu(menuName)}>
+    <div className="nav-menu" onMouseEnter={() => toggleMenu(menuName)}>
       <Popover
         className="popover"
         boundary="viewport"
@@ -42,7 +42,7 @@ export default (menuObj, showMenu, toggleMenu) => {
         sliderValue={5}
         usePortal
         content={popOverContentMenuItem(Object.values(menuObj), menuName, toggleMenu)}
-        interactionKind={PopoverInteractionKind.HOVER}
+        interactionKind={PopoverInteractionKind.CLICK}
         isOpen={showMenu === menuName}
         position={Position.BOTTOM_LEFT}
       >

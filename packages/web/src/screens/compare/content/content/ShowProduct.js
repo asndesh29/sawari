@@ -4,18 +4,20 @@ import { ENDPOINT } from '../../../../config';
 
 const findProductDetails = (id, allProducts) => {
   console.log('parameter in findProductDetails', id, allProducts);
-  return allProducts.find(p => p.id === id);
+  const model = allProducts.find((m) => m.varients.find((v) => v.id === id));
+  return model;
 };
 
 const showDetails = (type, id, allProducts) => {
-  const pro1 = findProductDetails(id, allProducts);
+  const model = findProductDetails(id, allProducts);
+  const varient = model.varients.find(v => v.id === id);
   return (
     <div style={{ width: 'auto', height: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-      {pro1 && <img src={`${ENDPOINT}/images/${pro1.image}`} alt={pro1.brandName} style={{ height: 160, width: '100%' }} /> }
-      {pro1 && (
+      {model && <img src={`${ENDPOINT}/model_image/${model.image}`} alt={model.name} style={{ height: 160, width: '100%' }} /> }
+      {varient && (
       <div style={{marginTop: 10, overflow: 'hidden', display: 'flex', flexDirection: 'column', width: '100%', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-        <span style={{ fontSize: 16 }}>{pro1.name}</span>
-        <span>{`NRs ${pro1.price}/-`}</span>
+        <span style={{ fontSize: 16 }}>{varient.name}</span>
+        <span>{`NRs ${varient.exShowRoomPrice}/-`}</span>
       </div>
       )}
     </div>
@@ -42,7 +44,7 @@ class SelectProductForComparison extends React.Component {
     console.log('props in show Product', this.props);
     return (
       <div style={{ margin: 5, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 0, border: '2px solid #f5f5f5', width: 260, height: 'auto' }}>
-        {pId ? showDetails(type, pId, main.initialData.vehicleBrandProduct) : showAddProduct(type, pId, showMenuHandler)}
+        {pId ? showDetails(type, pId, main.initialData.vehicleModel) : showAddProduct(type, pId, showMenuHandler)}
       </div>
     );
   }

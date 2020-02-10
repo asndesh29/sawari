@@ -74,7 +74,7 @@ class VehicleType extends React.Component {
                 <img src={hybride} style={{ width: 70, height: 40 }}/>
                 <span style={{ color: '#757575'}}>Hybrids</span>
               </div>
-              <div onClick={() => this.bodyTypeSelectHandler('Pickup Truck')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.bodyTypeSelectHandler('Pick-Up')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 <img src={pickupTruck} style={{ width: 100, height: 50 }}/>
                 <span style={{ color: '#757575' }}>Pickup Truck</span>
               </div>

@@ -60,7 +60,7 @@ export default () => {
       {
         Compare: [
           { id: 60, route: '/compare/cars', name: 'Cars' },
-          { id: 61, route: '/compare/bikes-scooters', name: 'Bikes & Scooter' },
+          { id: 61, route: '/compare/bikes', name: 'Bikes & Scooter' },
         ],
       },
       {
