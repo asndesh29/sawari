@@ -14,8 +14,7 @@ class ProductDetails extends React.Component {
 
   cardOnClickHandler = (obj) => {
     const { updateMainValue } = this.props;
-    updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
+    this.setState({ showProductDtails: obj });
   }
 
   render() {
@@ -23,22 +22,19 @@ class ProductDetails extends React.Component {
     const { showProductDtails } = this.state;
     return (
       <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
-        {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
-        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }}/>
+        {showProductDtails && <Redirect to={`/details/${showProductDtails.name.replace(/\s/g, '')}-${showProductDtails.id}`.toLocaleLowerCase()} />}
+        <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <div className="product-list">
           <div style={{ width: '100%', textAlign: 'center', height: '100%', padding: 0, marginTop: 5 }}>
             <HorizontalScrollView
-              // wheel
               data = {main.initialData.vehicleModel ? main.initialData.vehicleModel.filter(c => c.stypeId === 1 && c.category === category).map((obj) => ModelCard(obj, this.cardOnClickHandler)) : []}
               arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
               arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
-              // onSelect={(key) => console.log('seleceed', key)}
               clickWhenDrag={false}
               alignOnResize
               hideSingleArrow
               hideArrows
               scrollBy={3}
-              clickWhenDrag={false}
             />
           </div>
         </div>

@@ -6,7 +6,7 @@ export default (obj, cardOnClickHandler) => {
   return (
     <Card
       className="product-card"
-      onClick={() => cardOnClickHandler(obj)}
+      onClick={() => cardOnClickHandler(obj, 'used')}
       style={{ maxHeight: 400 }}
     >
       <div className="image-container">

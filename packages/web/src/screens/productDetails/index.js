@@ -7,7 +7,10 @@ import ProductDetails from './components/details';
 import SideMenuBrand from '../common/filters/sideBrandMenu';
 
 class Index extends React.Component {
-  state={};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   componentWillMount() {
     const { fetchInitialData } = this.props;
@@ -16,11 +19,12 @@ class Index extends React.Component {
 
   render() {
     console.log('this is product details', this.props);
+    const { main } = this.props;
     return (
       <div className="main_product_details">
-        <Navbar {...this.props}/>
+        <Navbar {...this.props} />
         <div className="main-product-details-sidebar">
-          <ProductDetails {...this.props} />
+          {main.initialData.vehicleModel && <ProductDetails {...this.props} />}
           <SideMenuBrand {...this.props} car bike />
         </div>
         <Footer {...this.props}/>

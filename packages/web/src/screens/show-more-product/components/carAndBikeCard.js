@@ -13,8 +13,7 @@ export default (obj, cardOnClickHandler) => {
   return (
     <Card
       className="product-card"
-      onClick={() => cardOnClickHandler(obj)}
-      style={{ maxHeight: 400 }}
+      onClick={() => cardOnClickHandler(obj, 'new')}
     >
       <div className="image-container">
         <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.name} />

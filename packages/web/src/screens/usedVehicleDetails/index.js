@@ -6,15 +6,26 @@ import Footer from '../home/components/footer';
 import ProductDetails from './components/productDetails';
 
 class Index extends React.Component {
-  state={};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentWillMount() {
+    const { fetchInitialData } = this.props;
+    fetchInitialData();
+  }
 
   render() {
-    console.log('this is product details', this.props);
+    console.log('Used Product details', this.props);
+    const { main } = this.props;
     return (
       <div className="main_product_details">
-        <Navbar {...this.props}/>
-        <ProductDetails {...this.props} />
-        <Footer {...this.props}/>
+        <Navbar {...this.props} />
+        <div className="main-product-details-sidebar" style={{ marginTop: 10}}>
+          {main.initialData.usedVehicle && <ProductDetails {...this.props} /> }
+        </div>
+        <Footer {...this.props} />
       </div>
     );
   }

@@ -42,12 +42,20 @@ export default (props) => {
         </div>
       );
     case '/showrooms/cars':
-    case '/showrooms/bikes':
     case '/service-center/cars':
+      return (
+        <div className="search-filter">
+          <SideBrandMenu {...props} car />
+          <Province {...props} />
+          <City {...props} />
+        </div>
+      );
+    case '/showrooms/bikes':
     case '/service-center/bikes':
       return (
         <div className="search-filter">
-          <Province {...props} bike />
+          <SideBrandMenu {...props} bike />
+          <Province {...props} />
           <City {...props} />
         </div>
       );

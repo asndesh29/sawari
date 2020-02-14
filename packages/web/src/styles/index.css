@@ -691,16 +691,17 @@ body {
   justify-content: flex-start;
 }
 .search-product .search-product-content .search-product-list {
-  flex: 1;
   display: flex;
   justify-content: flex-start;
   width: 80%;
+  height: 100%;
   margin-top: 20px;
 }
 .search-product .search-product-content .product-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
 }
 .search-product .search-product-content .product-list .product-card {
@@ -709,7 +710,7 @@ body {
   display: flex;
   padding: 0;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 10px;
 }
@@ -727,6 +728,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5px;
 }
 .search-product .search-product-content .product-list .product-card .description span {
   font-size: 15px;

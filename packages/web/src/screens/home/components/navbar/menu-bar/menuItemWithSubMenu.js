@@ -24,7 +24,7 @@ const popOverContentMenuItem = (menuItems) => {
 export default (menuObj, showMenu, toggleMenu) => {
   const menuName = Object.keys(menuObj)[0];
   return (
-    <div className="nav-menu" onMouseEnter={() => toggleMenu(menuName)}>
+    <div className="nav-menu" onMouseLeave={() => toggleMenu(null)} onMouseEnter={() => toggleMenu(menuName)}>
       <Popover
         className="popover"
         boundary="viewport"

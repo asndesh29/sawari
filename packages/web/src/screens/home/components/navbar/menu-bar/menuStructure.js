@@ -65,8 +65,8 @@ export default () => {
       },
       {
         'News & Reviews': [
-          { id: 70, route: '/popular/car', name: 'Video Review' },
-          { id: 80, route: '/popular/car', name: 'User Review' },
+          { id: 70, route: '/more/videos', name: 'Video Review' },
+          { id: 80, route: '/more/news', name: 'User Review' },
         ],
       },
       {

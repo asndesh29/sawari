@@ -22,15 +22,18 @@ const keySpecificationsElement = (label, key, obj) => {
   );
 };
 
-export default ({ obj, showEnquiryForm }) => {
-  console.log('obj in key spcification', obj);
+export default ({ obj, showEnquiryForm, variantId }) => {
+  // console.log('obj in key spcification', obj, variantId);
+  const variant = obj.varients.find((v) => v.id === variantId);
   return (
     <div className="detail-compare">
       <div className="name-price-compare">
         <div className="name-price">
-          <span style={{ fontSize: 20 }}>{obj.name}</span>
+          <span style={{ fontSize: 20 }}>{variant.name}</span>
           <br />
-          <span>{`Price: ${priceRangeHandler(obj)}`} </span>
+          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`Ex-Showroom Price: NRs. ${variant.exShowRoomPrice}/-`} </span>
+          <br />
+          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`On Road Price: NRs: ${variant.exShowRoomPrice}/-`} </span>
         </div>
         <Button text="compare" />
       </div>

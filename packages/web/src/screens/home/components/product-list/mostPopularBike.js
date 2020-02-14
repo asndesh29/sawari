@@ -15,7 +15,7 @@ class ProductDetails extends React.Component {
   cardOnClickHandler = (obj) => {
     const { updateMainValue } = this.props;
     updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
+    this.setState({ showProductDtails: obj });
   }
 
   render() {
@@ -23,7 +23,7 @@ class ProductDetails extends React.Component {
     const { showProductDtails } = this.state;
     return (
       <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
-        {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
+        {showProductDtails && <Redirect to={`/details/${showProductDtails.name.replace(/\s/g, '')}-${showProductDtails.id}`.toLocaleLowerCase()} />}
         <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <div className="product-list">
           <div style={{ width: '100%', textAlign: 'center', height: '100%' }}>

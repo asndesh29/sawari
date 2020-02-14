@@ -10,20 +10,31 @@ const findProductDetails = (id, allProducts) => {
   return allProducts.find((p) => p.id === id);
 };
 
+const findVariantId = (id, variantList) => {
+  // console.log('find Variant List', id, variantList);
+  const variant = variantList.find((v) => `${v.name.replace(/\s/g, '')}-${v.id}`.toLocaleLowerCase() === id);
+  return variant ? variant.id : variant;
+};
+
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pId1: 1, pId2: 3, pId3: null, pId4: null, compareResult: null };
+    this.state = { pId1: null, pId2: null, pId3: null, pId4: null, compareResult: null };
   }
 
   componentWillMount() {
-    const { match } = this.props;
+    const { match, main } = this.props;
     const { pId1, pId2, pId3, pId4 } = match.params;
-    this.setState({ pId1: parseInt(pId1, 10), pId2: parseInt(pId2, 10), pId3: parseInt(pId3, 10), pId4: parseInt(pId4, 10) });
+    this.setState({
+      pId1: findVariantId(pId1, main.initialData.variantList),
+      pId2: findVariantId(pId2, main.initialData.variantList),
+      pId3: findVariantId(pId3, main.initialData.variantList),
+      pId4: findVariantId(pId4, main.initialData.variantList),
+    });
   }
 
   showMenuHandler = (todo) => {
-    console.log('main showmenuHandler called', todo);
+    // console.log('main showmenuHandler called', todo);
     this.setState({ ...todo });
   }
 
@@ -36,7 +47,8 @@ class Index extends React.Component {
 
   render() {
     const { pId1, pId2, pId3, pId4, compareResult } = this.state;
-    console.log('state value in main comapre page', this.state);
+    // console.log('state value in main comapre page', this.state);
+    const isShowComapreButton = Object.values({ pId1, pId2, pId3, pId4 }).filter((v) => v).length > 0;
     return (
       <div className="content-body">
         <div className="selector">
@@ -46,13 +58,17 @@ class Index extends React.Component {
           <SelectProduct {...this.props} pId={pId4} type="pId4" showMenuHandler={this.showMenuHandler} />
         </div>
         <div className="button">
-          <Button text="Compare Now" style={{ background: '#FF4202', color: 'white', width: 200, height: 40 }} onClick={this.showCompareResult} />
+          { isShowComapreButton && <Button text="Compare Now" style={{ background: '#FF4202', color: 'white', width: 200, height: 40 }} onClick={this.showCompareResult} />}
         </div>
         <div className="compare-result">
-          {compareResult ? <CompareResult {...this.props} productList={compareResult} /> : null}
+          {compareResult && <CompareResult {...this.props} productList={compareResult} />}
         </div>
       </div>
     );
   }
 }
 export default Index;
+Index.propTypes = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
+};

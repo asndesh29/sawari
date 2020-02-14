@@ -28,6 +28,7 @@ class index extends Component {
           <Route path="/sell-vehicle" component={SellVehicle} />
           <Route path="/used-vehicle/details/:usedVehicleId" component={UsedVehicallDetails} />
           <Route exact path="/compare/:typeId" component={Compare} />
+          <Route exact path="/compare/:typeId/:pId1" component={Compare} />
           <Route exact path="/compare/:typeId/:pId1/:pId2" component={Compare} />
           <Route exact path="/compare/:typeId/:pId1/:pId2/pId3" component={Compare} />
           <Route exact path="/compare/:typeId/:pId1/:pId2/:pId3/:pId4" component={Compare} />

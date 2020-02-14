@@ -28,10 +28,9 @@ class ProductDetails extends React.Component {
     const { enquiryShow } = this.state;
     const { showDetail } = this.state;
     return (
-      <div className="product-detail">
+      <div className="product-detail" style={{ width: '70%' }}>
         <Card
-          interactive
-          elevation={Elevation.TWO}
+          // elevation={Elevation.TWO}
           className="product-card"
         >
           <Details {...this.props} />

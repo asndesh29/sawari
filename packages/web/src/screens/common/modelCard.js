@@ -13,11 +13,12 @@ export default (obj, cardOnClickHandler) => {
   return (
     <Card
       interactive
-      className="product-card"
-      style={{ width: 'auto', height: 220, padding: 5, overflow: 'hidden' }}
+      style={{ width: 300, height: 220, padding: 0, overflow: 'hidden', margin: 5 }}
       onClick={() => cardOnClickHandler(obj)}
     >
-      <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.brandName} style={{ height: 160, width: 'auto' }} />
+      <div style={{ width: '100%', height: '80%' }}>
+        <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.brandName} style={{ height: '100%', width: '100%', objectFit: 'fill'}} />
+      </div>
       <div style={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
         <span style={{ fontSize: 16 }}>{obj.name}</span>
         <span>{priceRangeHandler(obj)}</span>

@@ -45,15 +45,14 @@ const overviewElement = (label, key, obj) => {
 };
 
 export default (props) => {
-  const { main } = props;
-  const { currentCarDetail } = main;
-  const { stypeId, varients } = currentCarDetail;
+  const { main, currentProductDetails, variantId } = props;
+  const { stypeId, varients } = currentProductDetails;
   let overview = {};
   if (parseInt(stypeId, 10) === 1) {
-    overview = main.initialData.CarVarientOverview.find(cv => cv.varientId === varients[0].id);
+    overview = main.initialData.CarVarientOverview.find(cv => cv.varientId === variantId);
   }
   if (parseInt(stypeId, 10) === 2) {
-    overview = main.initialData.BikeVarientOverview.find(cv => cv.varientId === varients[0].id);
+    overview = main.initialData.BikeVarientOverview.find(cv => cv.varientId === variantId);
   }
 
   console.log('OVERVIEW', overview);

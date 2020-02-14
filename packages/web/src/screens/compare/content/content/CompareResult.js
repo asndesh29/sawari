@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import PropTypes from 'prop-types';
 import { Icon } from '@blueprintjs/core';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoCheck } from 'react-icons/go';
@@ -36,6 +37,7 @@ const arrBike = {
 };
 
 const triggerElement = (label, productList) => {
+  // console.log('TRIGGER ELEMENT', label, productList);
   const length = productList.length;
   const widthOfDiv = (100 - 10) / length;
   return (
@@ -93,7 +95,7 @@ const containerElementWithvalue = (label, key, arr, productList, triggerLabel) =
 };
 
 const collapseContent = (objArr, label, keyObj) => {
-  console.log('obj in collapse container', objArr, label, keyObj);
+  // console.log('obj in collapse container', objArr, label, keyObj);
   return (
     <div className="specification-collapse-container">
       {Object.values(keyObj.labels).map((l, idx) => containerElementWithvalue(l, Object.keys(keyObj.labels)[idx], objArr, keyObj, label))}
@@ -101,10 +103,10 @@ const collapseContent = (objArr, label, keyObj) => {
   );
 };
 
-const collapseHandler = (lable, objArr, keyObj) => {
-  console.log('collapse Handler', objArr, lable,);
+const collapseHandler = (lable, objArr, keyObj, variantList) => {
+  // console.log('collapse Handler', objArr, lable,);
   return (
-    <Collapsible open={lable === 'Overview'} trigger={triggerElement(lable, objArr)} transitionTime={200}>
+    <Collapsible open={lable === 'Overview'} trigger={triggerElement(lable, variantList)} transitionTime={200}>
       {collapseContent(objArr, lable, keyObj)}
     </Collapsible>
   );
@@ -127,7 +129,7 @@ class Specification extends React.Component {
     const { productList, main, match } = this.props;
     const variantsDetailsList = [];
     let vehicleProductDetais = null;
-    console.log('ProductList', productList);
+    // console.log('ProductList', productList);
     if (match.params.typeId === 'cars') {
       productList.forEach((v) => {
         const allCarDetails = {};
@@ -148,16 +150,21 @@ class Specification extends React.Component {
       vehicleProductDetais = bikeDetailsObj;
     }
 
-    console.log('variantsDetailsList', variantsDetailsList);
+    // console.log('variantsDetailsList', variantsDetailsList);
     // console.log(Object.keys(productList[0].specifications));
     return (
       <div className="specification">
-        {collapseHandler('Overview', variantsDetailsList.map((v) => v.overview), vehicleProductDetais.overview)}
-        {collapseHandler('Key Specification', variantsDetailsList.map((v) => v.keySpecifications), vehicleProductDetais.keySpecifications)}
-        {collapseHandler('Key Featurs', variantsDetailsList.map((v) => v.keyFeatures), vehicleProductDetais.keyFeatures)}
-        {Object.keys(vehicleProductDetais.specifications).map((topic, idx) => collapseHandler(topic, variantsDetailsList.map((v) => v[topic]), vehicleProductDetais.specifications[topic]))}
+        {collapseHandler('Overview', variantsDetailsList.map((v) => v.overview), vehicleProductDetais.overview, productList)}
+        {collapseHandler('Key Specification', variantsDetailsList.map((v) => v.keySpecifications), vehicleProductDetais.keySpecifications, productList)}
+        {collapseHandler('Key Featurs', variantsDetailsList.map((v) => v.keyFeatures), vehicleProductDetais.keyFeatures, productList)}
+        {Object.keys(vehicleProductDetais.specifications).map((topic, idx) => collapseHandler(topic, variantsDetailsList.map((v) => v[topic]), vehicleProductDetais.specifications[topic], productList))}
       </div>
     );
   }
 }
 export default Specification;
+Specification.propTypes = {
+  productList: PropTypes.arrayOf(PropTypes.any).isRequired,
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
+}

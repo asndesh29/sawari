@@ -99,27 +99,27 @@ class Specification extends React.Component {
   collapseOpenHandler = (id) => {
     this.setState({ collapseId: id });
   }
- 
+
   render() {
     console.log('project detials in Onj in specification', this.props);
     const { collapseId } = this.state;
-    const { main } = this.props;
-    const { currentCarDetail } = main;
-    const { stypeId, varients } = currentCarDetail;
+    const { main, currentProductDetails, variantId } = this.props;
+    const { stypeId } = currentProductDetails;
     const allCarDetails = {};
     const allBikeDetails = {};
 
     if (parseInt(stypeId, 10) === 1) {
       Object.keys(arrSchema).forEach((k) => {
-        allCarDetails[k] = main.initialData[arrSchema[k]].find((d) => d.varientId === varients[0].id);
+        allCarDetails[k] = main.initialData[arrSchema[k]].find((d) => d.varientId === variantId);
       });
     }
 
     if (parseInt(stypeId, 10) === 2) {
       Object.keys(arrBike).forEach((k) => {
-        allBikeDetails[k] = main.initialData[arrBike[k]].find((d) => d.varientId === varients[0].id);
+        allBikeDetails[k] = main.initialData[arrBike[k]].find((d) => d.varientId === variantId);
       });
     }
+    console.log('all Bike details', allBikeDetails);
 
     return (
       <div className="specification">
@@ -134,7 +134,8 @@ class Specification extends React.Component {
   }
 }
 export default Specification;
-Specification.propTypes  = {
+Specification.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
-
-}
+  currentProductDetails: PropTypes.objectOf(PropTypes.any).isRequired,
+  variantId: PropTypes.objectOf(PropTypes.any).isRequired,
+};
