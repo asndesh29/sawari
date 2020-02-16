@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tab, Tabs } from '@blueprintjs/core';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Specification from './Specification';
 import Overview from './overview';
@@ -10,10 +11,13 @@ import Varient from './variants';
 import SocialMediaShare from '../../../common/socialMediaShare';
 import EnquiryForm from '../EnquiryForm';
 
+
+const contentType = { 1: 'cars', 2: 'bikes' };
+
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { enquiryShow: false, tabId: 'Specification', currentProductDetails: null, variantId: null };
+    this.state = { compareProduct: null, enquiryShow: false, tabId: 'Variant', currentProductDetails: null, variantId: null };
   }
 
   async componentWillMount() {
@@ -37,14 +41,20 @@ class ProductDetails extends React.Component {
     this.setState({ variantId: vid });
   }
 
+  compareButtonHandler = (obj, stypeId) => {
+    this.setState({ compareProduct: obj, stypeId });
+    console.log('Compare Button click', obj, stypeId);
+  }
+
   render() {
-    const { tabId, currentProductDetails, enquiryShow, variantId } = this.state;
+    const { tabId, currentProductDetails, enquiryShow, variantId, compareProduct, stypeId } = this.state;
     console.log('state value in show details page', this.props, variantId);
     return (
       currentProductDetails ? (
         <div className="product-detail">
           <SocialMediaShare url="http://159.89.150.216:3000/" />
-          <Overview {...this.props} showEnquiryForm={this.closeEnquiry} currentProductDetails={currentProductDetails} variantId={variantId} />
+          {compareProduct && <Redirect to={`/compare/${contentType[stypeId]}/${compareProduct.name.replace(/\s/g, '')}-${compareProduct.id}`.toLocaleLowerCase()} />}
+          <Overview {...this.props} compareButtonHandler={this.compareButtonHandler} showEnquiryForm={this.closeEnquiry} currentProductDetails={currentProductDetails} variantId={variantId} />
           <EnquiryForm isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} currentProductDetails={currentProductDetails} />
           <div className="product-detail-menu">
             <Tabs
@@ -53,6 +63,13 @@ class ProductDetails extends React.Component {
               onChange={this.handleTabChange}
               selectedTabId={tabId}
             >
+              <Tab
+                panelClassName="panel-container"
+                style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}
+                id="Variant"
+                title="Variant"
+                panel={<Varient {...this.props} changeVariant={this.changeVariant} currentProductDetails={currentProductDetails} variantId={variantId} />}
+              />
               <Tab
                 panelClassName="panel-container"
                 style={{ fontSize: 15, fontWeight: 'bold', color: 'white', textAlign: 'end' }}
@@ -80,13 +97,6 @@ class ProductDetails extends React.Component {
                 id="Offers"
                 title="Offers"
                 panel={<Offers {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
-              />
-              <Tab
-                panelClassName="panel-container"
-                style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}
-                id="Varient"
-                title="Variant"
-                panel={<Varient {...this.props} changeVariant={this.changeVariant} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
             </Tabs>
           </div>

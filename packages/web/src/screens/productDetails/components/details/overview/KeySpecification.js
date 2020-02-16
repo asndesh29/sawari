@@ -22,7 +22,7 @@ const keySpecificationsElement = (label, key, obj) => {
   );
 };
 
-export default ({ obj, showEnquiryForm, variantId }) => {
+export default ({ obj, showEnquiryForm, variantId, compareButtonHandler }) => {
   // console.log('obj in key spcification', obj, variantId);
   const variant = obj.varients.find((v) => v.id === variantId);
   return (
@@ -35,7 +35,7 @@ export default ({ obj, showEnquiryForm, variantId }) => {
           <br />
           <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`On Road Price: NRs: ${variant.exShowRoomPrice}/-`} </span>
         </div>
-        <Button text="compare" />
+        <Button text="compare" onClick={() => compareButtonHandler(variant, obj.stypeId)} />
       </div>
       {/* <div className="key-specification">
         <span style={{ fontSize: 20, marginBottom: 10, marginLeft: 5 }}>Key Specifications</span>

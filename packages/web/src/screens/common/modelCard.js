@@ -6,7 +6,7 @@ const priceRangeHandler = (obj) => {
   const { varients } = obj;
   const minPrice = Math.min(...varients.map((v) => v.exShowRoomPrice));
   const maxPrice = Math.max(...varients.map((v) => v.exShowRoomPrice));
-  return `NRs. ${minPrice} - ${maxPrice}/-`;
+  return `रु. ${minPrice / 100000} लाख - ${maxPrice / 100000} लाख`;
 };
 
 export default (obj, cardOnClickHandler) => {
@@ -21,7 +21,7 @@ export default (obj, cardOnClickHandler) => {
       </div>
       <div style={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
         <span style={{ fontSize: 16 }}>{obj.name}</span>
-        <span>{priceRangeHandler(obj)}</span>
+        <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{priceRangeHandler(obj)}</span>
       </div>
     </Card>
   );

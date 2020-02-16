@@ -6,7 +6,7 @@ const priceRangeHandler = (obj) => {
   const { varients } = obj;
   const minPrice = Math.min(...varients.map((v) => v.exShowRoomPrice));
   const maxPrice = Math.max(...varients.map((v) => v.exShowRoomPrice));
-  return `NRs. ${minPrice} - ${maxPrice}/-`;
+  return `रु. ${minPrice / 100000} लाख - ${maxPrice / 100000} लाख`;
 };
 
 export default (obj, cardOnClickHandler) => {
@@ -16,7 +16,7 @@ export default (obj, cardOnClickHandler) => {
       style={{ height: 200 }}
       // onClick={() => cardOnClickHandler(obj)}
     >
-      <div className="image-container">
+      <div className="image-container" onClick={() => cardOnClickHandler(obj)} style={{ cursor: 'pointer'}}>
         <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.brandName} />
       </div>
       <div className="description">

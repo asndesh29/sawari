@@ -32,6 +32,10 @@ const brandFilter = (props) => {
   }
 };
 
+brandFilter.propTypes = {
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+
 const brandProductListProvider = (props, cardOnClickHandler) => {
   const { match, main } = props;
   const { url, path, params } = match;
@@ -55,6 +59,11 @@ const brandProductListProvider = (props, cardOnClickHandler) => {
   }
 };
 
+brandProductListProvider.propTypes = {
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -64,15 +73,14 @@ class Index extends React.Component {
   cardOnClickHandler = (obj) => {
     const { updateMainValue } = this.props;
     updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
+    this.setState({ showProductDtails: obj });
   }
 
   render() {
-    const { main, updateMainValue } = this.props;
     const { showProductDtails } = this.state;
     return (
       <div className="main-brand-product">
-        {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
+        {showProductDtails && <Redirect to={`/details/${showProductDtails.name.replace(/\s/g, '')}-${showProductDtails.id}`.toLocaleLowerCase()} />}
         {brandFilter(this.props)}
         {brandProductListProvider(this.props, this.cardOnClickHandler)}
       </div>
@@ -82,6 +90,5 @@ class Index extends React.Component {
 
 export default Index;
 Index.propTypes = {
-  main: PropTypes.objectOf(PropTypes.any).isRequired,
   updateMainValue: PropTypes.func.isRequired,
 };

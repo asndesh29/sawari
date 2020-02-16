@@ -13,8 +13,9 @@ class Index extends React.Component {
   }
 
   componentWillMount() {
-    const { fetchInitialData } = this.props;
+    const { fetchInitialData, updateMainValue } = this.props;
     fetchInitialData();
+    updateMainValue('filter', { priceRange: [0, 50] });
   }
 
   render() {
