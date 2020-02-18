@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab, Tabs } from '@blueprintjs/core';
+import { Tab, Tabs, Switch } from '@blueprintjs/core';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Specification from './Specification';
@@ -11,13 +11,12 @@ import Varient from './variants';
 import SocialMediaShare from '../../../common/socialMediaShare';
 import EnquiryForm from '../EnquiryForm';
 
-
 const contentType = { 1: 'cars', 2: 'bikes' };
 
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { compareProduct: null, enquiryShow: false, tabId: 'Variant', currentProductDetails: null, variantId: null };
+    this.state = {expandAll: false, compareProduct: null, enquiryShow: false, tabId: 'Variant', currentProductDetails: null, variantId: null };
   }
 
   async componentWillMount() {
@@ -47,7 +46,7 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { tabId, currentProductDetails, enquiryShow, variantId, compareProduct, stypeId } = this.state;
+    const { tabId, currentProductDetails, enquiryShow, variantId, compareProduct, stypeId, expandAll } = this.state;
     console.log('state value in show details page', this.props, variantId);
     return (
       currentProductDetails ? (
@@ -75,7 +74,7 @@ class ProductDetails extends React.Component {
                 style={{ fontSize: 15, fontWeight: 'bold', color: 'white', textAlign: 'end' }}
                 id="Specification"
                 title="Specification"
-                panel={<Specification {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
+                panel={<Specification expandAll={expandAll} {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               <Tab
                 panelClassName="panel-container"
@@ -98,6 +97,18 @@ class ProductDetails extends React.Component {
                 title="Offers"
                 panel={<Offers {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
+              <Tabs.Expander />
+              {tabId === 'Specification' && (
+              <Switch
+                onClick={(e) => console.log('switch value', e)}
+                label='Expand All'
+                style={{ color: 'white', marginRight: 10 }}
+                onChange={(e) => this.setState({ expandAll: !expandAll })}
+                value={1}
+                checked={expandAll}
+              />
+              )
+            }
             </Tabs>
           </div>
         </div>

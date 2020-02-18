@@ -5,22 +5,28 @@ import DealerCard from './dealerCard';
 import Provices from '../../../common/filters/province';
 import City from '../../../common/filters/cities';
 import { serviceCenterShowroomFilterHandler } from '../../../common/filters/filterActionHandler';
+import EnqueryForm from '../../../common/EnquiryForm';
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false };
+    this.state = { showProductDtails: false, showEnquiry: false };
   }
 
   cardOnClickHandler = (obj) => {
-    const { updateMainValue } = this.props;
-    updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
+    // const { updateMainValue } = this.props;
+    // updateMainValue('currentCarDetail', obj);
+    // this.setState({ showProductDtails: obj.id });
+  }
+
+  enquiryFormToggleHandler = () => {
+    console.log('form toggle called');
+    this.setState({ showEnquiry: !this.state.showEnquiry });
   }
 
   render() {
     const { main, updateMainValue, match } = this.props;
-    const { showProductDtails } = this.state;
+    const { showProductDtails, showEnquiry } = this.state;
     const { params } = match;
     const brand = main.initialData.vehicleBrand.find((b) => (`${b.brandName.replace(/\s/g, '')}-${b.id}`.toLocaleLowerCase() === params.brandName));
     return (
@@ -31,8 +37,9 @@ class Index extends React.Component {
           <City {...this.props} />
         </div>
         <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.serviceCenterList ? serviceCenterShowroomFilterHandler(this.props, main.initialData.serviceCenterList.filter(c => ((c.stypeId === brand.stypeId) && c.sbId === brand.id))).map((obj) => DealerCard(obj, this.cardOnClickHandler, this.onEnquiryFormToggle)) : []}
+          {main.initialData.serviceCenterList ? serviceCenterShowroomFilterHandler(this.props, main.initialData.serviceCenterList.filter(c => ((c.stypeId === brand.stypeId) && c.sbId === brand.id))).map((obj) => DealerCard(obj, this.cardOnClickHandler, this.enquiryFormToggleHandler)) : []}
         </div>
+        <EnqueryForm onClose={this.enquiryFormToggleHandler} isOpen={showEnquiry} props={this.props} />
       </div>
     );
   }

@@ -7,7 +7,7 @@ const priceRangeHandler = (obj) => {
   const maxPrice = Math.max(...varients.map((v) => v.exShowRoomPrice));
   return `NRs. ${minPrice} - ${maxPrice}/-`;
 };
-
+// return `रु. ${minPrice / 100000} लाख - ${maxPrice / 100000} लाख`;
 const keySpecificationsElement = (label, key, obj) => {
   return (
     obj[key] && (
@@ -31,9 +31,9 @@ export default ({ obj, showEnquiryForm, variantId, compareButtonHandler }) => {
         <div className="name-price">
           <span style={{ fontSize: 20 }}>{variant.name}</span>
           <br />
-          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`Ex-Showroom Price: NRs. ${variant.exShowRoomPrice}/-`} </span>
+          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`Ex-Showroom Price: रु. ${variant.exShowRoomPrice / 100000} लाख`} </span>
           <br />
-          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`On Road Price: NRs: ${variant.exShowRoomPrice}/-`} </span>
+          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`On Road Price: रु. ${variant.onRoadPrice / 100000} लाख`} </span>
         </div>
         <Button text="compare" onClick={() => compareButtonHandler(variant, obj.stypeId)} />
       </div>

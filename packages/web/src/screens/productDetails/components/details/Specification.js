@@ -82,9 +82,9 @@ const collapseContent = (obj, label, keyFeatures) => {
   );
 };
 
-const collapseHandler = (lable, obj, keyFeatures) => {
+const collapseHandler = (lable, obj, keyFeatures, expandAll) => {
   return (
-    <Collapsible trigger={triggerElement(lable)} transitionTime={200}>
+    <Collapsible onClose={() => console.log('Collapse close', lable)} onOpen={() => console.log('collapse open', lable)} open={expandAll} trigger={triggerElement(lable)} transitionTime={200}>
       {collapseContent(obj, lable, keyFeatures)}
     </Collapsible>
   );
@@ -103,7 +103,7 @@ class Specification extends React.Component {
   render() {
     console.log('project detials in Onj in specification', this.props);
     const { collapseId } = this.state;
-    const { main, currentProductDetails, variantId } = this.props;
+    const { main, currentProductDetails, variantId, expandAll } = this.props;
     const { stypeId } = currentProductDetails;
     const allCarDetails = {};
     const allBikeDetails = {};
@@ -123,12 +123,12 @@ class Specification extends React.Component {
 
     return (
       <div className="specification">
-        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures)}
-        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications)}
-        { parseInt(stypeId, 10) === 1 && Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k]))}
-        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Features', bikeDetailsObj.keyFeatures, allBikeDetails.keyFeatures)}
-        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Specification', bikeDetailsObj.keySpecifications, allBikeDetails.keySpecifications)}
-        { parseInt(stypeId, 10) === 2 && Object.keys(bikeDetailsObj.specifications).map((k, idx) => collapseHandler(k, bikeDetailsObj.specifications[k], allBikeDetails[k]))}
+        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures, expandAll)}
+        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications, expandAll)}
+        { parseInt(stypeId, 10) === 1 && Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k], expandAll))}
+        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Features', bikeDetailsObj.keyFeatures, allBikeDetails.keyFeatures, expandAll)}
+        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Specification', bikeDetailsObj.keySpecifications, allBikeDetails.keySpecifications, expandAll)}
+        { parseInt(stypeId, 10) === 2 && Object.keys(bikeDetailsObj.specifications).map((k, idx) => collapseHandler(k, bikeDetailsObj.specifications[k], allBikeDetails[k], expandAll))}
       </div>
     );
   }
