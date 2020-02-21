@@ -26,7 +26,7 @@ class ProductDetails extends React.Component {
     const { main, updateMainValue } = this.props;
     const { showProductDtails, selectedTabId } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
+      <Card elevation={0} className="home-product-list" style={{ height: 350 }}>
         {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Cars</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>

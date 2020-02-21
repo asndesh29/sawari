@@ -31,25 +31,13 @@ class VehicleType extends React.Component {
                 <span style={{ color: '#757575'}}>Diesel</span>
               </div>
             </div>
-            <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.fuelTypeSelectHandler('CNG')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                {/* <img src={muv} style={{ width: 70, height: 40 }}/> */}
-                <span style={{ color: '#757575'}}>CNG</span>
-              </div>
-              <div onClick={() => this.fuelTypeSelectHandler('LPG')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                {/* <img src={suv} style={{ width: 100, height: 50 }}/> */}
-                <span style={{ color: '#757575'}}>LPG</span>
-              </div>
-            </div>
+
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
               <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={coupe} style={{ width: 60, height: 50 }}/> */}
                 <span style={{ color: '#757575' }}>Electric</span>
               </div>
-              <div onClick={() => this.fuelTypeSelectHandler('Hybrid')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                {/* <img src={convertible} style={{ width: 60, height: 50 }}/> */}
-                <span style={{ color: '#757575'}}>Hybrid</span>
-              </div>
+
             </div>
           </div>
         )

@@ -44,11 +44,6 @@ class SearchElement extends React.Component {
       <div className="search-box-container">
         {gotKey && <Redirect push to={`/search/key=${search}`} />}
         <div className="search-form">
-          {/* <input
-            value={search}
-            onChange={this.searchChange}
-            placeholder="Search Cars or Brands eg. Swift or Maruti"
-          /> */}
           <div style={{ width: '100%', zIndex: 10, color: 'black' }}>
             <SearchBox
               data={main.initialData.vehicleBrand ? main.initialData.vehicleBrand.map(b => ({ value: b.brandName, key: b.id })) : []}

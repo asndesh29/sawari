@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { Card, Checkbox } from '@blueprintjs/core';
 
-export default ({ obj, state, compareChangeHandler, changeVariant }) => {
+export default ({ obj, state, compareChangeHandler, changeVariant, handleTabChange }) => {
   console.log('variant details card', obj, state);
   return (
     <Card
@@ -10,7 +12,15 @@ export default ({ obj, state, compareChangeHandler, changeVariant }) => {
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span style={{ fontSize: 20, cursor: 'pointer' }} onClick={() => changeVariant(obj.id)}>{obj.name}</span>
+          <span
+            style={{ fontSize: 20, cursor: 'pointer' }}
+            onClick={() => {
+              changeVariant(obj.id);
+              handleTabChange('Specification');
+            }}
+          >
+            {obj.name}
+          </span>
           <span style={{ color: '#757575' }}>{`${obj.fuelType} ${obj.bodyType}`}</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

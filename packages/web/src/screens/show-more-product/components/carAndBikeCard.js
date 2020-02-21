@@ -6,7 +6,7 @@ const priceRangeHandler = (obj) => {
   const { varients } = obj;
   const minPrice = Math.min(...varients.map((v) => v.exShowRoomPrice));
   const maxPrice = Math.max(...varients.map((v) => v.exShowRoomPrice));
-  return `रु. ${minPrice / 100000} लाख - ${maxPrice / 100000} लाख`;
+  return `रु. ${minPrice / 100000} - ${maxPrice / 100000} लाख सम्म`;
 };
 
 export default (obj, cardOnClickHandler) => {

@@ -67,7 +67,7 @@ class ProductDetails extends React.Component {
                 style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}
                 id="Variant"
                 title="Variant"
-                panel={<Varient {...this.props} changeVariant={this.changeVariant} currentProductDetails={currentProductDetails} variantId={variantId} />}
+                panel={<Varient handleTabChange={this.handleTabChange} {...this.props} changeVariant={this.changeVariant} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               <Tab
                 panelClassName="panel-container"

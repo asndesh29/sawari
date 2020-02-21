@@ -18,7 +18,7 @@ class Variant extends React.Component {
   }
 
   render() {
-    const { currentProductDetails, changeVariant } = this.props;
+    const { currentProductDetails, changeVariant, handleTabChange } = this.props;
     const { activeCompare } = this.state;
     const allActiveCompare = Object.keys(this.state).filter((vid) => vid !== 'activeCompare').filter((v) => this.state[v]).map((v) => parseInt(v, 10));
     console.log('All Active Compare', allActiveCompare, this.state);
@@ -30,7 +30,7 @@ class Variant extends React.Component {
     return (
       <div style={{ paddingTop: 5 }}>
         {activeCompare && <Redirect to={`/compare/${contentType[currentProductDetails.stypeId]}${urlString}`} />}
-        {currentProductDetails.varients.map((obj) => <VariantCard changeVariant={changeVariant} obj={obj} state={this.state} compareChangeHandler={this.compareChangeHandler} />)}
+        {currentProductDetails.varients.map((obj) => <VariantCard handleTabChange={handleTabChange} changeVariant={changeVariant} obj={obj} state={this.state} compareChangeHandler={this.compareChangeHandler} />)}
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           {allActiveCompare.length > 0 && <Button onClick={() => this.setState({ activeCompare: true })} text="Compare Now" style={{ padding: 10, fontSize: 15, background: '#ff4202', color: 'white' }} />}
         </div>
