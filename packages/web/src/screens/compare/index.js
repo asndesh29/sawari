@@ -6,7 +6,10 @@ import * as actions from '../../actions';
 import Content from './content';
 
 class Compare extends React.Component {
-  state={};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   render() {
     return (
@@ -20,4 +23,3 @@ class Compare extends React.Component {
 }
 const mapStateToProps = (state) => state;
 export default connect(mapStateToProps, { ...actions })(Compare);
- 

@@ -23,7 +23,7 @@ class ProductDetails extends React.Component {
     const { match, main } = this.props;
     const { proId } = match.params;
     const currentProductDetails = main.initialData.vehicleModel.find((vm) => `${vm.name.replace(/\s/g, '')}-${vm.id}`.toLocaleLowerCase() === proId);
-    console.log('Current Product Details', currentProductDetails);
+    // console.log('Current Product Details', currentProductDetails);
     this.setState({ currentProductDetails, variantId: currentProductDetails.varients[0].id });
   }
 
@@ -42,12 +42,12 @@ class ProductDetails extends React.Component {
 
   compareButtonHandler = (obj, stypeId) => {
     this.setState({ compareProduct: obj, stypeId });
-    console.log('Compare Button click', obj, stypeId);
+    // console.log('Compare Button click', obj, stypeId);
   }
 
   render() {
     const { tabId, currentProductDetails, enquiryShow, variantId, compareProduct, stypeId, expandAll } = this.state;
-    console.log('state value in show details page', this.props, variantId);
+    // console.log('state value in show details page', this.props, variantId);
     return (
       currentProductDetails ? (
         <div className="product-detail">
@@ -102,6 +102,7 @@ class ProductDetails extends React.Component {
               <Switch
                 onClick={(e) => console.log('switch value', e)}
                 label='Expand All'
+                large
                 style={{ color: 'white', marginRight: 10 }}
                 onChange={(e) => this.setState({ expandAll: !expandAll })}
                 value={1}

@@ -56,12 +56,19 @@ export const serviceCenterShowroomFilterHandler = (props, arr) => {
 };
 
 export const usedVehicleFilter = (props, arr) => {
-  console.log('usedfilter called', arr);
+  // console.log('usedfilter called', arr, props);
   const { match, main } = props;
   const { params, url } = match;
-  const vehicleType = { cars: 1, bikes: 2, scooters: 3 };
-  const { placeId, usedVehicleType, cityId } = params;
-  let filterArr = arr.filter((uv) => uv.stypeId === vehicleType[usedVehicleType]);
+  const vehicleType = { cars: 1, bikes: 2, scooters: 3, car: 1, bike: 2 };
+  const { placeId, usedVehicleType, cityId, buttonType, typeId } = params;
+  let filterArr = [];
+  if (buttonType === 'used') {
+    filterArr = arr.filter((uv) => uv.stypeId === vehicleType[typeId]);
+  }
+  if (usedVehicleType) {
+    filterArr = arr.filter((uv) => uv.stypeId === vehicleType[usedVehicleType]);
+  }
+
   if (cityId) {
     filterArr = filterArr.filter((uv) => `${uv.city}`.toLocaleLowerCase() === params.cityId.toLocaleLowerCase());
   }
@@ -78,7 +85,11 @@ export const usedVehicleFilter = (props, arr) => {
   if (main.filter.province) {
     filterArr = filterArr.filter((uv) => uv.province === main.filter.province);
   }
-  console.log('return by used filter', filterArr);
+
+  if (main.filter.priceRange) {
+    filterArr = filterArr.filter(uv => uv.expectedPrice >= (main.filter.priceRange[0] * 100000) && (uv.expectedPrice) <= (main.filter.priceRange[1] * 100000));
+  }
+  // console.log('return by used filter', filterArr);
   return filterArr;
 };
 

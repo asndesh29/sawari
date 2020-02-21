@@ -15,7 +15,7 @@ export default (props) => {
     {
       element: 'select',
       value: 'typeId',
-      options: main.initialData.vehicalTypes ? main.initialData.vehicalTypes.map(vt => ({ label: vt.name, value: vt.id })) : [],
+      options: [{ label: 'Car', value: 1 }, { label: 'Bike', value: 2 }],
       placeHolder: 'Select Type',
     },
 
@@ -23,8 +23,10 @@ export default (props) => {
       element: 'select',
       value: form.multiSearch.searchType === 'budget' ? 'budgetId' : 'brandId',
       options: form.multiSearch.searchType === 'budget'
-        ? (main.initialData.budgetRangeList ? main.initialData.budgetRangeList.map(vt => ({ label: vt.label, value: vt.id })) : [])
-        : (main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(b => b.stypeId === parseInt(form.multiSearch.typeId, 10)).map(vb => ({ label: vb.brandName, value: vb.id })) : []),
+        ? (main.initialData.budgetRangeList ? main.initialData.budgetRangeList.map(vt => ({ label: vt.label, value: vt.label.replace(/\s/g, '-').toLocaleLowerCase() })) : [])
+        : (main.initialData.vehicleBrand
+          ? main.initialData.vehicleBrand.filter(b => b.stypeId === parseInt(form.multiSearch.typeId, 10))
+            .map(vb => ({ label: vb.brandName, value: `${vb.brandName.replace(/\s/g, '')}-${vb.id}`.toLocaleLowerCase() })) : []),
       placeHolder: form.multiSearch.searchType === 'budget' ? 'Select Budget' : 'Select Brand',
     },
 

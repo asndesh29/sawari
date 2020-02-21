@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SideBrandMenu from '../../common/filters/sideBrandMenu';
 import PriceRange from '../../common/filters/priceRange';
 import VehicleType from '../../common/filters/vehicleType';
@@ -8,10 +9,11 @@ import City from '../../common/filters/cities';
 
 const content = { cars: 'car', bikes: 'bike', scooters: 'bike' };
 
-export default (props) => {
+const filter = (props) => {
   const { match } = props;
-  console.log('props in filter', props);
+  // console.log('props in filter', props);
   const { url, path, params } = match;
+  const { buttonType, searchType, typeId, tempId } = params;
   const isCar = params.usedVehicleType === 'cars';
   switch (url) {
     case '/more/cars':
@@ -82,6 +84,26 @@ export default (props) => {
             <div className="search-filter">
               <SideBrandMenu {...props} car={isCar} />
               <SideBrandMenu {...props} bike={!isCar} />
+              <PriceRange {...props} />
+              <Province {...props} />
+              <City {...props} />
+            </div>
+          );
+        case '/search/:buttonType/:searchType/:typeId/:tempId':
+          if (buttonType === 'new') {
+            return (
+              <div className="search-filter">
+                {searchType === 'budget' && <SideBrandMenu {...props} car={typeId === 'car'} bike={typeId === 'bike'} />}
+                <PriceRange {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
+                <VehicleType {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
+                <FuelType {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
+              </div>
+            );
+          }
+          return (
+            <div className="search-filter">
+              {searchType === 'budget' && <SideBrandMenu {...props} car={typeId === 'car'} bike={typeId === 'bike'} />}
+              <PriceRange {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
               <Province {...props} />
               <City {...props} />
             </div>
@@ -90,4 +112,8 @@ export default (props) => {
           return null;
       }
   }
+};
+export default filter;
+filter.propTypes = {
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };

@@ -23,7 +23,7 @@ class index extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/details/:proId" component={ProductDetails} />
-          <Route path="/search/:buttonType/:searchType/:typeId/:tempId" component={SearchProducts} />
+          <Route path="/search/:buttonType/:searchType/:typeId/:tempId" component={ShowMore} />
           <Route path="/brand/:stypeId/:sbId" component={BrandDetails} />
           <Route path="/sell-vehicle" component={SellVehicle} />
           <Route path="/used-vehicle/details/:usedVehicleId" component={UsedVehicallDetails} />

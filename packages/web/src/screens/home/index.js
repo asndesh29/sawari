@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from './components/navbar';
 import Selector from './components/selector';
 import Slider from './components/slider';
@@ -50,7 +51,7 @@ class Index extends Component {
         <BikeAndScooterComparisons {...this.props} />
         <News {...this.props} />
         <Videos {...this.props} />
-        <Footer {...this.props}/>
+        <Footer {...this.props} />
       </div>
     );
   }
@@ -59,3 +60,6 @@ class Index extends Component {
 const mapStateToProps = (state) => state;
 
 export default connect(mapStateToProps, { ...actions })(Index);
+Index.propTypes = {
+  fetchInitialData: PropTypes.func.isRequired,
+};

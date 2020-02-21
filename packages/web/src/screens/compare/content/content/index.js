@@ -1,9 +1,9 @@
 /* eslint-disable react/no-deprecated */
 import React from 'react';
-import { Button } from '@blueprintjs/core';
+import { Button, Switch } from '@blueprintjs/core';
 import PropTypes from 'prop-types';
 import SelectProduct from './SelectProductMenuForCompare';
-import CompareResult from './CompareResult';
+import CompareResult from './compare-result';
 import productDetailsObj from '../../../productDetails/components/details/productDetailsObj';
 
 const findProductDetails = (id, allProducts) => {
@@ -19,7 +19,7 @@ const findVariantId = (id, variantList) => {
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pId1: null, pId2: null, pId3: null, pId4: null, compareResult: null };
+    this.state = { pId1: null, pId2: null, pId3: null, pId4: null, compareResult: null, hideCommon: false, expandAll: false };
   }
 
   componentWillMount() {
@@ -46,7 +46,7 @@ class Index extends React.Component {
   }
 
   render() {
-    const { pId1, pId2, pId3, pId4, compareResult } = this.state;
+    const { pId1, pId2, pId3, pId4, compareResult, hideCommon, expandAll } = this.state;
     // console.log('state value in main comapre page', this.state);
     const isShowComapreButton = Object.values({ pId1, pId2, pId3, pId4 }).filter((v) => v).length > 0;
     return (
@@ -60,8 +60,25 @@ class Index extends React.Component {
         <div className="button">
           { isShowComapreButton && <Button text="Compare Now" style={{ background: '#FF4202', color: 'white', width: 200, height: 40 }} onClick={this.showCompareResult} />}
         </div>
+        {compareResult && (
+        <div style={{ width: '90%', display: 'flex', justifyContent: 'flex-end', margin: 0 }}>
+          <Switch
+            large
+            label="Hide Common"
+            alignIndicator="right"
+            style={{ marginRight: 10 }}
+            onChange={(e) => this.setState({ hideCommon: !hideCommon })}
+          />
+          <Switch
+            large
+            label="Expand All"
+            alignIndicator="right"
+            onChange={() => this.setState({ expandAll: !expandAll })}
+          />
+        </div>
+        )}
         <div className="compare-result">
-          {compareResult && <CompareResult {...this.props} productList={compareResult} />}
+          {compareResult && <CompareResult expandAll={expandAll} hideCommon={hideCommon} {...this.props} productList={compareResult} />}
         </div>
       </div>
     );

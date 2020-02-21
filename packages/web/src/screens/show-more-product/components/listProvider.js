@@ -3,6 +3,8 @@ import DealerCard from './dealerCard';
 import UsedCarAndBikeCard from './usedCarAndBikeCard';
 import NewsCard from '../../home/components/product-list/news/newsCard';
 import videoCard from '../../home/components/product-list/videos/videoCard';
+import searchListProvider from './searchListProvider';
+
 import {
   filterHandler,
   serviceCenterShowroomFilterHandler,
@@ -67,6 +69,16 @@ export default (props, cardOnClickHandler) => {
         case '/used/city/:cityId/:usedVehicleType':
         case '/used/:usedVehicleType':
           return usedVehicleFilter(props, main.initialData.usedVehicle).map((uv) => UsedCarAndBikeCard(uv, cardOnClickHandler));
+        case '/search/:buttonType/:searchType/:typeId/:tempId':
+          if (params.buttonType === 'new') {
+            return filterHandler(
+              props,
+              searchListProvider(props)).map((obj) => CarAndBikeCard(obj, cardOnClickHandler));
+          }
+          if (params.buttonType === 'used') {
+            return usedVehicleFilter(props, searchListProvider(props)).map(uv => UsedCarAndBikeCard(uv, cardOnClickHandler));
+          }
+          break;
         default:
           return [];
       }

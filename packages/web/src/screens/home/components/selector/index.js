@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import selectStructure from './selectorStructure';
 import Form from '../../../../components/common/Form';
 
+const vehicleType = { 1: 'car', 2: 'bike' };
+
 class Selector extends React.Component {
   state = {};
 
@@ -20,7 +22,7 @@ class Selector extends React.Component {
         {main.multiSearchResult
         && (
         <Redirect
-          to={`/search/${form.multiSearch.buttonType}/${form.multiSearch.searchType}/${form.multiSearch.typeId}/${form.multiSearch.searchType === 'brand' ? form.multiSearch.brandId : form.multiSearch.budgetId }`}
+          to={`/search/${form.multiSearch.buttonType}/${form.multiSearch.searchType}/${vehicleType[form.multiSearch.typeId]}/${form.multiSearch.searchType === 'brand' ? form.multiSearch.brandId : form.multiSearch.budgetId }`}
         />
         )}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
