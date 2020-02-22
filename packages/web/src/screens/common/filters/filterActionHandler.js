@@ -9,7 +9,7 @@ export const priceRangeHandler = (obj) => {
 
 export const filterHandler = (props, arr) => {
   const { main } = props;
-  let filterArr;
+  let filterArr = [];
   if (main.filter.priceRange) {
     filterArr = arr.filter((m) => ((main.filter.priceRange[0] * 100000) <= priceRangeHandler(m)[0] && (main.filter.priceRange[1] * 100000) >= priceRangeHandler(m)[1]));
   }

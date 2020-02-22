@@ -11,7 +11,7 @@ class VehicleType extends React.Component {
 
   fuelTypeSelectHandler = (type) => {
     const { main, updateMainValue } = this.props;
-    updateMainValue('filter', { ...main.filter, fuelType: type });
+    updateMainValue('filter', { priceRange: main.filter.priceRange, fuelType: type });
   }
 
   render() {

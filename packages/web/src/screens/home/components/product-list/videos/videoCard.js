@@ -6,13 +6,15 @@ export default (obj, cardOnClickHandler) => {
   return (
     <Card
       className="video-card"
-      onClick={() => cardOnClickHandler(obj)}
+      // onClick={() => cardOnClickHandler(obj)}
     >
       <div>
-        <iframe
+        <video
           width="100%"
           height="300"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY"
+          controls
+          poster
+          src="http://159.89.150.216:4003/review_video.mkv"
         />
         <div style={{ marginTop: 5, marginLeft: 10 }}>
           <span style={{ fontSize: 20 }}>{obj.header}</span>

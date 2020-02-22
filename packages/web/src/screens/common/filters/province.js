@@ -31,7 +31,7 @@ class Province extends React.Component {
 
   provinceSelectHandler = (type) => {
     const { main, updateMainValue } = this.props;
-    updateMainValue('filter', { ...main.filter, province: type });
+    updateMainValue('filter', {priceRange: main.filter.priceRange, province: type });
   }
 
   render() {

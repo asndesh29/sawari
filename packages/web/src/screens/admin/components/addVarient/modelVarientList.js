@@ -87,7 +87,7 @@ class BrandList extends React.Component {
           }
 
         } else if (idx <= 6 && idx !== 0) {
-          findObj = main.initialAdminData.vehicleVarientList.find(v => v.id === id);
+          findObj = main.initialAdminData[schema].find(v => v.varientId === id);
           if (findObj) {
             updateFormValue(schema, { ...form[schema], ...findObj });
           } else {

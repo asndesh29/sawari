@@ -7,7 +7,7 @@ class PriceRange extends React.Component {
   handleValueChange = (value) => {
     // console.log('value in price chage', value);
     const { updateMainValue, main } = this.props;
-    updateMainValue('filter', { ...main.filter, priceRange: value });
+    updateMainValue('filter', { priceRange: value });
   }
 
   render() {

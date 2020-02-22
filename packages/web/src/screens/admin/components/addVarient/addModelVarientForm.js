@@ -28,7 +28,7 @@ const arrBike = [
   'BikeVarientChassisSuspension',
   'BikeVarientDimensionCapacity',
   'BikeVarientElectricals',
-  'BikeVarientTyresBrakes'
+  'BikeVarientTyresBrakes',
 ];
 
 class VarientForm extends React.Component {

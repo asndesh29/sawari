@@ -10,7 +10,7 @@ class City extends React.Component {
   handleValueChange = (e) => {
     // console.log('value in price chage', value);
     const { updateMainValue, main } = this.props;
-    updateMainValue('filter', { ...main.filter, city: e.value });
+    updateMainValue('filter', { city: e.value });
   }
 
   render() {

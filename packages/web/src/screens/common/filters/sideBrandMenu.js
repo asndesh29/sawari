@@ -39,7 +39,7 @@ class SideMenu extends React.Component {
     if (brandClickHandler) {
       brandClickHandler(brand);
     } else {
-      updateMainValue('filter', { ...main.filter, sbId: brand.id });
+      updateMainValue('filter', {priceRange: main.filter.priceRange, sbId: brand.id });
     }
   }
 

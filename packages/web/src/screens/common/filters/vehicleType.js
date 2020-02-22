@@ -27,7 +27,7 @@ class VehicleType extends React.Component {
 
   bodyTypeSelectHandler = (type) => {
     const { main, updateMainValue } = this.props;
-    updateMainValue('filter', { ...main.filter, bodyType: type });
+    updateMainValue('filter', { priceRange: main.filter.priceRange, bodyType: type });
   }
 
   render() {
@@ -70,30 +70,9 @@ class VehicleType extends React.Component {
             </div>
 
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.bodyTypeSelectHandler('Hybrids')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                <img src={hybride} style={{ width: 70, height: 40 }}/>
-                <span style={{ color: '#757575'}}>Hybrids</span>
-              </div>
               <div onClick={() => this.bodyTypeSelectHandler('Pick-Up')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 <img src={pickupTruck} style={{ width: 100, height: 50 }}/>
                 <span style={{ color: '#757575' }}>Pickup Truck</span>
-              </div>
-            </div>
-
-            <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.bodyTypeSelectHandler('Coupe')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                <img src={coupe} style={{ width: 60, height: 50 }}/>
-                <span style={{ color: '#757575' }}>Coupe</span>
-              </div>
-              <div onClick={() => this.bodyTypeSelectHandler('Convertible')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                <img src={convertible} style={{ width: 60, height: 50 }}/>
-                <span style={{ color: '#757575'}}>Convertible</span>
-              </div>
-            </div>
-            <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.bodyTypeSelectHandler('Wagon')} style={{ width: '48%', marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
-                <img src={wagon} style={{ width: 100, height: 50 }}/>
-                <span style={{ color: '#757575'}}>Wagon</span>
               </div>
             </div>
           </div>
