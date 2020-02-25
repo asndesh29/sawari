@@ -6,12 +6,12 @@ import { Card, Button } from '@blueprintjs/core';
 import productCompareCard from '../../../../common/productCompareCard';
 
 const carComparisonList = [
-  { id: 1, pId1:2, pId2: 5, compCount: 10 },
-  { id: 1, pId1:2, pId2: 5, compCount: 10 },
-  { id: 1, pId1:2, pId2: 5, compCount: 10 },
-  { id: 1, pId1:2, pId2: 5, compCount: 10 },
-  { id: 1, pId1:2, pId2: 5, compCount: 10 },
-  { id: 1, pId1:2, pId2: 5, compCount: 10 },
+  { id: 1, pId1: 41, pId2: 43, compCount: 10 },
+  { id: 1, pId1: 41, pId2: 43, compCount: 10 },
+  { id: 1, pId1: 41, pId2: 43, compCount: 10 },
+  { id: 1, pId1: 41, pId2: 43, compCount: 10 },
+  { id: 1, pId1: 41, pId2: 43, compCount: 10 },
+  { id: 1, pId1: 41, pId2: 43, compCount: 10 },
 ];
 
 class ProductDetails extends React.Component {
@@ -45,7 +45,7 @@ class ProductDetails extends React.Component {
             <div style={{ width: '100%', textAlign: 'center', height: 'auto' }}>
               <HorizontalScrollView
                 // wheel
-                data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, { ...this.props, currentProductDetails: { stypeId: 1 } }))] : []}
+                data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, { ...this.props, currentProductDetails: { stypeId: 2 } }))] : []}
                 arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
                 arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
                 onSelect={(key) => console.log('seleceed', key)}

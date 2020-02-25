@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../config';
 
@@ -9,14 +10,16 @@ const priceRangeHandler = (obj) => {
   return `रु. ${minPrice / 100000} - ${maxPrice / 100000} लाख सम्म`;
 };
 
-export default (obj, cardOnClickHandler) => {
+export default (obj) => {
   return (
     <Card
       className="product-card"
-      onClick={() => cardOnClickHandler(obj, 'new')}
+      // onClick={() => cardOnClickHandler(obj, 'new')}
     >
-      <div className="image-container">
-        <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.name} />
+      <div className="image-container" style={{ cursor: 'pointer' }}>
+        <Link to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}>
+          <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.name} />
+        </Link>
       </div>
       <div className="description">
         <span style={{ fontWeight: 100, fontSize: 20 }}>{obj.name}</span>

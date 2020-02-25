@@ -37,7 +37,7 @@ brandFilter.propTypes = {
   match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-const brandProductListProvider = (props, cardOnClickHandler, enquiryFormToggleHandler) => {
+const brandProductListProvider = (props, enquiryFormToggleHandler) => {
   const { match, main } = props;
   const { url, path, params } = match;
   const sbId = main.initialData.vehicleBrand.find((b) => (`${b.brandName.replace(/\s/g, '')}-${b.id}`.toLocaleLowerCase() === params.brandName)).id;
@@ -46,13 +46,13 @@ const brandProductListProvider = (props, cardOnClickHandler, enquiryFormToggleHa
     case '/car/brand/:brandName':
       return (
         <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.vehicleModel ? filterHandler(props, main.initialData.vehicleModel.filter((c) => ((c.stypeId === 1) && (c.sbId === sbId)))).map((obj) => ProductCard(obj, cardOnClickHandler, enquiryFormToggleHandler)) : []}
+          {main.initialData.vehicleModel ? filterHandler(props, main.initialData.vehicleModel.filter((c) => ((c.stypeId === 1) && (c.sbId === sbId)))).map((obj) => ProductCard(obj, enquiryFormToggleHandler)) : []}
         </div>
       );
     case '/bike/brand/:brandName':
       return (
         <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.vehicleModel ? filterHandler(props, main.initialData.vehicleModel.filter((c) => ((c.stypeId === 2) && (c.sbId === sbId)))).map((obj) => ProductCard(obj, cardOnClickHandler, enquiryFormToggleHandler)) : []}
+          {main.initialData.vehicleModel ? filterHandler(props, main.initialData.vehicleModel.filter((c) => ((c.stypeId === 2) && (c.sbId === sbId)))).map((obj) => ProductCard(obj, enquiryFormToggleHandler)) : []}
         </div>
       );
     default:
@@ -68,13 +68,7 @@ brandProductListProvider.propTypes = {
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, showEnquiry: false };
-  }
-
-  cardOnClickHandler = (obj) => {
-    const { updateMainValue } = this.props;
-    updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj });
+    this.state = { showEnquiry: false };
   }
 
   enquiryFormToggleHandler = () => {
@@ -83,12 +77,11 @@ class Index extends React.Component {
   }
 
   render() {
-    const { showProductDtails, showEnquiry } = this.state;
+    const { showEnquiry } = this.state;
     return (
       <div className="main-brand-product">
-        {showProductDtails && <Redirect to={`/details/${showProductDtails.name.replace(/\s/g, '')}-${showProductDtails.id}`.toLocaleLowerCase()} />}
         {brandFilter(this.props)}
-        {brandProductListProvider(this.props, this.cardOnClickHandler, this.enquiryFormToggleHandler)}
+        {brandProductListProvider(this.props, this.enquiryFormToggleHandler)}
         <EnqueryForm onClose={this.enquiryFormToggleHandler} isOpen={showEnquiry} props={this.props} />
       </div>
     );

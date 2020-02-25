@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { Redirect, Link } from 'react-router-dom';
-import { Card, Tabs, Tab } from '@blueprintjs/core';
+import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../../../config';
 
 const provinceList = [
@@ -16,13 +17,12 @@ const provinceList = [
 ];
 
 const ProvinceDesign = (obj, selectedTabId) => {
-  console.log('selectedTabId', selectedTabId);
   return (
     <Link to={`${obj.route}/${selectedTabId}`} style={{ textDecoration: 'none' }}>
       <Card style={{ height: 'auto', width: 'auto', margin: 5, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
         <img src={obj.image} style={{ height: 100, width: 100, borderRadius: '100%'}} />
         <span style={{ color: '#757575', fontSize: 10, marginTop: 5 }}>Used vehicle in</span>
-        <span style={{ fontSize: 15, fontWeight: 'bold'}}>{obj.name}</span>
+        <span style={{ fontSize: 15, fontWeight: 'bold' }}>{obj.name}</span>
       </Card>
     </Link>
   );
@@ -34,19 +34,8 @@ class ProductDetails extends React.Component {
     this.state = { showProductDtails: false, selectedCity: null };
   }
 
-  cardOnClickHandler = (obj) => {
-    const { updateMainValue } = this.props;
-    updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
-  }
-
-  handleTabChange = (id) => {
-    console.log('tab id', id);
-    this.setState({ selectedTabId: id });
-  }
-
   render() {
-    const { main, updateMainValue, selectedTabId } = this.props;
+    const { main, selectedTabId } = this.props;
     const { showProductDtails, selectedCity } = this.state;
     return (
       <div style={{ background: 'white', width: '90%' }}>
@@ -67,7 +56,7 @@ class ProductDetails extends React.Component {
             <span style={{ fontSize: 20 }}>hand vehicle in</span>
             <div style={{ marginBottom: 10, marginTop: 10, width: '100%' }}>
               <Select
-                styles={{ container: (provided, state) => ({
+                styles={{ container: (provided) => ({
                   ...provided,
                   color: 'black',
                 })}}
@@ -86,5 +75,5 @@ class ProductDetails extends React.Component {
 export default ProductDetails;
 ProductDetails.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
-  updateMainValue: PropTypes.func.isRequired,
+  selectedTabId: PropTypes.string.isRequired,
 };

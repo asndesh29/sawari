@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../config';
 
-export default (obj, cardOnClickHandler) => {
+export default (obj) => {
   return (
     <Card
       className="product-card"
-      onClick={() => cardOnClickHandler(obj, 'used')}
+      // onClick={() => cardOnClickHandler(obj, 'used')}
       style={{ maxHeight: 400 }}
     >
-      <div className="image-container">
-        <img src={`${ENDPOINT}/images/${obj.image1}`} alt={obj.vehicleName} />
+      <div className="image-container" style={{ cursor: 'pointer' }}>
+        <Link to={`/used-vehicle/details/${obj.model.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}>
+          <img src={`${ENDPOINT}/images/${obj.image1}`} alt={obj.vehicleName} />
+        </Link>
       </div>
       <div className="description">
         <span style={{ fontWeight: 100, fontSize: 20 }}>{obj.model}</span>

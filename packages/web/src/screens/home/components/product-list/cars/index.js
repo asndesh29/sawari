@@ -1,20 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Card, Tabs, Tab } from '@blueprintjs/core';
 import NewCar from '../newCar';
-import PopularCar from '../mostPopularCar';
 
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, selectedTabId: 'Latest' };
-  }
-
-  cardOnClickHandler = (obj) => {
-    const { updateMainValue } = this.props;
-    updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
+    this.state = { selectedTabId: 'Latest' };
   }
 
   handleTabChange = (id) => {
@@ -23,19 +16,17 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { main, updateMainValue } = this.props;
-    const { showProductDtails, selectedTabId } = this.state;
+    const { selectedTabId } = this.state;
     return (
       <Card elevation={0} className="home-product-list" style={{ height: 350 }}>
-        {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Cars</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Latest" title="Latest" panel={<NewCar {...this.props} category="Latest" />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<PopularCar {...this.props} category="Popular" />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<PopularCar {...this.props} category="Upcoming" />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<NewCar {...this.props} category="Popular" />} />
+          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<NewCar {...this.props} category="Upcoming" />} />
         </Tabs>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/more/cars"><span style={{ fontWeight: 'bold'}}>More Cars</span></Link>
+          <Link to="/more/cars"><span style={{ fontWeight: 'bold' }}>More Cars</span></Link>
         </div>
       </Card>
     );

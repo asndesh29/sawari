@@ -2,22 +2,23 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { Card, Elevation, Button } from '@blueprintjs/core';
+import { Link } from 'react-router-dom';
+import { Card, Button } from '@blueprintjs/core';
 import HorizontalScrollView from 'react-horizontal-scrolling-menu';
 import { ENDPOINT } from '../../../../config';
 
-const ProductCard = (obj, cardOnClickHandler) => {
+const ProductCard = (obj) => {
   return (
-    <Card
-      interactive
-      className="product-card"
-      style={{ height: 130, width: 140 }}
-      // onClick={() => cardOnClickHandler(obj)}
-    >
-      <img src={`${ENDPOINT}/brand_image/${obj.brandImageUrl}`} alt={obj.brandName} style={{ height: 100, width: 120 }} onClick={() => cardOnClickHandler(obj)} />
-      <span>{obj.brandName}</span>
-    </Card>
+    <Link to={`car/brand/${obj.brandName.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()} style={{ textDecoration: 'none', color: 'black'}}>
+      <Card
+        interactive
+        className="product-card"
+        style={{ height: 130, width: 140, overflow: 'hidden' }}
+      >
+        <img src={`${ENDPOINT}/brand_image/${obj.brandImageUrl}`} alt={obj.brandName} style={{ height: 100, width: 120 }} />
+        <span>{obj.brandName}</span>
+      </Card>
+    </Link>
   );
 };
 
@@ -38,7 +39,6 @@ class ProductDetails extends React.Component {
     const { brand, stypeId } = this.state;
     return (
       <Card elevation={0} className="home-product-list">
-        {brand && <Redirect to={`car/brand/${brand.brandName.replace(/\s/g, '')}-${brand.id}`.toLocaleLowerCase()} />}
         <div className="product-list-header">
           <h2>Popular Car Brands</h2>
         </div>
