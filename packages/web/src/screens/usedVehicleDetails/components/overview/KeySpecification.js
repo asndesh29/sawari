@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@blueprintjs/core';
 
 const KeySpecificationObj = { brand: 'Brand', city: 'City', province: 'Province', taxClearance: 'Tax Clearance', customerType: 'Customer Type' };
@@ -18,8 +19,7 @@ const keySpecificationsElement = (label, key, obj) => {
   );
 };
 
-export default ({ obj, showEnquiryForm }) => {
-  console.log('obj in key spcification', obj);
+const KeySpecification = ({ obj, showEnquiryForm }) => {
   return (
     <div className="detail-compare">
       <div className="name-price-compare">
@@ -42,4 +42,11 @@ export default ({ obj, showEnquiryForm }) => {
       </div>
     </div>
   );
+};
+
+export default KeySpecification;
+
+KeySpecification.propTypes = {
+  obj: PropTypes.objectOf(PropTypes.any).isRequired,
+  showEnquiryForm: PropTypes.func.isRequired,
 };

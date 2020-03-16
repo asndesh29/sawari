@@ -41,7 +41,7 @@ class Index extends React.Component {
           intent="primary"
           style={{ background: main.currentAdminContent === 'addModel' ? 'blue' : 'yellow'}}
           onClick={() => updateMainValue('currentAdminContent', 'addModel')}
-        />
+        /> 
         <Button
           text="Varient"
           fill
@@ -60,7 +60,12 @@ class Index extends React.Component {
           intent="primary"
           style={{ background: main.currentAdminContent === 'serviceCenter' ? 'blue' : 'yellow' }}
           onClick={() => updateMainValue('currentAdminContent', 'serviceCenter')} />
-
+        <Button
+          text="Used Product"
+          fill
+          intent="primary"
+          style={{ background: main.currentAdminContent === 'usedProduct' ? 'blue' : 'yellow' }}
+          onClick={() => updateMainValue('currentAdminContent', 'usedProduct')} />
       </div>
     );
   }

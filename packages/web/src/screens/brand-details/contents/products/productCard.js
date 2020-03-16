@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Elevation } from '@blueprintjs/core';
+import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../../config';
 
 const priceRangeHandler = (obj) => {
@@ -14,7 +14,6 @@ export default (obj, enquiryFormToggel) => {
   return (
     <Card
       className="product-card"
-      style={{ height: 200 }}
     >
       <div className="image-container" style={{ cursor: 'pointer'}}>
         <Link to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}>

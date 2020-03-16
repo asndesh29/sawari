@@ -23,4 +23,13 @@
 
   @import './query_button.scss';
 }
- @import './compare-product.scss';
+@import './offer.scss';
+
+ @media only screen and (max-width: 600px) {
+   .main_product_details {
+    margin-top: 0px;
+    .main-product-details-sidebar {
+      width: 98%;
+    }
+   }
+ }

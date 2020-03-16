@@ -1,0 +1,30 @@
+.offer-card {
+  height: auto;
+  display: flex;
+  // background: yellow;
+  width: 99%;
+  padding: 5px;
+  .image-container {
+    height: 200px;
+    width: 50%;
+    // background: red;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+    }
+  }
+  .description {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .offer-card {
+    display: inline-block;
+    .image-container {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

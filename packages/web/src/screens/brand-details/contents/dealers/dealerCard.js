@@ -19,13 +19,19 @@ export default (obj, onEnqueryClickHandler, enquiryFomrmToggle) => {
       <div className="description">
         <span style={{ fontWeight: 100, fontSize: 20 }}>{obj.name}</span>
         <span style={{ fontWeight: 40, width: '70%' }}>{`${obj.description}`}</span>
-        <div style={{ marginTop: 10, width: '100%' }}>
-          <Icon icon="phone" style={{ marginRight: 10, color: 'green' }}/>
-          <span>{obj.phoneNo}</span>
-          <Icon icon="envelope" style={{ marginRight: 10, color: 'green', marginLeft: 10 }} />
-          <span>sawarikinbech@gmail.com</span>
-          <Button text="Locate" fill intent="success" style={{ marginTop: 10, width: 200 }} onClick={() => locateClickHandler(obj)}/>
-          <Button text="Enquiry" fill intent="success" onClick={enquiryFomrmToggle} style={{ marginTop: 10, width: 200 }} />
+        <div className="dealer-info">
+          <div>
+            <Icon icon="phone" style={{ color: 'green', marginRight: 5 }} />
+            <span>{obj.phoneNo}</span>
+          </div>
+          <div>
+            <Icon icon="envelope" style={{ color: 'green', marginRight: 5, marginTop: 5 }} />
+            <span>sawarikinbech@gmail.com</span>
+          </div>
+          <div className="dealer-button">
+            <Button id="btn" text="Locate" fill intent="success" onClick={() => locateClickHandler(obj)}/>
+            <Button id="btn" text="Enquiry" fill intent="success" onClick={enquiryFomrmToggle} />
+          </div>
         </div>
       </div>
     </Card>

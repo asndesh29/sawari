@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
-import TopBikeBrands from '../topBikeBrand';
+import HorizontalScrollbar from '../../../../../components/common/HorizontalScroller';
+import BrandCard from '../../../../common/brandCard';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -10,10 +12,14 @@ class ProductDetails extends React.Component {
   }
 
   render() {
+    const { main } = this.props;
+    const data = main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(obj => obj.stypeId === 2).map((obj) => BrandCard(obj)) : [];
     return (
       <Card elevation={0} className="home-product-list">
-        <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Popular Bike and Scooter Brands</h2></div>
-        <TopBikeBrands {...this.props} />
+        <div className="product-list-header">
+          <h2>Popular Bike and Scooter Brands</h2>
+        </div>
+        <HorizontalScrollbar data={data} />
       </Card>
     );
   }
@@ -21,5 +27,4 @@ class ProductDetails extends React.Component {
 export default ProductDetails;
 ProductDetails.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
-  updateMainValue: PropTypes.func.isRequired,
 };

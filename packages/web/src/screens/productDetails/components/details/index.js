@@ -97,20 +97,11 @@ class ProductDetails extends React.Component {
                 title="Offers"
                 panel={<Offers {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
-              <Tabs.Expander />
-              {tabId === 'Specification' && (
-              <Switch
-                onClick={(e) => console.log('switch value', e)}
-                label='Expand All'
-                large
-                style={{ color: 'white', marginRight: 10 }}
-                onChange={(e) => this.setState({ expandAll: !expandAll })}
-                value={1}
-                checked={expandAll}
-              />
-              )
-            }
+              {/* <Tabs.Expander /> */}
+
             </Tabs>
+            {/* <div></div> */}
+
           </div>
         </div>
       ) : null

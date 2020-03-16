@@ -1,23 +1,12 @@
 import React from 'react';
-import { Card, Elevation, Button } from '@blueprintjs/core';
+import { Card } from '@blueprintjs/core';
 import Details from './details';
 
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { enquiryShow: false, showDetail: false };
+    this.state = { };
   }
-
-  // async componentWillMount() {
-  //   const { fetchProductDetail, match, main } = this.props;
-  //   const { proId } = match.params;
-  //   if (!main.currentCarDetail) {
-  //     await fetchProductDetail(proId);
-  //     this.setState({ showDetail: true });
-  //   } else {
-  //     this.setState({ showDetail: true })
-  //   }
-  // }
 
   closeEnquiry = () => {
     const { enquiryShow } = this.state;
@@ -25,12 +14,11 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { enquiryShow } = this.state;
-    const { showDetail } = this.state;
+
     return (
-      <div className="product-detail" style={{ width: '70%' }}>
+      <div className="product-detail">
         <Card
-          // elevation={Elevation.TWO}
+          style={{ padding: 5 }}
           className="product-card"
         >
           <Details {...this.props} />

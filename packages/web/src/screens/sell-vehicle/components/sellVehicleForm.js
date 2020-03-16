@@ -6,21 +6,11 @@ import sellVehicleStructure from './sellVehicleFormStructure';
 export default ({ props }) => {
   console.log('props in form', props);
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+    <div className="sell-vehicle-content ">
       <Card
-        interactive
+        // interactive
         elevation={Elevation.TWO}
-        style={{
-          maxWidth: '40%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          display: 'flex',
-          flexGrow: 1,
-          margin: 10,
-          marginBottom: 0,
-          flexDirection: 'column',
-          flexWrap: 'wrap',
-        }}
+        className="content-card"
       >
         <h2>Sell your vehicle in a click!</h2>
         <form style={{ width: '100%' }}>

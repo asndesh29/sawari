@@ -2,7 +2,7 @@
 
 .home-selector-slider {
   width: 100%;
-  // margin-top: 1px;
+  margin-top: 1px;
   display: flex;
   margin-top: 120px;
   overflow: visible;
@@ -12,7 +12,7 @@
     width: 'auto';
     padding: 20px;
     margin-left: 20px;
-    z-index: 20;
+    z-index: 2;
     position: absolute;
     .home-selector-card {
       width: 100%;
@@ -56,10 +56,39 @@
     width: 100%;
     background: black;;
     height: 70vh;
+    .slider-image {
+      height: 70vh;
+      width: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
     .dotclass {
       // background: red;
       // display: flex;
       // justify-content: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .home-selector-slider {
+    height: 40vh;
+    margin-top: 0px;
+    .home-slider {
+      height: 40vh;
+      .slider-image {
+        height: 40vh;
+        width: 100%;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    .home-selector {
+      display: none;
     }
   }
 }

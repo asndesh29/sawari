@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import ProductCard from './productCard';
 import PriceRange from '../../../common/filters/priceRange';
 import VehicleType from '../../../common/filters/vehicleType';
@@ -45,13 +44,13 @@ const brandProductListProvider = (props, enquiryFormToggleHandler) => {
   switch (path) {
     case '/car/brand/:brandName':
       return (
-        <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div className="brand-product-list">
           {main.initialData.vehicleModel ? filterHandler(props, main.initialData.vehicleModel.filter((c) => ((c.stypeId === 1) && (c.sbId === sbId)))).map((obj) => ProductCard(obj, enquiryFormToggleHandler)) : []}
         </div>
       );
     case '/bike/brand/:brandName':
       return (
-        <div className="brand-product-list" style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div className="brand-product-list">
           {main.initialData.vehicleModel ? filterHandler(props, main.initialData.vehicleModel.filter((c) => ((c.stypeId === 2) && (c.sbId === sbId)))).map((obj) => ProductCard(obj, enquiryFormToggleHandler)) : []}
         </div>
       );
@@ -72,7 +71,6 @@ class Index extends React.Component {
   }
 
   enquiryFormToggleHandler = () => {
-    console.log('form toggle called');
     this.setState({ showEnquiry: !this.state.showEnquiry });
   }
 

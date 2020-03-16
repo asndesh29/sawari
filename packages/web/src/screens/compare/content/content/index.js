@@ -52,10 +52,14 @@ class Index extends React.Component {
     return (
       <div className="content-body">
         <div className="selector">
-          <SelectProduct {...this.props} pId={pId1} type="pId1" showMenuHandler={this.showMenuHandler} />
-          <SelectProduct {...this.props} pId={pId2} type="pId2" showMenuHandler={this.showMenuHandler} />
-          <SelectProduct {...this.props} pId={pId3} type="pId3" showMenuHandler={this.showMenuHandler} />
-          <SelectProduct {...this.props} pId={pId4} type="pId4" showMenuHandler={this.showMenuHandler} />
+          <div className="selector-pair-one">
+            <SelectProduct {...this.props} pId={pId1} type="pId1" showMenuHandler={this.showMenuHandler} />
+            <SelectProduct {...this.props} pId={pId2} type="pId2" showMenuHandler={this.showMenuHandler} />
+          </div>
+          <div className="selector-pair-two">
+            <SelectProduct {...this.props} pId={pId3} type="pId3" showMenuHandler={this.showMenuHandler} />
+            <SelectProduct {...this.props} pId={pId4} type="pId4" showMenuHandler={this.showMenuHandler} />
+          </div>
         </div>
         <div className="button">
           { isShowComapreButton && <Button text="Compare Now" style={{ background: '#FF4202', color: 'white', width: 200, height: 40 }} onClick={this.showCompareResult} />}

@@ -1,0 +1,41 @@
+.used-content {
+  width: 90%;
+  background: white;
+  .provice-distric {
+    display: flex;
+    .province-container {
+      width: 80%;
+      margin-right: 20px;
+      border-right: 5px #f1f1f1 solid;
+      .province-content {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  .distric-container {
+    margin-left: 20px;
+    width:20%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .used-content {
+    width: 98%;
+    .provice-distric {
+      display: inline-block;
+      .province-container {
+        width: 100%;
+        border-right: 0px;
+      }
+      .distric-container {
+        width: 100%;
+        margin: 0px;
+      }
+    }
+  }
+}

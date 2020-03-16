@@ -102,7 +102,7 @@ export default (props) => [
     placeHolder: 'Upload Photos',
     options: [
       { label: '+photo', value: 'image1' },
-      { label: '+font', value: 'image2' },
+      { label: '+front', value: 'image2' },
       { label: '+back', value: 'image3' },
       { label: '+left', value: 'image4' },
       { label: '+right', value: 'image5' },

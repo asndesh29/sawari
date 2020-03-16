@@ -1,0 +1,104 @@
+.specification {
+  // background: yellow;
+  width: 99%;
+  padding-top: 10px;
+  .specification-collapse-element {
+    background: #f1f1f1;
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    // padding: 5px;
+    margin-top: 10px;
+  }
+  .specification-collapse-container {
+    background: white;
+    // padding: 20px;
+    // background: yellow;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    .container-element {
+      width: 100%;
+      display: flex;
+      // background: yellowgreen;
+      justify-content: space-between;
+      align-items: center;
+      // margin: 5px;
+      height: 100%;
+      // padding: 10px;
+      border-bottom: 1px solid #f1f1f1;
+
+      .container-element-label {
+        width: 20%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        height: 100%;
+      }
+      .container-element-value {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        height: 100%;
+        border-left: 1px solid #f1f1f1;
+      }
+    }
+  }
+
+  .overview-with-name {
+    width: 100%;
+    height: 100%;
+    background: #f1f1f1;
+    display: flex;
+
+    .overview {
+      width: 20%;
+      display: flex;
+      align-items: center;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      height: 100%;
+      border-left: 1px solid #f1f1f1;
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .specification {
+    .overview-with-name {
+      .overview {
+        width: 20%;
+      }
+      .name {
+        display: none;
+      }
+    }
+
+    .specification-collapse-container {
+      // background: rosybrown;
+      .container-element {
+        .container-element-label {
+          // background: red;
+          width: 30%;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .container-element-value {
+          width: 34%;
+          // background: yellow;
+        }
+      }
+    }
+  }
+}

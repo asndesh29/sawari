@@ -1,10 +1,15 @@
+/* eslint-disable react/no-deprecated */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Spinner } from '@blueprintjs/core';
 import HeaderBody from './header';
 import ContentBody from './content';
 
 class Index extends React.Component {
-  state={ renderContent: false };
+  constructor(props) {
+    super(props);
+    this.state = { renderContent: false };
+  }
 
   async componentWillMount() {
     const { fetchInitialData } = this.props;
@@ -25,3 +30,6 @@ class Index extends React.Component {
   }
 }
 export default Index;
+Index.propTypes = {
+  fetchInitialData: PropTypes.func.isRequired,
+};

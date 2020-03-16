@@ -18,7 +18,7 @@ class ProductDetails extends React.Component {
   render() {
     const { selectedTabId } = this.state;
     return (
-      <Card elevation={0} className="home-product-list" style={{ height: 350 }}>
+      <Card elevation={0} className="home-product-list">
         <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Cars</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
           <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Latest" title="Latest" panel={<NewCar {...this.props} category="Latest" />} />

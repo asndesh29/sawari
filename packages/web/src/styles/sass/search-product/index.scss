@@ -68,3 +68,26 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .search-product {
+    .search-product-content {
+      margin-top: 0px;
+      width: 100%;
+      .search-filter {
+        display: none;
+      }
+      .search-product-list {
+        width: 100%;
+      }
+      .product-list {
+        width: 100%;
+        .product-card {
+          width: 98%;
+        }
+
+      }
+
+    }
+  }
+}

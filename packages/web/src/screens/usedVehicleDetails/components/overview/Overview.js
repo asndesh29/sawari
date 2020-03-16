@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoMdSpeedometer } from 'react-icons/io';
-import { GiVendingMachine, GiMoneyStack } from 'react-icons/gi';
+import PropTypes from 'prop-types';
+import { GiMoneyStack } from 'react-icons/gi';
 import { FaBolt, FaTransgender, FaSafari, FaCompactDisc, FaRoad, FaKey } from 'react-icons/fa';
 import { MdAirlineSeatLegroomExtra } from 'react-icons/md';
 import { FiCalendar } from 'react-icons/fi';
@@ -44,7 +45,7 @@ const overviewElement = (label, key, obj) => {
   );
 };
 
-export default (props) => {
+const Overview = (props) => {
   const { currentUsedVehicleDetails } = props;
   return (
     <div className="overview">
@@ -53,4 +54,10 @@ export default (props) => {
       }
     </div>
   );
+};
+
+export default Overview;
+
+Overview.propTypes = {
+  currentUsedVehicleDetails: PropTypes.objectOf(PropTypes.any).isRequired,
 };

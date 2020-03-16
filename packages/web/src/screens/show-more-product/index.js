@@ -17,7 +17,7 @@ class Index extends React.Component {
     const { fetchInitialData, updateMainValue, match } = this.props;
     const { params } = match;
     fetchInitialData();
-    updateMainValue('filter', { priceRange: [0, 50] });
+    updateMainValue('filter', { priceRange: [0, 200] });
     if (params.searchType === 'budget') {
       const tempPriceArr = params.tempId.split('-');
       const minMaxPriceRange = [parseInt(tempPriceArr[0], 10), parseInt(tempPriceArr[1], 10)];

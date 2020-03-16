@@ -1,0 +1,42 @@
+.drawer-menu{
+  .drawer-menu-element-content {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    .drawer-header{
+      width: 100%;
+      padding: 10px;
+      border-bottom: 1px #f5f5f5 solid;
+      img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+    .link-style {
+      text-decoration: none;
+      color: black;
+    }
+    .collapse-element {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1px;
+      padding: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      color: black;
+      background: white;
+      border-bottom: 1px #f5f5f5 solid;
+    }
+    .collapse-element-content {
+      display: flex;
+      flex-direction: column;
+      background: #f5f5f5;
+      padding-left: 20px;
+      .individual-element {
+        padding: 5px;
+        border-bottom: 1px #fff solid;
+      }
+    }
+  }
+}

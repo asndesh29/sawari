@@ -13,8 +13,8 @@ class Index extends React.Component {
   }
 
   async componentWillMount() {
-    console.log('props in brand details', this.props);
-    const { fetchInitialData } = this.props;
+    const { fetchInitialData, updateMainValue } = this.props;
+    updateMainValue('filter', { priceRange: [0, 200] });
     await fetchInitialData();
     this.setState({ showDetails: true });
   }
@@ -26,7 +26,7 @@ class Index extends React.Component {
       showDetails
         ? (
           <div className="main_product_details">
-            <Navbar {...this.props}/>
+            <Navbar {...this.props} />
             <BrandDetails {...this.props} />
             <Footer {...this.props} />
           </div>

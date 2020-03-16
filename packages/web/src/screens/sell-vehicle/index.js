@@ -24,11 +24,11 @@ class Index extends React.Component {
     const { fetchSuccess } = this.state;
     return (
       <div className="sell-vehicle">
-        <Navbar {...this.props}/>
-        <div className="search-product-content">
+        <Navbar {...this.props} />
+        <div className="sell-vehicle-content">
           {fetchSuccess ? <SellForm props={this.props} /> : <Spinner size={25} intent="primary" />}
         </div>
-        <Footer {...this.props}/>
+        <Footer {...this.props} />
       </div>
     );
   }

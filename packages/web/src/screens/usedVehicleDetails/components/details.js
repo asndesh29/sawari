@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ENDPOINT } from '../../../config';
 import Overview from './overview';
 import EnquiryForm from '../../common/EnquiryForm';
 
@@ -20,7 +19,7 @@ class UsedVehicleDetails extends React.Component {
     const { enquiryShow } = this.state;
     const currentUsedVehicleDetails = main.initialData.usedVehicle.find((uv) => `${uv.model.replace(/\s/g, '')}-${uv.id}`.toLocaleLowerCase() === match.params.usedVehicleId)
     const brand = main.initialData.vehicleBrand.find(b => b.id === currentUsedVehicleDetails.sbId);
-    console.log('Current Used Vehicle', currentUsedVehicleDetails);
+    // console.log('Current Used Vehicle', currentUsedVehicleDetails);
     return (
       <div className="product-detail" style={{ width: '100%'}}>
         <Overview {...this.props} showEnquiryForm={this.closeEnquiry} currentUsedVehicleDetails={{ ...currentUsedVehicleDetails, brand: brand.brandName, taxClearance: currentUsedVehicleDetails.taxClearance === '1' ? 'yes' : 'No' }} />

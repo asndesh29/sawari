@@ -20,11 +20,16 @@ export default (label, key, arr, productList, triggerLabel, hideCommon) => {
     checkCommon(key, arr, hideCommon)
       ? (
         <div className="container-element">
-          <div style={{ width: '10%', display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', height: '100%' }}>
+          <div
+            className="container-element-label"
+          >
             <span style={{ color: '#9a9a9a', padding: 5 }}>{label}</span>
           </div>
           {arr.map((obj, idx, arr) => (
-            <div style={{ width: `${widthOfDiv}%`, display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', height: '100%', borderLeft: '1px solid #f1f1f1' }}>
+            <div
+              className="container-element-value"
+              style={{ width: `${widthOfDiv}%`}}
+            >
               {(triggerLabel === 'Key Features'
                 || triggerLabel === 'Interior'
                 || triggerLabel === 'Exterior'

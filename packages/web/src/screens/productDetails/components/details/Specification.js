@@ -4,7 +4,7 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
 import PropTypes from 'prop-types';
-import { Icon } from '@blueprintjs/core';
+import { Icon, Switch } from '@blueprintjs/core';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoCheck } from 'react-icons/go';
 import productDetailsObj from './productDetailsObj';
@@ -118,7 +118,7 @@ const collapseHandler = (lable, obj, keyFeatures, collapseObj, collapseOpenHandl
 class Specification extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { collapseObj: {} };
+    this.state = { collapseObj: {}, expandAll: false };
   }
 
   componentWillMount() {
@@ -138,9 +138,11 @@ class Specification extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  expandAllHandler = async () => {
+    await this.setState({ expandAll: !this.state.expandAll});
     const { currentProductDetails } = this.props;
-    if (nextProps.expandAll) {
+    const { expandAll } = this.state;
+    if (expandAll) {
       if (currentProductDetails.stypeId === 1) {
         const initialCollapseLableValue = Object.keys(carCollapseLablel).reduce((obj, n) => {
           obj = { ...obj, [n]: true };
@@ -186,8 +188,8 @@ class Specification extends React.Component {
 
   render() {
     // console.log('project detials in Onj in specification', this.props);
-    const { collapseObj } = this.state;
-    const { main, currentProductDetails, variantId, expandAll } = this.props;
+    const { collapseObj, expandAll } = this.state;
+    const { main, currentProductDetails, variantId } = this.props;
     const { stypeId } = currentProductDetails;
     const allCarDetails = {};
     const allBikeDetails = {};
@@ -207,6 +209,15 @@ class Specification extends React.Component {
 
     return (
       <div className="specification">
+        <Switch
+          onClick={(e) => console.log('switch value', e)}
+          label="Expand All"
+          large
+          style={{ color: 'black', marginRight: 10, textAlign: 'end' }}
+          onChange={this.expandAllHandler}
+          value={1}
+          checked={expandAll}
+        />
         { parseInt(stypeId, 10) === 1 && collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
         { parseInt(stypeId, 10) === 1 && collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
         { parseInt(stypeId, 10) === 1 && Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k], collapseObj, this.collapseOpenHandler, this.collapseColoseHandler))}

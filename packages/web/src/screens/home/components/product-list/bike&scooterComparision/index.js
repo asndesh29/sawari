@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HorizontalScrollView from 'react-horizontal-scrolling-menu';
-import { Redirect, Link } from 'react-router-dom';
-import { Card, Button } from '@blueprintjs/core';
+import { Link } from 'react-router-dom';
+import { Card } from '@blueprintjs/core';
 import productCompareCard from '../../../../common/productCompareCard';
+import HorizontalScrollView from '../../../../../components/common/HorizontalScroller';
 
 const carComparisonList = [
   { id: 1, pId1: 41, pId2: 43, compCount: 10 },
@@ -17,47 +17,17 @@ const carComparisonList = [
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showProductDtails: false, selectedTabId: 'Cars', selectedCity: null };
-  }
-
-  cardOnClickHandler = (obj) => {
-    const { updateMainValue } = this.props;
-    updateMainValue('currentCarDetail', obj);
-    this.setState({ showProductDtails: obj.id });
-  }
-
-  handleTabChange = (id) => {
-    console.log('tab id', id);
-    this.setState({ selectedTabId: id });
+    this.state = { };
   }
 
   render() {
     const { main } = this.props;
-    const { showProductDtails } = this.state;
-    console.log('Bike comparison props', this.props);
     return (
-      <Card style={{ background: 'white', width: '90%', marginTop: 10 }}>
+      <Card className="home-product-list">
         <h2 style={{ margin: 0 }}>Popular Bike & Scooter Comparisons</h2>
-        <div style={{ marginRight: 20 }}>
-          <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap'}}>
-            {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
-            {/* {main.initialData.vehicleBrandProduct ? [carComparisonList.map(p => ProvinceDesign(p, main.initialData.vehicleBrandProduct)), <SelectProductForComparison {...this.props} />] : []} */}
-            <div style={{ width: '100%', textAlign: 'center', height: 'auto' }}>
-              <HorizontalScrollView
-                // wheel
-                data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, { ...this.props, currentProductDetails: { stypeId: 2 } }))] : []}
-                arrowRight={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-right" />}
-                arrowLeft={<Button style={{ width: 20, height: 20, borderRadius: '50%' }} rightIcon="arrow-left" />}
-                onSelect={(key) => console.log('seleceed', key)}
-                clickWhenDrag={false}
-                alignOnResize
-                hideSingleArrow
-                hideArrows
-                scrollBy={3}
-              />
-            </div>
-          </div>
-        </div>
+        <HorizontalScrollView
+          data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, { ...this.props, currentProductDetails: { stypeId: 2 } }))] : []}
+        />
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
           <Link to="/compare/bike"><span style={{ fontWeight: 'bold' }}>Compare More</span></Link>
         </div>
@@ -68,5 +38,4 @@ class ProductDetails extends React.Component {
 export default ProductDetails;
 ProductDetails.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
-  updateMainValue: PropTypes.func.isRequired,
 };

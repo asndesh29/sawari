@@ -16,7 +16,7 @@ const addMainVarientStructure = (props, update) => {
       element: 'input', placeHolder: 'Enter fuelCapacity...', value: 'fuelCapacity', type: 'number', label: 'Fuel Capacity:',
     },
     {
-      element: 'input', placeHolder: 'Enter fuelReverse...', value: 'fuelReserve', type: 'number', label: 'Fuel Reverse:',
+      element: 'input', placeHolder: 'Enter fuelReserve...', value: 'fuel', type: 'number', label: 'Fuel Reserve:',
     },
     {
       element: 'input', placeHolder: 'Enter saddleHeight...', value: 'saddleHeight', type: 'number', label: 'Saddle Height:',

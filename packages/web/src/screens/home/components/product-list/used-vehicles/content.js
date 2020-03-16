@@ -38,18 +38,16 @@ class ProductDetails extends React.Component {
     const { main, selectedTabId } = this.props;
     const { showProductDtails, selectedCity } = this.state;
     return (
-      <div style={{ background: 'white', width: '90%' }}>
-        {/* <div style={{ height: 1, width: '100%', background: '#f1f1f1', margin: 0, marginTop: -22 }} /> */}
-        <div style={{ display: 'flex' }}>
-          <div style={{ marginRight: 20 }}>
-            <div elevation={0} style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div className="used-content">
+        <div className="provice-distric">
+          <div className="province-container">
+            <div className="province-content">
               {showProductDtails && <Redirect to={`/details/${showProductDtails}`} />}
               {selectedCity && <Redirect to={`/used/city/${selectedCity}/${selectedTabId}`.toLocaleLowerCase()} />}
               {provinceList.map(p => ProvinceDesign(p, selectedTabId))}
             </div>
           </div>
-          <div style={{ height: 190, width: 5, background: '#f1f1f1', marginLeft: 40, marginTop: 10, marginRight: 30, margin: 0 }}/>
-          <div style={{ marginLeft: 20, width: 300, flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
+          <div className="distric-container">
             <spa style={{ fontSize: 20 }}>
               I am looking to buy a second
             </spa>

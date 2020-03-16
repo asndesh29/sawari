@@ -16,6 +16,7 @@ class Index extends React.Component {
 
   componentWillMount() {
     const { fetchInitialData } = this.props;
+    window.scrollTo(0, 0);
     fetchInitialData();
   }
 

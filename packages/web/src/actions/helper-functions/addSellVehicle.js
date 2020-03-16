@@ -32,6 +32,7 @@ export default async (dispatch, getState, schema) => {
       province,
       taxClearance,
       registrationNo,
+      id,
     } = form.sellVehicle;
 
     if (!stypeId || !sbId || !image1 || !kmsDriven || !ownerShip) {
@@ -63,6 +64,7 @@ export default async (dispatch, getState, schema) => {
           province,
           taxClearance,
           registrationNo,
+          id,
         });
       console.log('enquiry res', enquiryRes);
       if (enquiryRes.status === 200) {

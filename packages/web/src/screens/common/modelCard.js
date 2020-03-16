@@ -12,20 +12,27 @@ const priceRangeHandler = (obj) => {
 
 export default (obj) => {
   return (
-    <Link to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()} style={{ textDecoration: 'none', color: 'black'}}>
-      <Card
-        interactive
-        style={{ width: 300, height: 220, padding: 0, overflow: 'hidden', margin: 5 }}
-        // onClick={() => cardOnClickHandler(obj)}
+    <div className="model-content">
+      <Link
+        to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}
+        className="model-link"
       >
-        <div style={{ width: '100%', height: '80%', cursor: 'pointer' }}>
-          <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.brandName} style={{ height: '100%', width: '100%', objectFit: 'fill'}} />
-        </div>
-        <div style={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
-          <span style={{ fontSize: 16 }}>{obj.name}</span>
-          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{priceRangeHandler(obj)}</span>
-        </div>
-      </Card>
-    </Link>
+        <Card
+          interactive
+          className="model-card"
+        >
+          <div className="image-content">
+            <img
+              src={`${ENDPOINT}/model_image/${obj.image}`}
+              alt={obj.brandName}
+            />
+          </div>
+          <div className="description-content">
+            <span style={{ fontSize: 16 }}>{obj.name}</span>
+            <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{priceRangeHandler(obj)}</span>
+          </div>
+        </Card>
+      </Link>
+    </div>
   );
 };

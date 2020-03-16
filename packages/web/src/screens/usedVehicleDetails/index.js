@@ -1,5 +1,7 @@
+/* eslint-disable react/no-deprecated */
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as actions from '../../actions';
 import Navbar from '../home/components/navbar';
 import Footer from '../home/components/footer';
@@ -17,7 +19,7 @@ class Index extends React.Component {
   }
 
   render() {
-    console.log('Used Product details', this.props);
+    // console.log('Used Product details', this.props);
     const { main } = this.props;
     return (
       <div className="main_product_details">
@@ -34,3 +36,8 @@ class Index extends React.Component {
 const mapStaToProps = (state) => state;
 
 export default connect(mapStaToProps, { ...actions })(Index);
+
+Index.propTypes = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  fetchInitialData: PropTypes.func.isRequired,
+};

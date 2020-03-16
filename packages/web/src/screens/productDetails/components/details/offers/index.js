@@ -1,5 +1,6 @@
 import React from 'react';
-import OfferDetailCard from './offerDetailCard';
+import PropTypes from 'prop-types';
+import OfferDetailCard from '../../../../common/offerCard';
 
 class Offer extends React.Component {
   constructor(props) {
@@ -11,10 +12,15 @@ class Offer extends React.Component {
     const { main, currentProductDetails } = this.props;
     const offerdetails = main.initialData.DiscountOffer.find(off => off.variantId === currentProductDetails.varients[0].id);
     return (
-      <div>
+      <div className="offer-container">
         {offerdetails && <OfferDetailCard obj={offerdetails} />}
       </div>
     );
   }
 }
 export default Offer;
+
+Offer.propTypes = {
+  main: PropTypes.objectOf(PropTypes.any).isRequired,
+  currentProductDetails: PropTypes.objectOf(PropTypes.any).isRequired,
+};

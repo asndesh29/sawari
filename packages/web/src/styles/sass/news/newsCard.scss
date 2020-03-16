@@ -16,3 +16,13 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .news-card {
+    width: 98%;
+  }
+  .news-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

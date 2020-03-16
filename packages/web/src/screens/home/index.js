@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -18,22 +19,21 @@ import News from './components/product-list/news';
 import Videos from './components/product-list/videos';
 
 class Index extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      initialData: false,
     };
   }
 
   async componentWillMount() {
     const { fetchInitialData } = this.props;
+
     await fetchInitialData();
-    this.setState({ initialData: true });
+    this.setState({ });
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="main_container">
         <Navbar {...this.props} />

@@ -3,7 +3,7 @@
 .main_navbar {
   position: fixed;
   top: 0;
-  z-index: 24;
+  z-index: 3;
   width: 100%;
   height: 120px;
   display: flex;
@@ -52,7 +52,22 @@
     height: 60%;
     background: white;
     // background: red;
+    .main-logo {
+      margin-left: 40px;
+      display: flex;
+      .logo-link {
+        height: 70px;
+        width: 70px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
 
+      .main-drawer {
+        display: none;
+      }
+    }
     .search-box-container {
       height: 80%;
       width: 70%;
@@ -124,5 +139,50 @@
       background: #f5f5f5;
       width: 100%;
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main_navbar {
+    position: sticky;
+    .home-nav-logo {
+      display: none;
+    }
+
+   .search-element {
+     display: inline;
+     position: relative;
+     width: 100%;
+
+     .login-registration {
+       display: none;
+     }
+     .search-box-container{
+       width: 100%;
+       margin-bottom: 5px;
+       justify-content: center;
+       .search-form {
+        width: 90%;
+       }
+     }
+
+     .main-logo {
+       margin-left: 0px;
+       .logo-link {
+        height: 50px;
+        width: 50px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+       .main-drawer {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+     }
+   }
   }
 }

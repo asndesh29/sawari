@@ -1,0 +1,60 @@
+.product-compare-container {
+  height: auto;
+  width: auto;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  border: 2px solid #f5f5f5;
+
+  .compare-content {
+    display: flex;
+    flex-direction: column;
+
+    .image-compare {
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 120px;
+        width: 140px;
+      }
+
+      .vs-div {
+        margin-right: -15px;
+        margin-left: -15px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        height: 30px;
+        width: 30px;
+        border-radius: 30px;
+        color: white;
+      }
+    }
+
+    .discription-content {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      .description {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
