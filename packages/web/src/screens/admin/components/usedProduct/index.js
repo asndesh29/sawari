@@ -21,9 +21,11 @@ class ProfileSetttings extends React.Component {
     const { isAddUsedVehicleOpen } = this.state;
     return (
       <div className="admin-add-brand">
-        <div className="admin-add-brand-menu" style={{ justifyContent: 'flex-end'}}>
-          {/* <Filter {...this.props} /> */}
-          <Button rightIcon="plus" text="Add Used Vehicle" onClick={this.toggleAddUsedVehicle}/>
+        <div className="admin-add-brand-menu" style={{ height: 'auto'}}>
+          <div className="admin-add-brand-menu-filter">
+            <Filter {...this.props} />
+          </div>
+          <Button rightIcon="plus" text="Add Used Vehicle" onClick={this.toggleAddUsedVehicle} />
         </div>
         <div className="admin-add-brand-content">
           <AddUsedVehicleForm isOpen={isAddUsedVehicleOpen} onClose={this.toggleAddUsedVehicle} props={this.props} />

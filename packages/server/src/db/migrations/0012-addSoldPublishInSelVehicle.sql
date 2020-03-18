@@ -1,0 +1,5 @@
+-- Up
+ALTER TABLE SellVehicle ADD COLUMN sold INTEGER;
+ALTER TABLE SellVehicle ADD COLUMN publish INTEGER;
+ALTER TABLE User ADD COLUMN plainPassword TEXT;
+-- Down

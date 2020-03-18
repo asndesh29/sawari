@@ -171,6 +171,9 @@ const initialFormState = {
   serviceCenterEnquiry: {
     name: '', email: '', phoneno: '', address: '', message: '', error: null, success: null, loading: null,
   },
+  sellVehicleFilter: {
+
+  },
 };
 
 export default (state = initialFormState, action) => {

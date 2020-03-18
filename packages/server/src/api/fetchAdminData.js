@@ -18,7 +18,7 @@ export default async (record) => {
   console.log('fetch admin data api called');
 
   const res = await db.execute(async ({ findOne, find }) => {
-    const vehicleType = await find('ServiceType', { sid: 1 });
+    const vehicleType = [{ id: 1, name: 'Car' }, { id: 2, name: 'Bike' }, { id: 2, name: 'Scooter' }];
     const vehicleBrand = await find('ServiceTypeBrand', { sid: 1 });
     const vehicleBrandProduct = await find('ServiceTypeBrandProductDetails', { sid: 1 });
     const userEnquiry = await find('UserEnquiry');

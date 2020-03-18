@@ -8,6 +8,7 @@ import deleteDealer from './helper-functions/deleteDealer';
 import deleteServiceCenter from './helper-functions/deleteServiceCenter';
 import fetchProductDetail from './helper-functions/fetchProductDetais';
 import deleteVarient from './helper-functions/deleteVarient';
+import updateSellVehicle from './helper-functions/updateSellVehicle';
 
 export * from './formHandler';
 export * from './updateMainValue';
@@ -22,4 +23,5 @@ export {
   deleteServiceCenter,
   deleteModel,
   deleteVarient,
+  updateSellVehicle,
 };

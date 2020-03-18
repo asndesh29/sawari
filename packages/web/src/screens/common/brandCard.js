@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../config';
 
-export default (obj) => {
+export default (obj, type) => {
   return (
     <div className="brand-content">
-      <Link to={`car/brand/${obj.brandName.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()} className="brand-link">
+      <Link to={`${type}/brand/${obj.brandName.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()} className="brand-link">
         <Card
           interactive
           className="brand-card"

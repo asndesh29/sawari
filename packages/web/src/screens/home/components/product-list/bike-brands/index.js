@@ -13,7 +13,7 @@ class ProductDetails extends React.Component {
 
   render() {
     const { main } = this.props;
-    const data = main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(obj => obj.stypeId === 2).map((obj) => BrandCard(obj)) : [];
+    const data = main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(obj => obj.stypeId === 2).map((obj) => BrandCard(obj, 'bike')) : [];
     return (
       <Card elevation={0} className="home-product-list">
         <div className="product-list-header">
