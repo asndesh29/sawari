@@ -1,7 +1,7 @@
 import addDealerEnquiry from '../../api/addDealerEnquiry';
 
 export default async (req, res) => {
-  console.log('req called');
+  console.log('addDealer Enquiry caleld', req.body);
   try {
     const record = req.body;
     const mainres = await addDealerEnquiry(record);

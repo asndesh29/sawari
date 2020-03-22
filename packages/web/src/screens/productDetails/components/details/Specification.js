@@ -218,16 +218,19 @@ class Specification extends React.Component {
           value={1}
           checked={expandAll}
         />
-        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
-        { parseInt(stypeId, 10) === 1 && collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
-        { parseInt(stypeId, 10) === 1 && Object.keys(productDetailsObj.specifications).map((k, idx) => collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k], collapseObj, this.collapseOpenHandler, this.collapseColoseHandler))}
-        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Features', bikeDetailsObj.keyFeatures, allBikeDetails.keyFeatures, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
-        { parseInt(stypeId, 10) === 2 && collapseHandler('Key Specification', bikeDetailsObj.keySpecifications, allBikeDetails.keySpecifications, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
-        { parseInt(stypeId, 10) === 2 && Object.keys(bikeDetailsObj.specifications).map((k, idx) => collapseHandler(k, bikeDetailsObj.specifications[k], allBikeDetails[k], collapseObj, this.collapseOpenHandler, this.collapseColoseHandler))}
+        { (parseInt(stypeId, 10) === 1 && allCarDetails.keyFeatures) && collapseHandler('Key Features', productDetailsObj.keyFeatures, allCarDetails.keyFeatures, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
+        { parseInt(stypeId, 10) === 1 && allCarDetails.keySpecifications && collapseHandler('Key Specification', productDetailsObj.keySpecifications, allCarDetails.keySpecifications, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
+        { parseInt(stypeId, 10) === 1 && Object.keys(productDetailsObj.specifications)
+          .map((k, idx) => allCarDetails[k] && collapseHandler(k, productDetailsObj.specifications[k], allCarDetails[k], collapseObj, this.collapseOpenHandler, this.collapseColoseHandler))}
+        { parseInt(stypeId, 10) === 2 && allBikeDetails.keyFeatures && collapseHandler('Key Features', bikeDetailsObj.keyFeatures, allBikeDetails.keyFeatures, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
+        { parseInt(stypeId, 10) === 2 && allBikeDetails.keySpecifications && collapseHandler('Key Specification', bikeDetailsObj.keySpecifications, allBikeDetails.keySpecifications, collapseObj, this.collapseOpenHandler, this.collapseColoseHandler)}
+        { parseInt(stypeId, 10) === 2 && Object.keys(bikeDetailsObj.specifications)
+          .map((k, idx) => allBikeDetails[k] && collapseHandler(k, bikeDetailsObj.specifications[k], allBikeDetails[k], collapseObj, this.collapseOpenHandler, this.collapseColoseHandler))}
       </div>
     );
   }
 }
+
 export default Specification;
 Specification.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,

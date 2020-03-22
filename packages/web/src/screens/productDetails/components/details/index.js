@@ -28,7 +28,10 @@ class ProductDetails extends React.Component {
   }
 
   closeEnquiry = () => {
-    const { enquiryShow } = this.state;
+    const { enquiryShow, currentProductDetails, variantId } = this.state;
+    const { updateFormValue } = this.props;
+    updateFormValue('addEnquiry', { pId: variantId });
+    console.log('current product details', currentProductDetails, variantId);
     this.setState({ enquiryShow: !enquiryShow });
   }
 

@@ -9,9 +9,11 @@ class UsedVehicleDetails extends React.Component {
     this.state = { enquiryShow: false };
   }
 
-  closeEnquiry = () => {
+  closeEnquiry = (id) => {
+    const { updateFormValue } = this.props;
     const { enquiryShow } = this.state;
     this.setState({ enquiryShow: !enquiryShow });
+    updateFormValue('addEnquiry', { pId: id, type: 'used' });
   }
 
   render() {
@@ -23,7 +25,7 @@ class UsedVehicleDetails extends React.Component {
     return (
       <div className="product-detail" style={{ width: '100%'}}>
         <Overview {...this.props} showEnquiryForm={this.closeEnquiry} currentUsedVehicleDetails={{ ...currentUsedVehicleDetails, brand: brand.brandName, taxClearance: currentUsedVehicleDetails.taxClearance === '1' ? 'yes' : 'No' }} />
-        <EnquiryForm isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} />
+        <EnquiryForm schema="addEnquiry" isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} />
       </div>
     );
   }

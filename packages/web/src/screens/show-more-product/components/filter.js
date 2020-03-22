@@ -6,6 +6,7 @@ import VehicleType from '../../common/filters/vehicleType';
 import FuelType from '../../common/filters/fuelType';
 import Province from '../../common/filters/province';
 import City from '../../common/filters/cities';
+import ShowAll from '../../common/filters/showAll';
 
 const content = { cars: 'car', bikes: 'bike', scooters: 'bike' };
 
@@ -23,6 +24,7 @@ const filter = (props) => {
     case '/discount-offers/cars':
       return (
         <div className="search-filter">
+          <ShowAll {...props} />
           <SideBrandMenu {...props} car />
           <PriceRange {...props} />
           <VehicleType {...props} car />
@@ -37,6 +39,7 @@ const filter = (props) => {
     case '/discount-offers/bikes':
       return (
         <div className="search-filter">
+          <ShowAll {...props} />
           <SideBrandMenu {...props} bike />
           <PriceRange {...props} />
           <VehicleType {...props} bike/>
@@ -47,6 +50,7 @@ const filter = (props) => {
     case '/service-center/cars':
       return (
         <div className="search-filter">
+          <ShowAll {...props} />
           <SideBrandMenu {...props} car />
           <Province {...props} />
           <City {...props} />
@@ -56,6 +60,7 @@ const filter = (props) => {
     case '/service-center/bikes':
       return (
         <div className="search-filter">
+          <ShowAll {...props} />
           <SideBrandMenu {...props} bike />
           <Province {...props} />
           <City {...props} />
@@ -66,6 +71,7 @@ const filter = (props) => {
         case '/used/province/:placeId/:usedVehicleType':
           return (
             <div className="search-filter">
+              <ShowAll {...props} />
               <SideBrandMenu {...props} car={isCar} />
               <SideBrandMenu {...props} bike={!isCar} />
               <City {...props} />
@@ -74,6 +80,7 @@ const filter = (props) => {
         case '/used/city/:cityId/:usedVehicleType':
           return (
             <div className="search-filter">
+              <ShowAll {...props} />
               <SideBrandMenu {...props} car={isCar} />
               <SideBrandMenu {...props} bike={!isCar} />
             </div>
@@ -82,6 +89,7 @@ const filter = (props) => {
         case '/used/showrooms/:usedVehicleType':
           return (
             <div className="search-filter">
+              <ShowAll {...props} />
               <SideBrandMenu {...props} car={isCar} />
               <SideBrandMenu {...props} bike={!isCar} />
               <PriceRange {...props} />
@@ -93,6 +101,7 @@ const filter = (props) => {
           if (buttonType === 'new') {
             return (
               <div className="search-filter">
+                <ShowAll {...props} />
                 {searchType === 'budget' && <SideBrandMenu {...props} car={typeId === 'car'} bike={typeId === 'bike'} />}
                 <PriceRange {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
                 <VehicleType {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
@@ -102,6 +111,7 @@ const filter = (props) => {
           }
           return (
             <div className="search-filter">
+              <ShowAll {...props} />
               {searchType === 'budget' && <SideBrandMenu {...props} car={typeId === 'car'} bike={typeId === 'bike'} />}
               <PriceRange {...props} car={typeId === 'car'} bike={typeId === 'bike'} />
               <Province {...props} />

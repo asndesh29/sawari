@@ -29,13 +29,17 @@ export default ({ obj, showEnquiryForm, variantId, compareButtonHandler }) => {
     <div className="detail-compare">
       <div className="name-price-compare">
         <div className="name-price">
-          <span style={{ fontSize: 20 }}>{variant.name}</span>
-          <br />
-          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`Ex-Showroom Price: रु. ${variant.exShowRoomPrice / 100000} लाख`} </span>
-          <br />
-          <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{`On Road Price: रु. ${variant.onRoadPrice / 100000} लाख`} </span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+            <span style={{ fontSize: 30, textAlign: 'center' }}>{variant.name}</span>
+            <br />
+            <Button text="Compare" style={{ marginLeft: 20,  marginTop: 5}} onClick={() => compareButtonHandler(variant, obj.stypeId)} />
+          </div>
+          <div style={{ marginTop: 20 }}>
+            <span style={{ color: '#ff4202', fontStyle: 'italic', fontSize: 20 }}>{`Ex-Showroom Price: रु. ${variant.exShowRoomPrice / 100000} लाख`} </span>
+            <br />
+            <span style={{ color: '#ff4202', fontStyle: 'italic', fontSize: 20 }}>{`On Road Price: रु. ${variant.onRoadPrice / 100000} लाख`} </span>
+          </div>
         </div>
-        <Button text="Compare" onClick={() => compareButtonHandler(variant, obj.stypeId)} />
       </div>
       {/* <div className="key-specification">
         <span style={{ fontSize: 20, marginBottom: 10, marginLeft: 5 }}>Key Specifications</span>
@@ -43,7 +47,7 @@ export default ({ obj, showEnquiryForm, variantId, compareButtonHandler }) => {
         <br />
         {Object.values(obj.labels).map((label, idx) => keySpecificationsElement(label, Object.keys(obj.labels)[idx], obj))}
       </div> */}
-      <div style={{ width: '100%', textAlign: 'center', padding: 10 }}>
+      <div style={{ width: '100%', textAlign: 'center', padding: 10, marginTop: 40 }}>
         <Button text="Enquiry" intent="success" fill onClick={showEnquiryForm} />
       </div>
     </div>

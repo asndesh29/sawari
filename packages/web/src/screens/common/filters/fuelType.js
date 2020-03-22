@@ -15,27 +15,27 @@ class VehicleType extends React.Component {
   }
 
   render() {
-    const { car } = this.props;
+    const { car,main } = this.props;
     return (
       car
         ? (
           <div className="side-menu" style={{ marginTop: 20 }}>
             <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>Fuel Type</h3>
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.fuelTypeSelectHandler('Petrol')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Petrol')} style={{ width: '48%', cursor: 'pointer', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={hatchback} style={{ width: 60, height: 50 }}/> */}
-                <span style={{ color: '#757575'}}>Petrol</span>
+                <span style={{ color: main.filter.fuelType === 'Petrol' ? '#ff4202' : '#757575'}}>Petrol</span>
               </div>
-              <div onClick={() => this.fuelTypeSelectHandler('Diesel')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Diesel')} style={{ width: '48%', cursor: 'pointer', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={sedan} style={{ width: 60, height: 50 }}/> */}
-                <span style={{ color: '#757575'}}>Diesel</span>
+                <span style={{ color: main.filter.fuelType === 'Diesel' ? '#ff4202' : '#757575'}}>Diesel</span>
               </div>
             </div>
 
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', cursor: 'pointer', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={coupe} style={{ width: 60, height: 50 }}/> */}
-                <span style={{ color: '#757575' }}>Electric</span>
+                <span style={{ color: main.filter.fuelType === 'Electric' ? '#ff4202' : '#757575' }}>Electric</span>
               </div>
 
             </div>
@@ -45,13 +45,13 @@ class VehicleType extends React.Component {
           <div className="side-menu" style={{ marginTop: 20 }}>
             <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>Fuel Type</h3>
             <div style={{ textAlign: 'center', display: 'flex', width: '100%', justifyContent: 'space-around' }}>
-              <div onClick={() => this.fuelTypeSelectHandler('Petrol')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Petrol')} style={{ width: '48%', cursor: 'pointer', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={hatchback} style={{ width: 60, height: 50 }}/> */}
-                <span style={{ color: '#757575'}}>Petrol</span>
+                <span style={{ color: main.filter.fuelType === 'Petrol' ? '#ff4202' : '#757575'}}>Petrol</span>
               </div>
-              <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
+              <div onClick={() => this.fuelTypeSelectHandler('Electric')} style={{ width: '48%', cursor: 'pointer', padding: 5, marginBottom: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1px solid #f1f1f1'}}>
                 {/* <img src={sedan} style={{ width: 60, height: 50 }}/> */}
-                <span style={{ color: '#757575'}}>Electric</span>
+                <span style={{ color: main.filter.fuelType === 'Electric' ? '#ff4202' : '#757575'}}>Electric</span>
               </div>
             </div>
           </div>

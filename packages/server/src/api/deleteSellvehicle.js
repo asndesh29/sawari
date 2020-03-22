@@ -1,10 +1,10 @@
 import db from '../db';
 
 export default async (id) => {
-
+  console.log('delete sell api called', id);
   try {
     const result = await db.execute(async ({ deleteQuery }) => {
-      const delRes = await deleteQuery('ServiceCenter', { id });
+      const delRes = await deleteQuery('SellVehicle', { id });
       if (delRes) {
         return delRes;
       }

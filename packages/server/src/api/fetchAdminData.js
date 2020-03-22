@@ -42,6 +42,8 @@ export default async (record) => {
     const CarVarientEntertainmentCommunication = await find('CarVarientEntertainmentCommunication');
     const DiscountOffer = await find('DiscountOffer');
     const SellVehicle = await find('SellVehicle');
+    const User = await find('User');
+    const finalUser = User.filter((u) => u.deleteStatus !== 1);
     const bikeDataPromises = [];
     arrBike.forEach((bt) => bikeDataPromises.push(find(bt)));
     const bikeDataValue = await Promise.all(bikeDataPromises);
@@ -51,6 +53,7 @@ export default async (record) => {
     }, {});
 
     return {
+      User: finalUser,
       vehicleVarientList,
       vehicleBrand,
       vehicleType,

@@ -13,6 +13,7 @@ import addServiceCenterEnquiry from './helper-functions/addServiceCenterEnquiry'
 import addModel from './helper-functions/addModel';
 import addVarient from './helper-functions/addVarient';
 import addDiscountOffer from './helper-functions/addDiscountOffer';
+import addUpdateUser from './helper-functions/addUpdateUser';
 
 const arrBike = [
   'BikeVarientOverview',
@@ -92,6 +93,9 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
       break;
     case 'serviceCenterEnquiry':
       addServiceCenterEnquiry(dispatch, getState, schema);
+      break;
+    case 'User':
+      addUpdateUser(dispatch, getState, schema);
       break;
     default:
       return null;

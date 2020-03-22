@@ -23,8 +23,8 @@ const addDetailsStructure = () => [
   },
 ];
 
-export default ({ isOpen, onClose, props }) => {
-  console.log('details in form enquiry', props.form.addEnquiry);
+export default ({ isOpen, onClose, props, schema }) => {
+  // console.log('details in form enquiry', props.form[schema]);
   return (
     <Dialog
       isOpen={isOpen}
@@ -49,7 +49,7 @@ export default ({ isOpen, onClose, props }) => {
           }}
         >
           <form style={{ width: '100%' }}>
-            <Form contents={addDetailsStructure()} schema="addEnquiry" {...props} />
+            <Form contents={addDetailsStructure()} schema={schema} {...props} />
           </form>
         </Card>
       </div>

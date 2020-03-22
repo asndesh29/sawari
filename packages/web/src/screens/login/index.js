@@ -20,6 +20,12 @@ class index extends Component {
         return <Admin {...this.props} type="super" />;
       case 'admin':
         return <Admin {...this.props} type="admin" />;
+      case 'new':
+        return <Admin {...this.props} type="new" />;
+      case 'used':
+        return <Admin {...this.props} type="used" />;
+      case 'both':
+        return <Admin {...this.props} type="both" />;
       default:
         return <Login {...this.props} />;
     }
@@ -42,7 +48,7 @@ class index extends Component {
   }
 }
 
-const mapStateProps = state => state;
+const mapStateProps = (state) => state;
 
 export default connect(mapStateProps, { ...actions })(index);
 
@@ -50,4 +56,3 @@ index.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
   updateMainValue: PropTypes.func.isRequired,
 };
-

@@ -1,7 +1,7 @@
 import addEnquiry from '../../api/addQnquiry';
 
 export default async (req, res) => {
-  console.log('req called');
+  console.log('req called', req.body);
   try {
     const record = req.body;
     const mainres = await addEnquiry(record);

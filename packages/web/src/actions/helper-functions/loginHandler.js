@@ -22,11 +22,6 @@ export default async (dispatch, getState, schema) => {
       dispatch(updateMainValue('currentUserDetails', data));
       dispatch(updateMainValue('screen', data.type));
       dispatch(updateMainValue('pendingQuestion', data.pendingQuestion));
-      if (data.type === 'admin' || data.type === 'super') {
-        dispatch(updateMainValue('currentAdminContent', 'Reports'));
-      } else {
-        dispatch(updateMainValue('currentAdminContent', 'pendingQuestion'));
-      }
     }
   } catch {
     dispatch(updateFormValue(schema, { loading: false, error: 'Invalid username/password' }));

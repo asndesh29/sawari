@@ -68,16 +68,16 @@ class Index extends React.Component {
         <div style={{ width: '90%', display: 'flex', justifyContent: 'flex-end', margin: 0 }}>
           <Switch
             large
+            label="Expand All"
+            alignIndicator="right"
+            onChange={() => this.setState({ expandAll: !expandAll })}
+          />
+          <Switch
+            large
             label="Hide Common"
             alignIndicator="right"
             style={{ marginRight: 10 }}
             onChange={(e) => this.setState({ hideCommon: !hideCommon })}
-          />
-          <Switch
-            large
-            label="Expand All"
-            alignIndicator="right"
-            onChange={() => this.setState({ expandAll: !expandAll })}
           />
         </div>
         )}

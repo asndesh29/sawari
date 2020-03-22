@@ -555,7 +555,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "century-gothic";
+  font-family: " Roboto, sans-serif";
   background: white;
 }
 
@@ -566,7 +566,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "century-gothic";
+  font-family: "Roboto, sans-serif";
 }
 .main_container .main_navbar {
   position: fixed;
@@ -1263,7 +1263,7 @@ body {
 }
 .model-content .model-link .model-card {
   width: 350px;
-  height: 250px;
+  height: 275px;
   padding: 0px;
   overflow: hidden;
   margin: 5px;

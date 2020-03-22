@@ -46,7 +46,7 @@ class BrandList extends React.Component {
 
   updateBrand = (id) => {
     const { main, updateFormValue } = this.props;
-    const brandToUpdate = main.initialAdminData.SellVehicle.find(vb => vb.id === id);
+    const brandToUpdate = main.initialAdminData.SellVehicle.find((vb) => vb.id === id);
     updateFormValue('sellVehicle', { ...brandToUpdate });
     this.setState({ showUpdate: true });
   }
@@ -57,10 +57,10 @@ class BrandList extends React.Component {
   }
 
   mainDelete = async () => {
-    const { deleteBrand } = this.props;
+    const { deleteSellVehicle } = this.props;
     const { showDelete } = this.state;
     this.setState({ loading: true });
-    const res = await deleteBrand(showDelete);
+    const res = await deleteSellVehicle(showDelete);
     if (res) {
       this.setState({ loading: null, success: 'Successfully deleted'});
     } else {
@@ -131,10 +131,13 @@ class BrandList extends React.Component {
     );
   }
 }
+
 export default BrandList;
+
 BrandList.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
   form: PropTypes.objectOf(PropTypes.any).isRequired,
   updateFormValue: PropTypes.func.isRequired,
   updateSellVehicle: PropTypes.func.isRequired,
+  deleteSellVehicle: PropTypes.func.isRequired,
 };

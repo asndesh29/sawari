@@ -59,8 +59,8 @@ export default (props) => {
   return (
     <div className="overview">
       {(parseInt(stypeId, 10) === 1)
-        ? Object.values(productDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(productDetailsObj.overview.labels)[idx], overview))
-        : Object.values(bikeDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(bikeDetailsObj.overview.labels)[idx], overview))
+        ? (overview && Object.values(productDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(productDetailsObj.overview.labels)[idx], overview)))
+        : (overview && Object.values(bikeDetailsObj.overview.labels).map((l, idx) => overviewElement(l, Object.keys(bikeDetailsObj.overview.labels)[idx], overview)))
       }
     </div>
   );

@@ -6,6 +6,7 @@ import VehicleType from '../../../common/filters/vehicleType';
 import FuelType from '../../../common/filters/fuelType';
 import { filterHandler } from '../../../common/filters/filterActionHandler';
 import EnqueryForm from '../../../common/EnquiryForm';
+import ShowAll from '../../../common/filters/showAll';
 
 const brandFilter = (props) => {
   const { match } = props;
@@ -14,6 +15,7 @@ const brandFilter = (props) => {
     case '/car/brand/:brandName':
       return (
         <div className="side-menu">
+          <ShowAll {...props} />
           <PriceRange {...props} bike />
           <VehicleType {...props} car />
           <FuelType {...props} car />
@@ -22,6 +24,7 @@ const brandFilter = (props) => {
     case '/bike/brand/:brandName':
       return (
         <div className="side-menu">
+          <ShowAll {...props} />
           <PriceRange {...props} bike />
           <VehicleType {...props} bike />
           <FuelType {...props} bike />
@@ -70,8 +73,11 @@ class Index extends React.Component {
     this.state = { showEnquiry: false };
   }
 
-  enquiryFormToggleHandler = () => {
+  enquiryFormToggleHandler = (id) => {
+    console.log('Propduct id in form', id);
+    const { updateFormValue } = this.props;
     this.setState({ showEnquiry: !this.state.showEnquiry });
+    updateFormValue('addEnquiry', { pId: id });
   }
 
   render() {
@@ -80,7 +86,7 @@ class Index extends React.Component {
       <div className="main-brand-product">
         {brandFilter(this.props)}
         {brandProductListProvider(this.props, this.enquiryFormToggleHandler)}
-        <EnqueryForm onClose={this.enquiryFormToggleHandler} isOpen={showEnquiry} props={this.props} />
+        <EnqueryForm schema="addEnquiry" onClose={this.enquiryFormToggleHandler} isOpen={showEnquiry} props={this.props} />
       </div>
     );
   }

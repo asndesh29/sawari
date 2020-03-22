@@ -30,7 +30,7 @@ export default (obj, onEnqueryClickHandler, enquiryFomrmToggle) => {
           </div>
           <div className="dealer-button">
             <Button id="btn" text="Locate" fill intent="success" onClick={() => locateClickHandler(obj)}/>
-            <Button id="btn" text="Enquiry" fill intent="success" onClick={enquiryFomrmToggle} />
+            <Button id="btn" text="Enquiry" fill intent="success" onClick={() => enquiryFomrmToggle(obj.id)} />
           </div>
         </div>
       </div>

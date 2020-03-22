@@ -38,7 +38,7 @@ const KeySpecification = ({ obj, showEnquiryForm }) => {
         {Object.values(KeySpecificationObj).map((label, idx) => keySpecificationsElement(label, Object.keys(KeySpecificationObj)[idx], obj))}
       </div>
       <div style={{ width: '100%', textAlign: 'center', padding: 10 }}>
-        <Button text="Enquiry" intent="success" fill onClick={showEnquiryForm} />
+        <Button text="Enquiry" intent="success" fill onClick={() => showEnquiryForm(obj.id)} />
       </div>
     </div>
   );

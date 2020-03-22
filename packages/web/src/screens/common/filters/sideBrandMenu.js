@@ -4,16 +4,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ENDPOINT } from '../../../config';
 
-const AvailableBrand = ({ vehicleBrand, header, onClick }) => {
+const AvailableBrand = ({ vehicleBrand, header, onClick, main }) => {
   // console.log('available brand', vehicleBrand);
   return (
     <div className="side-menu-car-container">
       <h3 style={{ background: 'black', color: 'white', padding: 5, margin: 0, marginBottom: 10 }}>{header}</h3>
       {vehicleBrand.map((brand) => {
         return (
-          <div className="side-menu-car-element" onClick={() => onClick(brand)}>
-            <img src={`${ENDPOINT}/brand_image/${brand.brandImageUrl}`} alt={brand.brandName} />
-            <span>{brand.brandName}</span>
+          <div className="side-menu-car-element" onClick={() => onClick(brand)} style={{ background: 'white', borderBottom: '1px #f5f5f5 solid'}}>
+            <div style={{ height: 40, width: 40, marginRight: 10 }}>
+              <img src={`${ENDPOINT}/brand_image/${brand.brandImageUrl}`} alt={brand.brandName} style={{ height: '100%', width: '100%', objectFit: 'contain'}}/>
+            </div>
+            <span style={{ color: main.filter.sbId === brand.id ? '#ff4202' : 'black' }}>{brand.brandName}</span>
           </div>
         );
       })}
@@ -39,7 +41,7 @@ class SideMenu extends React.Component {
     if (brandClickHandler) {
       brandClickHandler(brand);
     } else {
-      updateMainValue('filter', {priceRange: main.filter.priceRange, sbId: brand.id });
+      updateMainValue('filter', { priceRange: main.filter.priceRange, sbId: brand.id });
     }
   }
 

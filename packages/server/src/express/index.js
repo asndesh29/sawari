@@ -21,6 +21,9 @@ import addModel from './request-handler/addModel';
 import deleteModel from './request-handler/deleteModel';
 import deleteVarient from './request-handler/deleteVarient';
 import addDiscountOffer from './request-handler/addDiscountOffer';
+import deleteSellVehicle from './request-handler/deleteSellvehicle';
+import addUpdateUser from './request-handler/addUpdateUser';
+import deleteUser from './request-handler/deleteUser';
 
 export default function (app) {
   app.use((req, res, next) => {
@@ -53,4 +56,7 @@ export default function (app) {
   app.post('/web/add-service-center-enquiry', addServceCenterEnquiry);
   app.get('/web/delete-varient', deleteVarient);
   app.post('/web/add-discount-offer', addDiscountOffer);
+  app.get('/web/delete-sell-vehicle', deleteSellVehicle);
+  app.post('/web/add-update-user', addUpdateUser);
+  app.get('/web/delete-user', deleteUser);
 }

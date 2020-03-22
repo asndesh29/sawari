@@ -38,8 +38,8 @@ class Index extends Component {
       <div className="main_container">
         <Navbar {...this.props} />
         <div className="home-selector-slider">
-          <Selector {...this.props}/>
-          <Slider {...this.props}/>
+          <Selector {...this.props} />
+          <Slider {...this.props} />
         </div>
         <TopCarBrand {...this.props} />
         <BikeBrands {...this.props} />

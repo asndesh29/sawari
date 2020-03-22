@@ -22,7 +22,7 @@ const addDetailsStructure = () => [
     element: 'button', text: 'Submit Enquiry', intent: 'PRIMARY',
   },
 ];
-
+ 
 export default ({ isOpen, onClose, props }) => {
   console.log('details in form enquiry', props.form.addEnquiry);
   return (

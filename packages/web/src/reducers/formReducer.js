@@ -174,6 +174,10 @@ const initialFormState = {
   sellVehicleFilter: {
 
   },
+
+  User: {
+    loading: null, success: null, error: null,
+  },
 };
 
 export default (state = initialFormState, action) => {

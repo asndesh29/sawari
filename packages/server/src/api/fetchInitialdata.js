@@ -49,10 +49,11 @@ export default async () => {
     const vehicleVarientList = await Promise.all(varientListPromises);
     // console.log('vehicle varient list', vehicleVarientList);
 
-    const finalVehicleModel = vehicleModel.reduce((arr, n, idx) => {
+    const vehicleModelList = vehicleModel.reduce((arr, n, idx) => {
       arr = [...arr, { ...n, varients: vehicleVarientList[idx] } ];
       return arr;
     }, []);
+    const finalVehicleModel = vehicleModelList.filter(m => m.varients.length >= 1)
     // console.log('vehiclemodel list with varient', finalVehicleModel);
     const bikeDataPromises = [];
     arrBike.forEach((bt) => bikeDataPromises.push(find(bt)));

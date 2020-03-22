@@ -16,6 +16,7 @@ export default (label, key, arr, productList, triggerLabel, hideCommon) => {
   const widthOfDiv = (100 - 10) / lengthOfArray;
   // console.log('widthOfDiv', widthOfDiv);
   // console.log('container element with value', arr, key, checkCommon(key, arr));
+
   return (
     checkCommon(key, arr, hideCommon)
       ? (

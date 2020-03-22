@@ -3,7 +3,7 @@ import { ENDPOINT } from '../../config';
 import { updateFormValue } from '../formHandler';
 
 export default async (dispatch, getState, schema) => {
-  console.log('add equry form called');
+  console.log('add delaerEnquiry form called');
   try {
     const { form, main } = getState();
 

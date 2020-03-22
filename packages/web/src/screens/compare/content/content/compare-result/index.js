@@ -50,15 +50,18 @@ const collapseContent = (objArr, label, keyObj, hideCommon) => {
 };
 
 const collapseHandler = (lable, objArr, keyObj, variantList, collapseObj, collapseOpenHandler, collapseColoseHandler, hideCommon) => {
-  // console.log('collapse Handler', objArr, lable,);
+  const constObjArr = objArr.filter(b => b);
+  // console.log('collapse Handler', objArr, constObjArr);
   return (
+    constObjArr.length >= 1 && (
     <Collapsible
       open={collapseObj[lable]}
       trigger={triggerElement(lable, variantList, collapseObj, collapseOpenHandler, collapseColoseHandler)}
       transitionTime={200}
     >
-      {collapseContent(objArr, lable, keyObj, hideCommon)}
+      {collapseContent(constObjArr, lable, keyObj, hideCommon)}
     </Collapsible>
+    )
   );
 };
 
@@ -134,7 +137,7 @@ class Specification extends React.Component {
   render() {
     // console.log('project detials in Onj in specification', productDetailsObj);
     const { collapseObj } = this.state;
-    console.log('Collapse Obj', collapseObj);
+    // console.log('Collapse Obj', collapseObj);
     const { productList, main, match, hideCommon } = this.props;
     const variantsDetailsList = [];
     let vehicleProductDetais = null;
@@ -163,7 +166,7 @@ class Specification extends React.Component {
     // console.log(Object.keys(productList[0].specifications));
     return (
       <div className="specification">
-        {collapseHandler(
+        { vehicleProductDetais.overview && collapseHandler(
           'Overview',
           variantsDetailsList.map((v) => v.overview),
           vehicleProductDetais.overview,
@@ -173,7 +176,7 @@ class Specification extends React.Component {
           this.collapseColoseHandler,
           hideCommon
         )}
-        {collapseHandler(
+        { vehicleProductDetais.keySpecifications && collapseHandler(
           'Key Specification',
           variantsDetailsList.map((v) => v.keySpecifications),
           vehicleProductDetais.keySpecifications,
@@ -183,7 +186,7 @@ class Specification extends React.Component {
           this.collapseColoseHandler,
           hideCommon
         )}
-        {collapseHandler(
+        {vehicleProductDetais.keyFeatures && collapseHandler(
           'Key Features',
           variantsDetailsList.map((v) => v.keyFeatures),
           vehicleProductDetais.keyFeatures,
@@ -194,7 +197,7 @@ class Specification extends React.Component {
           hideCommon
         )}
         {Object.keys(vehicleProductDetais.specifications)
-          .map((topic, idx) => collapseHandler(
+          .map((topic, idx) => vehicleProductDetais.specifications[topic] && collapseHandler(
             topic,
             variantsDetailsList.map((v) => v[topic]),
             vehicleProductDetais.specifications[topic],

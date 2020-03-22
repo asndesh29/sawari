@@ -57,7 +57,8 @@ class UserProfile extends Component {
           onInteraction={state => this.handleInteraction(state)}
           position={Position.BOTTOM}
         >
-          <Icon icon="user"
+          <Icon
+            icon="user"
             style={{ borderRadius: '70px', cursor: 'pointer' }}
             iconSize={70}
           />

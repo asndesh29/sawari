@@ -23,7 +23,7 @@ export default (obj, enquiryFormToggel) => {
       <div className="description">
         <span style={{ fontWeight: 100, fontSize: 20 }}>{obj.name}</span>
         <span style={{ fontWeight: 100, color: '#ff4202', fontStyle: 'italic' }}>{priceRangeHandler(obj)}</span>
-        <div className="contact-dealer-button" onClick={enquiryFormToggel}>
+        <div className="contact-dealer-button" onClick={() => enquiryFormToggel(obj.varients[0].id)} style={{ cursor: 'pointer'}}>
           <span>Contact Dealer</span>
         </div>
       </div>

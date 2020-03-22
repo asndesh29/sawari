@@ -28,8 +28,8 @@ export default (obj) => {
             />
           </div>
           <div className="description-content">
-            <span style={{ fontSize: 16 }}>{obj.name}</span>
-            <span style={{ color: '#ff4202', fontStyle: 'italic' }}>{priceRangeHandler(obj)}</span>
+            <span style={{ fontSize: 16, fontWeight: 'bold', marginTop: 5 }}>{obj.name}</span>
+            <span style={{ color: '#ff4202', fontStyle: 'italic',marginTop: 5, fontWeight: 300 }}>{priceRangeHandler(obj)}</span>
           </div>
         </Card>
       </Link>

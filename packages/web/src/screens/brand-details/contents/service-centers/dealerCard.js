@@ -30,8 +30,8 @@ export default (obj, onEnqueryClickHandler, toggleEnquiryForm) => {
             <span>sawarikinbech@gmail.com</span>
           </div>
           <div className="dealer-button">
-            <Button id="btn" text="Locate" fill intent="success" onClick={() => locateClickHandler(obj)}/>
-            <Button id="btn" text="Enquiry" fill intent="success" onClick={toggleEnquiryForm} />
+            <Button id="btn" text="Locate" fill intent="success" onClick={() => locateClickHandler(obj)} />
+            <Button id="btn" text="Enquiry" fill intent="success" onClick={() => toggleEnquiryForm(obj.id)} />
           </div>
         </div>
       </div>

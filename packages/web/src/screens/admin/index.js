@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from '@blueprintjs/core';
@@ -14,6 +15,7 @@ import DealerEnquiry from './components/dealerEnquiry';
 import ServiceCenterEnquiry from './components/serviceCenterEnquiry';
 import AddModel from './components/addModel';
 import UsedProduct from './components/usedProduct';
+import Users from './components/users';
 
 class Index extends React.Component {
   constructor(props) {
@@ -37,7 +39,7 @@ class Index extends React.Component {
       case 'addProduct':
         return <AddProduct {...this.props} />;
       case 'addBrand':
-        return <AddBrand  {...this.props} />;
+        return <AddBrand {...this.props} />;
       case 'dealer':
         return <Dealer {...this.props} />;
       case 'serviceCenter':
@@ -50,8 +52,10 @@ class Index extends React.Component {
         return <AddModel {...this.props} />;
       case 'usedProduct':
         return <UsedProduct {...this.props} />;
+      case 'addUser':
+        return <Users {...this.props} />;
       default:
-        return <AddProduct {...this.props} />;
+        return <Users {...this.props} />;
     }
   }
 
@@ -80,4 +84,5 @@ export default Index;
 
 Index.propTypes = {
   main: PropTypes.objectOf(PropTypes.any).isRequired,
+  fetchAdminData: PropTypes.func.isRequired,
 };
