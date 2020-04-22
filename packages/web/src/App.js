@@ -8,6 +8,8 @@ import '../../../node_modules/@blueprintjs/select/lib/css/blueprint-select.css';
 import './styles/index.css';
 import store from './store';
 
+// i just add new dummy comment line please read
+
 class App extends Component {
   constructor(props) {
     super(props);
