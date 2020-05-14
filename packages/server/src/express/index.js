@@ -24,6 +24,11 @@ import addDiscountOffer from './request-handler/addDiscountOffer';
 import deleteSellVehicle from './request-handler/deleteSellvehicle';
 import addUpdateUser from './request-handler/addUpdateUser';
 import deleteUser from './request-handler/deleteUser';
+import addAndUpdateVideo from './request-handler/addAndUpdateVideo';
+import deleteVideo from './request-handler/deleteVideo';
+import addAndUpdateNews from './request-handler/addAndUpdateNews';
+import getSchema from './request-handler/getSchema';
+import deleteNews from './request-handler/deleteNews';
 
 export default function (app) {
   app.use((req, res, next) => {
@@ -59,4 +64,9 @@ export default function (app) {
   app.get('/web/delete-sell-vehicle', deleteSellVehicle);
   app.post('/web/add-update-user', addUpdateUser);
   app.get('/web/delete-user', deleteUser);
+  app.post('/web/add-update-video', addAndUpdateVideo);
+  app.get('/web/delete-video', deleteVideo);
+  app.post('/web/add-update-news', addAndUpdateNews);
+  app.get('/web/get-schema', getSchema);
+  app.get('/web/delete-news', deleteNews);
 }

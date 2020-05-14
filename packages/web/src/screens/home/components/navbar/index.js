@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import MenuBar from './menu-bar';
 import SerachElement from './SearchElement';
 import LoginRegistration from './login-registration';
-import Logo from '../../../../assets/logo.png';
+import Logo from '../../../../assets/logo.jpeg';
 import DrawerMenu from './drawer-menu';
 
 export default () => (

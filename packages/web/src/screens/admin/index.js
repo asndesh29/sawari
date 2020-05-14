@@ -16,6 +16,8 @@ import ServiceCenterEnquiry from './components/serviceCenterEnquiry';
 import AddModel from './components/addModel';
 import UsedProduct from './components/usedProduct';
 import Users from './components/users';
+import Videos from './components/videos';
+import News from './components/news';
 
 class Index extends React.Component {
   constructor(props) {
@@ -54,6 +56,10 @@ class Index extends React.Component {
         return <UsedProduct {...this.props} />;
       case 'addUser':
         return <Users {...this.props} />;
+      case 'videos':
+        return <Videos {...this.props} />;
+      case 'news':
+        return <News {...this.props} />;
       default:
         return <Users {...this.props} />;
     }

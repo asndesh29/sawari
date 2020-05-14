@@ -178,6 +178,10 @@ const initialFormState = {
   User: {
     loading: null, success: null, error: null,
   },
+  Videos: {
+    loading: null, success: null, error: null,
+  },
+  News: { loading: null, success: null, error: null },
 };
 
 export default (state = initialFormState, action) => {

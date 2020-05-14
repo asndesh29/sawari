@@ -10,7 +10,8 @@ const imagesComponent = (obj, props) => {
       style={{ height: 60, width: 60, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f5f5f5', margin: 2, fontSize: 15 }}
     >
       {!props.props.form[props.props.schema][obj.value] && obj.label}
-      {props.props.form[props.props.schema][obj.value] &&  <img src={`${ENDPOINT}/images/${props.props.form[props.props.schema][obj.value]}`} style={{ width: 60, height: 60 }} /> }
+      {props.props.form[props.props.schema][obj.value] && <img src={`${ENDPOINT}/images/${props.props.form[props.props.schema][obj.value]}`} style={{ width: 60, height: 60 }} /> }
+
     </div>
   );
 };
@@ -22,7 +23,9 @@ class ImageGroup extends React.Component {
   }
 
   fileOnchange = async (file, obj) => {
-    // console.log('file input value', file, obj, this.props);
+    console.log('file input value', file, obj, this.props);
+    const { props } = this.props;
+    const { schema } = props;
     try {
       const { props } = this.props;
       const { updateFormValue, form } = props;
@@ -38,7 +41,7 @@ class ImageGroup extends React.Component {
         url: `${ENDPOINT}/web/upload-file`,
         data: formData,
       });
-      updateFormValue('sellVehicle', { ...form.sellVehical, [obj.value]: uploadFileRes.data });
+      updateFormValue(schema, { ...form[schema], [obj.value]: uploadFileRes.data });
       console.log('uploadFileRes', uploadFileRes);
     } catch (e) {
       console.error('Error in image upload', e);

@@ -43,6 +43,8 @@ export default async (record) => {
     const DiscountOffer = await find('DiscountOffer');
     const SellVehicle = await find('SellVehicle');
     const User = await find('User');
+    const Videos = await find('Videos');
+    const News = await find('News');
     const finalUser = User.filter((u) => u.deleteStatus !== 1);
     const bikeDataPromises = [];
     arrBike.forEach((bt) => bikeDataPromises.push(find(bt)));
@@ -53,6 +55,8 @@ export default async (record) => {
     }, {});
 
     return {
+      News,
+      Videos,
       User: finalUser,
       vehicleVarientList,
       vehicleBrand,

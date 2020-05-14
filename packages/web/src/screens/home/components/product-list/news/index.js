@@ -4,14 +4,6 @@ import { Redirect, Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
 import newsCard from './newsCard';
 
-const newsData = [
-  { id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 2, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 3, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-];
-
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +26,7 @@ class ProductDetails extends React.Component {
           <h2>News</h2>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.vehicleBrand ? newsData.map((obj) => newsCard(obj, this.cardOnClickHandler)) : []}
+          {main.initialData.News ? main.initialData.News.map((obj) => newsCard(obj, this.cardOnClickHandler)) : []}
         </div>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
           <Link to="/more/news"><span style={{ fontWeight: 'bold' }}>More News</span></Link>

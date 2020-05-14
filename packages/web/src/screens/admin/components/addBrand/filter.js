@@ -12,8 +12,8 @@ const addBrandStructure = (props) => [
 
 export default (props) => {
   return (
-  <form style={{ width: 'auto', display: 'flex', flexDirection: 'row', marginTop: 10 }}>
-    <Form contents={addBrandStructure(props)} {...props} schema="addBrand" />
-  </form>
+    <form style={{ width: 'auto', display: 'flex', flexDirection: 'row', marginTop: 10 }}>
+      <Form contents={addBrandStructure(props)} {...props} schema="addBrand" />
+    </form>
   );
 };

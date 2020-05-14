@@ -38,6 +38,7 @@
     "sqlite": "^3.0.0",
     "stripe": "^6.20.0",
     "styliner": "^1.0.4",
+    "url-slug": "^2.3.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

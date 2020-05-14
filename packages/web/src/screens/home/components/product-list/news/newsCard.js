@@ -1,30 +1,25 @@
 import React from 'react';
-import { Card } from '@blueprintjs/core';
+import { Card, Icon } from '@blueprintjs/core';
 import { Link } from 'react-router-dom';
+import { AiOutlineCalendar } from 'react-icons/ai';
 import { ENDPOINT } from '../../../../../config';
+import { format } from 'date-fns';
+import Iframe from 'react-iframe';
 
 export default (obj, cardOnClickHandler) => {
   return (
-    <Card
-      // interactive
-      className="news-card"
-      onClick={() => cardOnClickHandler(obj)}
-    >
+    <Card interactive className="news-card">
       <div className="news-container">
-        <div className="image-container">
-          <img src={`${ENDPOINT}/images/${obj.image}`} alt={obj.brandName} onClick={() => cardOnClickHandler(obj)} />
+        <Link to={`/news-details/${obj.slug}`}>
+          <div className="image-container">
+            <img src={`${ENDPOINT}/images/${obj.image}`} />
+          </div>
+        </Link>
+        <span id="header-span">{obj.header}</span>
+        <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
+          <AiOutlineCalendar color="red" />
+          <span style={{ fontSize: 12, marginLeft: 5 }}>{format(obj.timeStamp, 'MMM DD')}</span>
         </div>
-        <div style={{ marginTop: 20, marginLeft: 10 }}>
-          <span style={{ fontSize: 20 }}>{obj.header}</span>
-          <br />
-          <span style={{ color: '#757575', fontSize: 10 }}>{obj.date}</span>
-          <br />
-          <br />
-          <span style={{ color: '#757575' }}>{obj.content}</span>
-        </div>
-      </div>
-      <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-        <Link to="/"><span style={{ fontWeight: 'bold' }}>More...</span></Link>
       </div>
     </Card>
   );

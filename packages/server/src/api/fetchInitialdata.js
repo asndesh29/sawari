@@ -41,6 +41,8 @@ export default async () => {
     const usedVehicle = await find('SellVehicle');
     const vehicleModel = await find('ServiceTypeBrandModel');
     const variantList = await find('ServiceTypeBrandModelVarient');
+    const Videos = await find('Videos');
+    const News = await find('News');
     // console.log('vehicle models', vehicleModel);
     const varientListPromises = [];
     vehicleModel.forEach((vm) => {
@@ -53,7 +55,7 @@ export default async () => {
       arr = [...arr, { ...n, varients: vehicleVarientList[idx] } ];
       return arr;
     }, []);
-    const finalVehicleModel = vehicleModelList.filter(m => m.varients.length >= 1)
+    const finalVehicleModel = vehicleModelList.filter((m) => m.varients.length >= 1);
     // console.log('vehiclemodel list with varient', finalVehicleModel);
     const bikeDataPromises = [];
     arrBike.forEach((bt) => bikeDataPromises.push(find(bt)));
@@ -71,7 +73,7 @@ export default async () => {
       return obj;
     }, {});
 
-    return { variantList, ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
+    return { News, Videos, variantList, ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
   });
   return { budgetRangeList, ...res };
 };

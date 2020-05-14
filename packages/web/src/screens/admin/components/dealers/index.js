@@ -23,9 +23,9 @@ class ProfileSetttings extends React.Component {
       <div className="admin-add-brand">
         <div className="admin-add-brand-menu" style={{ height: 100 }}>
           <div className="admin-add-brand-menu-filter">
-            <Filter {...this.props}/>
+            <Filter {...this.props} />
           </div>
-          <Button rightIcon="plus" text="Add Dealer" onClick={this.toggleAddBrand}/>
+          <Button rightIcon="plus" text="Add Dealer" onClick={this.toggleAddBrand} />
         </div>
         <div className="admin-add-brand-content">
           <AddDealerForm isOpen={isAddBrandOpen} onClose={this.toggleAddBrand} props={this.props} />

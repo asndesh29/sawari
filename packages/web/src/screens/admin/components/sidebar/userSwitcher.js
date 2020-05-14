@@ -13,6 +13,8 @@ const sideNavStructure = { admin: [
   { text: 'Dealer', tag: 'dealer' },
   { text: 'Service Center', tag: 'serviceCenter' },
   { text: 'Used Product', tag: 'usedProduct' },
+  { text: 'Videos', tag: 'videos' },
+  { text: 'News', tag: 'news' },
 ],
 
 new: [

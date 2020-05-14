@@ -1159,21 +1159,30 @@ body {
   }
 }
 .news-card {
-  width: 45%;
+  width: 20%;
   margin: 5px;
-  padding: 5;
-}
-.news-card .news-container {
-  display: flex;
+  padding: 2px;
+  display: "flex";
+  flex-direction: column;
+  align-items: center;
 }
 .news-card .news-container .image-container {
   width: 100%;
-  height: auto;
+  height: 250px;
 }
 .news-card .news-container .image-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: fill;
+}
+.news-card #header-span {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  padding: 5px;
 }
 
 @media only screen and (max-width: 600px) {

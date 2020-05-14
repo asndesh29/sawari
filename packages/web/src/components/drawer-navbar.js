@@ -6,7 +6,7 @@ import { MdMotorcycle } from 'react-icons/md';
 import {AiOutlineHome, AiOutlineCar, AiOutlineKey } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Drawer } from '@blueprintjs/core';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/logo.jpeg';
 import menuStructure from '../screens/home/components/navbar/menu-bar/menuStructure';
 
 const menuIcons = {

@@ -38,17 +38,6 @@ export default () => {
           { id: 36, route: '/service-center/bikes', name: 'Service Centers' },
         ],
       },
-      // {
-      //   'New Scooters': [
-      //     { id: 40, route: '/popular/car', name: 'Popular Scooters' },
-      //     { id: 41, route: '/popular/car', name: 'Latest Scooters' },
-      //     { id: 42, route: '/popular/car', name: 'Upcoming Scooters' },
-      //     { id: 43, route: '/popular/car', name: 'Discount & Offers' },
-      //     { id: 44, route: '/popular/car', name: 'Compare Scooters' },
-      //     { id: 45, route: '/popular/car', name: 'Showroom(Dearlers)' },
-      //     { id: 46, route: '/popular/car', name: 'Service Centers' },
-      //   ],
-      // },
       {
         'Used Bike & Scooters': [
           // { id: 50, route: '/used/bikes', name: 'Bikes & Scooters in your City' },

@@ -9,6 +9,9 @@ import SellVehicle from './sell-vehicle';
 import UsedVehicallDetails from './usedVehicleDetails';
 import Compare from './compare';
 import ShowMore from './show-more-product';
+import NewsDetails from './news-details';
+import ContactUs from './contactus';
+import AboutUs from './aboutus';
 
 class index extends Component {
   constructor(props) {
@@ -21,6 +24,8 @@ class index extends Component {
       <Router>
         <div>
           <Route exact path="/" component={Home} />
+          <Route exact path="/contact-us" component={ContactUs} />
+          <Route exact path="/about-us" component={AboutUs} />
           <Route path="/login" component={Login} />
           <Route path="/details/:proId" component={ProductDetails} />
           <Route path="/search/:buttonType/:searchType/:typeId/:tempId" component={ShowMore} />
@@ -47,6 +52,7 @@ class index extends Component {
           <Route exact path="/bike/brand/:brandName" component={BrandDetails} />
           <Route exact path="/details/bike/brand/:brandName" component={BrandDetails} />
           <Route exact path="/details/car/brand/:brandName" component={BrandDetails} />
+          <Route exact path="/news-details/:newsSlug" component={NewsDetails} />
         </div>
       </Router>
     );

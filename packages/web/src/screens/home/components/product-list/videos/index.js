@@ -4,14 +4,6 @@ import { Redirect, Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
 import VideoCard from './videoCard';
 
-const newsData = [
-  {id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 2, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 3, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  {id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-  // {id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1576386219122.png'},
-];
-
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +26,7 @@ class ProductDetails extends React.Component {
           <h2>Videos</h2>
         </div>
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
-          {main.initialData.vehicleBrand ? newsData.map((obj) => VideoCard(obj, this.cardOnClickHandler)) : []}
+          {main.initialData.Videos ? main.initialData.Videos.map((obj) => VideoCard(obj, this.cardOnClickHandler)) : []}
         </div>
         <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
           <Link to="/more/videos"><span style={{ fontWeight: 'bold' }}>More Videos</span></Link>

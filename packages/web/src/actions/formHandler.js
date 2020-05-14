@@ -14,6 +14,7 @@ import addModel from './helper-functions/addModel';
 import addVarient from './helper-functions/addVarient';
 import addDiscountOffer from './helper-functions/addDiscountOffer';
 import addUpdateUser from './helper-functions/addUpdateUser';
+import addAndUpdateVideos from './helper-functions/addAndUpdateVideos';
 
 const arrBike = [
   'BikeVarientOverview',
@@ -25,10 +26,10 @@ const arrBike = [
   'BikeVarientChassisSuspension',
   'BikeVarientDimensionCapacity',
   'BikeVarientElectricals',
-  'BikeVarientTyresBrakes'
+  'BikeVarientTyresBrakes',
 ];
 
-export const updateFormValue = (schema, data) => async dispatch => dispatch({
+export const updateFormValue = (schema, data) => async (dispatch) => dispatch({
   type: UPDATE_FORM_VALUE,
   payload: { schema, data },
 });
@@ -96,6 +97,9 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
       break;
     case 'User':
       addUpdateUser(dispatch, getState, schema);
+      break;
+    case 'Videos':
+      addAndUpdateVideos(dispatch, getState, schema);
       break;
     default:
       return null;
