@@ -1522,5 +1522,22 @@ body {
     width: 99%;
   }
 }
+.about-us {
+  width: 100%;
+}
+.about-us .about-us-body {
+  margin-top: 130px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.about-us .about-us-body p {
+  color: #757575;
+  width: 70%;
+  font-size: 20px;
+}
+.about-us .about-us-body p h2 {
+  color: black;
+}
 
 /*# sourceMappingURL=index.css.map */

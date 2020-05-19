@@ -1,0 +1,17 @@
+.about-us {
+  width: 100%;
+  .about-us-body {
+    margin-top: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    p {
+      color: #757575;
+      width: 70%;
+      font-size: 20px;
+      h2 {
+        color: black;
+      }
+    }
+  }
+}
