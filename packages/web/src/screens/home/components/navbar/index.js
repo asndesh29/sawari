@@ -20,7 +20,8 @@ export default () => (
         </Link>
       </div>
       <SerachElement />
-      <LoginRegistration />
+      {/* <LoginRegistration /> */}
+      <div className="login-registration"/>
     </div>
     <div style={{ width: '100%', height: 1, background: '#f5f5f5' }} />
     <div className="home-nav-logo" style={{ zIndex: 2 }}>

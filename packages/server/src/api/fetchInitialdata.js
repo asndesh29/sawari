@@ -1,5 +1,16 @@
+import _ from 'lodash';
 import db from '../db';
 import budgetRangeList, { cities } from './budgetRangeProvider';
+
+const decendingOrderBytimeStamp = (arr) => {
+  const resultArr = arr.sort((a, b) => {
+    if (a.timeStamp > b.timeStamp) {
+      return -1;
+    }
+    return 1;
+  });
+  return resultArr;
+}
 
 const arrSchema = [
   'CarVarientOverview',
@@ -73,7 +84,7 @@ export default async () => {
       return obj;
     }, {});
 
-    return { News, Videos, variantList, ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
+    return { News: decendingOrderBytimeStamp(News).slice(1, 9), Videos: Videos.reverse().slice(1, 5), variantList, ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
   });
   return { budgetRangeList, ...res };
 };

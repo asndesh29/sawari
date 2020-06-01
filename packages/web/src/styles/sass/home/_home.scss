@@ -15,13 +15,14 @@ body {
 
 .main_container {
   width: 100%;
+  // background: rebeccapurple;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: 'Roboto, sans-serif';
-
+  position: relative;
   // navigation bar style
   @import './main-navbar.scss';
 

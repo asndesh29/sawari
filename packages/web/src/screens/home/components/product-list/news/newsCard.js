@@ -20,6 +20,7 @@ export default (obj, cardOnClickHandler) => {
           <AiOutlineCalendar color="red" />
           <span style={{ fontSize: 12, marginLeft: 5 }}>{format(obj.timeStamp, 'MMM DD')}</span>
         </div>
+        {/* <div dangerouslySetInnerHTML={{ __html: obj.content }} style={{ width: '100%', overflow: 'hidden', height: 100 }} /> */}
       </div>
     </Card>
   );

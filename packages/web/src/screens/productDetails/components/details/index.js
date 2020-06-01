@@ -51,10 +51,11 @@ class ProductDetails extends React.Component {
   render() {
     const { tabId, currentProductDetails, enquiryShow, variantId, compareProduct, stypeId, expandAll } = this.state;
     // console.log('state value in show details page', this.props, variantId);
+    const { match } = this.props
     return (
       currentProductDetails ? (
         <div className="product-detail">
-          <SocialMediaShare url="http://159.89.150.216:3000/" />
+          <SocialMediaShare url={`https://sawarikinbech.com/#/news-details/${match.params.newsSlug}`} />
           {compareProduct && <Redirect to={`/compare/${contentType[stypeId]}/${compareProduct.name.replace(/\s/g, '')}-${compareProduct.id}`.toLocaleLowerCase()} />}
           <Overview {...this.props} compareButtonHandler={this.compareButtonHandler} showEnquiryForm={this.closeEnquiry} currentProductDetails={currentProductDetails} variantId={variantId} />
           <EnquiryForm isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} currentProductDetails={currentProductDetails} />

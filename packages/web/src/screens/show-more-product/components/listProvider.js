@@ -12,14 +12,6 @@ import {
   discountOfferFilter,
 } from '../../common/filters/filterActionHandler';
 
-const newsData = [
-  { id: 1, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 2, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 3, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-  { id: 4, header: 'Five Most Fuel Efficient Petrol Cars We Tested In 2019', content: 'Two of the five cars on our list use an auto...', date: 'Dec 28, 2019', image: 'image-1578049270316.jpg'},
-];
-
 export default (props, cardOnClickHandler) => {
   const { match, main } = props;
   const { url, path, params } = match;
@@ -60,9 +52,9 @@ export default (props, cardOnClickHandler) => {
     case '/more/scooters':
       return filterHandler(props, main.initialData.vehicleModel.filter((m) => m.varients.find((v) => v.bodyType === 'Scooter') && m.stypeId === 2)).map((obj) => CarAndBikeCard(obj, cardOnClickHandler));
     case '/more/news':
-      return newsData.map((obj) => NewsCard(obj, cardOnClickHandler));
+      return main.initialData.News.map((obj) => NewsCard(obj, cardOnClickHandler));
     case '/more/videos':
-      return newsData.map((obj) => videoCard(obj, cardOnClickHandler));
+      return main.initialData.Videos.map((obj) => videoCard(obj, cardOnClickHandler));
     default:
       switch (path) {
         case '/used/province/:placeId/:usedVehicleType':

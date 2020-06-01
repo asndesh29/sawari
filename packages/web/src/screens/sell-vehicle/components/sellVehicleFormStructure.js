@@ -54,7 +54,7 @@ export default (props) => [
     element: 'select',
     value: 'ownerShip',
     options: [{ label: 'First', value: 'First' }, { label: 'Second', value: 'Second' }, { label: 'Third', value: 'Third' }, { label: 'Above', value: 'Above' }],
-    placeHolder: 'Wonership',
+    placeHolder: 'Ownership',
   },
   {
     element: 'select',

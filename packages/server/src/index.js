@@ -11,6 +11,15 @@ import { init as dbinit } from './db';
 const port = process.env.PORT || 4003;
 const app = express();
 app.use(cors());
+
+app.use((req, res, next) => {
+  if (!req.secure && req.hostname === 'sawarikinbech.com' && req.get('X-Forwarded-Proto') === 'http') {
+    res.redirect(301, `https://${req.get('Host')}${req.url}`);
+  } else {
+    next();
+  }
+});
+
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(bodyParser.json({ limit: '10mb', extended: true }));
