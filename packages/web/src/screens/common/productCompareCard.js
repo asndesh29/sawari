@@ -37,7 +37,7 @@ export default (obj, props) => {
           </div>
           <div className="description">
             <span style={{ fontSize: 16 }}>{pro2.variant.name}</span>
-            <span style={{ color: '#f75d34 '}}>{`रु. ${pro1.variant.exShowRoomPrice / 100000} लाख  `}</span>
+            <span style={{ color: '#f75d34 '}}>{`रु. ${pro2.variant.exShowRoomPrice / 100000} लाख  `}</span>
           </div>
         </div>
         <Link

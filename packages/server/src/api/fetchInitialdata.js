@@ -10,7 +10,7 @@ const decendingOrderBytimeStamp = (arr) => {
     return 1;
   });
   return resultArr;
-}
+};
 
 const arrSchema = [
   'CarVarientOverview',

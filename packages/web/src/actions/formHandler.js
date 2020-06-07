@@ -15,6 +15,7 @@ import addVarient from './helper-functions/addVarient';
 import addDiscountOffer from './helper-functions/addDiscountOffer';
 import addUpdateUser from './helper-functions/addUpdateUser';
 import addAndUpdateVideos from './helper-functions/addAndUpdateVideos';
+import sendEmail from './helper-functions/sendEmail';
 
 const arrBike = [
   'BikeVarientOverview',
@@ -100,6 +101,9 @@ export const submitFormHandler = schema => async (dispatch, getState) => {
       break;
     case 'Videos':
       addAndUpdateVideos(dispatch, getState, schema);
+      break;
+    case 'sendEmail':
+      sendEmail(dispatch, getState, schema);
       break;
     default:
       return null;

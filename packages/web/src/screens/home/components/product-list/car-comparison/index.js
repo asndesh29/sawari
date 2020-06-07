@@ -8,11 +8,11 @@ import HorizontalScrollView from '../../../../../components/common/HorizontalScr
 
 const carComparisonList = [
   { id: 1, pId1: 1, pId2: 3, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 3, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 3, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 3, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 3, compCount: 10 },
-  { id: 1, pId1: 1, pId2: 3, compCount: 10 },
+  { id: 1, pId1: 4, pId2: 9, compCount: 10 },
+  { id: 1, pId1: 1, pId2: 10, compCount: 10 },
+  { id: 1, pId1: 2, pId2: 13, compCount: 10 },
+  { id: 1, pId1: 4, pId2: 5, compCount: 10 },
+  { id: 1, pId1: 1, pId2: 15, compCount: 10 },
 ];
 
 class ProductDetails extends React.Component {

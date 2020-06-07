@@ -29,6 +29,7 @@ import deleteVideo from './request-handler/deleteVideo';
 import addAndUpdateNews from './request-handler/addAndUpdateNews';
 import getSchema from './request-handler/getSchema';
 import deleteNews from './request-handler/deleteNews';
+import sendEmail from './request-handler/sendEmail';
 
 export default function (app) {
   app.use((req, res, next) => {
@@ -69,4 +70,5 @@ export default function (app) {
   app.post('/web/add-update-news', addAndUpdateNews);
   app.get('/web/get-schema', getSchema);
   app.get('/web/delete-news', deleteNews);
+  app.post('/web/send-email', sendEmail);
 }
