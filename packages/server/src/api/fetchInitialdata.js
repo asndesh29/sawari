@@ -50,6 +50,7 @@ export default async () => {
     const dealerList = await find('Dealer');
     const serviceCenterList = await find('ServiceCenter');
     const usedVehicle = await find('SellVehicle');
+    const finalUsedVehicle = usedVehicle.filter((obj) => !obj.sold && obj.publish);
     const vehicleModel = await find('ServiceTypeBrandModel');
     const variantList = await find('ServiceTypeBrandModelVarient');
     const Videos = await find('Videos');
@@ -84,7 +85,21 @@ export default async () => {
       return obj;
     }, {});
 
-    return { News: decendingOrderBytimeStamp(News).slice(1, 9), Videos: Videos.reverse().slice(1, 5), variantList, ...mainBikeData, ...mainCarData, vehicalTypes, vehicleBrand, vehicleBrandProduct, dealerList, serviceCenterList, cities, usedVehicle, vehicleModel: finalVehicleModel };
+    return {
+      News: decendingOrderBytimeStamp(News).slice(1, 9),
+      Videos: Videos.reverse().slice(1, 5),
+      variantList,
+      ...mainBikeData,
+      ...mainCarData,
+      vehicalTypes,
+      vehicleBrand,
+      vehicleBrandProduct,
+      dealerList,
+      serviceCenterList,
+      cities,
+      usedVehicle: finalUsedVehicle,
+      vehicleModel: finalVehicleModel,
+    };
   });
   return { budgetRangeList, ...res };
 };

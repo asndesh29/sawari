@@ -1,34 +1,8 @@
 
-const obj = {'New Cars': [{},{}] }
+const carCompare = [1];
 
-console.log(Object.keys(obj)[0]);
-console.log(Object.values(obj)[0]);
+const varientId = 12;
 
-function menuStructure() {
-  return [
-    {'New Cars': [
-      {name: 'Popular cars'},
-      { name: 'latest cars'},
-      { name: 'dealers'}
-    ]},
-    {
-      'Used Car':[
-        {name: 'Used car'},
-        { name: 'used bike'},
-      ]},
-  ];
-}
 
-function menuItem(obj) {
-  const keys = Object.keys(obj);
-  // console.log(keys);
-}
+const compArr = carCompare.map(id => ({ pid1: varientId, pid2: id }));
 
-function contentItem(arr) {
-}
-
-function index() {
-menuStructure().map(menuItem);
-}
-
-index();

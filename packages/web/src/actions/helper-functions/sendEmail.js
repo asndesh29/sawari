@@ -4,7 +4,7 @@ import { ENDPOINT } from '../../config';
 import { updateFormValue } from '../formHandler';
 
 export default async (dispatch, getState, schema) => {
-  console.log('send Email api called', schema);
+  // console.log('send Email api called', schema);
   try {
     const { form, main } = getState();
     const token = await sessionStorage.getItem('SESSION_ID');

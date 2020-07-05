@@ -14,6 +14,12 @@ class MenuBar extends React.Component {
     this.setState({ showMenu: menuId });
   }
 
+  toggleEmiCalculator = () => {
+    console.log('toggle emi calc called', this.props);
+    const { updateMainValue } = this.props;
+    updateMainValue('emiCalculator', true);
+  }
+
   render() {
     const { showMenu } = this.state;
     console.log('state value', this.state);
@@ -24,15 +30,14 @@ class MenuBar extends React.Component {
           <Link to="/" style={{ textDecoration: 'none', margin: 0 }}>
             <span style={{ marginLeft: 5 }}>Home</span>
           </Link>
-
         </div>
         {/* <Divider style={{ background: 'white', marginBottom: 0, marginLeft: 10, marginRight: 10 }} /> */}
-        {menuStructure().map(m => menuItemWithSubmenu(m, showMenu, this.toggleMenu))}
-        <div className="menu-item">
+        {menuStructure(this.toggleEmiCalculator).map(m => menuItemWithSubmenu(m, showMenu, this.toggleMenu))}
+        {/* <div className="menu-item">
           <Link to="/sell-vehicle">
             <span>Sell</span>
           </Link>
-        </div>
+        </div> */}
       </div>
     );
   }

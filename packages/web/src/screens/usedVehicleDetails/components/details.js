@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Overview from './overview';
 import EnquiryForm from '../../common/EnquiryForm';
+import SocialMedia from '../../common/socialMediaShare';
 
 class UsedVehicleDetails extends React.Component {
   constructor(props) {
@@ -21,10 +22,19 @@ class UsedVehicleDetails extends React.Component {
     const { enquiryShow } = this.state;
     const currentUsedVehicleDetails = main.initialData.usedVehicle.find((uv) => `${uv.model.replace(/\s/g, '')}-${uv.id}`.toLocaleLowerCase() === match.params.usedVehicleId)
     const brand = main.initialData.vehicleBrand.find(b => b.id === currentUsedVehicleDetails.sbId);
-    // console.log('Current Used Vehicle', currentUsedVehicleDetails);
+    // console.log('Current Used Vehicle', currentUsedVehicleDetails, match);
     return (
       <div className="product-detail" style={{ width: '100%'}}>
-        <Overview {...this.props} showEnquiryForm={this.closeEnquiry} currentUsedVehicleDetails={{ ...currentUsedVehicleDetails, brand: brand.brandName, taxClearance: currentUsedVehicleDetails.taxClearance === '1' ? 'yes' : 'No' }} />
+        <SocialMedia url={`https://sawarikinbech.com/#/used-vehicle/details/${match.params.usedVehicleId}`} />
+        <Overview
+          {...this.props}
+          showEnquiryForm={this.closeEnquiry}
+          currentUsedVehicleDetails={{
+            ...currentUsedVehicleDetails,
+            brand: brand.brandName,
+            taxClearance: currentUsedVehicleDetails.taxClearance === '1' ? 'Yes' : 'No',
+          }}
+        />
         <EnquiryForm schema="addEnquiry" isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} />
       </div>
     );

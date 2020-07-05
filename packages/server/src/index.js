@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-app.use(bodyParser.json({ limit: '10mb', extended: true }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
 const server = http.createServer(app);
 run(async () => {
   await dbinit();

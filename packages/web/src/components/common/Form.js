@@ -9,6 +9,7 @@ import FileInput from './FileInput';
 import TextArea from './TextArea';
 import Switch from './Switch';
 import ImageGroup from './imageGroup';
+import ColorPicker from './ColorPicker';
 
 const renderFormElementHandler = (content, idx, props) => {
   switch (content.element) {
@@ -28,6 +29,8 @@ const renderFormElementHandler = (content, idx, props) => {
       return <Switch content={content} props={props} key={idx} />;
     case 'imageGroup':
       return <ImageGroup content={content} props={props} key={idx} />;
+    case 'colorPicker':
+      return <ColorPicker content={content} props={props} key={idx} />;
     default:
       return null;
   }

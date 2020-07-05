@@ -1,9 +1,9 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
 import PropTypes from 'prop-types';
-import {IoMdArrowDropdown} from 'react-icons/io';
+import {IoMdArrowDropdown, IoMdArrowBack} from 'react-icons/io';
 import { MdMotorcycle } from 'react-icons/md';
-import {AiOutlineHome, AiOutlineCar, AiOutlineKey } from 'react-icons/ai';
+import {AiOutlineHome, AiOutlineCar, AiOutlineKey, AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Drawer } from '@blueprintjs/core';
 import Logo from '../assets/logo.jpeg';
@@ -42,11 +42,12 @@ const CollapsibleContent = ({ routes }) => {
   );
 };
 
-const DropMenu = () => {
+const DropMenu = ({ togglerHandler }) => {
   return (
     <div className="drawer-menu-element-content">
       <div className="drawer-header">
-        <img src={Logo} />
+        <IoMdArrowBack onClick={togglerHandler} size={25} style={{ marginRight: 50 }} />
+        {/* <img src={Logo} /> */}
       </div>
       <div className="collapse-element">
         <div>
@@ -79,7 +80,7 @@ class SmallScreenMenu extends React.Component {
         position="left"
         lazy
       >
-        <DropMenu />
+        <DropMenu togglerHandler={togglerHandler} />
       </Drawer>
     );
   }

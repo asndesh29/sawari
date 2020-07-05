@@ -1,4 +1,4 @@
-export default () => {
+export default (toggleEmiCalc) => {
   return (
     [
       { 'New Cars': [
@@ -60,7 +60,7 @@ export default () => {
       },
       {
         More: [
-          { id: 80, route: '/popular/car', name: 'Emi Calculator' },
+          { id: 80, route: '/popular/car', name: 'Emi Calculator', func: toggleEmiCalc },
         ],
       },
     ]

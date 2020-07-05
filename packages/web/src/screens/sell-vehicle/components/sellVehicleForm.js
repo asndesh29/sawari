@@ -4,7 +4,7 @@ import Form from '../../../components/common/Form';
 import sellVehicleStructure from './sellVehicleFormStructure';
 
 export default ({ props }) => {
-  console.log('props in form', props);
+  // console.log('props in form', props);
   return (
     <div className="sell-vehicle-content ">
       <Card

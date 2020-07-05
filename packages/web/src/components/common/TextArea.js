@@ -13,7 +13,7 @@ class CustomTextArea extends Component {
         {content.label && <span>{content.label }</span> }
         <TextArea
           fill
-          style={{ marginBottom: 5, height: 200 }}
+          style={{ marginBottom: 5, height: content.height || 200 }}
           value={inputVlaue} //eslint-disable-line
           placeholder={content.placeHolder}
           onChange={event => props.updateFormValue(props.schema, { [content.value]: event.target.value })} //eslint-disable-line

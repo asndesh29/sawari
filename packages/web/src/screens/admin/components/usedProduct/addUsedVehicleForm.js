@@ -10,6 +10,7 @@ export default ({ isOpen, onClose, props, update }) => {
       title="Enter Used Vehicle Details"
       onClose={onClose}
       canOutsideClickClose={false}
+      style={{ height: window.innerHeight * 0.9, overflow: 'scroll' }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Card

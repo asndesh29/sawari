@@ -4,7 +4,7 @@ import { ENDPOINT } from '../../config';
 import { updateFormValue } from '../formHandler';
 
 export default async (dispatch, getState, schema) => {
-  console.log('add equry form called');
+  // console.log('add equry form called');
   try {
     const { form, main } = getState();
 
@@ -32,12 +32,16 @@ export default async (dispatch, getState, schema) => {
       province,
       taxClearance,
       registrationNo,
+      fuelType,
+      color,
+      remarks,
       id,
     } = form.sellVehicle;
 
-    if (!stypeId || !sbId || !image1 || !kmsDriven || !ownerShip) {
+    if (!stypeId || !sbId || !image1 || !kmsDriven || !ownerShip || !model || !variant || !ownerPhoneNo) {
       dispatch(updateFormValue(schema, { error: 'Please fill all the field' }));
     } else {
+      console.log('else is also called');
       dispatch(updateFormValue(schema, { loading: true, error: null, success: null }));
       const enquiryRes = await axios.post(`${ENDPOINT}/web/add-vehicle`,
         {
@@ -64,6 +68,9 @@ export default async (dispatch, getState, schema) => {
           province,
           taxClearance,
           registrationNo,
+          fuelType,
+          color,
+          remarks,
           id,
         });
       console.log('enquiry res', enquiryRes);

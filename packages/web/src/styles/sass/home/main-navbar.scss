@@ -57,15 +57,21 @@
     .main-logo {
       margin-left: 40px;
       display: flex;
-      .logo-link {
-        height: 70px;
-        width: 70px;
-        img {
-          height: 100%;
-          width: 100%;
+      // background: green;
+      .sell-and-logo {
+        display: flex;
+        .logo-link {
+          height: 70px;
+          width: 70px;
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .sell-button {
+          display: none;
         }
       }
-
       .main-drawer {
         display: none;
       }
@@ -161,23 +167,43 @@
      }
      .search-box-container{
        width: 100%;
+       margin-top: 15px;
        margin-bottom: 5px;
        justify-content: center;
        .search-form {
-        width: 90%;
+        width: 98%;
        }
      }
 
      .main-logo {
        margin-left: 0px;
-       .logo-link {
-        height: 50px;
-        width: 50px;
-        img {
-          height: 100%;
+        .sell-and-logo {
+          display: flex;
+          justify-content: space-between;
           width: 100%;
+          .logo-link {
+            height: 50px;
+            width: 50px;
+            display: flex;
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+          .sell-button {
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            background: #ff4202;
+            color: white;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         }
-      }
        .main-drawer {
         display: flex;
         align-items: center;

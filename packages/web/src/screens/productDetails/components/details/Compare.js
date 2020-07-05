@@ -1,7 +1,7 @@
 import React from 'react';
 import productComparCard from '../../../common/productCompareCard';
 import { carCompare, bikeCompare } from '../../../common/compareData';
-
+ 
 class Compare extends React.Component {
   constructor(props) {
     super(props);

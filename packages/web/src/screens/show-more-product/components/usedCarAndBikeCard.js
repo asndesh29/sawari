@@ -8,7 +8,7 @@ export default (obj) => {
     <Card
       className="product-card"
       // onClick={() => cardOnClickHandler(obj, 'used')}
-      style={{ maxHeight: 400 }}
+      style={{ maxHeight: 400, objectFit: 'fill' }}
     >
       <div className="image-container" style={{ cursor: 'pointer' }}>
         <Link to={`/used-vehicle/details/${obj.model.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}>

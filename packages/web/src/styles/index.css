@@ -50,13 +50,19 @@
   margin-left: 40px;
   display: flex;
 }
-.main_navbar .search-element .main-logo .logo-link {
+.main_navbar .search-element .main-logo .sell-and-logo {
+  display: flex;
+}
+.main_navbar .search-element .main-logo .sell-and-logo .logo-link {
   height: 70px;
   width: 70px;
 }
-.main_navbar .search-element .main-logo .logo-link img {
+.main_navbar .search-element .main-logo .sell-and-logo .logo-link img {
   height: 100%;
   width: 100%;
+}
+.main_navbar .search-element .main-logo .sell-and-logo .sell-button {
+  display: none;
 }
 .main_navbar .search-element .main-logo .main-drawer {
   display: none;
@@ -146,22 +152,42 @@
   }
   .main_navbar .search-element .search-box-container {
     width: 100%;
+    margin-top: 15px;
     margin-bottom: 5px;
     justify-content: center;
   }
   .main_navbar .search-element .search-box-container .search-form {
-    width: 90%;
+    width: 98%;
   }
   .main_navbar .search-element .main-logo {
     margin-left: 0px;
   }
-  .main_navbar .search-element .main-logo .logo-link {
+  .main_navbar .search-element .main-logo .sell-and-logo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .main_navbar .search-element .main-logo .sell-and-logo .logo-link {
     height: 50px;
     width: 50px;
+    display: flex;
   }
-  .main_navbar .search-element .main-logo .logo-link img {
+  .main_navbar .search-element .main-logo .sell-and-logo .logo-link img {
     height: 100%;
     width: 100%;
+  }
+  .main_navbar .search-element .main-logo .sell-and-logo .sell-button {
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ff4202;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .main_navbar .search-element .main-logo .main-drawer {
     display: flex;
@@ -623,13 +649,19 @@ body {
   margin-left: 40px;
   display: flex;
 }
-.main_container .main_navbar .search-element .main-logo .logo-link {
+.main_container .main_navbar .search-element .main-logo .sell-and-logo {
+  display: flex;
+}
+.main_container .main_navbar .search-element .main-logo .sell-and-logo .logo-link {
   height: 70px;
   width: 70px;
 }
-.main_container .main_navbar .search-element .main-logo .logo-link img {
+.main_container .main_navbar .search-element .main-logo .sell-and-logo .logo-link img {
   height: 100%;
   width: 100%;
+}
+.main_container .main_navbar .search-element .main-logo .sell-and-logo .sell-button {
+  display: none;
 }
 .main_container .main_navbar .search-element .main-logo .main-drawer {
   display: none;
@@ -717,22 +749,42 @@ body {
   }
   .main_container .main_navbar .search-element .search-box-container {
     width: 100%;
+    margin-top: 15px;
     margin-bottom: 5px;
     justify-content: center;
   }
   .main_container .main_navbar .search-element .search-box-container .search-form {
-    width: 90%;
+    width: 98%;
   }
   .main_container .main_navbar .search-element .main-logo {
     margin-left: 0px;
   }
-  .main_container .main_navbar .search-element .main-logo .logo-link {
+  .main_container .main_navbar .search-element .main-logo .sell-and-logo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .main_container .main_navbar .search-element .main-logo .sell-and-logo .logo-link {
     height: 50px;
     width: 50px;
+    display: flex;
   }
-  .main_container .main_navbar .search-element .main-logo .logo-link img {
+  .main_container .main_navbar .search-element .main-logo .sell-and-logo .logo-link img {
     height: 100%;
     width: 100%;
+  }
+  .main_container .main_navbar .search-element .main-logo .sell-and-logo .sell-button {
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ff4202;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .main_container .main_navbar .search-element .main-logo .main-drawer {
     display: flex;

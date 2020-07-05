@@ -51,7 +51,7 @@ class ProductDetails extends React.Component {
   render() {
     const { tabId, currentProductDetails, enquiryShow, variantId, compareProduct, stypeId, expandAll } = this.state;
     // console.log('state value in show details page', this.props, variantId);
-    const { match } = this.props
+    const { match } = this.props;
     return (
       currentProductDetails ? (
         <div className="product-detail">

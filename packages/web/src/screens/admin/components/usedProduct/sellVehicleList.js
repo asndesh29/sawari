@@ -16,6 +16,7 @@ const PopUp = (props) => {
       canOutsideClickClose
       onClose={handleClose}
       {...props}
+      style={{ height: 300 }}
     >
       {children}
     </Dialog>

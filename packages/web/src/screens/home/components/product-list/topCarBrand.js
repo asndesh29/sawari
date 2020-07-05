@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Card } from '@blueprintjs/core';
 import HorizontalScrollbar from '../../../../components/common/HorizontalScroller';
 import BrandCard from '../../../common/brandCard';
+import Schleton from 'react-loading-skeleton';
 
 class ProductDetails extends React.Component {
   constructor(props) {

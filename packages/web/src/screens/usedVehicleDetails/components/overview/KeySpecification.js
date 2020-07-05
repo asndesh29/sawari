@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@blueprintjs/core';
 
-const KeySpecificationObj = { brand: 'Brand', city: 'City', province: 'Province', taxClearance: 'Tax Clearance', customerType: 'Customer Type' };
+const KeySpecificationObj = {
+  brand: 'Brand',
+  city: 'City',
+  province: 'Province',
+  taxClearance: 'Tax Clearance',
+  customerType: 'Customer Type',
+  color: 'Color',
+  ownerPhoneNo: 'Phone No.',
+};
 
 const keySpecificationsElement = (label, key, obj) => {
 
@@ -11,7 +19,7 @@ const keySpecificationsElement = (label, key, obj) => {
       <div style={{ width: '100%', paddingRight: 10 }}>
         <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', marginLeft: 5 }}>
           <span>{`${label}`}</span>
-          <span>{`${obj[key]}`}</span>
+          {key === 'color' ? <div style={{ background: obj[key], width: 20, height: 20, borderRadius: 5 }} /> : <span>{`${obj[key]}`}</span>}
         </div>
         <div style={{ height: 1, width: '100%', background: '#f5f5f5', marginBottom: 5 }} />
       </div>
@@ -26,8 +34,8 @@ const KeySpecification = ({ obj, showEnquiryForm }) => {
         <div className="name-price" style={{ minWidth: 200 }}>
           <span style={{ fontSize: 20 }}>{obj.model}</span>
           <br />
-          <span style={{ fontWeight: 100, color: '#ff4202', fontStyle: 'italic' }}>
-            {`Price: NRs. ${obj.expectedPrice}`}
+          <span style={{ fontWeight: 100, color: '#ff4202', fontStyle: 'italic', fontSize: 25 }}>
+            {`Price: NRs. ${obj.expectedPrice} (Lakh)`}
           </span>
         </div>
       </div>

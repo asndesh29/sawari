@@ -1,18 +1,18 @@
 
 const mapBrand = (props) => {
-  console.log('props in mapbrand', props)
+  // console.log('props in mapbrand', props);
   const { form, main } = props;
   const isCar = parseInt(form.sellVehicle.stypeId, 10) === 1;
   const res = main.initialData.vehicleBrand.filter((vb) => vb.stypeId === (isCar ? 1 : 2)).map(vb => ({ label: vb.brandName, value: vb.id }));
-  console.log('selected brand', res);
+  // console.log('selected brand', res);
   return res;
 };
 
 const mapCities = (props) => {
-  console.log('props in mapbrand', props)
+  // console.log('props in mapbrand', props);
   const { form, main } = props;
   const res = main.initialData.cities.map(c => ({ label: c, value: c }));
-  console.log('selected brand', res);
+  // console.log('selected brand', res);
   return res;
 };
 
@@ -30,7 +30,7 @@ export default (props) => [
     placeHolder: 'Select customer type',
   },
   {
-    element: 'input', placeHolder: 'Enter make year...', value: 'makeYear', type: 'number', label: 'Make Year:',
+    element: 'input', placeHolder: 'Eg. 2015', value: 'makeYear', type: 'number', label: 'Make Year:',
   },
   {
     element: 'select',
@@ -39,16 +39,31 @@ export default (props) => [
     placeHolder: 'Select Brand',
   },
   {
-    element: 'input', placeHolder: 'Enter vehicle model...', value: 'model', type: 'text', label: 'Vehicle Model Name:',
+    element: 'input', placeHolder: 'Eg. Mahindra XUV', value: 'model', type: 'text', label: 'Vehicle Model Name:',
   },
   {
-    element: 'input', placeHolder: 'Enter vehicle variant name...', value: 'variant', type: 'text', label: 'Vehicle Variant Name:',
+    element: 'input', placeHolder: 'Eg. Mahindra XUV300', value: 'variant', type: 'text', label: 'Vehicle Variant Name:',
   },
   {
-    element: 'input', placeHolder: 'Enter KMs driven...', value: 'kmsDriven', type: 'number', label: 'KMs Driven:',
+    element: 'input', placeHolder: 'Eg. 1000', value: 'kmsDriven', type: 'number', label: 'KMs Driven(Km):',
   },
   {
-    element: 'input', placeHolder: 'Enter displacement...', value: 'displacement', type: 'text', label: 'Displacement:',
+    element: 'input', placeHolder: 'Eg. 1497', value: 'displacement', type: 'text', label: 'Displacement(cc):',
+  },
+  {
+    element: 'radiogroup',
+    placeHolder: 'Fuel Type:',
+    value: 'fuelType',
+    radios: [
+      { element: 'radio', label: 'Petrol', value: 'Petrol' },
+      { element: 'radio', label: 'Diesel', value: 'Diesel' },
+      { element: 'radio', label: 'Electric', value: 'Electric' },
+    ],
+  },
+  {
+    element: 'colorPicker',
+    label: 'Select Color:',
+    value: 'color',
   },
   {
     element: 'select',
@@ -68,7 +83,7 @@ export default (props) => [
       { label: 'Province-6', value: 'Province-6' },
       { label: 'Province-7', value: 'Province-7' },
     ],
-    placeHolder: ' Select province:',
+    placeHolder: ' Select Province:',
   },
   {
     element: 'select',
@@ -83,10 +98,10 @@ export default (props) => [
     radios: [{ element: 'radio', label: 'Yes', value: 1 }, { element: 'radio', label: 'No', value: 0 }],
   },
   {
-    element: 'input', placeHolder: 'Enter registration no...', value: 'registrationNo', type: 'text', label: 'Registration No:',
+    element: 'input', placeHolder: 'Eg. GANDAKI 01,001, PA1234', value: 'registrationNo', type: 'text', label: 'Registration No:',
   },
   {
-    element: 'input', placeHolder: 'Enter expected price...', value: 'expectedPrice', type: 'number', label: 'Expected Price:',
+    element: 'input', placeHolder: 'Eg. 45.5', value: 'expectedPrice', type: 'number', label: 'Expected Price(Lakh):',
   },
   {
     element: 'input', placeHolder: 'Enter your name...', value: 'ownerName', type: 'text', label: 'Name:',
@@ -101,12 +116,19 @@ export default (props) => [
     element: 'imageGroup',
     placeHolder: 'Upload Photos',
     options: [
-      { label: '+photo', value: 'image1' },
-      { label: '+front', value: 'image2' },
-      { label: '+back', value: 'image3' },
-      { label: '+left', value: 'image4' },
-      { label: '+right', value: 'image5' },
+      { label: '+Photo', value: 'image1' },
+      { label: '+Front', value: 'image2' },
+      { label: '+Back', value: 'image3' },
+      { label: '+Left', value: 'image4' },
+      { label: '+Right', value: 'image5' },
     ],
+  },
+  {
+    element: 'textArea',
+    value: 'remarks',
+    label: 'Remarks',
+    height: 100,
+    placeHolder: 'Type your remarks here...',
   },
   {
     element: 'button', text: 'Add', intent: 'PRIMARY',

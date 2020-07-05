@@ -14,7 +14,7 @@ import {
 
 export default ({ url }) => {
   return (
-    <div className="social-madia-share">
+    <div className="social-madia-share" style={{ display: 'flex', alignItems: 'center' }}>
       <span style={{ marginRight: 10 }}>Share:</span>
       <FacebookShareButton url={url} quote="Please Visit this site for buy and sell vehicle" style={{ margin: 5 }}>
         <FacebookIcon size={30} />

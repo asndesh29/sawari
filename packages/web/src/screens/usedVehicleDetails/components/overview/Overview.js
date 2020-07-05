@@ -2,11 +2,11 @@ import React from 'react';
 import { IoMdSpeedometer } from 'react-icons/io';
 import PropTypes from 'prop-types';
 import { GiMoneyStack } from 'react-icons/gi';
-import { FaBolt, FaTransgender, FaSafari, FaCompactDisc, FaRoad, FaKey } from 'react-icons/fa';
+import { FaBolt, FaTransgender, FaSafari, FaCompactDisc, FaRoad, FaKey, FaGasPump } from 'react-icons/fa';
 import { MdAirlineSeatLegroomExtra } from 'react-icons/md';
 import { FiCalendar } from 'react-icons/fi';
 
-const overview = { kmsDriven: 'KMs Driven', displacement: 'Displacement', makeYear: 'Make Year', ownerShip: 'Owner' };
+const overview = { kmsDriven: 'KMs Driven', displacement: 'Displacement', makeYear: 'Make Year', ownerShip: 'Owner', fuelType: 'FuelType' };
 
 const iconAndUnitHandler = (key) => {
   switch (key) {
@@ -30,6 +30,8 @@ const iconAndUnitHandler = (key) => {
       return { icon: <FaSafari size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
     case 'brakes':
       return { icon: <FaCompactDisc size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
+    case 'fuelType':
+      return { icon: <FaGasPump size={30} color="#9a9a9a" />, unit: '', preUnit: '' };
     default:
       return { icon: <IoMdSpeedometer />, unit: '', preUnit: '' };
   }
@@ -47,6 +49,7 @@ const overviewElement = (label, key, obj) => {
 
 const Overview = (props) => {
   const { currentUsedVehicleDetails } = props;
+  console.log('Current Used vehicle detail', currentUsedVehicleDetails);
   return (
     <div className="overview">
       {
