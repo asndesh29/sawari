@@ -4,13 +4,13 @@ import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../config';
 
 const provinceList = [
-  { id: 1, name: 'Province-1', image: `${ENDPOINT}/province_image/province1.jpeg` },
-  { id: 2, name: 'Province-2', image: `${ENDPOINT}/province_image/province2.jpg` },
-  { id: 3, name: 'Province-3', image: `${ENDPOINT}/province_image/province3.jpg` },
-  { id: 4, name: 'Province-4', image: `${ENDPOINT}/province_image/province4.jpeg` },
-  { id: 5, name: 'Province-5', image: `${ENDPOINT}/province_image/province5.jpeg` },
-  { id: 6, name: 'Province-6', image: `${ENDPOINT}/province_image/province6.jpg` },
-  { id: 7, name: 'Province-7', image: `${ENDPOINT}/province_image/province6.jpg` },
+  { id: 1, name: 'Province-1', image: `${ENDPOINT}/province_image/province1.png` },
+  { id: 2, name: 'Province-2', image: `${ENDPOINT}/province_image/province2.png` },
+  { id: 3, name: 'Province-3', image: `${ENDPOINT}/province_image/province3.png` },
+  { id: 4, name: 'Province-4', image: `${ENDPOINT}/province_image/province4.png` },
+  { id: 5, name: 'Province-5', image: `${ENDPOINT}/province_image/province5.png` },
+  { id: 6, name: 'Province-6', image: `${ENDPOINT}/province_image/province6.png` },
+  { id: 7, name: 'Province-7', image: `${ENDPOINT}/province_image/province7.png` },
 ];
 
 const ProvinceDesign = (obj, provinceSelectHandler, main) => {

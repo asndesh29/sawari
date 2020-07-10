@@ -10,6 +10,9 @@ const findModelDetails = (id, modelList) => {
 
 const findProductDetails = (id, variantList, modelList) => {
   const variantDetails = variantList.find((p) => p.id === id);
+  if (!variantDetails) {
+    return null;
+  }
   const modelDetails = findModelDetails(variantDetails.modelId, modelList);
 
   return { model: modelDetails, variant: variantDetails };
@@ -21,6 +24,7 @@ export default (obj, props) => {
   const pro1 = findProductDetails(obj.pId1, main.initialData.variantList, main.initialData.vehicleModel);
   const pro2 = findProductDetails(obj.pId2, main.initialData.variantList, main.initialData.vehicleModel);
   return (
+    pro1 && pro2 && (
     <div className="product-compare-container">
       <div className="compare-content">
         <div className="image-compare">
@@ -50,5 +54,6 @@ export default (obj, props) => {
         </Link>
       </div>
     </div>
+    )
   );
 };

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import MenuBar from './menu-bar';
 import SerachElement from './SearchElement';
 import LoginRegistration from './login-registration';
-import Logo from '../../../../assets/logo.jpeg';
+import Logo from '../../../../assets/logo.png';
 import DrawerMenu from './drawer-menu';
 
 export default () => (
@@ -16,9 +16,9 @@ export default () => (
         <div className="main-drawer">
           <DrawerMenu />
         </div>
-        <div className="sell-and-logo">
+        <div className="sell-and-logo" style={{ marginTop: -70, marginLeft: 70}}>
           <Link to="/" className="logo-link">
-            <img src={Logo} />
+            <img src={Logo} style={{ height: 150, width: 150, marginBottom: 10 }} />
           </Link>
           <Link to="/sell-vehicle">
             <div className="sell-button">
