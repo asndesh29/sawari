@@ -1,16 +1,62 @@
-.about-us {
-  width: 100%;
-  .about-us-body {
-    margin-top: 130px;
+.about-page{
+  .center-text{
+    max-width: 800px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    p {
-      color: #757575;
-      width: 70%;
-      font-size: 20px;
-      h2 {
-        color: black;
+    text-align: center;
+    margin: 0 auto;
+    p{
+      font-size: 16px;
+      color: #777;
+      line-height: 28px;
+      margin-bottom: 18px;
+    }
+  }
+  .team{
+    padding: 70px 0;
+    .heading{
+      text-align: center;
+      margin-bottom: 100px;
+      h2{
+        font-size: 35px;
+        color: #333;
+      }
+      p{
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 15px;
+        line-height: 27px;
+        color: #888;
+      }
+    }
+    .item{
+      text-align: center;
+      .image{
+        border-radius: 50%;
+        width: 130px;
+        margin: 0 auto;
+        img{
+          width: 100%;
+          border-radius: 50%;
+          box-shadow: 0 7px 23px #8a8a8a;
+        }
+      }
+      h4{
+        font-size: 20px;
+        margin-bottom: 12px;
+        span{
+          font-size: 13px;
+          color: #666;
+          font-weight: 400;
+          text-transform: uppercase;
+        }
+      }
+      p{
+        color: #999;
+        font-size: 14px;
+        line-height: 22px;
+      }
+      .social{
+        margin-top: 25px;
       }
     }
   }

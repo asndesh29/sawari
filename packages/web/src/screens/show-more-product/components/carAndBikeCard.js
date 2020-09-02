@@ -12,19 +12,21 @@ const priceRangeHandler = (obj) => {
 
 export default (obj) => {
   return (
-    <Card
-      className="product-card"
+    <div className="col-lg-4 col-sm-6">
+      <div
+        className="product-card"
       // onClick={() => cardOnClickHandler(obj, 'new')}
-    >
-      <div className="image-container" style={{ cursor: 'pointer' }}>
-        <Link to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}>
-          <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.name} />
-        </Link>
+      >
+        <div className="image-container" style={{ cursor: 'pointer' }}>
+          <Link to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}>
+            <img src={`${ENDPOINT}/model_image/${obj.image}`} alt={obj.name} />
+          </Link>
+        </div>
+        <div className="description">
+          <span className="title">{obj.name}</span>
+          <span className="price">{priceRangeHandler(obj)}</span>
+        </div>
       </div>
-      <div className="description">
-        <span style={{ fontWeight: 100, fontSize: 20 }}>{obj.name}</span>
-        <span style={{ fontWeight: 100, color: '#ff4202', fontStyle: 'italic' }}>{priceRangeHandler(obj)}</span>
-      </div>
-    </Card>
+    </div>
   );
 };

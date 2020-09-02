@@ -26,7 +26,9 @@ class Index extends React.Component {
       showDetails
         ? (
           <div className="main_product_details">
-            <Navbar {...this.props} />
+            <div className="page_nav">
+              <Navbar {...this.props} />
+            </div>
             <BrandDetails {...this.props} />
             <Footer {...this.props} />
           </div>

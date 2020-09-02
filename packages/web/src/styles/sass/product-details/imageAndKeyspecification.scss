@@ -18,18 +18,52 @@
     }
   }
   .detail-compare {
-    // background: blanchedalmond;
-    width: 40%;
     .name-price-compare {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5px;
       border-bottom: 1px solid #f5f5f5;
+      .title{
+        font-size: 28px;
+        margin: 0;
+        color: #222;
+      }
+      .prices{
+        margin-top: 40px;
+        h4{
+          font-weight: 400;
+          font-size: 18px;
+          margin: 0;
+          margin-top: 15px;
+          span{
+            color: #03943d;
+            font-weight: 600;
+          }
+        }
+      }
       Button {
-        background: #ff4202;
-        height: 20px;
-        color: white;
+        background-color: #ff794c;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 8px 30px;
+        display: inline-block;
+        border-radius: 30px;
+        border: none;
+        background-image: none;
+        box-shadow: none;
+        height: 42px;
+      }
+    }
+    .enquiry_btn{
+      margin-top: 40px;
+      button{
+        background-color: #0888c5;
+        background-image: none;
+        box-shadow: 0 2px 7px #3c8bb1;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 12px 35px;
+        display: inline-block;
+        border-radius: 30px;
+        border: none;
+        background-image: none;
       }
     }
   }

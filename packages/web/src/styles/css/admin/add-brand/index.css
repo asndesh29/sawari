@@ -1,0 +1,19 @@
+.admin-add-brand {
+  width: 100%;
+}
+.admin-add-brand .admin-add-brand-menu {
+  height: 50px;
+  width: 100%;
+  background: #154155;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.admin-add-brand .admin-add-brand-content {
+  width: 100%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}

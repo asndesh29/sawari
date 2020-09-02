@@ -5,6 +5,7 @@ import Select from 'react-select';
 import { Redirect, Link } from 'react-router-dom';
 import { Card } from '@blueprintjs/core';
 import { ENDPOINT } from '../../../../../config';
+import ImgSlider from './img-slider';
 
 const provinceList = [
   { id: 1, name: 'Province 1', image: `${ENDPOINT}/province_image/province1.png`, route: '/used/province/province-1' },
@@ -20,7 +21,7 @@ const ProvinceDesign = (obj, selectedTabId) => {
   return (
     <Link to={`${obj.route}/${selectedTabId}`} style={{ textDecoration: 'none' }}>
       <Card style={{ height: 'auto', width: 'auto', margin: 5, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-        <img src={obj.image} style={{ height: 100, width: 100, borderRadius: '100%'}} />
+        <img src={obj.image} style={{ height: 100, width: 100, borderRadius: '100%' }} />
         <span style={{ color: '#757575', fontSize: 10, marginTop: 5 }}>Used vehicle in</span>
         <span style={{ fontSize: 15, fontWeight: 'bold' }}>{obj.name}</span>
       </Card>
@@ -48,16 +49,19 @@ class ProductDetails extends React.Component {
             </div>
           </div>
           <div className="distric-container">
+            <ImgSlider />
             <spa style={{ fontSize: 20 }}>
               I am looking to buy a second
             </spa>
             <span style={{ fontSize: 20 }}>hand vehicle in</span>
             <div style={{ marginBottom: 10, marginTop: 10, width: '100%' }}>
               <Select
-                styles={{ container: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                })}}
+                styles={{
+                  container: (provided) => ({
+                    ...provided,
+                    color: 'black',
+                  })
+                }}
                 options={main.initialData.cities ? main.initialData.cities.map(c => ({ value: c, label: c })) : []}
                 isSearchable
                 placeholder="Select city"
@@ -66,7 +70,7 @@ class ProductDetails extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

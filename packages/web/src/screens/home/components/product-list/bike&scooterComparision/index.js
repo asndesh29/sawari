@@ -17,21 +17,22 @@ const carComparisonList = [
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   render() {
     const { main } = this.props;
     return (
-      <Card className="home-product-list">
-        <h2 style={{ margin: 0 }}>Popular Bike & Scooter Comparisons</h2>
+      <div className="home-product-list">
+        <div className="product-list-header"><h2>Popular Bike & Scooter Comparisons</h2></div>
         <HorizontalScrollView
+          items="4"
           data={main.initialData.vehicleBrandProduct ? [...carComparisonList.map(p => productCompareCard(p, { ...this.props, currentProductDetails: { stypeId: 2 } }))] : []}
         />
-        <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/compare/bike"><span style={{ fontWeight: 'bold' }}>Compare More</span></Link>
+        <div className="link">
+          <Link to="/compare/bike" className="more"><span>Compare More</span></Link>
         </div>
-      </Card>
+      </div>
     );
   }
 }

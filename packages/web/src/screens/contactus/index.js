@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, InputGroup, TextArea } from '@blueprintjs/core';
 import Navbar from '../home/components/navbar';
+import Footer from '../home/components/footer';
 
 class Index extends React.Component {
   constructor(props) {
@@ -12,92 +13,67 @@ class Index extends React.Component {
     return (
       <div style={{ width: '100%' }}>
         <Navbar />
-        <div className="contact-us">
-          <div className="main-content">
-            <div className="left-part">
-              <div className="logo-title">
-                <Icon icon="phone" style={{ height: 15, width: 20, marginRight: 5 }} />
-                <span>CALL US</span>
-              </div>
-
-              <div className="phoneNumber">
-                <span id="pNumber">+977-9860723154</span>
-                <span>(Mon to Sat 9:30 AM to 6 PM )</span>
-              </div>
-
-              <div className="email">
-                <div className="logo-email">
-                  <Icon icon="envelope" style={{ height: 20, width: 20, marginRight: 7 }} />
-                  <span>E-MAIL</span>
-                </div>
-                <span id="email-id">sawarikinbech@gmail.com</span>
-              </div>
+        <div className="page-header">
+          <div className="inner">
+            <div className="container">
+              <h3>Contact Us</h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
-            <div className="right-part">
-              <div className="right-title">
-                <span>LET US CONTACT YOU</span>
-              </div>
-              <div className="enter-email">
-                <InputGroup type="text" placeholder="Enter Name"/>
-                <InputGroup type="text" placeholder="Enter Email"/>
-              </div>
-
-              <div className="city">
-                <InputGroup type="text" placeholder="Enter Mobile Number"/>
-                <InputGroup type="text" placeholder="Enter City"/>
-              </div>
-
-              <div className="discription">
-                <TextArea id="textArea" type="text" placeholder="Please share your feedback what can we improve" />
-              </div>
-              <div className="submit">
-                <div className="checkbox">
-                  <input type="checkbox" />
-                  <span>I agree to Terms and Conditions</span>
-                </div>
-
-                <div className="button">
+          </div>
+        </div>
+        <div className="page-content">
+          <div className="contact-us">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form">
+                  <h2>Send us an Email</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                  <InputGroup type="text" placeholder="Enter Your Name" />
+                  <InputGroup type="text" placeholder="Enter Your Email" />
+                  <InputGroup type="text" placeholder="Enter Your Mobile Number" />
+                  <InputGroup type="text" placeholder="Enter Your City" />
+                  <TextArea id="textArea" type="text" placeholder="Please share your feedback what can we improve" />
+                  <div className="checkbox">
+                    <label><input type="checkbox" /> I agree to Terms and Conditions</label>
+                  </div>
                   <button type="submit">Submit</button>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="cardekho-content">
-            <div className="topic">
-              <h2>Business with sawarikinbech</h2>
-            </div>
-            <div className="three-content">
-              <div className="left-part">
-                <div className="first">
-                  <div className="logo-title">
-                    <Icon icon="phone" style={{ height: 15, width: 20, marginRight: 5 }} />
-                    <span>CALL US</span>
+              <div class="col-md-6">
+                <div className="info">
+                  <div className="item">
+                    <div className="icon">
+                      <Icon icon="map-marker" />
+                    </div>
+                    <div className="content">
+                      <h3>Find Us</h3>
+                      <p>Lagankhel 3, Lalitpur, Nepal - Near Bus Park</p>
+                    </div>
                   </div>
-
-                  <div className="phoneNumber">
-                    <span id="pNumber">+977-9860723154</span>
-                    <span>(Mon to Sat 9:30 AM to 6 PM )</span>
+                  <div className="item">
+                    <div className="icon">
+                      <Icon icon="phone" />
+                    </div>
+                    <div className="content">
+                      <h3>Call Us</h3>
+                      <p>(Mon to Sat 9:30 AM to 6 PM )</p>
+                    </div>
+                  </div>
+                  <div className="item">
+                    <div className="icon">
+                      <Icon icon="map-marker" />
+                    </div>
+                    <div className="content">
+                      <h3>Official E-MAIL</h3>
+                      <p>sawarikinbech@gmail.com</p>
+                    </div>
                   </div>
                 </div>
-                <div className="second">
-                  <div className="logo-email">
-                    <Icon icon="envelope" style={{ height: 20, width: 20, marginRight: 7 }} />
-                    <span>E-MAIL</span>
-                  </div>
-                  <span id="email-id">sawarikinbech@gmail.com</span>
-                </div>
-
-                {/* <div className="third">
-                  <div className="dealer-logo">
-                    <Icon icon="home" style={{ height: 20, width: 20, marginRight: 7}}/>
-                    <span>DEALER SOLUTIONS</span>
-                  </div>
-                  <span id="dealer">Dealer Solutions</span>
-                </div> */}
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

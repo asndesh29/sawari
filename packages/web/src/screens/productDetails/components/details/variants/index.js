@@ -32,7 +32,7 @@ class Variant extends React.Component {
         {activeCompare && <Redirect to={`/compare/${contentType[currentProductDetails.stypeId]}${urlString}`} />}
         {currentProductDetails.varients.map((obj) => <VariantCard handleTabChange={handleTabChange} changeVariant={changeVariant} obj={obj} state={this.state} compareChangeHandler={this.compareChangeHandler} />)}
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-          {allActiveCompare.length > 0 && <Button onClick={() => this.setState({ activeCompare: true })} text="Compare Now" style={{ padding: 10, fontSize: 15, background: '#ff4202', color: 'white' }} />}
+          {allActiveCompare.length > 0 && <Button onClick={() => this.setState({ activeCompare: true })} text="Compare Now" style={{ padding: '15px 30px', marginTop: '30px', borderRadius: '30px', boxShadow: 'none', fontSize: 15, background: '#ff794c', color: 'white' }} />}
         </div>
       </div>
     );

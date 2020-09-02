@@ -1,0 +1,217 @@
+@use '../config/config';
+.main_product_details {
+  margin-top: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  @use '../config/config';
+}
+.main_product_details .main-product-details-sidebar {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+}
+.main_product_details .main-product-details-sidebar .product-detail {
+  height: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.main_product_details .main-product-details-sidebar .product-detail .social-madia-share {
+  width: 100%;
+  display: flex;
+  height: auto;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+.main_product_details .main-product-details-sidebar .product-detail .detail-image-compare {
+  height: auto;
+  width: 100%;
+  display: flex;
+}
+.main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-image {
+  width: 60%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #f5f5f5;
+}
+.main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-compare {
+  width: 40%;
+}
+.main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-compare .name-price-compare {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-compare .name-price-compare Button {
+  background: #ff4202;
+  height: 20px;
+  color: white;
+}
+@media only screen and (max-width: 600px) {
+  .main_product_details .main-product-details-sidebar .product-detail .detail-image-compare {
+    display: flex;
+    flex-direction: column;
+  }
+  .main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-image {
+    width: 100%;
+  }
+  .main_product_details .main-product-details-sidebar .product-detail .detail-image-compare .detail-compare {
+    width: 98%;
+  }
+}
+.main_product_details .main-product-details-sidebar .product-detail .overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main_product_details .main-product-details-sidebar .product-detail .overview .overview-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.main_product_details .main-product-details-sidebar .product-detail .specification {
+  padding-top: 10px;
+}
+.main_product_details .main-product-details-sidebar .product-detail .specification .specification-collapse-element {
+  background: #f1f1f1;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 5px;
+  margin-top: 10px;
+}
+.main_product_details .main-product-details-sidebar .product-detail .specification .specification-collapse-container {
+  background: white;
+  padding: 20px;
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main_product_details .main-product-details-sidebar .product-detail .specification .specification-collapse-container .container-element {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+@media only screen and (max-width: 600px) {
+  .main_product_details .main-product-details-sidebar .product-detail .specification {
+    padding: 5px;
+  }
+  .main_product_details .main-product-details-sidebar .product-detail .specification .specification-collapse-container {
+    padding: 0px;
+  }
+  .main_product_details .main-product-details-sidebar .product-detail .specification .specification-collapse-container .container-element {
+    padding: 0px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main_product_details .main-product-details-sidebar .product-detail {
+    width: 100%;
+  }
+}
+.main_product_details .main-product-details-sidebar .product-detail-menu {
+  width: 100%;
+  justify-content: center;
+}
+.main_product_details .main-product-details-sidebar .product-detail-menu .product-menu-tabs {
+  background: black;
+  height: auto;
+}
+.main_product_details .main-product-details-sidebar .product-detail-menu .panel-container {
+  background: white;
+  height: auto;
+  width: 100%;
+}
+.main_product_details .main-product-details-sidebar .side-menu {
+  width: auto;
+  height: auto;
+  width: 300px;
+  margin-left: 30px;
+  color: black;
+}
+.main_product_details .main-product-details-sidebar .side-menu .side-manu-car {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.main_product_details .main-product-details-sidebar .side-menu .side-manu-car .side-menu-car-container {
+  background: white;
+  border: 1px solid #f1f1f1;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  overflow-y: scroll;
+  margin-bottom: 30px;
+}
+.main_product_details .main-product-details-sidebar .side-menu .side-manu-car .side-menu-car-container .side-menu-car-element {
+  background: #f1f1f1;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 2px;
+}
+.main_product_details .main-product-details-sidebar .side-menu .side-manu-car .side-menu-car-container .side-menu-car-element img {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .main_product_details .main-product-details-sidebar .side-menu {
+    display: none;
+  }
+}
+.main_product_details .query_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+}
+.main_product_details .query_button Button {
+  height: 40px;
+  color: white;
+  width: 300px;
+}
+
+.offer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .main_product_details {
+    margin-top: 0px;
+  }
+  .main_product_details .main-product-details-sidebar {
+    width: 98%;
+  }
+}

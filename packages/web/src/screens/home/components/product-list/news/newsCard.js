@@ -8,20 +8,23 @@ import Iframe from 'react-iframe';
 
 export default (obj, cardOnClickHandler) => {
   return (
-    <Card interactive className="news-card">
+    <div interactive className="news-card col-md-6">
       <div className="news-container">
-        <Link to={`/news-details/${obj.slug}`}>
-          <div className="image-container">
-            <img src={`${ENDPOINT}/images/${obj.image}`} />
+
+        <div className="image-container" style={{ backgroundImage: `url(${ENDPOINT}/images/${obj.image})` }}>
+          {/* <img src={`${ENDPOINT}/images/${obj.image}`} /> */}
+
+          <div className="caption">
+            <h2>Cars</h2>
+            <h3>{obj.header}</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <Link to={`/news-details/${obj.slug}`} className="more">Read Article</Link>
           </div>
-        </Link>
-        <span id="header-span">{obj.header}</span>
-        <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
-          <AiOutlineCalendar color="red" />
-          <span style={{ fontSize: 12, marginLeft: 5 }}>{format(obj.timeStamp, 'MMM DD')}</span>
         </div>
+
+
         {/* <div dangerouslySetInnerHTML={{ __html: obj.content }} style={{ width: '100%', overflow: 'hidden', height: 100 }} /> */}
       </div>
-    </Card>
+    </div>
   );
 };

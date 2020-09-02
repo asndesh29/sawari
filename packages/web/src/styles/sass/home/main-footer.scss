@@ -1,19 +1,71 @@
 @use '../config/config';
 
 .main-footer {
-  height: 100px;
-  margin-top: 20px;
   width: 100%;
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  background: #232323;
+  color: #fff;
+  h2{
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin:0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #383737;
+    padding-bottom: 15px;
+  }
+  .link{
+    margin-top: 30px;
+    ul{
+      padding: 0;
+      margin: 0;
+      li{
+        list-style: none;
+        margin-bottom: 10px;
+        a{
+          color: rgb(185, 185, 185);
+          text-transform: uppercase;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .contact{
+    margin-top: 30px;
+    .f-social{
+      margin-bottom: 20px;
+      svg{
+        font-size: 20px;
+        margin-right: 15px;
+        cursor: pointer;
+        color: rgb(180, 180, 180);
+        &:hover{
+          color: rgb(212, 212, 212);
+        }
+      }
+    }
+  }
+  .copy{
+    background: #313131;
+    margin-top: 30px;
+    padding: 10px;
+    p{
+      color: rgb(158, 158, 158);
+      margin: 0;
+      text-align: center;
+    }
+  }
   .footer-container {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    max-width: 1250px;
+    
+    .links{
+      a{
+        font-size: 15px;
+        color: #333;
+      }
+    }
+    
   }
   span {
     margin: 10px;

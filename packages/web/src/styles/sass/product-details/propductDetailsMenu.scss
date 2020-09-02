@@ -1,8 +1,39 @@
 .product-detail-menu {
   width: 100%;
   justify-content: center;
+  border: 1px solid #eee;
+  padding: 20px 25px;
+  .detail-compararison{
+    .product-compare-container{
+      overflow: hidden;
+      margin-bottom: 30px;
+      .compare-content{
+        .image-compare{
+          img{
+            height: 100px;
+            width: 124px;
+          }
+        }
+      }
+    }
+  }
+  .bp3-tab-list{
+    border-bottom: 1px solid #ccc;
+  }
+  h3{
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .tab-heading{
+    color: #333;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    padding-bottom: 10px;
+    margin-right: 30px;
+  }
   .product-menu-tabs {
-    background: black;
     height: auto;
   }
   .panel-container {

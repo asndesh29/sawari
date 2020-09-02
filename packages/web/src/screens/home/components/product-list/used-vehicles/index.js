@@ -16,14 +16,14 @@ class ProductDetails extends React.Component {
   render() {
     const { selectedTabId } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
-        <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Used</h2></div>
+      <div className="home-product-list">
+        <div className="product-list-header"><h2 style={{ margin: 0 }}>Used</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="cars" title="Cars" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="bikes" title="Bikes" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="scooters" title="Scooters" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
+          <Tab id="cars" title="Cars" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
+          <Tab id="bikes" title="Bikes" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
+          <Tab id="scooters" title="Scooters" panel={<Content {...this.props} selectedTabId={selectedTabId} />} />
         </Tabs>
-      </Card>
+      </div>
     );
   }
 }

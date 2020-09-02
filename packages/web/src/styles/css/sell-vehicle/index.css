@@ -1,0 +1,34 @@
+.sell-vehicle {
+  margin-top: 130px;
+  background-size: cover;
+  height: 'auto';
+  background-blend-mode: luminosity;
+  overflow: hidden;
+}
+.sell-vehicle .sell-vehicle-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.sell-vehicle .sell-vehicle-content .content-card {
+  max-width: 40%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  margin: 10px;
+  margin-bottom: 0px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .sell-vehicle {
+    margin-top: 0px;
+  }
+  .sell-vehicle .sell-vehicle-content .content-card {
+    width: 98%;
+    max-width: 98%;
+  }
+}

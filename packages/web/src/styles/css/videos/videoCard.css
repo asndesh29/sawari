@@ -1,0 +1,33 @@
+.home-product-list .product-list-header h2 {
+  font-size: 27px;
+}
+.home-product-list.videos {
+  margin-top: 30px;
+}
+.home-product-list.videos iframe {
+  margin-top: 20px;
+  border: none;
+  border-radius: 7px;
+}
+.home-product-list .link {
+  text-align: center;
+  margin: 20px 0;
+}
+.home-product-list .link .more {
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #ff794c;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 12px 32px;
+  display: inline-block;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .video-card {
+    width: 98%;
+  }
+}

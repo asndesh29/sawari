@@ -1,7 +1,71 @@
-.video-card {
-  // background: red;
-  width: 45%;
-  margin: 5px;
+.home-product-list{
+  .product-list-header{
+    h2{
+      font-size: 27px !important;
+      text-align: center;
+    }
+  }
+  &.videos{
+    margin-top: 60px;
+    text-align: center;
+    .product-list-header{
+      display: inline-block;
+    }
+    .video-outer{
+      background-color: #fff;
+      padding: 0 20px 20px 20px;
+      border-radius: 7px;
+      margin-top: 80px;
+      box-shadow: 0 2px 5px #ccc;
+      text-align: left;
+      iframe{
+        margin-top: -50px;
+        border: none;
+        border-radius: 7px;
+        box-shadow: 0 12px 18px rgb(184, 184, 184);
+      }
+      .text{
+        padding: 0 20px;
+        h3{
+          font-size: 14px;
+          margin-top: 25px;
+          display: inline-block;
+          font-weight: 400;
+          text-transform: uppercase;
+          color: #0888c5;
+        }
+        h4{
+          font-size: 20px;
+          font-weight: 700;
+          margin: 0;
+          line-height: 27px;
+          color: #333;
+        }
+        p{
+          font-size: 14px;
+          margin-top: 15px;
+          color: rgb(136, 136, 136);
+          line-height: 24px;
+        }
+      }
+    }
+  }
+  .link{
+    text-align: center;
+    margin: 20px 0;
+    .more{
+      font-size: 15px;
+      text-transform: uppercase;
+      background-color: #ff794c;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 12px 32px;
+      display: inline-block;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 0 auto;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {

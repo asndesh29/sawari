@@ -8,7 +8,7 @@ import HorizontalScrollbar from '../../../../components/common/HorizontalScrolle
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   render() {
@@ -18,7 +18,7 @@ class ProductDetails extends React.Component {
       <div>
         <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <div style={{ width: '100%', textAlign: 'center', height: 'auto', padding: 0, marginTop: 5 }}>
-          <HorizontalScrollbar data={data} />
+          <HorizontalScrollbar data={data} items="4" />
         </div>
       </div>
     );

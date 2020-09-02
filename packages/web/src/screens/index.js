@@ -12,6 +12,7 @@ import ShowMore from './show-more-product';
 import NewsDetails from './news-details';
 import ContactUs from './contactus';
 import AboutUs from './aboutus';
+import ScrollToTop from '../components/ScrollToTop';
 
 class index extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class index extends Component {
     return (
       <Router>
         <div>
+          <ScrollToTop />
           <Route exact path="/" component={Home} />
           <Route exact path="/contact-us" component={ContactUs} />
           <Route exact path="/about-us" component={AboutUs} />

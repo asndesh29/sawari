@@ -17,17 +17,17 @@ class ProductDetails extends React.Component {
   render() {
     const { selectedTabId } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
-        <div style={{ width: '100%' }}><h2 style={{ margin: 0 }}>Bikes</h2></div>
+      <div className="home-product-list">
+        <div className="product-list-header"><h2 style={{ margin: 0 }}>Bikes</h2></div>
         <Tabs id="TabsExample" onChange={this.handleTabChange} selectedTabId={selectedTabId}>
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Latest" title="Latest" panel={<NewBikes {...this.props} category="Latest" />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Popular" title="Popular" panel={<NewBikes {...this.props} category="Popular" />} />
-          <Tab style={{ fontSize: 15, fontWeight: 'bold' }} id="Upcoming" title="Upcoming" panel={<NewBikes {...this.props} category="Upcoming" />} />
+          <Tab id="Latest" title="Latest" panel={<NewBikes {...this.props} category="Latest" />} />
+          <Tab id="Popular" title="Popular" panel={<NewBikes {...this.props} category="Popular" />} />
+          <Tab id="Upcoming" title="Upcoming" panel={<NewBikes {...this.props} category="Upcoming" />} />
         </Tabs>
-        <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/more/bikes"><span style={{ fontWeight: 'bold' }}>More Bikes</span></Link>
+        <div className="link">
+          <Link to="/more/bikes" className="more"><span>More Bikes</span></Link>
         </div>
-      </Card>
+      </div>
     );
   }
 }

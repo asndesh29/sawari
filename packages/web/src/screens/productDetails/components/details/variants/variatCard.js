@@ -7,8 +7,8 @@ export default ({ obj, state, compareChangeHandler, changeVariant, handleTabChan
   console.log('variant details card', obj, state);
   return (
     <Card
-      style={{ height: 'auto', display: 'flex', margin: 10 }}
-      // onClick={() => changeVariant(obj.id)}
+      style={{ height: 'auto', display: 'flex', marginBottom: '20px', boxShadow: '0 2px 8px #ccc' }}
+    // onClick={() => changeVariant(obj.id)}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

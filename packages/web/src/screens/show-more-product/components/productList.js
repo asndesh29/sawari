@@ -14,7 +14,7 @@ class ProductList extends React.Component {
     const { main, match } = this.props;
     return (
       <div className="search-product-list">
-        <div className="product-list">
+        <div className="product-list row">
           {main.initialData.vehicleModel ? listProvider(this.props) : []}
         </div>
       </div>

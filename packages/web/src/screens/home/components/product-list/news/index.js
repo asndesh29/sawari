@@ -20,18 +20,18 @@ class ProductDetails extends React.Component {
     const { main, updateMainValue } = this.props;
     const { showProductDtails, stypeId } = this.state;
     return (
-      <Card elevation={0} className="home-product-list">
+      <div className="home-product-list news">
         {showProductDtails && <Redirect to={`/brand/${stypeId}/${showProductDtails}`} />}
         <div className="product-list-header">
           <h2>News</h2>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {main.initialData.News ? main.initialData.News.map((obj) => newsCard(obj, this.cardOnClickHandler)) : []}
+        <div style={{ display: 'flex', flexWrap: 'wrap' }} className="row">
+          {main.initialData.News ? main.initialData.News.slice(0, 4).map((obj) => newsCard(obj, this.cardOnClickHandler)) : []}
         </div>
-        <div style={{ width: '100%', textAlign: 'end', marginTop: 15 }}>
-          <Link to="/more/news"><span style={{ fontWeight: 'bold' }}>More News</span></Link>
+        <div className="link">
+          <Link to="/more/news" class="more"><span style={{ fontWeight: 'bold' }}>More News</span></Link>
         </div>
-      </Card>
+      </div>
     );
   }
 }

@@ -19,7 +19,7 @@ class Slider extends Component {
     return !data ? <div /> : (
       <div className="home-slider">
         <Carousel infiniteLoop showThumbs={false} transitionTime={1000} showIndicators showStatus>
-          {data.map((img) => <div><img src={img} style={{ height: '50vh', width: '100%' }}/></div>)}
+          {data.map((img) => <div><img src={img} style={{ height: '50vh', width: '100%' }} /></div>)}
         </Carousel>
       </div>
     );

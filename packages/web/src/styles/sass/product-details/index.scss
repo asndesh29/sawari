@@ -1,18 +1,9 @@
 @use '../config/config';
 
 .main_product_details {
-  margin-top: 120px;
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
   // background: yellow;
   .main-product-details-sidebar {
-    display: flex;
-    width: 90%;
-    justify-content: center;
 
     @import './productDetail.scss';
 

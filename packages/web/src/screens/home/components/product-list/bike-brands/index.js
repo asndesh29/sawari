@@ -8,19 +8,19 @@ import BrandCard from '../../../../common/brandCard';
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   render() {
     const { main } = this.props;
     const data = main.initialData.vehicleBrand ? main.initialData.vehicleBrand.filter(obj => obj.stypeId === 2).map((obj) => BrandCard(obj, 'bike')) : [];
     return (
-      <Card elevation={0} className="home-product-list">
+      <div className="home-product-list">
         <div className="product-list-header">
           <h2>Popular Bike and Scooter Brands</h2>
         </div>
-        <HorizontalScrollbar data={data} />
-      </Card>
+        <HorizontalScrollbar data={data} items="6" />
+      </div>
     );
   }
 }

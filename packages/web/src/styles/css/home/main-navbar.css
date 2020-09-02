@@ -1,0 +1,259 @@
+@use '../config/config';
+.main_navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white !important;
+  margin: 0;
+  padding: 0;
+  background: none;
+  position: fixed;
+  transition: 0.5s;
+}
+.main_navbar.active {
+  background: #0888c5;
+  box-shadow: 0 2px 7px #3c8bb1;
+}
+.main_navbar.active .search-element .login-registration .sell-link {
+  background-color: #fff;
+  color: #333;
+}
+.main_navbar .home-nav-logo {
+  color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: start;
+}
+.main_navbar .home-nav-logo span {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.main_navbar .home-nav-logo .nav-menu {
+  display: flex;
+  margin-right: 30px;
+}
+.main_navbar .home-nav-logo .nav-menu .menu-item:hover span {
+  color: 'white';
+}
+.main_navbar .home-nav-logo .nav-menu .menu-item:hover span {
+  color: #ff4202;
+  cursor: pointer;
+}
+.main_navbar .search-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.main_navbar .search-element .main-logo {
+  display: flex;
+}
+.main_navbar .search-element .main-logo .sell-and-logo {
+  display: flex;
+}
+.main_navbar .search-element .main-logo .sell-and-logo .logo-link img {
+  max-width: 140px;
+  width: 100%;
+}
+.main_navbar .search-element .main-logo .sell-and-logo .sell-button {
+  display: none;
+}
+.main_navbar .search-element .main-logo .main-drawer {
+  display: none;
+}
+.main_navbar .search-element .search-box-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 10px;
+}
+.main_navbar .search-element .search-box-container .search-form {
+  display: flex;
+  width: 100%;
+  max-width: 365px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 2px;
+}
+.main_navbar .search-element .search-box-container .search-form .react-search-box-dropdown {
+  background-color: #fff;
+  border-radius: 7px;
+  position: absolute;
+  width: 100%;
+}
+.main_navbar .search-element .search-box-container .search-form .react-search-box-dropdown ul {
+  padding: 0;
+  margin: 0;
+}
+.main_navbar .search-element .search-box-container .search-form .react-search-box-dropdown ul li {
+  padding: 15px 22px;
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+  cursor: pointer;
+}
+.main_navbar .search-element .search-box-container .search-form .react-search-box-dropdown ul li:hover {
+  background-color: #eee;
+}
+.main_navbar .search-element .search-box-container .search-form .react-search-box-dropdown ul li:first-child {
+  border-radius: 7px 7px 0 0;
+}
+.main_navbar .search-element .search-box-container .search-form input {
+  width: 100%;
+  border-radius: 30px;
+  background: none;
+  border: 1px solid #ccc;
+  color: #fff;
+  height: 40px;
+  padding: 0 15px;
+  outline: none;
+}
+.main_navbar .search-element .search-box-container .search-form input::-webkit-input-placeholder {
+  /* Edge */
+  color: #fff;
+}
+.main_navbar .search-element .search-box-container .search-form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+.main_navbar .search-element .search-box-container .search-form input::placeholder {
+  color: #fff;
+}
+.main_navbar .search-element .search-box-container .search-form .search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 50px;
+  height: 38px;
+  margin-top: 1px;
+  margin-left: 0px;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  cursor: pointer;
+}
+.main_navbar .search-element .login-registration {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  color: black;
+  margin-right: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.main_navbar .search-element .login-registration .sell-link {
+  background-color: #ff794c;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 8px 30px;
+  display: inline-block;
+  border-radius: 30px;
+}
+.main_navbar .search-element .login-registration .sell-link:hover {
+  text-decoration: none;
+}
+.main_navbar .search-element .login-registration .sell-link div {
+  display: flex;
+}
+.main_navbar .search-element .login-registration .sell-link div span {
+  font-size: 17px;
+  margin-left: 5px;
+}
+
+.main-menu-popover-content {
+  margin-top: 1px;
+}
+.main-menu-popover-content .menu-item {
+  width: 250px;
+}
+.main-menu-popover-content .menu-item .menu-item-element {
+  height: 40px;
+  padding: 10px;
+}
+.main-menu-popover-content .menu-item .menu-item-element span {
+  font-size: 15px;
+}
+.main-menu-popover-content .menu-item .menu-item-element:hover {
+  background: #f5f5f5;
+  cursor: pointer;
+}
+.main-menu-popover-content .menu-item .bottom-border {
+  height: 1px;
+  background: #f5f5f5;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .main_navbar {
+    position: sticky;
+  }
+  .main_navbar .home-nav-logo {
+    display: none;
+  }
+  .main_navbar .search-element {
+    display: inline;
+    position: relative;
+    width: 100%;
+  }
+  .main_navbar .search-element .login-registration {
+    display: none;
+  }
+  .main_navbar .search-element .search-box-container {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    justify-content: center;
+  }
+  .main_navbar .search-element .search-box-container .search-form {
+    width: 98%;
+  }
+  .main_navbar .search-element .main-logo {
+    margin-left: 0px;
+  }
+  .main_navbar .search-element .main-logo .sell-and-logo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .main_navbar .search-element .main-logo .sell-and-logo .logo-link {
+    height: 50px;
+    width: 50px;
+    display: flex;
+  }
+  .main_navbar .search-element .main-logo .sell-and-logo .logo-link img {
+    height: 100%;
+    width: 100%;
+  }
+  .main_navbar .search-element .main-logo .sell-and-logo .sell-button {
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ff4202;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main_navbar .search-element .main-logo .main-drawer {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

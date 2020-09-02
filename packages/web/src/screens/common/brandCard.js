@@ -7,15 +7,14 @@ export default (obj, type) => {
   return (
     <div className="brand-content">
       <Link to={`${type}/brand/${obj.brandName.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()} className="brand-link">
-        <Card
-          interactive
+        <div
           className="brand-card"
         >
           <div className="image-container">
             <img src={`${ENDPOINT}/brand_image/${obj.brandImageUrl}`} alt={obj.brandName} />
           </div>
           <span>{obj.brandName}</span>
-        </Card>
+        </div>
       </Link>
     </div>
   );

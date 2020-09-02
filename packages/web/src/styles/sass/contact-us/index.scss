@@ -1,393 +1,84 @@
 .contact-us{
-  height: auto;
-  width: 95%;
-  // border:  1px rgb(220, 220, 220) solid;
-  // background: red;
-  border-radius: 5px;
-  margin: 5px;
-  display: flex;
-  margin-top: 130px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .nav-menu{
-
-      height: 50px;
-      width:100% ;
-
-      display: flex;
-      align-items: center;
-      span{
-          margin: 120px;
-
-      }
-  }
-.div-title{
-    height: auto;
-    width: 100%;
-    #title{
-      font-size: 25px;
-      font-weight: 500;
-      margin-left: 120px;
-  }
-}
-  .main-content{
-      height: auto;
-      width: 80%;
-      // background: yellow;
-      border:  1px rgb(220, 220, 220) solid;
-      display: flex;
-      border-radius: 5px;
-
-
-      .left-part{
-          height: auto;
-          width: 40%;
-          padding: 40px;
-          .logo-title{
-              height: 50px;
-              width: 100%;
-
-              display: flex;
-              align-items: center;
-              padding: 10px;
-
-                   }
-          .phoneNumber{
-              height: 80px;
-              width: 100%;
-
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-
-              #pNumber{
-                  font-size: 40px;
-              }
-          }
-
-          .email{
-              height: 80px;
-              width: 100%;
-
-
-              .logo-email{
-                  height: auto;
-                  width: 100%;
-
-                  padding: 5px;
-                  display: flex;
-                  align-items: center;
-              }
-              #email-id{
-                  margin-left: 35px;
-                  font-size: 25px;
-                  font-weight: 200;
-              }
-          }
-      }
-
-      .right-part{
-          height: auto;
-          width: 60%;
-          // background: yellowgreen;
-          padding: 30px;
-
-          .right-title{
-              height: 30px;
-              width: 100%;
-              padding: 10px;
-          }
-
-          .enter-email{
-              height: 60px;
-              width: 100%;
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              input{
-                  height: 50px;
-                  width: auto;
-                  margin: 10px;
-                  font-size: 20px;
-                  border-radius: 5px;
-                  padding: 10px;
-
-              }
-          }
-
-          .city{
-              height: 65px;
-              width: 100%;
-              display: flex;
-              flex-direction: row;
-              input{
-                  height: 50px;
-                  width: auto;
-                  margin: 10px;
-                  font-size: 20px;
-                  border-radius: 2px;
-                  padding: 10px;
-
-              }
-          }
-
-          .discription{
-              height: 100px;
-              width: 100%;
-
-              padding: 10px;
-              display: flex;
-              align-items: center;
-
-              #textArea{
-                  height: 90px;
-                  width: 80%;
-                  border-radius: 2px;
-                  font-size: 20px;
-
-              }
-          }
-          .choose-file{
-              height: 80px;
-              width: 100%;
-
-              display: flex;
-              align-items: center;
-              padding: 10px;
-
-              button{
-                  height: 30px;
-                  width: 100px;
-                  font-size: 15px;
-              }
-          }
-
-          .submit{
-              height: 85px;
-              width: 100%;
-
-              .checkbox{
-                 height: 35px;
-                 width: 100%;
-
-                 display: flex;
-                 flex-direction: row;
-                 align-items: center;
-                 justify-content: center;
-
-                 input{
-                     height: 20px;
-                     width: 20px;
-                     font-size: 40px;
-                     font-weight: 600;
-                     background: rgb(255, 94, 0);
-                     color:rgb(255, 94, 0) ;
-                 }
-
-              }
-              .button{
-                  height: 70px;
-                  width: 100%;
-
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  button{
-                      height: 45px;
-                      width: 60%;
-                      font-size: 20px;
-                      border-radius: 5px;
-                      background: rgb(228, 96, 9);
-                      color: white;
-                  }
-              }
-          }
-      }
-  }
-
-  .cardekho-content{
-      height: auto;
-      width: 80%;
-      margin: 10px;
-      border:  1px rgb(220, 220, 220) solid;
-      border-radius: 5px;
-      .topic{
-          height: auto;
-          width: 50%;
-          padding-left: 30px;
-          display: flex;
-          align-items: end;
-      }
-      .three-content{
-          width: 100%;
-          height: auto;
-          display: flex;
-
-      .left-part{
-          height: 400px;
-          width: 100%;
-          display: flex;
-          padding: 40px;
-
-          .first{
-              width: 30%;
-              height: 200px;
-              .logo-title{
-                  height: 50px;
-                  width: 100%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: start;
-                  padding: 10px;
-                       }
-              .phoneNumber{
-                  height: 80px;
-                  width: 100%;
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-
-                  #pNumber{
-                      font-size: 40px;
-                  }
-              }
-          }
-          .second{
-              height: 200px;
-              width: 30%;
-              border-left:  1px rgb(220, 220, 220) solid;
-              .logo-email{
-                  height: auto;
-                  width: 100%;
-                  padding: 5px;
-                  display: flex;
-                  align-items: center;
-              }
-              #email-id{
-                  margin-left: 35px;
-                  font-size: 25px;
-                  font-weight: 200;
-              }
-          }
-
-          .third{
-              height: 200px;
-              width: 40%;
-              border-left:  1px rgb(220, 220, 220) solid;
-              .dealer-logo{
-                 height: auto;
-                 width: auto;
-
-                 padding: 10px;
-                 display: flex;
-                 flex-direction: row;
-
-              }
-              #dealer{
-                  margin: 40px;
-                  font-size: 20px;
-                  font-weight: 300;
-              }
-          }
-      }
-      }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .contact-us {
-    background: white;
-    margin-top: 0px;
-    width: 100%;
-    padding: 5px;
-    .main-content {
-      display: block;
-      width: 100%;
-      .left-part {
-        width: 100%;
-        padding: 0px;
-        // background: red;
-        .phoneNumber {
-          // background: yellow;
-          #pNumber{
-            font-size: 20px;
-        }
-        }
-        .email {
-          #email-id {
-            font-size: 20px;
-          }
-        }
-
-      }
-
-      .right-part {
-        width: 100%;
-        height: auto;
-        .enter-email {
-          display: block;
-          height: auto;
-        }
-        .city {
-          display: block;
-          height: auto;
-        }
-        .discription {
-          width: 100%;
-          #textArea {
-            width: 100%;
-          }
-        }
-      }
+  max-width: 950px;
+  margin: 0 auto;
+  .form{
+    h2{
+      font-size: 35px;
+      color: #444;
     }
-
-    .cardekho-content {
+    p{
+      line-height: 27px;
+      margin-bottom: 50px;
+      color: #666;
+      font-size: 15px;
+    }
+    input{
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding-left: 0;
+      height: 40px;
+      margin-bottom: 35px;
+      border-bottom: 1px solid #ccc;
+    }
+    input[type="checkbox"]{
+      height: auto;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+    textarea{
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding-left: 0;
+      border-bottom: 1px solid #ccc;
+      height: 150px;
       width: 100%;
-      padding: 5px;
-      .topic {
-        width: 100%;
-        padding: 0px;
+    }
+    button{
+      background-color: #ff794c;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 12px 40px;
+      display: inline-block;
+      border-radius: 30px;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 2px 5px #e26035;
+      cursor: pointer;
+    }
+  }
+  .info{
+    margin-top: 40px;
+    margin-left: 40px;
+    .item{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      .icon{
+        width: 50px;
+        height: 100%;
+        svg{
+          font-size: 30px;
+          color: #ff794c;
+          width: 30px;
+          height: 30px;
+
+        }
       }
-      .three-content {
-        // background: yellow;
-        width: 100%;
-        height: auto;
-        display: block;
-        .left-part {
-          display: block;
-          padding: 5px;
-          .first {
-            width: 100%;
-            border: '';
-            height: auto;
-            padding: 0px;
-            margin: 0px;
-            .phoneNumber {
-              #pNumber{
-                font-size: 20px;
-            }
-
-            }
-          }
-          .second {
-            width: 100%;
-            border: 0px;
-            height: auto;
-
-            #email-id {
-              margin-top: 10px;
-              margin-left: 35px;
-              font-size: 20px;
-              font-weight: 200;
-          }
-          }
-          .third {
-            width: 100%;
-            border: 0px;
-            height: auto;
-          }
+      .content{
+        max-width: 200px;
+        h3{
+          margin: 0;
+          font-size: 20px;
+          color: #444;
+        }
+        p{
+          line-height: 27px;
+          font-size: 15px;
+          margin-top: 5px;
+          color: #666;
         }
       }
     }

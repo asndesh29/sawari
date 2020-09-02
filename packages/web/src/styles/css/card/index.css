@@ -1,0 +1,210 @@
+.brand-content {
+  margin: 5px;
+}
+.brand-content .brand-link {
+  text-decoration: none;
+  color: black;
+}
+.brand-content .brand-link .brand-card {
+  box-shadow: 0px 1px 5px #ccc;
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.brand-content .brand-link .brand-card .image-container {
+  margin-bottom: 10px;
+}
+.brand-content .brand-link .brand-card .image-container img {
+  height: 100%;
+  min-height: 80px;
+  max-height: 80px;
+  max-width: 150px;
+}
+
+.model-content .model-link {
+  text-decoration: none;
+  color: black;
+}
+.model-content .model-link .model-card {
+  padding: 0px;
+  overflow: hidden;
+  margin: 5px;
+  box-shadow: 0px 2px 5px #ccc;
+  padding-bottom: 15px;
+  border-radius: 7px;
+}
+.model-content .model-link .model-card .image-content {
+  width: 100%;
+  height: 80%;
+  cursor: pointer;
+}
+.model-content .model-link .model-card .image-content img {
+  height: 100%;
+  max-height: 200px;
+  min-height: 200px;
+  width: 100%;
+  object-fit: fill;
+}
+.model-content .model-link .model-card .description-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.model-content .model-link .model-card .description-content .title {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.model-content .model-link .model-card .description-content .price {
+  color: #333;
+  font-size: 16px;
+  background: #0888c5;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.product-compare-container {
+  height: auto;
+  width: auto;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  box-shadow: 0 1px 5px #ccc;
+  padding-bottom: 25px;
+  border-radius: 7px;
+}
+.product-compare-container .compare-content {
+  display: flex;
+  flex-direction: column;
+}
+.product-compare-container .compare-content .image-compare {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-compare-container .compare-content .image-compare img {
+  height: 120px;
+  width: 140px;
+}
+.product-compare-container .compare-content .image-compare .vs-div {
+  margin-right: -15px;
+  margin-left: -15px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  color: white;
+}
+.product-compare-container .compare-content .compare-button {
+  display: inline-block;
+  background-color: #0888c5;
+  padding: 10px 15px;
+  border-radius: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+}
+.product-compare-container .compare-content .discription-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.product-compare-container .compare-content .discription-content .description {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-card {
+  height: auto;
+  display: flex;
+  width: 99%;
+  padding: 5px;
+}
+.offer-card .image-container {
+  height: 200px;
+  width: 50%;
+}
+.offer-card .image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+.offer-card .description {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .offer-card {
+    display: inline-block;
+  }
+  .offer-card .image-container {
+    width: 100%;
+    height: auto;
+  }
+}
+.used-card {
+  width: 30%;
+  height: auto;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+.used-card .image-container {
+  width: 100%;
+  height: 30vh;
+}
+.used-card .image-container img {
+  width: 100%;
+  object-fit: fill;
+  height: 100%;
+}
+.used-card .description {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}
+.used-card .description span {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .used-card {
+    width: 100%;
+  }
+}

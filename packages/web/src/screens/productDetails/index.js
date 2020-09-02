@@ -30,15 +30,32 @@ class Index extends React.Component {
     const { brand } = this.state;
 
     return (
-      <div className="main_product_details">
-        {brand && <Redirect to={`/${brand.stypeId === 1 ? 'car' : 'bike'}/brand/${brand.brandName.replace(/\s/g, '')}-${brand.id}`.toLocaleLowerCase()} />}
-        <Navbar {...this.props} />
-        <div className="main-product-details-sidebar">
-          {main.initialData.vehicleModel && <ProductDetails {...this.props} />}
-          <SideMenuBrand {...this.props} car bike brandClickHandler={this.brandClickHandler} />
+      <div>
+        <div className="page_nav">
+          <Navbar {...this.props} />
+        </div>
+        <div className="page-header product-detail-page">
+          <div className="inner" style={{ minHeight: "250px", maxHeight: "250px" }}>
+          </div>
+        </div>
+        <div className="page-content">
+          <div className="main_product_details">
+            {brand && <Redirect to={`/${brand.stypeId === 1 ? 'car' : 'bike'}/brand/${brand.brandName.replace(/\s/g, '')}-${brand.id}`.toLocaleLowerCase()} />}
+            <div className="main-product-details-sidebar" style={{ padding: '0 15px' }}>
+              <div className="row">
+                <div className="col-md-9">
+                  {main.initialData.vehicleModel && <ProductDetails {...this.props} />}
+                </div>
+                <div className="col-md-3">
+                  <SideMenuBrand {...this.props} car bike brandClickHandler={this.brandClickHandler} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <Footer {...this.props} />
       </div>
+
     );
   }
 }

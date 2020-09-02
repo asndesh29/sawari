@@ -32,18 +32,34 @@ class Index extends React.Component {
     const { contentType, showroomType, serviceCenterType, placeId, usedVehicleType, categoryType } = match.params;
     return (
       <div className="search-product">
-        <Navbar {...this.props} />
-        <div className="search-product-content">
-          <Filter {...this.props} />
-          <ProductList
-            {...this.props}
-            categoryType
-            contentType={contentType}
-            showroomType={showroomType}
-            serviceCenterType={serviceCenterType}
-            placeId={placeId}
-            usedVehicleType={usedVehicleType}
-          />
+        <div className="page_nav">
+          <Navbar {...this.props} />
+        </div>
+        <div className="page-header">
+          <div className="inner" style={{ minHeight: "250px", maxHeight: "250px" }}>
+            <div className="container">
+            </div>
+          </div>
+        </div>
+        <div className="page-content">
+          <div className="search-product-content">
+            <div className="row">
+              <div className="col-md-3">
+                <Filter {...this.props} />
+              </div>
+              <div className="col-md-9">
+                <ProductList
+                  {...this.props}
+                  categoryType
+                  contentType={contentType}
+                  showroomType={showroomType}
+                  serviceCenterType={serviceCenterType}
+                  placeId={placeId}
+                  usedVehicleType={usedVehicleType}
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <Footer {...this.props} />
       </div>

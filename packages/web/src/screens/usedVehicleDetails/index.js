@@ -23,9 +23,11 @@ class Index extends React.Component {
     const { main } = this.props;
     return (
       <div className="main_product_details">
-        <Navbar {...this.props} />
+        <div className="page_nav">
+          <Navbar {...this.props} />
+        </div>
         <div className="main-product-details-sidebar" style={{ marginTop: 10 }}>
-          {main.initialData.usedVehicle && <ProductDetails {...this.props} /> }
+          {main.initialData.usedVehicle && <ProductDetails {...this.props} />}
         </div>
         <Footer {...this.props} />
       </div>

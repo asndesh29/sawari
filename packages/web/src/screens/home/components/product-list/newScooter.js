@@ -7,7 +7,7 @@ import ModelCard from '../../../common/modelCard';
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   render() {
@@ -16,6 +16,7 @@ class ProductDetails extends React.Component {
       <div className="home-product-list" style={{ width: '100%', margin: 0, padding: 0 }}>
         <div style={{ height: 1, background: '#f1f1f1', margin: 0, marginTop: -22 }} />
         <HorizontalScrollView
+          items="4"
           data={main.initialData.vehicleModel ? main.initialData.vehicleModel.filter(m => m.varients.find(v => v.bodyType === 'Scooter')).filter(c => c.stypeId === 2 && c.category === category).map((obj) => ModelCard(obj)) : []}
         />
       </div>

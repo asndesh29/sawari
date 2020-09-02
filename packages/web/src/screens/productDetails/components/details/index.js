@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Specification from './Specification';
 import Overview from './overview';
 import Review from './Review';
-import Offers from './offers';
+// import Offers from './offers';
 import Compare from './Compare';
 import Varient from './variants';
 import SocialMediaShare from '../../../common/socialMediaShare';
@@ -16,7 +16,7 @@ const contentType = { 1: 'cars', 2: 'bikes' };
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {expandAll: false, compareProduct: null, enquiryShow: false, tabId: 'Variant', currentProductDetails: null, variantId: null };
+    this.state = { expandAll: false, compareProduct: null, enquiryShow: false, tabId: 'Variant', currentProductDetails: null, variantId: null };
   }
 
   async componentWillMount() {
@@ -55,11 +55,12 @@ class ProductDetails extends React.Component {
     return (
       currentProductDetails ? (
         <div className="product-detail">
-          <SocialMediaShare url={`https://sawarikinbech.com/#/news-details/${match.params.newsSlug}`} />
+          {/* <SocialMediaShare url={`https://sawarikinbech.com/#/news-details/${match.params.newsSlug}`} /> */}
           {compareProduct && <Redirect to={`/compare/${contentType[stypeId]}/${compareProduct.name.replace(/\s/g, '')}-${compareProduct.id}`.toLocaleLowerCase()} />}
           <Overview {...this.props} compareButtonHandler={this.compareButtonHandler} showEnquiryForm={this.closeEnquiry} currentProductDetails={currentProductDetails} variantId={variantId} />
           <EnquiryForm isOpen={enquiryShow} onClose={this.closeEnquiry} props={{ ...this.props }} currentProductDetails={currentProductDetails} />
           <div className="product-detail-menu">
+            <h3>Additional Information</h3>
             <Tabs
               className="product-menu-tabs"
               id="TabsExample"
@@ -68,38 +69,38 @@ class ProductDetails extends React.Component {
             >
               <Tab
                 panelClassName="panel-container"
-                style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}
+                className="tab-heading"
                 id="Variant"
                 title="Variant"
                 panel={<Varient handleTabChange={this.handleTabChange} {...this.props} changeVariant={this.changeVariant} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               <Tab
                 panelClassName="panel-container"
-                style={{ fontSize: 15, fontWeight: 'bold', color: 'white', textAlign: 'end' }}
+                className="tab-heading"
                 id="Specification"
                 title="Specification"
                 panel={<Specification expandAll={expandAll} {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               <Tab
                 panelClassName="panel-container"
-                style={{ fontSize: 15, fontWeight: 'bold', color: 'white', textAlign: 'end' }}
+                className="tab-heading"
                 id="Compare"
                 title="Compare"
                 panel={<Compare {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               <Tab
                 panelClassName="panel-container"
-                style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}
+                className="tab-heading"
                 id="Review"
                 title="Review"
                 panel={<Review {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               <Tab
                 panelClassName="panel-container"
-                style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}
+                className="tab-heading"
                 id="Offers"
                 title="Offers"
-                panel={<Offers {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
+              // panel={<Offers {...this.props} currentProductDetails={currentProductDetails} variantId={variantId} />}
               />
               {/* <Tabs.Expander /> */}
 

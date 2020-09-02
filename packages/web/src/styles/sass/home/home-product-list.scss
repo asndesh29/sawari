@@ -1,7 +1,7 @@
 
 .home-product-list {
-  width: 90%;
-  margin-top: 10px;
+  width: 100%;
+  margin-bottom: 30px;
   // background: red;
   .product-list-header {
     display: flex;
@@ -11,9 +11,24 @@
     margin-left: 20px;
     margin: 0px;
     h2 {
-      margin: 0px;
+      margin-bottom: 20px;
       padding: 0px;
+      margin-top: 0;
+      font-size: 24px;
 
+    }
+  }
+  .bp3-tabs{
+    .bp3-tab-list{
+      .bp3-tab-indicator-wrapper{
+        height: 45px;
+      }
+      .bp3-tab{
+        margin-top: 12px;
+        margin-bottom: 20px;
+        font-size: 19px;
+        font-weight: 600;
+      }
     }
   }
 

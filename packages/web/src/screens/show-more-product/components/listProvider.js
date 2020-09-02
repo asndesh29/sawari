@@ -1,3 +1,4 @@
+import React from 'react';
 import CarAndBikeCard from './carAndBikeCard';
 import DealerCard from './dealerCard';
 import UsedCarAndBikeCard from './usedCarAndBikeCard';
@@ -54,7 +55,9 @@ export default (props, cardOnClickHandler) => {
     case '/more/news':
       return main.initialData.News.map((obj) => NewsCard(obj, cardOnClickHandler));
     case '/more/videos':
-      return main.initialData.Videos.map((obj) => videoCard(obj, cardOnClickHandler));
+      return <div className="home-product-list videos" style={{ marginTop: 0 }} > <div className="row">{main.initialData.Videos.map((obj) => (
+        <div className="col-md-6">{videoCard(obj, cardOnClickHandler)}</div>
+      ))}</div></div>;
     default:
       switch (path) {
         case '/used/province/:placeId/:usedVehicleType':

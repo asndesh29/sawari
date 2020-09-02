@@ -29,15 +29,14 @@ export default ({ obj, showEnquiryForm, variantId, compareButtonHandler }) => {
     <div className="detail-compare">
       <div className="name-price-compare">
         <div className="name-price">
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-            <span style={{ fontSize: 30, textAlign: 'center' }}>{variant.name}</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+            <h3 className="title">{variant.name}</h3>
             <br />
-            <Button text="Compare" style={{ marginLeft: 20,  marginTop: 5}} onClick={() => compareButtonHandler(variant, obj.stypeId)} />
+            <Button text="Compare" onClick={() => compareButtonHandler(variant, obj.stypeId)} />
           </div>
-          <div style={{ marginTop: 20 }}>
-            <span style={{ color: '#ff4202', fontStyle: 'italic', fontSize: 20 }}>{`Ex-Showroom Price: रु. ${variant.exShowRoomPrice / 100000} लाख`} </span>
-            <br />
-            <span style={{ color: '#ff4202', fontStyle: 'italic', fontSize: 20 }}>{`On Road Price: रु. ${variant.onRoadPrice / 100000} लाख`} </span>
+          <div className="prices">
+            <h4>Ex-Showroom Price: <span>रु. {`${variant.exShowRoomPrice / 100000}`} लाख</span> </h4>
+            <h4>On Road Price: <span>रु. {`${variant.onRoadPrice / 100000}`} लाख</span> </h4>
           </div>
         </div>
       </div>
@@ -47,8 +46,8 @@ export default ({ obj, showEnquiryForm, variantId, compareButtonHandler }) => {
         <br />
         {Object.values(obj.labels).map((label, idx) => keySpecificationsElement(label, Object.keys(obj.labels)[idx], obj))}
       </div> */}
-      <div style={{ width: '100%', textAlign: 'center', padding: 10, marginTop: 40 }}>
-        <Button text="Enquiry" intent="success" fill onClick={showEnquiryForm} />
+      <div className="enquiry_btn">
+        <Button text="Enquiry" onClick={showEnquiryForm} />
       </div>
     </div>
   );

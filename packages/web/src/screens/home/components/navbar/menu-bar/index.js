@@ -25,7 +25,7 @@ class MenuBar extends React.Component {
     console.log('state value', this.state);
     return (
       <div className="nav-menu">
-        <div className="menu-item" style={{ marginRight: 20 }}>
+        <div className="nav-menu">
           {/* <Icon icon="home" /> */}
           <Link to="/" style={{ textDecoration: 'none', margin: 0 }}>
             <span style={{ marginLeft: 5 }}>Home</span>

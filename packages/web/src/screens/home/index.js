@@ -17,6 +17,7 @@ import CarComparison from './components/product-list/car-comparison';
 import BikeAndScooterComparisons from './components/product-list/bike&scooterComparision';
 import News from './components/product-list/news';
 import Videos from './components/product-list/videos';
+import Subscribe from './components/subscribe';
 
 class Index extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Index extends Component {
     const { fetchInitialData } = this.props;
 
     await fetchInitialData();
-    this.setState({ });
+    this.setState({});
   }
 
   render() {
@@ -41,16 +42,21 @@ class Index extends Component {
           <Selector {...this.props} />
           <Slider {...this.props} />
         </div>
-        <TopCarBrand {...this.props} />
-        <BikeBrands {...this.props} />
-        <Cars {...this.props} />
-        <Bikes {...this.props} />
-        <Scooters {...this.props} />
-        <UsedVehical {...this.props} />
-        <CarComparison {...this.props} withScroll />
-        <BikeAndScooterComparisons {...this.props} />
-        <News {...this.props} />
-        <Videos {...this.props} />
+        <div className="boxed-content-home">
+          <Cars {...this.props} />
+          <TopCarBrand {...this.props} />
+          <Bikes {...this.props} />
+          <BikeBrands {...this.props} />
+          <Scooters {...this.props} />
+          <UsedVehical {...this.props} />
+          <CarComparison {...this.props} withScroll />
+          <BikeAndScooterComparisons {...this.props} />
+          <News {...this.props} />
+        </div>
+        <div style={{ width: '100%', maxWidth: '1150px', margin: '0 auto' }}>
+          <Videos {...this.props} />
+        </div>
+        <Subscribe />
         <Footer {...this.props} />
       </div>
     );

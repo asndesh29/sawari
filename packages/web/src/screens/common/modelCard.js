@@ -17,8 +17,7 @@ export default (obj) => {
         to={`/details/${obj.name.replace(/\s/g, '')}-${obj.id}`.toLocaleLowerCase()}
         className="model-link"
       >
-        <Card
-          interactive
+        <div
           className="model-card"
         >
           <div className="image-content">
@@ -28,10 +27,10 @@ export default (obj) => {
             />
           </div>
           <div className="description-content">
-            <span style={{ fontSize: 16, fontWeight: 'bold', marginTop: 5 }}>{obj.name}</span>
-            <span style={{ color: '#ff4202', fontStyle: 'italic',marginTop: 5, fontWeight: 300 }}>{priceRangeHandler(obj)}</span>
+            <span className="title">{obj.name}</span>
+            <span className="price">{priceRangeHandler(obj)}</span>
           </div>
-        </Card>
+        </div>
       </Link>
     </div>
   );
